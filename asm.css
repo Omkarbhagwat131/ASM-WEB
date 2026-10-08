@@ -1,0 +1,397 @@
+* {
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  background-color: white;
+
+  color: #102a43;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 650px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 80px 9%;
+
+  background: linear-gradient(135deg, #031b44, #073b8f, #1976d2);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.tag {
+  display: inline-block;
+
+  padding: 9px 18px;
+
+  border: 1px solid white;
+
+  border-radius: 30px;
+
+  color: white;
+
+  font-size: 13px;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: 65px;
+
+  line-height: 1.1;
+
+  color: white;
+
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  color: #8ec5ff;
+}
+
+.hero p {
+  max-width: 650px;
+
+  color: #e8f3ff;
+
+  font-size: 18px;
+
+  line-height: 1.8;
+
+  margin-bottom: 35px;
+}
+
+.hero-button {
+  display: inline-block;
+
+  padding: 15px 28px;
+
+  background-color: white;
+
+  color: #073b8f;
+
+  text-decoration: none;
+
+  border-radius: 8px;
+
+  font-weight: bold;
+}
+
+/* ABOUT */
+
+.about {
+  padding: 100px 9%;
+
+  background-color: white;
+}
+
+.section-heading {
+  text-align: center;
+
+  max-width: 750px;
+
+  margin: 0 auto 60px;
+}
+
+.section-heading span {
+  color: #1976d2;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+}
+
+.section-heading h2 {
+  color: #031b44;
+
+  font-size: 42px;
+
+  margin: 15px 0;
+}
+
+.section-heading p {
+  color: #5c6f82;
+
+  font-size: 17px;
+}
+
+.about-content {
+  max-width: 1150px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: 1.4fr 0.8fr;
+
+  gap: 60px;
+
+  align-items: center;
+}
+
+.about-text h3 {
+  color: #031b44;
+
+  font-size: 32px;
+
+  margin-bottom: 25px;
+}
+
+.about-text h3 span {
+  color: #1976d2;
+}
+
+.about-text p {
+  color: #53657a;
+
+  line-height: 1.8;
+
+  margin-bottom: 18px;
+}
+
+.about-box {
+  padding: 45px 35px;
+
+  background-color: #f0f7ff;
+
+  border: 2px solid #d5e7ff;
+
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(3, 27, 68, 0.12);
+}
+
+.box-icon {
+  width: 55px;
+
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background-color: #073b8f;
+
+  color: white;
+
+  font-size: 25px;
+
+  margin-bottom: 25px;
+}
+
+.about-box h3 {
+  color: #031b44;
+
+  font-size: 25px;
+
+  margin-bottom: 15px;
+}
+
+.about-box p {
+  color: #53657a;
+
+  line-height: 1.7;
+}
+
+/* WHY ASM */
+
+.why-asm {
+  padding: 100px 9%;
+
+  background-color: #031b44;
+}
+
+.light span {
+  color: #8ec5ff;
+}
+
+.light h2 {
+  color: white;
+}
+
+.light p {
+  color: #c5dbf2;
+}
+
+.cards {
+  max-width: 1150px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.card {
+  padding: 35px 25px;
+
+  background-color: #092f68;
+
+  border: 1px solid #2d5f9d;
+
+  border-radius: 16px;
+}
+
+.card-number {
+  color: #8ec5ff;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  margin-bottom: 30px;
+}
+
+.card h3 {
+  color: white;
+
+  font-size: 20px;
+
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #c5dbf2;
+
+  line-height: 1.7;
+
+  font-size: 14px;
+}
+
+/* MISSION */
+
+.mission {
+  padding: 110px 9%;
+
+  background-color: #1868c4;
+}
+
+.mission-content {
+  max-width: 950px;
+
+  margin: auto;
+
+  text-align: center;
+}
+
+.mission-content > span {
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+}
+
+.mission h2 {
+  color: white;
+
+  font-size: 46px;
+
+  line-height: 1.2;
+
+  margin: 18px 0 25px;
+}
+
+.mission p {
+  color: white;
+
+  max-width: 750px;
+
+  margin: auto;
+
+  line-height: 1.8;
+
+  font-size: 17px;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+
+  padding: 35px 20px;
+
+  background-color: #8ec5ff;
+
+  color: white;
+}
+
+footer h3 {
+  margin-bottom: 8px;
+}
+
+footer p {
+  color: #031b44;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 580px;
+
+    padding: 60px 7%;
+  }
+
+  .hero h1 {
+    font-size: 45px;
+  }
+
+  .about,
+  .why-asm,
+  .mission {
+    padding: 70px 7%;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .mission h2 {
+    font-size: 34px;
+  }
+}
