@@ -1,108 +1,102 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Contact Page Styles */
+.contact-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f7fa;
-    color: #073f6b;
+.contact-page body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  color: #073f6b;
+  line-height: 1.6;
 }
 
-/* Navbar */
-.navbar {
-    background: #063b69;
-    padding: 25px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Events Section */
+.contact-page #events {
+  padding: 40px;
+  background: #f9f9f9;
 }
 
-.logo {
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
+.contact-page #events h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #063b69;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: bold;
+.contact-page .event-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 4px solid #0867b5;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px #ccc;
 }
 
-/* Hero */
-.hero {
-    background: #0867b5;
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
+/* Contact Section */
+.contact-page #contact {
+  padding: 40px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #ccc;
 }
 
-.hero h1 {
-    font-size: 42px;
-    margin-bottom: 15px;
+.contact-page #contact h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #063b69;
 }
 
-/* Departments */
-.departments-section {
-    padding: 45px;
-    text-align: center;
+.contact-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.departments-section h2 {
-    font-size: 32px;
-    margin-bottom: 30px;
+.contact-page label {
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-.department-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+.contact-page input,
+.contact-page textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
-.department-card {
-    background: white;
-    padding: 25px;
-    text-align: left;
-    border-top: 4px solid #0867b5;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px #ccc;
+.contact-page button {
+  background: #0867b5;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.department-code {
-    background: #e5f1fb;
-    padding: 8px 12px;
-    color: #0867b5;
-    font-weight: bold;
+.contact-page button:hover {
+  background: #063b69;
 }
 
-.department-card h3 {
-    margin: 18px 0 10px;
+/* Contact Info */
+.contact-page .contact-info {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333;
 }
 
-.department-card p {
-    color: #666;
-    line-height: 1.5;
+.contact-page .contact-info strong {
+  color: #0867b5;
 }
 
 /* Footer */
-footer {
-    background: #063b69;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
-}
-
-@media (max-width: 800px) {
-    .department-container {
-        grid-template-columns: 1fr;
-    }
-
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-    }
+.contact-page footer {
+  background: #063b69;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
 }
