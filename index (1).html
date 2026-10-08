@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - ASM Web Portal</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; color: #333; background-color: #f9f9f9; }
+        header { background: #1e1e38; color: #fff; padding: 20px; text-align: center; }
+        header h1 { margin: 0 0 5px 0; font-size: 28px; }
+        header p { margin: 0; opacity: 0.8; font-size: 14px; }
+        nav { background: #333; color: #fff; text-align: center; padding: 15px; position: sticky; top: 0; z-index: 100; }
+        nav a { color: #fff; padding: 0 20px; text-decoration: none; font-weight: bold; transition: color 0.3s ease; }
+        nav a:hover, nav a.active { color: #ff9900; }
+        .hero { background: linear-gradient(rgba(30, 30, 56, 0.85), rgba(30, 30, 56, 0.85)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat; color: #fff; padding: 80px 20px; text-align: center; }
+        .hero h2 { font-size: 36px; margin-bottom: 15px; color: #fff; border: none; }
+        .hero p { font-size: 18px; max-width: 700px; margin: 0 auto 25px auto; line-height: 1.6; opacity: 0.9; }
+        .hero-btn { display: inline-block; background-color: #ff9900; color: #fff; padding: 12px 28px; text-decoration: none; font-weight: bold; border-radius: 5px; transition: background 0.3s ease, transform 0.2s ease; }
+        .hero-btn:hover { background-color: #e68a00; transform: translateY(-2px); }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        h2 { border-bottom: 2px solid #1e1e38; padding-bottom: 10px; color: #1e1e38; margin-bottom: 30px; }
+        .stats-banner { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));gap: 20px; background: #1e1e38; color: #fff; padding: 30px; border-radius: 8px; text-align: center; margin-bottom: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .stat-item h3 { font-size: 32px; color: #ff9900; margin: 0 0 5px 0; }
+        .stat-item p { margin: 0; font-size: 14px; opacity: 0.85; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
+        .card { background: #fff; border-radius: 8px; padding: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.08); border-top: 4px solid #1e1e38; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); border-top-color: #ff9900; }
+        .card h3 { color: #1e1e38; margin-top: 0; margin-bottom: 15px; font-size: 20px; }
+        .card p { color: #555; line-height: 1.6; margin: 0 0 15px 0; font-size: 14px; }
+        .card a { color: #ff9900; text-decoration: none; font-weight: bold; font-size: 14px; }
+        .card a:hover { text-decoration: underline; }
+        .news-section { background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 50px; }
+        .news-item { padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .news-item:last-child { border-bottom: none; }
+        .news-title { color: #333; text-decoration: none; font-weight: 500; }
+        .news-title:hover { color: #ff9900; }
+        .news-date { font-size: 12px; background: #eef2ff; color: #1e1e38; padding: 4px 8px; border-radius: 4px; font-weight: bold; }
+        footer { background: #1e1e38; color: #fff; text-align: center; padding: 20px; margin-top: 40px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ASM Web Portal</h1>
+    <p>Excellence in Education, Innovation & Leadership</p>
+</header>
+
+<nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="placement.html">Placements</a>
+    <a href="coursesprog.html">Courses</a>
+    <a href="campus.html">Campus</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="Faculty.html">Faculty</a>
+    <a href="department.html">department</a>
+
+</nav>
+
+<div class="hero">
+    <h2>Welcome to ASM Institute</h2>
+    <p>Empowering the next generation of technological innovators and corporate leaders with modern curriculum, state-of-the-art facilities, and strong industry linkages.</p>
+    <a href="coursesprogr.html" class="hero-btn">Explore Programs</a>
+</div>
+
+<div class="container">
+    <div class="stats-banner">
+        <div class="stat-item">
+            <h3>95%+</h3>
+            <p>Placement Record</p>
+        </div>
+        <div class="stat-item">
+            <h3>50+</h3>
+            <p>Recruiting Companies</p>
+        </div>
+        <div class="stat-item">
+            <h3>15+</h3>
+            <p>Academic Programs</p>
+        </div>
+        <div class="stat-item">
+            <h3>5000+</h3>
+            <p>Proud Alumni</p>
+        </div>
+    </div>
+
+    <h2>Why Choose ASM?</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Industry-Aligned Courses</h3>
+            <p>Our UG and PG programs are continuously updated to match modern IT and management industry requirements.</p>
+            <a href="coursesprogr.html">View Courses &rarr;</a>
+        </div>
+        <div class="card">
+            <h3>Top-Tier Placements</h3>
+            <p>Dedicated placement cell connecting students with top national and multinational corporations.</p>
+            <a href="placement.html">Placement Details &rarr;</a>
+        </div>
+        <div class="card">
+            <h3>Modern Campus Life</h3>
+            <p>Advanced labs, digital central library, high-tech classrooms, and vibrant student recreational centers.</p>
+            <a href="campus.html">Explore Campus &rarr;</a>
+        </div>
+    </div>
+
+    <h2>Latest Announcements</h2>
+    <div class="news-section">
+        <div class="news-item">
+            <a href="#" class="news-title">Admissions Open for Academic Year 2026-27</a>
+            <span class="news-date">NEW</span>
+        </div>
+        <div class="news-item">
+            <a href="#" class="news-title">Annual Campus Placement Drive Schedule Released</a>
+            <span class="news-date">UPDATED</span>
+        </div>
+        <div class="news-item">
+            <a href="#" class="news-title">Upcoming Guest Lecture on Modern AI & Machine Learning Workflows</a>
+            <span class="news-date">EVENT</span>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 ASM Group of Institutes. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
