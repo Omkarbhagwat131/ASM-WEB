@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b2d52">
+    <meta name="description" content="Explore the campus and student life at ASM College.">
+    <title>Campus &amp; Student Life | ASM College</title>
+    <style>
+        :root {
+            --navy: #0b2d52;
+            --blue: #1769aa;
+            --bright-blue: #2f8fe5;
+            --pale-blue: #eaf4fd;
+            --white: #fff;
+            --ink: #172b42;
+            --muted: #61748a;
+            --line: #dce8f3;
+            --shadow: 0 16px 42px rgba(11, 45, 82, .09);
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            background: #f7faff;
+            color: var(--ink);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.65;
+        }
+        a { color: inherit; }
+        :focus-visible { outline: 3px solid #70baff; outline-offset: 3px; }
+
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            min-height: 76px;
+            padding: 14px max(6vw, 22px);
+            background: var(--navy);
+            color: var(--white);
+            box-shadow: 0 5px 22px rgba(6, 31, 58, .16);
+        }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+            color: var(--white);
+            font-size: 1.15rem;
+            font-weight: 750;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .brand-mark {
+            display: grid;
+            width: 39px;
+            height: 39px;
+            place-items: center;
+            border: 1px solid rgba(255,255,255,.38);
+            border-radius: 12px;
+            background: rgba(255,255,255,.12);
+            color: #bfe1ff;
+            font-size: .9rem;
+            font-weight: 800;
+        }
+        .site-nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px 25px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .site-nav a {
+            color: rgba(255,255,255,.84);
+            font-size: .92rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color .2s ease;
+        }
+        .site-nav a:hover, .site-nav a:focus-visible { color: #a9d7ff; }
+
+        .section {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+        .campus {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            width: 100%;
+            padding: 82px max(6vw, 22px) 78px;
+            background: linear-gradient(135deg, #0b2d52, #145b96);
+            color: var(--white);
+        }
+        .campus::before, .campus::after {
+            position: absolute;
+            z-index: -1;
+            border: 1px solid rgba(255,255,255,.13);
+            border-radius: 50%;
+            content: "";
+            pointer-events: none;
+        }
+        .campus::before {
+            top: -255px;
+            right: -90px;
+            width: 570px;
+            height: 570px;
+            box-shadow: 0 0 0 45px rgba(255,255,255,.035), 0 0 0 90px rgba(255,255,255,.025);
+        }
+        .campus::after {
+            bottom: -330px;
+            left: -165px;
+            width: 470px;
+            height: 470px;
+        }
+        .campus-inner { width: min(1120px, 100%); margin: 0 auto; }
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin: 0 0 13px;
+            color: #acd9ff;
+            font-size: .77rem;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+        .eyebrow::before { width: 26px; height: 2px; background: currentColor; content: ""; }
+        .campus h1 {
+            max-width: 690px;
+            margin: 0 0 14px;
+            font-size: clamp(2.7rem, 6vw, 4.5rem);
+            line-height: 1.06;
+            letter-spacing: -.045em;
+        }
+        .campus h1 span { color: #9bd2ff; }
+        .campus-intro {
+            max-width: 670px;
+            margin: 0;
+            color: rgba(255,255,255,.84);
+            font-size: 1.08rem;
+        }
+        .campus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 42px;
+        }
+        .campus-card {
+            min-height: 205px;
+            padding: 23px 22px;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 13px;
+            background: rgba(255,255,255,.09);
+            backdrop-filter: blur(5px);
+            transition: transform .2s ease, background .2s ease;
+        }
+        .campus-card:hover { transform: translateY(-4px); background: rgba(255,255,255,.14); }
+        .icon-box {
+            display: grid;
+            width: 43px;
+            height: 43px;
+            margin-bottom: 18px;
+            place-items: center;
+            border: 1px solid rgba(255,255,255,.19);
+            border-radius: 12px;
+            background: rgba(255,255,255,.13);
+            color: #c7e6ff;
+            font-size: 1.05rem;
+            font-weight: 800;
+        }
+        .campus-card h2 { margin: 0 0 6px; font-size: 1.13rem; }
+        .campus-card p { margin: 0; color: rgba(255,255,255,.76); font-size: .92rem; }
+
+        .student-life { padding: 78px 0 88px; }
+        .section-heading { max-width: 670px; margin-bottom: 30px; }
+        .section-heading .eyebrow { color: var(--blue); }
+        .section-heading h2 {
+            margin: 0 0 10px;
+            color: var(--navy);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1.14;
+            letter-spacing: -.035em;
+        }
+        .section-heading > p:last-child { margin: 0; color: var(--muted); }
+        .life-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .life-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 205px;
+            padding: 22px 20px;
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            background: var(--white);
+            box-shadow: 0 8px 25px rgba(15,58,99,.045);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .life-card::after {
+            position: absolute;
+            right: -27px;
+            bottom: -37px;
+            width: 105px;
+            height: 105px;
+            border: 1px solid #d7eafb;
+            border-radius: 50%;
+            content: "";
+        }
+        .life-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+        .life-icon {
+            display: grid;
+            width: 44px;
+            height: 44px;
+            margin-bottom: 18px;
+            place-items: center;
+            border-radius: 12px;
+            background: var(--pale-blue);
+            color: var(--blue);
+            font-size: .83rem;
+            font-weight: 850;
+            letter-spacing: .02em;
+        }
+        .life-card h3 { margin: 0 0 7px; color: var(--navy); font-size: 1.08rem; }
+        .life-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+        .life-note {
+            margin-top: 22px;
+            padding: 17px 20px;
+            border-left: 3px solid var(--bright-blue);
+            border-radius: 0 9px 9px 0;
+            background: var(--pale-blue);
+            color: var(--navy);
+            font-weight: 650;
+        }
+        .site-footer {
+            padding: 22px 18px;
+            background: #071f39;
+            color: rgba(255,255,255,.75);
+            text-align: center;
+            font-size: .88rem;
+        }
+        .site-footer p { margin: 0; }
+        @media (max-width: 850px) {
+            .site-header { align-items: flex-start; flex-direction: column; gap: 12px; }
+            .site-nav ul { justify-content: flex-start; gap: 8px 20px; }
+            .campus-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .life-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 520px) {
+            .site-header { padding: 14px 18px; }
+            .site-nav ul { gap: 7px 16px; }
+            .site-nav a { font-size: .85rem; }
+            .campus { padding: 64px 18px 58px; }
+            .campus h1 { font-size: clamp(2.6rem, 13vw, 3.5rem); }
+            .campus-intro { font-size: 1rem; }
+            .campus-grid, .life-grid { grid-template-columns: 1fr; }
+            .campus-card { min-height: auto; }
+            .student-life { padding: 62px 0 68px; }
+            .section { width: calc(100% - 36px); }
+            .life-card { min-height: auto; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="ASM College home">
+            <span class="brand-mark" aria-hidden="true">ASM</span>
+            <span>ASM College</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="coursesprog.html">Courses &amp; Programs</a></li>
+                <li><a href="#campus">Campus</a></li>
+                <li><a href="#student-life">Student Life</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="campus" id="campus" aria-labelledby="campus-title">
+            <div class="campus-inner">
+                <p class="eyebrow">Your place to learn and belong</p>
+                <h1 id="campus-title">Campus life, <span>your way.</span></h1>
+                <p class="campus-intro">A welcoming place to learn, meet new people, and make the most of every opportunity. Find your space and make your college experience your own.</p>
+                <div class="campus-grid">
+                    <article class="campus-card">
+                        <span class="icon-box" aria-hidden="true">01</span>
+                        <h2>Spaces to focus</h2>
+                        <p>Settle into a supportive learning environment where ideas and ambition can grow.</p>
+                    </article>
+                    <article class="campus-card">
+                        <span class="icon-box" aria-hidden="true">02</span>
+                        <h2>A community to belong to</h2>
+                        <p>Meet people, share perspectives, and build friendships along the way.</p>
+                    </article>
+                    <article class="campus-card">
+                        <span class="icon-box" aria-hidden="true">03</span>
+                        <h2>Room to discover</h2>
+                        <p>Explore new interests and find opportunities to grow beyond the classroom.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="student-life section" id="student-life" aria-labelledby="student-life-title">
+            <div class="section-heading">
+                <p class="eyebrow">Make every day count</p>
+                <h2 id="student-life-title">Student life is what you make it</h2>
+                <p>Bring your interests, meet your people, and create memories in a community where there is always something new to try.</p>
+            </div>
+            <div class="life-grid">
+                <article class="life-card">
+                    <span class="life-icon" aria-hidden="true">CLUBS</span>
+                    <h3>Clubs &amp; communities</h3>
+                    <p>Connect with people who share your interests and discover new ones together.</p>
+                </article>
+                <article class="life-card">
+                    <span class="life-icon" aria-hidden="true">ARTS</span>
+                    <h3>Arts &amp; culture</h3>
+                    <p>Express yourself, celebrate creativity, and experience fresh perspectives.</p>
+                </article>
+                <article class="life-card">
+                    <span class="life-icon" aria-hidden="true">MOVE</span>
+                    <h3>Sports &amp; wellbeing</h3>
+                    <p>Make time for movement, teamwork, and a healthy balance in college life.</p>
+                </article>
+                <article class="life-card">
+                    <span class="life-icon" aria-hidden="true">LIVE</span>
+                    <h3>Events &amp; celebrations</h3>
+                    <p>Come together, get involved, and make moments worth remembering.</p>
+                </article>
+            </div>
+            <div class="life-note">Bring your curiosity. Find your community. Make this chapter yours.</div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="current-year">2026</span> ASM College</p>
+    </footer>
+    <script>
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
