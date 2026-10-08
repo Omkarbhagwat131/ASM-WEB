@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #073f6b;
+}
+
+/* Navbar */
+.navbar {
+    background: #063b69;
+    padding: 25px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: bold;
+}
+
+/* Hero */
+.hero {
+    background: #0867b5;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+/* Departments */
+.departments-section {
+    padding: 45px;
+    text-align: center;
+}
+
+.departments-section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.department-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.department-card {
+    background: white;
+    padding: 25px;
+    text-align: left;
+    border-top: 4px solid #0867b5;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #ccc;
+}
+
+.department-code {
+    background: #e5f1fb;
+    padding: 8px 12px;
+    color: #0867b5;
+    font-weight: bold;
+}
+
+.department-card h3 {
+    margin: 18px 0 10px;
+}
+
+.department-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Footer */
+footer {
+    background: #063b69;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+@media (max-width: 800px) {
+    .department-container {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
