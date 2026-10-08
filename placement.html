@@ -1,95 +1,144 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placements & Careers - ASM NextGen Technical Campus</title>
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; color: #333; }
-        .hero { background: #1e1e38; color: #fff; padding: 60px 20px; text-align: center; }
-        .hero h1 { margin-bottom: 10px; font-size: 36px; }
-        .hero p { color: #b0b0d0; font-size: 18px; }
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .stat-card { background: #f0f2f5; padding: 30px; border-radius: 8px; text-align: center; }
-        .stat-card h3 { font-size: 28px; color: #1e1e38; margin-bottom: 5px; }
-        .stat-card p { color: #666; font-size: 14px; }
-        .section-title { font-size: 28px; color: #1e1e38; margin-bottom: 20px; border-left: 4px solid #ff4081; padding-left: 10px; }
-        .message-section { background: #f9f9f9; padding: 40px; border-radius: 8px; margin-bottom: 40px; }
-        .message-section h2 { margin-top: 0; color: #1e1e38; }
-        .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .testimonial-card { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .testimonial-card p { font-style: italic; }
-        .testimonial-card h4 { margin-bottom: 0; color: #ff4081; }
-        .recruiters { background: #fff; padding: 40px 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .recruiters-list { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; align-items: center; list-style: none; padding: 0; }
-        .recruiters-list li { font-size: 20px; font-weight: 600; color: #666; }
-    </style>
+    <title>Placements | ASM's Nextgen Technical Campus</title>
+
+    <link rel="stylesheet" href="asm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
-    </header>
+    <nav></nav>
 
-    <div class="hero">
-        <h1>Placements & Careers</h1>
-        <p>ASM NextGen Technical Campus, Talegaon, Dabhade</p>
-    </div>
+    <main>
+        <section class="page-hero hero">
+            <div class="container">
+                <span class="hero-subtitle">Career Development & Training</span>
+                <h1>Training & Placement Cell</h1>
+                <p class="hero-description">
+                    Empowering students with industry-driven skills, career guidance, and top placement opportunities at leading tech companies.
+                </p>
+                <a href="#recruiters" class="btn hero-btn">Our Top Recruiters</a>
+            </div>
+        </section>
 
-    <div class="container">
-        
-        <div class="message-section">
-            <h2>Director's Message</h2>
-            <p>At ASM NextGen, we are committed to bridging the gap between academia and industry. Our holistic training ensures our students are not just degree holders, but industry-ready professionals equipped to handle global challenges.</p>
-        </div>
+        <section class="departments-section">
+            <h2>Placement Highlights</h2>
+            <div class="underline"></div>
 
-        <h2 class="section-title">Placement Highlights</h2>
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3>100%</h3>
-                <p>Placement Assistance</p>
-            </div>
-            <div class="stat-card">
-                <h3>Top Notch</h3>
-                <p>Corporate Connections</p>
-            </div>
-            <div class="stat-card">
-                <h3>Skill-Based</h3>
-                <p>Training Modules</p>
-            </div>
-            <div class="stat-card">
-                <h3>Industry</h3>
-                <p>Ready Graduates</p>
-            </div>
-        </div>
+            <div class="department-container">
+                <div class="department-card">
+                    <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <span class="department-code">Success Rate</span>
+                    <h3>85%+</h3>
+                    <p>Consistent annual placement rate across Engineering and MCA streams.</p>
+                </div>
 
-        <h2 class="section-title">Student Testimonials</h2>
-        <div class="testimonials">
-            <div class="testimonial-card">
-                <p>"The placement cell at ASM NextGen provided immense support and training. The mock interviews and technical workshops helped me secure a role at Capgemini."</p>
-                <h4>- Priya Sharma, Computer Science</h4>
-            </div>
-            <div class="testimonial-card">
-                <p>"The industry-focused curriculum made my transition into the corporate world seamless. I am grateful to the faculty for their constant guidance."</p>
-                <h4>- Rahul Verma, IT Department</h4>
-            </div>
-        </div>
+                <div class="department-card">
+                    <div class="card-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <span class="department-code">Highest Package</span>
+                    <h3>12 LPA</h3>
+                    <p>Highest offer bagged by our students in software engineering roles.</p>
+                </div>
 
-        <h2 class="section-title">Prominent Recruiters</h2>
-        <div class="recruiters">
-            <ul class="recruiters-list">
-                <li>Amazon</li>
-                <li>Capgemini</li>
-                <li>Wipro</li>
-                <li>Tech Mahindra</li>
-                <li>HDFC Bank</li>
-            </ul>
-        </div>
-    </div>
+                <div class="department-card">
+                    <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <span class="department-code">Hiring Partners</span>
+                    <h3>50+</h3>
+                    <p>Active corporate recruiting partners conducting annual campus drives.</p>
+                </div>
+
+                <div class="department-card">
+                    <div class="card-icon"><i class="fa-solid fa-user-check"></i></div>
+                    <span class="department-code">Average Package</span>
+                    <h3>4.5 LPA</h3>
+                    <p>Average salary package offered to fresh graduates.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="departments-section">
+            <h2>Placement Preparation & Training</h2>
+            <div class="underline"></div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span class="step-number">01</span>
+                    <h3>Technical Aptitude</h3>
+                    <p>Rigorous coding sessions in Java, Python, Web Dev, & Data Structures.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">02</span>
+                    <h3>Soft Skills & Communication</h3>
+                    <p>Personality development, public speaking, and business etiquettes.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">03</span>
+                    <h3>Mock Interviews</h3>
+                    <p>1-on-1 technical and HR mock interviews with industry experts.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">04</span>
+                    <h3>Resume & Portfolio</h3>
+                    <p>Professional resume building and GitHub portfolio development.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">05</span>
+                    <h3>Campus Drives</h3>
+                    <p>On-campus and pool recruitment drives with partner companies.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="recruiters" class="departments-section">
+            <h2>Our Key Recruiters</h2>
+            <div class="underline"></div>
+
+            <div class="document-list">
+                <div class="document-item">
+                    <span class="document-icon"><i class="fa-solid fa-building"></i></span>
+                    <div>
+                        <h3>Software & IT Services</h3>
+                        <p>TCS, Infosys, Wipro, Capgemini, Cognizant, Tech Mahindra.</p>
+                    </div>
+                </div>
+
+                <div class="document-item">
+                    <span class="document-icon"><i class="fa-solid fa-laptop-code"></i></span>
+                    <div>
+                        <h3>Product & Web Startups</h3>
+                        <p>FinTech solutions, cloud platforms, and software product firms.</p>
+                    </div>
+                </div>
+
+                <div class="document-item">
+                    <span class="document-icon"><i class="fa-solid fa-gears"></i></span>
+                    <div>
+                        <h3>Core Engineering Companies</h3>
+                        <p>Automation, Embedded Systems, and Manufacturing firms.</p>
+                    </div>
+                </div>
+
+                <div class="document-item">
+                    <span class="document-icon"><i class="fa-solid fa-network-wired"></i></span>
+                    <div>
+                        <h3>Data & Cloud Solutions</h3>
+                        <p>Data analytics, cloud infrastructure, and database administration.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
+        <p>&copy; 2026 ASM's Nextgen Technical Campus. All Rights Reserved.</p>
     </footer>
-
+<script src="navbar.js"></script>
 </body>
 </html>
