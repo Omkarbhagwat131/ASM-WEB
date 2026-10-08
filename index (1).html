@@ -6,7 +6,9 @@
     <title>Home - ASM Web Portal</title>
 
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -57,84 +59,186 @@
             color: #ff9900;
         }
 
-        /* LOGIN BOX */
-        .small-login {
-            width: 300px;
-            margin: 25px auto;
-            padding: 20px;
+
+        /* ================= LOGIN SECTION ================= */
+
+        .login-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 45px 20px;
+            background: linear-gradient(135deg, #eef5ff, #ffffff);
+        }
+
+        .login-card {
+            width: 390px;
             background: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            border-top: 4px solid #0b3d91;
+            border-radius: 18px;
+            padding: 30px 32px;
             text-align: center;
+            box-shadow: 0 12px 35px rgba(11, 61, 145, 0.18);
+            border: 1px solid #e3ebf8;
+            position: relative;
+            overflow: hidden;
         }
 
-        .small-login h3 {
-            margin: 0 0 15px;
-            color: #0b3d91;
-        }
-
-        .small-login input {
+        .login-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            height: 5px;
+            background: linear-gradient(
+                90deg,
+                #0b3d91,
+                #1769d1,
+                #ff9900
+            );
         }
+
+
+        /* ================= ASM LOGO ================= */
+
+        .login-logo {
+            width: 115px;
+            height: 105px;
+            object-fit: contain;
+            margin: 5px auto 8px;
+            display: block;
+        }
+
+
+        .login-card h3 {
+            margin: 5px 0 5px;
+            color: #0b3d91;
+            font-size: 25px;
+        }
+
+        .login-subtitle {
+            color: #777;
+            font-size: 13px;
+            margin: 0 0 22px;
+        }
+
+
+        /* ================= INPUT GROUP ================= */
+
+        .input-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .input-group span {
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #0b3d91;
+            font-size: 15px;
+            z-index: 2;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 13px 42px;
+            border: 1px solid #d6deeb;
+            border-radius: 9px;
+            outline: none;
+            font-size: 14px;
+            transition: 0.3s;
+            background: #f8faff;
+        }
+
+        .input-group input:focus {
+            border-color: #1769d1;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(23, 105, 209, 0.10);
+        }
+
+        .input-group input::placeholder {
+            color: #999;
+        }
+
+
+        /* ================= PASSWORD ================= */
 
         .password-box {
             position: relative;
         }
 
-        .password-box input {
-            padding-right: 60px;
-        }
-
         .show-password {
             position: absolute;
-            right: 8px;
-            top: 8px;
-            background: none;
+            right: 9px;
+            top: 9px;
+            background: transparent;
             border: none;
-            color: #0b3d91;
+            color: #1769d1;
             font-size: 12px;
-            cursor: pointer;
-        }
-
-        .small-login button.login-btn {
-            width: 100%;
-            padding: 10px;
-            background: #0b3d91;
-            color: white;
-            border: none;
-            border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
+            padding: 6px;
         }
 
-        .small-login button.login-btn:hover {
-            background: #1769d1;
+        .show-password:hover {
+            color: #0b3d91;
         }
 
-        .small-login a {
-            display: block;
-            margin-top: 10px;
+
+        /* ================= LOGIN BUTTON ================= */
+
+        .login-btn {
+            width: 100%;
+            padding: 13px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 9px;
+            background: linear-gradient(
+                135deg,
+                #0b3d91,
+                #1769d1
+            );
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 12px rgba(11, 61, 145, 0.25);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(11, 61, 145, 0.30);
+        }
+
+
+        /* ================= FORGOT PASSWORD ================= */
+
+        .forgot-password {
+            display: inline-block;
+            margin-top: 15px;
             color: #1769d1;
             font-size: 13px;
             text-decoration: none;
         }
 
-        .small-login a:hover {
+        .forgot-password:hover {
             text-decoration: underline;
         }
 
+
+        /* ================= LOGIN MESSAGE ================= */
+
         #loginMessage {
             font-size: 13px;
-            font-weight: bold;
-            margin-top: 10px;
+            font-weight: 600;
+            margin-top: 14px;
+            min-height: 18px;
         }
 
-        /* HERO */
+
+        /* ================= HERO ================= */
+
         .hero {
             background: linear-gradient(
                 rgba(30, 30, 56, 0.85),
@@ -171,13 +275,17 @@
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
-            transition: background 0.3s ease, transform 0.2s ease;
+            transition: background 0.3s ease,
+                        transform 0.2s ease;
         }
 
         .hero-btn:hover {
             background-color: #e68a00;
             transform: translateY(-2px);
         }
+
+
+        /* ================= CONTAINER ================= */
 
         .container {
             max-width: 1200px;
@@ -192,9 +300,15 @@
             margin-bottom: 30px;
         }
 
+
+        /* ================= STATS ================= */
+
         .stats-banner {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(200px, 1fr)
+            );
             gap: 20px;
             background: #1e1e38;
             color: #fff;
@@ -217,9 +331,15 @@
             opacity: 0.85;
         }
 
+
+        /* ================= CARDS ================= */
+
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(280px, 1fr)
+            );
             gap: 30px;
             margin-bottom: 50px;
         }
@@ -256,7 +376,7 @@
         }
 
         .card a {
-            color: #ff9900;
+            color: #0008ff;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
@@ -265,6 +385,9 @@
         .card a:hover {
             text-decoration: underline;
         }
+
+
+        /* ================= NEWS ================= */
 
         .news-section {
             background: #fff;
@@ -305,6 +428,9 @@
             font-weight: bold;
         }
 
+
+        /* ================= FOOTER ================= */
+
         footer {
             background: #1e1e38;
             color: #fff;
@@ -313,76 +439,211 @@
             margin-top: 40px;
             font-size: 14px;
         }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 500px) {
+
+            nav a {
+                padding: 0 7px;
+                font-size: 12px;
+            }
+
+            .login-wrapper {
+                padding: 30px 15px;
+            }
+
+            .login-card {
+                width: 100%;
+                padding: 25px 22px;
+            }
+
+            .login-logo {
+                width: 100px;
+                height: 90px;
+            }
+
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .news-item {
+                gap: 10px;
+            }
+
+        }
+
     </style>
 </head>
 
 <body>
 
 <header>
+
     <h1>ASM Web Portal</h1>
-    <p>Excellence in Education, Innovation & Leadership</p>
+
+    <p>
+        Excellence in Education, Innovation & Leadership
+    </p>
+
 </header>
 
+
+<!-- ================= NAVIGATION ================= -->
+
 <nav>
-    <a href="index(1).html" class="active">Home</a>
-    <a href="placement.html">Placements</a>
-    <a href="coursesprog.html">Courses</a>
-    <a href="campus.html">Campus</a>
-    <a href="contact.html">Contact Us</a>
-    <a href="Faculty.html">Faculty</a>
-    <a href="department.html">department</a>
-    <a href="about.html">about</a>
-    <a href="addmission.html">addmission</a>
+
+    <a href="index(1).html" class="active">
+        Home
+    </a>
+
+    <a href="placement.html">
+        Placements
+    </a>
+
+    <a href="coursesprog.html">
+        Courses
+    </a>
+
+    <a href="campus.html">
+        Campus
+    </a>
+
+    <a href="contact.html">
+        Contact Us
+    </a>
+
+    <a href="Faculty.html">
+        Faculty
+    </a>
+
+    <a href="department.html">
+        Department
+    </a>
+
+    <a href="about.html">
+        About
+    </a>
+
+    <a href="addmission.html">
+        Admission
+    </a>
+
 </nav>
 
-<!-- SMALL LOGIN SECTION -->
-<div class="small-login">
 
-    <h3>Login</h3>
+<!-- ================= LOGIN SECTION ================= -->
 
-    <input
-        type="email"
-        id="loginEmail"
-        placeholder="Email"
-    >
+<div class="login-wrapper">
 
-    <div class="password-box">
+    <div class="login-card">
 
-        <input
-            type="password"
-            id="loginPassword"
-            placeholder="Password"
+
+        <!-- ================= ASM LOGO ================= -->
+
+        <img
+            src="image/asm-logo.png"
+            alt="ASM Institute Logo"
+            class="login-logo"
         >
+
+
+        <h3>
+            Welcome Back
+        </h3>
+
+
+        <p class="login-subtitle">
+            Login to access the ASM Web Portal
+        </p>
+
+
+        <!-- ================= EMAIL ================= -->
+
+        <div class="input-group">
+
+            <span>✉</span>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Enter your email"
+            >
+
+        </div>
+
+
+        <!-- ================= PASSWORD ================= -->
+
+        <div class="input-group password-box">
+
+            <span>🔒</span>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Enter your password"
+            >
+
+            <button
+                type="button"
+                class="show-password"
+                onclick="togglePassword()">
+
+                Show
+
+            </button>
+
+        </div>
+
+
+        <!-- ================= LOGIN BUTTON ================= -->
 
         <button
             type="button"
-            class="show-password"
-            onclick="togglePassword()"
-        >
-            Show
+            class="login-btn"
+            onclick="loginUser()">
+
+            Login
+
         </button>
+
+
+        <!-- ================= FORGOT PASSWORD ================= -->
+
+        <a
+            href="#"
+            class="forgot-password"
+            onclick="forgotPassword(); return false;">
+
+            Forgot Password?
+
+        </a>
+
+
+        <p id="loginMessage"></p>
 
     </div>
 
-    <button
-        type="button"
-        class="login-btn"
-        onclick="loginUser()"
-    >
-        Login
-    </button>
-
-    <a href="#" onclick="forgotPassword()">
-        Forgot Password?
-    </a>
-
-    <p id="loginMessage"></p>
-
 </div>
+
+
+<!-- ================= HERO ================= -->
 
 <div class="hero">
 
-    <h2>Welcome to ASM Institute</h2>
+    <h2>
+        Welcome to ASM Institute
+    </h2>
 
     <p>
         Empowering the next generation of technological innovators
@@ -390,60 +651,106 @@
         state-of-the-art facilities, and strong industry linkages.
     </p>
 
-    <a href="coursesprog.html" class="hero-btn">
+    <a
+        href="coursesprog.html"
+        class="hero-btn">
+
         Explore Programs
+
     </a>
 
 </div>
 
+
+<!-- ================= MAIN CONTENT ================= -->
+
 <div class="container">
+
+
+    <!-- ================= STATS ================= -->
 
     <div class="stats-banner">
 
+
         <div class="stat-item">
+
             <h3>95%+</h3>
-            <p>Placement Record</p>
+
+            <p>
+                Placement Record
+            </p>
+
         </div>
 
+
         <div class="stat-item">
+
             <h3>50+</h3>
-            <p>Recruiting Companies</p>
+
+            <p>
+                Recruiting Companies
+            </p>
+
         </div>
 
+
         <div class="stat-item">
+
             <h3>15+</h3>
-            <p>Academic Programs</p>
+
+            <p>
+                Academic Programs
+            </p>
+
         </div>
 
+
         <div class="stat-item">
+
             <h3>5000+</h3>
-            <p>Proud Alumni</p>
+
+            <p>
+                Proud Alumni
+            </p>
+
         </div>
 
     </div>
 
-    <h2>Why Choose ASM?</h2>
+
+    <!-- ================= WHY ASM ================= -->
+
+    <h2>
+        Why Choose ASM?
+    </h2>
+
 
     <div class="grid">
 
+
         <div class="card">
 
-            <h3>Industry-Aligned Courses</h3>
+            <h3>
+                Industry-Aligned Courses
+            </h3>
 
             <p>
                 Our UG and PG programs are continuously updated
                 to match modern IT and management industry requirements.
             </p>
 
-            <a href="coursesprogr.html">
+            <a href="coursesprog.html">
                 View Courses &rarr;
             </a>
 
         </div>
 
+
         <div class="card">
 
-            <h3>Top-Tier Placements</h3>
+            <h3>
+                Top-Tier Placements
+            </h3>
 
             <p>
                 Dedicated placement cell connecting students with
@@ -456,9 +763,12 @@
 
         </div>
 
+
         <div class="card">
 
-            <h3>Modern Campus Life</h3>
+            <h3>
+                Modern Campus Life
+            </h3>
 
             <p>
                 Advanced labs, digital central library,
@@ -474,123 +784,212 @@
 
     </div>
 
-    <h2>Latest Announcements</h2>
+
+    <!-- ================= ANNOUNCEMENTS ================= -->
+
+    <h2>
+        Latest Announcements
+    </h2>
+
 
     <div class="news-section">
 
+
         <div class="news-item">
+
             <a href="#" class="news-title">
                 Admissions Open for Academic Year 2026-27
             </a>
-            <span class="news-date">NEW</span>
+
+            <span class="news-date">
+                NEW
+            </span>
+
         </div>
 
+
         <div class="news-item">
+
             <a href="#" class="news-title">
                 Annual Campus Placement Drive Schedule Released
             </a>
-            <span class="news-date">UPDATED</span>
+
+            <span class="news-date">
+                UPDATED
+            </span>
+
         </div>
 
+
         <div class="news-item">
+
             <a href="#" class="news-title">
                 Upcoming Guest Lecture on Modern AI & Machine Learning Workflows
             </a>
-            <span class="news-date">EVENT</span>
+
+            <span class="news-date">
+                EVENT
+            </span>
+
         </div>
 
     </div>
 
 </div>
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
-    <p>&copy; 2026 ASM Group of Institutes. All Rights Reserved.</p>
+
+    <p>
+        &copy; 2026 ASM Group of Institutes. All Rights Reserved.
+    </p>
+
 </footer>
 
 
+<!-- ================= JAVASCRIPT ================= -->
+
 <script>
 
-function togglePassword() {
+    /* ================= SHOW / HIDE PASSWORD ================= */
 
-    const passwordInput = document.getElementById("loginPassword");
-    const showButton = document.querySelector(".show-password");
+    function togglePassword() {
 
-    if (passwordInput.type === "password") {
+        const passwordInput =
+            document.getElementById("loginPassword");
 
-        passwordInput.type = "text";
-        showButton.textContent = "Hide";
+        const showButton =
+            document.querySelector(".show-password");
 
-    } else {
 
-        passwordInput.type = "password";
-        showButton.textContent = "Show";
+        if (passwordInput.type === "password") {
+
+            passwordInput.type = "text";
+
+            showButton.textContent = "Hide";
+
+        } else {
+
+            passwordInput.type = "password";
+
+            showButton.textContent = "Show";
+
+        }
 
     }
-}
 
 
-function loginUser() {
+    /* ================= LOGIN VALIDATION ================= */
 
-    const email = document.getElementById("loginEmail").value.trim();
-    const password = document.getElementById("loginPassword").value;
-    const message = document.getElementById("loginMessage");
+    function loginUser() {
 
-    if (email === "" || !email.includes("@")) {
+        const email =
+            document.getElementById("loginEmail").value.trim();
 
-        message.style.color = "red";
-        message.textContent = "Please enter a valid email.";
+        const password =
+            document.getElementById("loginPassword").value;
 
-        return;
+        const message =
+            document.getElementById("loginMessage");
+
+
+        /* EMAIL VALIDATION */
+
+        if (email === "" || !email.includes("@")) {
+
+            message.style.color = "red";
+
+            message.textContent =
+                "Please enter a valid email.";
+
+            return;
+
+        }
+
+
+        /* PASSWORD LENGTH */
+
+        if (password.length < 6) {
+
+            message.style.color = "red";
+
+            message.textContent =
+                "Password must be at least 6 characters.";
+
+            return;
+
+        }
+
+
+        /* UPPERCASE VALIDATION */
+
+        if (!/[A-Z]/.test(password)) {
+
+            message.style.color = "red";
+
+            message.textContent =
+                "Password must contain 1 uppercase letter.";
+
+            return;
+
+        }
+
+
+        /* LOWERCASE VALIDATION */
+
+        if (!/[a-z]/.test(password)) {
+
+            message.style.color = "red";
+
+            message.textContent =
+                "Password must contain 1 lowercase letter.";
+
+            return;
+
+        }
+
+
+        /* LOGIN SUCCESS */
+
+        message.style.color = "green";
+
+        message.textContent =
+            "Login successful!";
+
     }
 
-    if (password.length < 6) {
 
-        message.style.color = "red";
-        message.textContent = "Password must be at least 6 characters.";
+    /* ================= FORGOT PASSWORD ================= */
 
-        return;
+    function forgotPassword() {
+
+        const email =
+            document.getElementById("loginEmail").value.trim();
+
+        const message =
+            document.getElementById("loginMessage");
+
+
+        if (email === "" || !email.includes("@")) {
+
+            message.style.color = "red";
+
+            message.textContent =
+                "Please enter your email first.";
+
+            return;
+
+        }
+
+
+        message.style.color = "#1769d1";
+
+        message.textContent =
+            "Password reset instructions will be sent to your email.";
+
     }
-
-    if (!/[A-Z]/.test(password)) {
-
-        message.style.color = "red";
-        message.textContent = "Password must contain 1 uppercase letter.";
-
-        return;
-    }
-
-    if (!/[a-z]/.test(password)) {
-
-        message.style.color = "red";
-        message.textContent = "Password must contain 1 lowercase letter.";
-
-        return;
-    }
-
-    message.style.color = "green";
-    message.textContent = "Login successful!";
-
-}
-
-
-function forgotPassword() {
-
-    const email = document.getElementById("loginEmail").value.trim();
-    const message = document.getElementById("loginMessage");
-
-    if (email === "" || !email.includes("@")) {
-
-        message.style.color = "red";
-        message.textContent = "Please enter your email first.";
-
-        return;
-    }
-
-    message.style.color = "#1769d1";
-    message.textContent =
-        "Password reset instructions will be sent to your email.";
-
-}
 
 </script>
 
