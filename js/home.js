@@ -38,3 +38,45 @@ if ("IntersectionObserver" in window) {
 
   observedSections.forEach((section) => sectionObserver.observe(section));
 }
+// Login Form Submission & Redirect
+const loginForm = document.querySelector("form");
+
+if (loginForm) {
+  loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formMessage = document.querySelector("#form-message");
+    
+    if (formMessage) {
+      formMessage.textContent = "Login successful!";
+      formMessage.style.color = "green";
+    }
+
+    setTimeout(() => {
+      window.location.href = "home.html";
+    }, 1500);
+  });
+}
+
+const counters = document.querySelectorAll(".counter");
+
+if (counters.length > 0) {
+  counters.forEach((counter) => {
+    counter.textContent = "0";
+
+    const updateCounter = () => {
+      const target = +counter.getAttribute("data-target");
+      const current = +counter.textContent;
+      const increment = Math.ceil(target / 50);
+
+      if (current < target) {
+        counter.textContent = `${current + increment}`;
+        setTimeout(updateCounter, 30);
+      } else {
+        counter.textContent = `${target}+`;
+      }
+    };
+
+    updateCounter();
+  });
+}
