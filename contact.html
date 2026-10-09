@@ -1,54 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ASM College - Events & Contact</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASM College - Events & Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#2563eb',
+                        accent: '#f59e0b',
+                        darkBg: '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 30px -10px rgba(30, 58, 138, 0.15);
+        }
+    </style>
 </head>
-<body class="contact-page">
+<body class="bg-slate-50 font-sans text-slate-800 antialiased min-h-screen flex flex-col justify-between">
 
-  <!-- Events Section -->
-  <section id="events">
-    <h2>College Events & News</h2>
-    <div class="event-card">
-      <h3>Annual Tech Fest 2026</h3>
-      <p>Date: 15th October 2026</p>
-      <p>Location: Main Auditorium</p>
-      <p>Join us for coding competitions, hackathons, and guest lectures.</p>
-    </div>
+    <header class="sticky top-0 z-50 shadow-md bg-white/95 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- ASM College Branding -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-xl hero-gradient flex items-center justify-center text-white shadow-lg">
+                        <i class="fa-solid fa-graduation-cap text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-tight text-slate-900 block">ASM College</span>
+                        <span class="text-xs font-semibold text-blue-600 uppercase tracking-widest">Audyogik Shikshan Mandal</span>
+                    </div>
+                </div>
 
-    <div class="event-card">
-      <h3>Guest Lecture: Cloud Computing</h3>
-      <p>Date: 20th October 2026</p>
-      <p>Speaker: Dr. A. Sharma</p>
-      <p>Learn about APIs and modern cloud trends.</p>
-    </div>
-  </section>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="./index .html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition"><i class="fa-solid fa-house mr-1.5"></i> Home</a>
+                    <a href="about.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition"><i class="fa-solid fa-circle-info mr-1.5"></i> About Us</a>
+                    <a href="coursesprog.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition"><i class="fa-solid fa-book-open mr-1.5"></i> Programs</a>
+                    <a href="department.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition"><i class="fa-solid fa-building-columns mr-1.5"></i> Departments</a>
+                    <a href="addmission.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition"><i class="fa-solid fa-user-plus mr-1.5"></i> Admissions</a>
+                    <a href="placement.html" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition"><i class="fa-solid fa-briefcase mr-1.5"></i> Placements</a>
+                    <a href="contact.html" class="px-3 py-2 rounded-lg text-sm font-medium text-blue-700 bg-blue-50 transition shadow-sm"><i class="fa-solid fa-envelope mr-1.5"></i> Contact Us</a>
+                </nav>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <form id="contact-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" required>
+                <!-- Mobile Menu Toggle Button -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="p-2 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" required>
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1">
+            <a href="index .html .html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-100">Home</a>
+            <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-100">About Us</a>
+            <a href="coursesprog.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-100">Programs</a>
+            <a href="department.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-100">Departments</a>
+            <a href="addmission.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-100">Admissions</a>
+            <a href="placement.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-100">Placements</a>
+            <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-blue-700 bg-blue-50">Contact Us</a>
+        </div>
+    </header>
 
-      <label for="message">Message:</label>
-      <textarea id="message" required></textarea>
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
 
-      <button type="submit">Send Message</button>
-    </form>
+        <!-- Page Header -->
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+            <span class="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 uppercase tracking-wide">
+                <i class="fa-solid fa-bullhorn mr-1.5"></i> ASM Campus Updates
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">College Events & Contact</h1>
+            <p class="text-base text-slate-600">Stay informed on upcoming ASM tech symposiums, guest lectures, and connect instantly with our college administration.</p>
+        </div>
 
-    <div class="contact-info">
-      <p><strong>Address:</strong> ASM College, Pune, MH, India</p>
-      <p><strong>Email:</strong> info@asmcollege.edu</p>
-      <p><strong>Phone:</strong> +91-9876543210</p>
-    </div>
-  </section>
+        <!-- College Events & News Section -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+                <h2 class="text-2xl font-bold text-slate-900 flex items-center">
+                    <i class="fa-solid fa-calendar-days text-blue-600 mr-3"></i> Upcoming ASM Events
+                </h2>
+                <span class="text-xs font-medium text-slate-600 bg-slate-200 px-3 py-1 rounded-full">2 Active Sessions</span>
+            </div>
 
-  <script src="js/script.js"></script>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Event Card 1 -->
+                <div class="glass-card rounded-2xl p-6 shadow-sm card-hover border-l-4 border-l-blue-600 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Tech Fest</span>
+                            <span class="text-xs font-medium text-slate-500 flex items-center"><i class="fa-regular fa-clock mr-1"></i> Oct 15, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">ASM Annual Tech Symposium 2026</h3>
+                        <p class="text-sm text-slate-600 mb-4 leading-relaxed">Join us for inter-collegiate coding hackathons, project exhibitions, robotics showcases, and expert keynote speeches.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+                        <span class="flex items-center"><i class="fa-solid fa-location-dot text-red-500 mr-1.5"></i> ASM Main Auditorium, Pune</span>
+                        <button onclick="openEventModal('ASM Annual Tech Symposium 2026')" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center">Register Now <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="glass-card rounded-2xl p-6 shadow-sm card-hover border-l-4 border-l-amber-500 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Masterclass</span>
+                            <span class="text-xs font-medium text-slate-500 flex items-center"><i class="fa-regular fa-clock mr-1"></i> Oct 20, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Cloud Computing & DevOps Workshop</h3>
+                        <p class="text-sm text-slate-600 mb-4 leading-relaxed">Interactive masterclass focusing on containerization, CI/CD pipelines, and enterprise cloud architecture with industry leaders.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
+                        <span class="flex items-center"><i class="fa-solid fa-location-dot text-red-500 mr-1.5"></i> ASM Seminar Hall B</span>
+                        <button onclick="openEventModal('Cloud Computing & DevOps Workshop')" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center">Register Now <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start pt-6">
+            
+            <!-- Contact Details Card -->
+            <div class="lg:col-span-1 space-y-4">
+                <div class="glass-card rounded-2xl p-6 shadow-sm space-y-6">
+                    <h3 class="text-xl font-bold text-slate-900">ASM Administration</h3>
+                    <p class="text-sm text-slate-600">Have questions about admissions, academic calendars, or campus visits? Reach out to us below.</p>
+                    
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-900">College Address</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">ASM Group of Institutes, MIDC, Chinchwad, Pune, Maharashtra - 411019</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-900">Helpline Numbers</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">+91 (020) 2735 0874 / +91 98220 12345</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-envelope text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-900">Official Email</h4>
+                                <p class="text-xs text-slate-600 mt-0.5">admissions@asmcollege.edu.in</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="lg:col-span-2">
+                <div class="glass-card rounded-2xl p-8 shadow-sm">
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold text-slate-900">Send Us a Message</h2>
+                        <p class="text-sm text-slate-600 mt-1">Fill out the form and our college support desk will reply within 24 hours.</p>
+                    </div>
+
+                    <!-- Success Alert Message -->
+                    <div id="success-alert" class="hidden mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-circle-check text-xl text-emerald-600"></i>
+                            <div>
+                                <h4 class="text-sm font-semibold">Message Sent Successfully!</h4>
+                                <p class="text-xs text-emerald-700">Thank you for connecting with ASM College. We will contact you soon.</p>
+                            </div>
+                        </div>
+                        <button onclick="dismissAlert()" class="text-emerald-700 hover:text-emerald-900 text-sm font-bold">&times;</button>
+                    </div>
+
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">Full Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="name" required placeholder="Enter your full name" 
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition bg-white">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">Email Address <span class="text-red-500">*</span></label>
+                                <input type="email" id="email" required placeholder="name@example.com" 
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition bg-white">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">Subject / Inquiry Type</label>
+                            <input type="text" id="subject" placeholder="e.g., MCA Admission Query" 
+                                class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition bg-white">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 mb-2">Your Message <span class="text-red-500">*</span></label>
+                            <textarea id="message" rows="4" required placeholder="Type your message or questions here..." 
+                                class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition bg-white"></textarea>
+                        </div>
+
+                        <button type="submit" id="submit-btn" class="w-full py-3.5 px-6 hero-gradient text-white font-semibold rounded-xl shadow-md hover:opacity-95 transition flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 mt-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl hero-gradient flex items-center justify-center text-white shadow">
+                        <i class="fa-solid fa-graduation-cap text-lg"></i>
+                    </div>
+                    <span class="text-lg font-bold text-white tracking-tight">ASM College Portal</span>
+                </div>
+                <p class="text-xs text-slate-500">&copy; 2026 ASM College. All rights reserved. Empowering future leaders.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-blue-600 hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-blue-600 hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-twitter text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-blue-600 hover:text-white flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in text-sm"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Contact Form Submission
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const successAlert = document.getElementById('success-alert');
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Sending...';
+
+            setTimeout(() => {
+                document.getElementById('contact-form').reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane mr-2"></i> Send Message';
+                successAlert.classList.remove('hidden');
+
+                setTimeout(() => {
+                    successAlert.classList.add('hidden');
+                }, 6000);
+            }, 1000);
+        }
+
+        function dismissAlert() {
+            document.getElementById('success-alert').classList.add('hidden');
+        }
+
+        function openEventModal(eventName) {
+            alert('Registration request recorded for: ' + eventName + '. ASM event coordinators will contact you shortly.');
+        }
+    </script>
 </body>
 </html>
