@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0079bd">
+  <meta name="theme-color" content="#e8f3fc">
   <meta name="description" content="Discover ASM's Nextgen Technical Campus in Talegaon Dabhade, Maval, Pune. Explore programs, admissions, campus life and placements.">
   <title>ASM's NEXTGEN TECHNICAL CAMPUS | Talegaon Dabhade, Pune</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/home.css">
-  <script src="js/home.js" defer></script>
+  <link rel="stylesheet" href="home.css">
+  <script src="home.js" defer></script>
 </head>
 <body>
   <div class="topbar">
@@ -26,9 +26,9 @@
         </a>
       </div>
       <div class="topbar-links">
-        <a href="#events">Media</a>
+        <a href="ASM-WEB/campus.html">Campus Media</a>
         <span aria-hidden="true">|</span>
-        <a href="#admissions">FRA - Fee Structure</a>
+        <a href="ASM-WEB/addmission.html">FRA - Fee Structure</a>
       </div>
     </div>
   </div>
@@ -36,7 +36,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#home" aria-label="ASM logo — go to homepage">
-        <img class="brand-logo" src="image/asm-logo.png" alt="ASM's Nextgen Technical Campus logo">
+        <img class="brand-logo" src="assets/asm-logo.png" alt="ASM's Nextgen Technical Campus logo">
       </a>
       <div class="campus-heading">
         <p class="mandal-name">AUDYOGIK SHIKSHAN MANDAL</p>
@@ -44,22 +44,51 @@
         <p class="brand-location">Talegaon Dabhade, Maval, Pune</p>
         <p class="brand-approval">Approved by AICTE | Affiliated to Savitribai Phule Pune University | DTE CODE - 16355</p>
       </div>
-      <img class="anniversary-logo" src="image/42-years.png" alt="ASM celebrating 42 years">
+      <img class="anniversary-logo" src="assets/42-years.png" alt="ASM celebrating 42 years">
     </div>
 
     <div class="navigation-row">
       <div class="container navigation-inner">
-        <nav class="main-navigation" id="main-navigation" aria-label="Main navigation">
-          <a class="nav-link active" href="#home">Home</a>
-          <a class="nav-link" href="#about">About</a>
-          <a class="nav-link" href="#programs">Courses &amp; Programs</a>
-          <a class="nav-link" href="#admissions">Admissions</a>
-          <a class="nav-link" href="#departments">Departments</a>
-          <a class="nav-link" href="#faculty">Faculty</a>
-          <a class="nav-link" href="#campus">Campus &amp; Student Life</a>
-          <a class="nav-link" href="#placements">Placements &amp; Careers</a>
-          <a class="nav-link" href="#events">Events &amp; Contact</a>
-        </nav>
+<nav class="main-navigation" id="main-navigation" aria-label="Main navigation">
+
+    <a href="home.html" class="nav-link active">
+        Home
+    </a>
+
+    <a href="ASM-WEB/placement.html" class="nav-link">
+        Placements
+    </a>
+
+    <a href="ASM-WEB/coursesprog.html" class="nav-link">
+        courses & programs
+    </a>
+
+    <a href="ASM-WEB/campus.html" class="nav-link">
+        Campus
+    </a>
+
+    <a href="ASM-WEB/contact.html" class="nav-link">
+        Contact Us
+    </a>
+
+    <a href="ASM-WEB/Faculty.html" class="nav-link">
+        Faculty
+    </a>
+
+    <a href="ASM-WEB/department.html" class="nav-link">
+        Department
+    </a>
+
+    <a href="ASM-WEB/about.html" class="nav-link">
+        About
+    </a>
+
+    <a href="ASM-WEB/addmission.html" class="nav-link">
+        Admission
+    </a>
+
+
+</nav>
         <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation">
           <span></span><span></span><span></span>
         </button>
@@ -68,9 +97,9 @@
 
     <div class="header-utility">
       <div class="container utility-inner">
-        <a href="#programs">Information Brochure</a>
+        <a href="ASM-WEB/coursesprog.html">Information Brochure</a>
         <span aria-hidden="true">|</span>
-        <a href="#admissions">AICTE Approved Programs</a>
+        <a href="ASM-WEB/coursesprog.html">AICTE Approved Programs</a>
       </div>
     </div>
   </header>
@@ -98,137 +127,29 @@
           </a>
         </nav>
       </div>
-      <aside class="hero-courses-panel" id="programs" aria-labelledby="hero-courses-title">
-        <p class="hero-courses-kicker">YOUR FUTURE STARTS HERE</p>
-        <h1 id="hero-courses-title">Courses Offered</h1>
-        <div class="hero-course-list">
-          <div class="hero-course hero-course-engineering">
-            <strong>B.E.</strong>
-            <span>Bachelor of<br>Engineering</span>
-          </div>
-          <div class="hero-course hero-course-bca">
-            <strong>BCA</strong>
-            <span>Bachelor of Computer<br>Applications</span>
-          </div>
-          <div class="hero-course hero-course-mca">
-            <strong>MCA</strong>
-            <span>Master of Computer<br>Applications</span>
-          </div>
-        </div>
-        <a class="hero-apply-button" href="mailto:admission.asmnextgen@asmedu.org?subject=Admissions%20Enquiry">Apply Now <span aria-hidden="true">↗</span></a>
-      </aside>
+      <section class="hero-login-card" aria-labelledby="login-title">
+        <img class="login-logo" src="assets/asm-logo.png" alt="ASM logo">
+        <h1 id="login-title">Welcome Back</h1>
+        <p class="login-subtitle">Login to access the ASM Web Portal</p>
+        <form id="login-form">
+          <label class="login-field">
+            <span>Email address</span>
+            <input id="login-email" name="email" type="email" autocomplete="username" placeholder="Enter your email" required>
+          </label>
+          <label class="login-field">
+            <span>Password</span>
+            <span class="password-input">
+              <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" minlength="6" required>
+              <button class="password-toggle" type="button" aria-label="Show password" aria-pressed="false">Show</button>
+            </span>
+          </label>
+          <button class="login-submit" type="submit">Login</button>
+          <button class="forgot-password" id="forgot-password" type="button">Forgot Password?</button>
+          <p class="login-message" id="login-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
     </section>
 
-    <section class="intro section-pad" id="about">
-      <div class="container intro-grid">
-        <div class="section-heading">
-          <p class="eyebrow eyebrow-blue">A LEGACY OF LEARNING</p>
-          <h2>Ideas grow here.<br><em>So do you.</em></h2>
-        </div>
-        <div class="intro-copy">
-          <p class="lead">At ASM's Nextgen Technical Campus, education goes beyond the classroom.</p>
-          <p>We bring practical learning, experienced mentors and a supportive campus community together—so students can discover their strengths and take their next step with confidence.</p>
-          <a class="text-link" href="#campus">Get to know our campus <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-      <div class="container highlight-strip">
-        <div><strong>Learn</strong><span>Build a strong foundation</span></div>
-        <div><strong>Experience</strong><span>Put knowledge into practice</span></div>
-        <div><strong>Become</strong><span>Prepare for what comes next</span></div>
-      </div>
-    </section>
-
-    <section class="programs-section section-pad" id="course-details">
-      <div class="container">
-        <div class="section-topline">
-          <div class="section-heading">
-            <p class="eyebrow eyebrow-blue">LEARN MORE</p>
-            <h2>Explore Your Courses</h2>
-          </div>
-          <a class="text-link" href="#admissions">Explore admissions <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="program-grid courses-grid">
-          <article class="program-card course-card program-card-blue" id="departments">
-            <span class="card-number">01 / ENGINEERING</span>
-            <span class="card-icon" aria-hidden="true">⌘</span>
-            <h3>B.E.</h3>
-            <p>Bachelor of Engineering</p>
-            <a class="apply-link" href="mailto:admission.asmnextgen@asmedu.org?subject=B.E.%20Admissions%20Enquiry">Apply Now <span aria-hidden="true">↗</span></a>
-          </article>
-          <article class="program-card course-card program-card-light">
-            <span class="card-number">02 / UNDERGRADUATE</span>
-            <span class="card-icon" aria-hidden="true">✳</span>
-            <h3>BCA</h3>
-            <p>Bachelor of Computer Applications</p>
-            <a class="apply-link" href="mailto:admission.asmnextgen@asmedu.org?subject=BCA%20Admissions%20Enquiry">Apply Now <span aria-hidden="true">↗</span></a>
-          </article>
-          <article class="program-card course-card program-card-dark" id="faculty">
-            <span class="card-number">03 / POSTGRADUATE</span>
-            <span class="card-icon" aria-hidden="true">◉</span>
-            <h3>MCA</h3>
-            <p>Master of Computer Applications</p>
-            <a class="apply-link" href="mailto:admission.asmnextgen@asmedu.org?subject=MCA%20Admissions%20Enquiry">Apply Now <span aria-hidden="true">↗</span></a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="admissions-section" id="admissions">
-      <div class="container admissions-inner">
-        <div>
-          <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
-          <h2>Ready to take<br>the first step?</h2>
-        </div>
-        <div class="admissions-action">
-          <p>Have a question about admissions or a program? Our team is here to help you find the information you need.</p>
-          <a class="button button-white" href="mailto:admission.asmnextgen@asmedu.org?subject=Admissions%20Enquiry">Talk to admissions <span aria-hidden="true">↗</span></a>
-          <span class="admissions-email">admission.asmnextgen@asmedu.org</span>
-        </div>
-        <span class="admissions-decoration" aria-hidden="true">ASM</span>
-      </div>
-    </section>
-
-    <section class="campus-section section-pad" id="campus">
-      <div class="container campus-grid">
-        <div class="campus-image" role="img" aria-label="Students collaborating on a campus walkway"></div>
-        <div class="campus-copy">
-          <p class="eyebrow eyebrow-blue">MORE THAN A CLASSROOM</p>
-          <h2>A place to find<br>your <em>people.</em></h2>
-          <p>Great college memories are made in the moments between classes, the ideas shared with friends and the experiences that help you see what's possible.</p>
-          <a class="text-link" href="#events">Discover campus life <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="events-section" id="events">
-      <div class="container events-inner">
-        <div>
-          <p class="eyebrow eyebrow-blue">LET'S START A CONVERSATION</p>
-          <h2>We'd love to<br>hear from you.</h2>
-        </div>
-        <div class="contact-card">
-          <span class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3.75 5.75h16.5v12.5H3.75z"/><path d="m4.25 6.5 7.75 6 7.75-6"/></svg>
-          </span>
-          <span class="contact-label">EVENTS, ADMISSIONS &amp; ENQUIRIES</span>
-          <p class="contact-description">For campus events, course details and admissions questions, get in touch with our team.</p>
-          <a href="mailto:admission.asmnextgen@asmedu.org">admission.asmnextgen@asmedu.org</a>
-          <span class="contact-location">ASM's Nextgen Technical Campus<br>Talegaon Dabhade, Maval, Pune</span>
-        </div>
-      </div>
-    </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <a class="brand footer-brand" href="#home">
-        <img class="footer-logo" src="image/asm-logo.png" alt="">
-        <span class="brand-copy"><strong>ASM'S NEXTGEN</strong><span>TECHNICAL CAMPUS</span></span>
-      </a>
-      <span class="footer-motto">AUDYOGIK SHIKSHAN MANDAL</span>
-      <a href="#home" class="back-to-top">Back to top ↑</a>
-      <span class="copyright">© <span id="current-year"></span> ASM's Nextgen Technical Campus</span>
-    </div>
-  </footer>
 </body>
 </html>
