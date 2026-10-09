@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses & Programs | ASM College</title>
+    <script src="js/coursesprog.js" defer></script>
     <style>
         /* Color Palette & CSS Variables */
         :root {
@@ -239,7 +240,11 @@
         <h1>Courses & Academic Programs</h1>
         <p>Empowering minds with industry-oriented undergraduate and postgraduate programs.</p>
     </section>
-
+     <!-- Search / Filter Component -->
+    <div class="search-container" style="max-width: 600px; margin: 20px auto; text-align: center; padding: 0 1rem;">
+        <input type="text" id="course-search-input" placeholder="🔍 Search courses (e.g., BCA, MCA, BTech)..." style="width: 100%; padding: 10px 15px; font-size: 1rem; border: 2px solid #003366; border-radius: 20px; outline: none;">
+        <p id="no-results-msg" style="display: none; color: #d9534f; margin-top: 10px; font-weight: bold;">No matching courses found.</p>
+    </div>
     <!-- Content Container -->
     <main class="container">
 
@@ -396,6 +401,8 @@
     <footer>
         <p>&copy; 2026 ASM College. All rights reserved.</p>
     </footer>
-
+    <button id="back-to-top" style="display: none; position: fixed; bottom: 25px; right: 25px; background-color:#003366; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; font-size: 20px; cursor: pointer; box-shadow:0 4px 10px rgba(0,0,0,0,2); z-index: 1000;"></button>
+        ↑
+    </button>
 </body>
 </html>
