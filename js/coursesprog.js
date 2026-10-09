@@ -1,7 +1,3 @@
-// ==========================================
-// ASM College - Courses & Programs Module
-// Vanilla JavaScript Interactions
-// ==========================================
 
 // 1. Live Course Search / Filter Feature
 const courseSearchInput = document.querySelector("#course-search-input");
