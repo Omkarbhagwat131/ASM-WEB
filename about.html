@@ -1,227 +1,128 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | ASM NextGen Technical Campus</title>
 
-    <title>About ASM NextGen Technical Campus</title>
+    <!-- Main Centralized Stylesheet -->
+    <link rel="stylesheet" href="css/asm.css">
 
-    <link rel="stylesheet" href="./asm.css">
+    <!-- FontAwesome Icons for Visuals -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- HERO SECTION -->
+    <!-- Centralized Navbar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="./index .html" class="logo">ASM Technical Campus</a>
+        <ul class="nav-links">
+          <li><a href="./index .html">Home</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+          <li><a href="coursesprog.html">Programs</a></li>
+          <li><a href="department.html">Departments</a></li>
+          <li><a href="addmission.html">Admissions</a></li>
+          <li><a href="placement.html">Placements</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
 
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <span class="tag">ABOUT OUR CAMPUS</span>
-
-            <h1>
-                ASM NextGen<br>
-                <span>Technical Campus</span>
-            </h1>
-
-            <p>
-                Empowering students with knowledge, innovation,
-                technology and industry-ready skills for a
-                successful future.
+    <!-- ================= HERO SECTION ================= -->
+    <section class="page-hero hero">
+        <div class="container">
+            <span class="hero-subtitle">ABOUT OUR CAMPUS</span>
+            <h1>ASM NextGen Technical Campus</h1>
+            <p class="hero-description">
+                Empowering students with knowledge, innovation, technology, and industry-ready skills for a successful future.
             </p>
-
-            <a href="#about" class="hero-button">
-                Explore Our Campus
-            </a>
-
+            <a href="#about" class="btn hero-btn">Explore Our Campus</a>
         </div>
-
     </section>
 
-
-    <!-- ABOUT SECTION -->
-
-    <section class="about" id="about">
-
-        <div class="section-heading">
-
-            <span>WHO WE ARE</span>
-
-            <h2>About ASM NextGen</h2>
-
-            <p>
+    <!-- ================= ABOUT SECTION ================= -->
+    <main id="about">
+        <section class="departments-section">
+            <h2>WHO WE ARE</h2>
+            <div class="underline"></div>
+            <p style="max-width: 800px; margin: 0 auto 20px auto; color: #555; font-size: 1.1rem; line-height: 1.6;">
                 Building the next generation of skilled professionals.
             </p>
 
-        </div>
+            <div class="department-container" style="margin-top: 40px;">
+                <div class="department-card" style="text-align: left;">
+                    <h3>Learning Today. <span style="color: #ff4d4d;">Leading Tomorrow.</span></h3>
+                    <p style="margin-top: 15px; color: #555; line-height: 1.6;">
+                        ASM NextGen Technical Campus is dedicated to providing quality education and creating an environment where students can learn, innovate, and grow.
+                    </p>
+                    <p style="margin-top: 10px; color: #555; line-height: 1.6;">
+                        The campus focuses on developing strong academic foundations along with practical knowledge, technical skills, and professional confidence.
+                    </p>
+                    <p style="margin-top: 10px; color: #555; line-height: 1.6;">
+                        Through modern learning approaches and industry exposure, students are encouraged to transform their ideas into meaningful solutions.
+                    </p>
+                </div>
 
-
-        <div class="about-content">
-
-            <div class="about-text">
-
-                <h3>
-                    Learning Today. <span>Leading Tomorrow.</span>
-                </h3>
-
-                <p>
-                    ASM NextGen Technical Campus is dedicated to
-                    providing quality education and creating an
-                    environment where students can learn, innovate
-                    and grow.
-                </p>
-
-                <p>
-                    The campus focuses on developing strong academic
-                    foundations along with practical knowledge,
-                    technical skills and professional confidence.
-                </p>
-
-                <p>
-                    Through modern learning approaches and industry
-                    exposure, students are encouraged to transform
-                    their ideas into meaningful solutions.
-                </p>
-
+                <div class="department-card">
+                    <div class="card-icon"><i class="fa-solid fa-eye" style="font-size: 2.5rem; color: #1e3a8a;"></i></div>
+                    <h3>Our Vision</h3>
+                    <p style="margin-top: 15px; color: #555; line-height: 1.6;">
+                        To nurture skilled, confident, and responsible professionals who are ready to contribute to a rapidly changing technological world.
+                    </p>
+                </div>
             </div>
+        </section>
 
-
-            <div class="about-box">
-
-                <div class="box-icon">✦</div>
-
-                <h3>Our Vision</h3>
-
-                <p>
-                    To nurture skilled, confident and responsible
-                    professionals who are ready to contribute to
-                    a rapidly changing technological world.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- WHY ASM SECTION -->
-
-    <section class="why-asm">
-
-        <div class="section-heading light">
-
-            <span>WHY ASM NEXTGEN?</span>
-
-            <h2>More Than Education</h2>
-
-            <p>
-                An environment designed for learning, growth and innovation.
+        <!-- ================= WHY ASM SECTION ================= -->
+        <section class="departments-section" style="background-color: #f8fafc; padding: 50px 20px;">
+            <h2>WHY ASM NEXTGEN?</h2>
+            <div class="underline"></div>
+            <p style="max-width: 800px; margin: 0 auto 30px auto; color: #555;">
+                An environment designed for learning, growth, and innovation.
             </p>
 
-        </div>
+            <div class="department-container">
+                <div class="department-card">
+                    <span class="department-code">01</span>
+                    <h3>Quality Education</h3>
+                    <p>Strong academic learning that builds a solid foundation for students.</p>
+                </div>
 
+                <div class="department-card">
+                    <span class="department-code">02</span>
+                    <h3>Practical Learning</h3>
+                    <p>Opportunities to understand concepts through practical and hands-on learning.</p>
+                </div>
 
-        <div class="cards">
+                <div class="department-card">
+                    <span class="department-code">03</span>
+                    <h3>Industry Exposure</h3>
+                    <p>Preparing students for professional careers through industry-oriented learning.</p>
+                </div>
 
-            <div class="card">
-
-                <div class="card-number">01</div>
-
-                <h3>Quality Education</h3>
-
-                <p>
-                    Strong academic learning that builds a solid
-                    foundation for students.
-                </p>
-
+                <div class="department-card">
+                    <span class="department-code">04</span>
+                    <h3>Student Growth</h3>
+                    <p>Encouraging confidence, communication, creativity, and overall development.</p>
+                </div>
             </div>
+        </section>
 
-
-            <div class="card">
-
-                <div class="card-number">02</div>
-
-                <h3>Practical Learning</h3>
-
-                <p>
-                    Opportunities to understand concepts through
-                    practical and hands-on learning.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-number">03</div>
-
-                <h3>Industry Exposure</h3>
-
-                <p>
-                    Preparing students for professional careers
-                    through industry-oriented learning.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-number">04</div>
-
-                <h3>Student Growth</h3>
-
-                <p>
-                    Encouraging confidence, communication,
-                    creativity and overall development.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- MISSION SECTION -->
-
-    <section class="mission">
-
-        <div class="mission-content">
-
-            <span>OUR MISSION</span>
-
-            <h2>
-                Creating Professionals<br>
-                Who Make a Difference.
-            </h2>
-
-            <p>
-                We aim to create a learning environment where
-                students are encouraged to explore technology,
-                develop their skills and become confident
-                professionals ready to face the future.
+        <!-- ================= MISSION SECTION ================= -->
+        <section class="departments-section">
+            <h2>OUR MISSION</h2>
+            <div class="underline"></div>
+            <h3 style="margin-top: 20px; font-size: 1.5rem; color: #1e3a8a;">Creating Professionals Who Make a Difference</h3>
+            <p style="max-width: 800px; margin: 20px auto 0 auto; color: #555; line-height: 1.6; font-size: 1.05rem;">
+                We aim to create a learning environment where students are encouraged to explore technology, develop their skills, and become confident professionals ready to face the future.
             </p>
+        </section>
+    </main>
 
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <h3>ASM NextGen Technical Campus</h3>
-
-        <p>
-            Learn • Innovate • Grow
-        </p>
-
-    </footer>
-
-</body>
-
-</html>
+    <!-- ================= FOOTER ================= -->
+    <footer style="background-color: #1e3a8a; color: #fff; text-align: center; padding: 25px 10px; margin-top: 40px;">
+        <h3 style="margin-bottom: 5px;">ASM NextGen Technical Campus</h3>
+        <p style="opacity: 0.8; font-size
