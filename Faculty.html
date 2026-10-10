@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Faculty | ASM College</title>
 
     <style>
@@ -19,58 +21,93 @@
             line-height: 1.6;
         }
 
-        header {
+        /* HEADER */
+        .site-header {
             background: #0b3d91;
             color: white;
-            padding: 22px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
+            padding: 20px 35px;
+            width: 100%;
         }
 
+        /* Logo stays on the left */
+        .college-brand {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+            width: 100%;
+        }
+
+        .college-logo {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        /* College information in the center */
         .college-name {
-            max-width: 560px;
+            width: 100%;
+            text-align: center;
+            padding: 0 100px;
         }
 
         .college-name h1 {
-            font-size: 28px;
+            font-size: 34px;
+            line-height: 1.3;
             margin-bottom: 4px;
         }
 
-        .college-name p {
-            font-size: 13px;
+        .college-name > p:first-of-type {
+            font-size: 16px;
+            margin-bottom: 6px;
         }
 
         .college-info {
             color: #dbeafe;
-            margin-top: 6px;
+            font-size: 14px;
+            white-space: nowrap;
         }
 
-        nav {
+        /* Navigation below college information */
+        .main-nav {
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            gap: 22px;
+            width: 100%;
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.22);
         }
 
-        nav a {
+        .main-nav a {
             color: white;
             text-decoration: none;
             font-size: 14px;
+            white-space: nowrap;
         }
 
-        nav a:hover,
-        nav a.active {
+        .main-nav a:hover,
+        .main-nav a.active {
             color: #dbeafe;
             text-decoration: underline;
         }
 
+        /* PAGE TITLE */
         .page-title {
             background: linear-gradient(135deg, #0b3d91, #1769d1);
             color: white;
             text-align: center;
-            padding: 55px 20px;
+            padding: 50px 20px;
         }
 
         .page-title h2 {
@@ -78,12 +115,16 @@
             margin-bottom: 8px;
         }
 
+        .page-title p {
+            font-size: 20px;
+        }
+
         main {
             max-width: 1200px;
             margin: auto;
         }
 
-        /* Search Bar */
+        /* SEARCH */
         .faculty-search {
             text-align: center;
             padding: 30px 20px 10px;
@@ -112,6 +153,7 @@
             font-size: 14px;
         }
 
+        /* FACULTY CARDS */
         .faculty-section {
             padding: 35px 25px 50px;
         }
@@ -125,7 +167,7 @@
 
         .faculty-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 25px;
         }
 
@@ -186,7 +228,6 @@
             margin-bottom: 7px;
         }
 
-        /* View Details Button */
         .view-details {
             margin-top: 15px;
             padding: 10px 20px;
@@ -211,7 +252,7 @@
             grid-column: 1 / -1;
         }
 
-        /* Details Popup */
+        /* DETAILS POPUP */
         .modal {
             display: none;
             position: fixed;
@@ -236,7 +277,6 @@
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
         }
 
-        /* Faculty Photo in Popup */
         #modalPhoto {
             width: 130px;
             height: 130px;
@@ -277,6 +317,7 @@
             color: #0b3d91;
         }
 
+        /* FOOTER */
         footer {
             background: #0b3d91;
             color: white;
@@ -288,7 +329,7 @@
             max-width: 1200px;
             margin: auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 40px;
         }
 
@@ -301,6 +342,7 @@
             color: #dbeafe;
             font-size: 13px;
             margin-bottom: 7px;
+            overflow-wrap: anywhere;
         }
 
         .footer-bottom {
@@ -310,37 +352,71 @@
             border-top: 1px solid rgba(255, 255, 255, 0.3);
             display: flex;
             justify-content: space-between;
+            gap: 12px;
             color: #dbeafe;
             font-size: 13px;
         }
 
-        @media (max-width: 1000px) {
-            header {
-                flex-direction: column;
-                text-align: center;
+        /* TABLET AND SMALL LAPTOP */
+        @media (max-width: 1200px) {
+            .college-info {
+                white-space: normal;
+            }
+
+            .main-nav {
+                flex-wrap: wrap;
+                gap: 12px 20px;
             }
 
             .faculty-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
+        /* MOBILE */
         @media (max-width: 600px) {
-            header {
-                padding: 20px;
+            .site-header {
+                padding: 18px 15px;
+            }
+
+            .college-brand {
+                min-height: auto;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .college-logo {
+                position: static;
+                transform: none;
+                width: 70px;
+                height: 70px;
+            }
+
+            .college-name {
+                padding: 0;
             }
 
             .college-name h1 {
-                font-size: 24px;
+                font-size: 27px;
             }
 
-            nav {
+            .college-name > p:first-of-type {
+                font-size: 13px;
+            }
+
+            .college-info {
+                font-size: 12px;
+            }
+
+            .main-nav {
                 justify-content: center;
-                gap: 12px;
+                gap: 10px 16px;
+                margin-top: 15px;
+                padding-top: 15px;
+            }
+
+            .main-nav a {
+                font-size: 13px;
             }
 
             .page-title {
@@ -349,6 +425,10 @@
 
             .page-title h2 {
                 font-size: 32px;
+            }
+
+            .page-title p {
+                font-size: 16px;
             }
 
             .faculty-section {
@@ -368,7 +448,6 @@
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
-                gap: 8px;
             }
 
             .modal-content {
@@ -384,35 +463,51 @@
 
 <body>
 
-    <header>
-        <div class="college-name">
-            <h1>ASM College</h1>
-            <p>Institute of Management &amp; Computer Studies</p>
-            <p class="college-info">
-                A learning-focused institution committed to academic
-                excellence, professional development and student growth.
-            </p>
+    <!-- HEADER -->
+    <header class="site-header">
+
+        <div class="college-brand">
+
+            <img
+                src="image/asm-logo.png"
+                alt="ASM College Logo"
+                class="college-logo"
+            >
+
+            <div class="college-name">
+                <h1>ASM College</h1>
+
+                <p>Institute of Management &amp; Computer Studies</p>
+
+                <p class="college-info">
+                    A learning-focused institution committed to academic excellence, professional development and student growth.
+                </p>
+            </div>
+
         </div>
 
-        <nav>
+        <!-- NAVIGATION BELOW COLLEGE INFORMATION -->
+        <nav class="main-nav">
             <a href="home.html">Home</a>
             <a href="index.html">Index</a>
             <a href="about.html">About</a>
             <a href="campus.html">Campus</a>
-            <a href="coursesprog.html">Courses & Programs</a>
+            <a href="coursesprog.html">Courses &amp; Programs</a>
             <a href="contacts.html">Contact Us</a>
             <a href="placements.html">Placements</a>
             <a href="department.html">Department</a>
-            <a href="faculty.html" class="active">Faculty</a>
+            <a href="Faculty.html" class="active">Faculty</a>
         </nav>
+
     </header>
 
+    <!-- PAGE TITLE -->
     <section class="page-title">
         <h2>Faculty</h2>
         <p>Meet our experienced and dedicated faculty members</p>
     </section>
 
-    <!-- Search Bar -->
+    <!-- SEARCH BAR -->
     <div class="faculty-search">
         <input
             type="text"
@@ -425,6 +520,7 @@
 
     <main>
         <section class="faculty-section">
+
             <h2 class="section-heading">Our Faculty</h2>
 
             <div class="faculty-grid" id="facultyGrid">
@@ -434,7 +530,7 @@
                         <img src="image/Dhananjay sir.jpeg"
                              alt="Dr. Dhananjay Upasni">
                     </div>
-                    <h3>Dr.Dhananjay Upasni</h3>
+                    <h3>Dr. Dhananjay Upasni</h3>
                     <p class="designation">Dean Academics</p>
                     <p class="department">Electrical Engineering</p>
                     <p class="qualification">Ph.D., M.Tech, B.E.</p>
@@ -513,14 +609,19 @@
         </section>
     </main>
 
-    <!-- Faculty Details Popup: Photo + Information -->
-    <div class="modal" id="facultyModal" role="dialog"
-         aria-modal="true" aria-labelledby="modalName">
+    <!-- FACULTY DETAILS POPUP -->
+    <div class="modal"
+         id="facultyModal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="modalName">
 
         <div class="modal-content">
 
-            <button class="close-modal" id="closeModal"
-                    type="button" aria-label="Close">&times;</button>
+            <button class="close-modal"
+                    id="closeModal"
+                    type="button"
+                    aria-label="Close">&times;</button>
 
             <img id="modalPhoto" src="" alt="Faculty Photo">
 
@@ -531,6 +632,7 @@
         </div>
     </div>
 
+    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
 
@@ -565,10 +667,8 @@
         </div>
     </footer>
 
-
-
+    <!-- EXISTING JAVASCRIPT -->
     <script src="faculty.js"></script>
+
 </body>
 </html>
-
-
