@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty | ASM College</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f7ff;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #0b3d91;
+            color: white;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .college-name {
+            max-width: 560px;
+        }
+
+        .college-name h1 {
+            font-size: 28px;
+            margin-bottom: 4px;
+        }
+
+        .college-name p {
+            font-size: 13px;
+        }
+
+        .college-info {
+            color: #dbeafe;
+            margin-top: 6px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #dbeafe;
+            text-decoration: underline;
+        }
+
+        .page-title {
+            background: linear-gradient(135deg, #0b3d91, #1769d1);
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .page-title h2 {
+            font-size: 40px;
+            margin-bottom: 8px;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Search Bar */
+        .faculty-search {
+            text-align: center;
+            padding: 30px 20px 10px;
+        }
+
+        .faculty-search input {
+            width: 100%;
+            max-width: 500px;
+            padding: 14px 18px;
+            border: 1px solid #b7cdea;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            background: white;
+            box-shadow: 0 4px 12px rgba(11, 61, 145, 0.08);
+        }
+
+        .faculty-search input:focus {
+            border-color: #1769d1;
+            box-shadow: 0 0 0 3px rgba(23, 105, 209, 0.12);
+        }
+
+        #searchMessage {
+            margin-top: 10px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .faculty-section {
+            padding: 35px 25px 50px;
+        }
+
+        .section-heading {
+            text-align: center;
+            color: #0b3d91;
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .faculty-card {
+            background: white;
+            border: 1px solid #d9e8fa;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 5px 18px rgba(11, 61, 145, 0.08);
+            transition: 0.3s;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(11, 61, 145, 0.15);
+        }
+
+        .faculty-photo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 18px;
+            border-radius: 50%;
+            background: #dbeafe;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .faculty-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .faculty-card h3 {
+            color: #0b3d91;
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .designation {
+            color: #1769d1;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .department,
+        .qualification,
+        .experience {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        /* View Details Button */
+        .view-details {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #0b3d91;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .view-details:hover {
+            background: #1769d1;
+        }
+
+        #noResults {
+            display: none;
+            text-align: center;
+            color: #555;
+            padding: 30px;
+            grid-column: 1 / -1;
+        }
+
+        /* Details Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            border-radius: 14px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Faculty Photo in Popup */
+        #modalPhoto {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            margin: 0 auto 18px;
+            display: block;
+            border: 4px solid #dbeafe;
+        }
+
+        .modal-content h2 {
+            color: #0b3d91;
+            margin-bottom: 18px;
+            padding: 0 20px;
+            font-size: 26px;
+        }
+
+        .modal-content p {
+            margin-bottom: 10px;
+            color: #444;
+            overflow-wrap: anywhere;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 8px;
+            right: 15px;
+            font-size: 28px;
+            border: none;
+            background: transparent;
+            color: #555;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: #0b3d91;
+        }
+
+        footer {
+            background: #0b3d91;
+            color: white;
+            padding: 40px 8% 20px;
+            margin-top: 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .footer-column p {
+            color: #dbeafe;
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            color: #dbeafe;
+            font-size: 13px;
+        }
+
+        @media (max-width: 1000px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .faculty-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 20px;
+            }
+
+            .college-name h1 {
+                font-size: 24px;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .page-title {
+                padding: 40px 20px;
+            }
+
+            .page-title h2 {
+                font-size: 32px;
+            }
+
+            .faculty-section {
+                padding: 30px 18px;
+            }
+
+            .faculty-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 25px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+
+            .modal-content {
+                padding: 28px 20px;
+            }
+
+            .modal-content h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="college-name">
+            <h1>ASM College</h1>
+            <p>Institute of Management &amp; Computer Studies</p>
+            <p class="college-info">
+                A learning-focused institution committed to academic
+                excellence, professional development and student growth.
+            </p>
+        </div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="index.html">Index</a>
+            <a href="about.html">About</a>
+            <a href="campus.html">Campus</a>
+            <a href="coursesprog.html">Courses & Programs</a>
+            <a href="contacts.html">Contact Us</a>
+            <a href="placements.html">Placements</a>
+            <a href="department.html">Department</a>
+            <a href="faculty.html" class="active">Faculty</a>
+        </nav>
+    </header>
+
+    <section class="page-title">
+        <h2>Faculty</h2>
+        <p>Meet our experienced and dedicated faculty members</p>
+    </section>
+
+    <!-- Search Bar -->
+    <div class="faculty-search">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search faculty by name..."
+            aria-label="Search faculty by name"
+        >
+        <p id="searchMessage">Search faculty by entering their name.</p>
+    </div>
+
+    <main>
+        <section class="faculty-section">
+            <h2 class="section-heading">Our Faculty</h2>
+
+            <div class="faculty-grid" id="facultyGrid">
+
+                <article class="faculty-card">
+                    <div class="faculty-photo">
+                        <img src="image/Dhananjay sir.jpeg"
+                             alt="Dr. Dhananjay Upasni">
+                    </div>
+                    <h3>Dr.Dhananjay Upasni</h3>
+                    <p class="designation">Dean Academics</p>
+                    <p class="department">Electrical Engineering</p>
+                    <p class="qualification">Ph.D., M.Tech, B.E.</p>
+                    <p class="experience">Experience: 12+ Years</p>
+                    <button class="view-details" type="button">View Details</button>
+                </article>
+
+                <article class="faculty-card">
+                    <div class="faculty-photo">
+                        <img src="image/ketan sir.jpeg"
+                             alt="Dr. Ketan Desale">
+                    </div>
+                    <h3>Dr. Ketan Desale</h3>
+                    <p class="designation">Head of Department</p>
+                    <p class="department">Master of Computer Application</p>
+                    <p class="qualification">Ph.D., M.Tech, B.E.</p>
+                    <p class="experience">Experience: 12+ Years</p>
+                    <button class="view-details" type="button">View Details</button>
+                </article>
+
+                <article class="faculty-card">
+                    <div class="faculty-photo">
+                        <img src="image/jyoti mam1.jpeg"
+                             alt="Prof. Jyoti Mokashi">
+                    </div>
+                    <h3>Prof. Jyoti Mokashi</h3>
+                    <p class="designation">MCA Coordinator &amp; Assistant Professor</p>
+                    <p class="department">Master of Computer Application</p>
+                    <p class="qualification">Master of Computer Application</p>
+                    <p class="experience">Experience: 12+ Years</p>
+                    <button class="view-details" type="button">View Details</button>
+                </article>
+
+                <article class="faculty-card">
+                    <div class="faculty-photo">
+                        <img src="image/vandana mam.jpeg"
+                             alt="Prof. Vandana Pendekar">
+                    </div>
+                    <h3>Prof. Vandana Pendekar</h3>
+                    <p class="designation">Assistant Professor &amp; TPO</p>
+                    <p class="department">Engineering (ECE)</p>
+                    <p class="qualification">M.Tech, B.E.</p>
+                    <p class="experience">Experience: 10+ Years</p>
+                    <button class="view-details" type="button">View Details</button>
+                </article>
+
+                <article class="faculty-card">
+                    <div class="faculty-photo">
+                        <img src="image/samiksha mam.jpeg"
+                             alt="Asst. Prof. Samiksha Pawar">
+                    </div>
+                    <h3>Asst. Prof. Samiksha Pawar</h3>
+                    <p class="designation">Assistant Professor &amp; Placement Coordinator</p>
+                    <p class="department">Master of Computer Application</p>
+                    <p class="qualification">Master of Computer Application</p>
+                    <p class="experience">Experience: 2+ Years</p>
+                    <button class="view-details" type="button">View Details</button>
+                </article>
+
+                <article class="faculty-card">
+                    <div class="faculty-photo">
+                        <img src="image/sakshi mam.jpeg"
+                             alt="Asst. Prof. Sakshi Chikorde">
+                    </div>
+                    <h3>Asst. Prof. Sakshi Chikorde</h3>
+                    <p class="designation">Assistant Professor</p>
+                    <p class="department">Master of Computer Application</p>
+                    <p class="qualification">Master of Computer Application</p>
+                    <p class="experience">Experience: 2+ Years</p>
+                    <button class="view-details" type="button">View Details</button>
+                </article>
+
+                <p id="noResults">No faculty members found.</p>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Faculty Details Popup: Photo + Information -->
+    <div class="modal" id="facultyModal" role="dialog"
+         aria-modal="true" aria-labelledby="modalName">
+
+        <div class="modal-content">
+
+            <button class="close-modal" id="closeModal"
+                    type="button" aria-label="Close">&times;</button>
+
+            <img id="modalPhoto" src="" alt="Faculty Photo">
+
+            <h2 id="modalName">Faculty Details</h2>
+
+            <div id="modalDetails"></div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+
+            <div class="footer-column">
+                <h3>ASM College</h3>
+                <p>Institute of Management &amp; Computer Studies</p>
+                <p>
+                    Committed to quality education, skill development
+                    and overall student growth.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Academic Information</h3>
+                <p>Computer Applications</p>
+                <p>Management Studies</p>
+                <p>Engineering &amp; Technology</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact Information</h3>
+                <p>Talegaon Dabhade, Pune, Maharashtra</p>
+                <p>Email: admission.asmnextgen@asmedu.org</p>
+                <p>Phone: +91 90280 76028</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 ASM College. All Rights Reserved.</p>
+            <p>Faculty Department | ASM College</p>
+        </div>
+    </footer>
+
+
+
+    <script src="faculty.js"></script>
+</body>
+</html>
+
+

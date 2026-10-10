@@ -1,0 +1,244 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placements | ASM Technical Campus</title>
+
+    <!-- Main Centralized Stylesheet -->
+    <link rel="stylesheet" href="css/asm.css">
+
+    <!-- FontAwesome Icons for Visuals -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- GRAPHICAL MAIN HEADER -->
+    <header class="main-header" style="
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #3b82f6 100%);
+        color: white;
+        text-align: center;
+        padding: 35px 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        position: relative;
+        overflow: hidden;
+    ">
+        <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: rgba(255,255,255,0.05); border-radius: 50%; pointer-events: none;"></div>
+        
+        <h1 style="margin: 0; font-size: 2.2rem; font-weight: 800; letter-spacing: 0.5px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+            ASM Web Portal
+        </h1>
+        <p style="margin: 8px 0 0 0; font-size: 0.95rem; opacity: 0.9; font-weight: 300; letter-spacing: 0.3px;">
+            Excellence in Education, Innovation & Leadership
+        </p>
+    </header>
+
+    <!-- GRAPHICAL SUB-NAVBAR -->
+    <nav class="sub-nav" style="
+        background: #1e293b;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 3px solid #f97316;
+        text-align: center;
+        padding: 14px 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    ">
+        <span style="display: block; color: #94a3b8; font-weight: 600; margin-bottom: 10px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px;">
+            ASM Technical Campus
+        </span>
+
+        <div style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
+            <a href="./index .html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About Us</a>
+            <a href="coursesprog.html" class="nav-item">Programs</a>
+            <a href="department.html" class="nav-item">Departments</a>
+            <a href="addmission.html" class="nav-item">Admissions</a>
+            <a href="placement.html" class="nav-item active-link">Placements</a>
+            <a href="contact.html" class="nav-item">Contact Us</a>
+        </div>
+    </nav>
+
+    <style>
+        .nav-item {
+            color: #f1f5f9;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-item:hover {
+            background: #f97316;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+        }
+
+        .active-link {
+            background: #f97316 !important;
+            color: #ffffff !important;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
+        }
+    </style>
+
+    <main>
+        <!-- Enhanced Hero Section -->
+        <section class="placement-hero">
+            <div class="hero-content">
+                <span class="badge">CAREER DEVELOPMENT & TRAINING</span>
+                <h1>Training & Placement Cell</h1>
+                <p>Empowering students with industry-driven skills, career guidance, and top placement opportunities at leading tech companies.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#recruiters" class="btn-primary">Our Top Recruiters</a>
+                    <a href="#stats" class="btn-secondary">View Statistics</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placement Statistics Section -->
+        <section id="stats" class="stats-section">
+          <div class="stats-container">
+            <div class="stat-box">
+              <i class="fa-solid fa-trophy stat-icon"></i> 
+              <h2 class="counter" data-target="18">18+</h2>
+              <p class="stat-label">Highest Package (LPA)</p>
+            </div>
+            <div class="stat-box">
+              <i class="fa-solid fa-building stat-icon"></i> 
+              <h2 class="counter" data-target="200">200+</h2>
+              <p class="stat-label">Top Recruiters</p>
+            </div>
+            <div class="stat-box">
+              <i class="fa-solid fa-user-graduate stat-icon"></i>
+              <h2 class="counter" data-target="60000">60000+</h2>
+              <p class="stat-label">Alumni Placed</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Department Overview Section -->
+        <section class="departments-section">
+            <h2>Placement Highlights</h2>
+            <div class="underline"></div>
+
+            <div class="department-container">
+                <div class="department-card">
+                    <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <span class="department-code">Success Rate</span>
+                    <h3>85%+</h3>
+                    <p>Consistent annual placement rate across Engineering and MCA streams.</p>
+                </div>
+
+                <div class="department-card">
+                    <div class="card-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <span class="department-code">Highest Package</span>
+                    <h3>12 LPA</h3>
+                    <p>Highest offer bagged by our students in software engineering roles.</p>
+                </div>
+
+                <div class="department-card">
+                    <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <span class="department-code">Hiring Partners</span>
+                    <h3>50+</h3>
+                    <p>Active corporate recruiting partners conducting annual campus drives.</p>
+                </div>
+
+                <div class="department-card">
+                    <div class="card-icon"><i class="fa-solid fa-user-check"></i></div>
+                    <span class="department-code">Average Package</span>
+                    <h3>4.5 LPA</h3>
+                    <p>Average salary package offered to fresh graduates.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training Section -->
+        <section class="departments-section">
+            <h2>Placement Preparation & Training</h2>
+            <div class="underline"></div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span class="step-number">01</span>
+                    <h3>Technical Aptitude</h3>
+                    <p>Rigorous coding sessions in Java, Python, Web Dev, & Data Structures.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">02</span>
+                    <h3>Soft Skills & Communication</h3>
+                    <p>Personality development, public speaking, and business etiquettes.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">03</span>
+                    <h3>Mock Interviews</h3>
+                    <p>1-on-1 technical and HR mock interviews with industry experts.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">04</span>
+                    <h3>Resume & Portfolio</h3>
+                    <p>Professional resume building and GitHub portfolio development.</p>
+                </div>
+
+                <div class="step-card">
+                    <span class="step-number">05</span>
+                    <h3>Campus Drives</h3>
+                    <p>On-campus and pool recruitment drives with partner companies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recruiters Section -->
+        <section id="recruiters" class="departments-section">
+            <h2>Our Key Recruiters</h2>
+            <div class="underline"></div>
+
+            <div class="document-list">
+                <div class="document-item">
+                    <span class="document-icon"><i class="fa-solid fa-building"></i></span>
+                    <div>
+                        <h3>Software & IT Services</h3>
+                        <p>TCS, Infosys, Wipro, Capgemini, Cognizant, Tech Mahindra.</p>
+                    </div>
+                </div>
+
+                <div class="document-item">
+                    <span class="document-icon"><i class="fa-solid fa-laptop-code"></i></span>
+                    <div>
+                        <h3>Product & Web Startups</h3>
+                        <p>FinTech solutions, cloud platforms, and software product firms.</p>
+                    </div>
+                </div>
+
+                <div class="document-item">
+                    <span class="document-icon"><i class="fa-solid fa-gears"></i></span>
+                    <div>
+                        <h3>Core Engineering Companies</h3>
+                        <p>Automation, Embedded Systems, and Manufacturing firms.</p>
+                    </div>
+                </div>
+
+                <div class="document-item">
+                    <span class="document-icon"><i class="fa-solid fa-network-wired"></i></span>
+                    <div>
+                        <h3>Data & Cloud Solutions</h3>
+                        <p>Data analytics, cloud infrastructure, and database administration.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background-color: #0f172a; color: #fff; text-align: center; padding: 20px; margin-top: 40px;">
+        <p>&copy; 2026 ASM's Nextgen Technical Campus. All Rights Reserved.</p>
+    </footer>
+<script src="js/placement.js" defer></script>
+</body>
+</html>

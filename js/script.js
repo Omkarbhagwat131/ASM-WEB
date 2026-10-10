@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Contact Form Code
+    // Contact Form
     const contactForm = document.getElementById("contact-form");
 
     if (contactForm) {
@@ -10,22 +10,23 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // MCA View Details Code
-    const viewButton = document.querySelector(".view-details-btn");
-    const mcaDetails = document.getElementById("mca-details");
+    // MCA View Details
+    const button = document.querySelector(".view-details-btn");
+    const details = document.getElementById("mca-details");
 
-    if (viewButton && mcaDetails) {
-        viewButton.addEventListener("click", function() {
+    if (button && details) {
+        button.addEventListener("click", function () {
 
-            if (mcaDetails.hidden) {
-                mcaDetails.hidden = false;
-                viewButton.textContent = "Hide Details";
-                viewButton.setAttribute("aria-expanded", "true");
-            } else {
-                mcaDetails.hidden = true;
-                viewButton.textContent = "View Details";
-                viewButton.setAttribute("aria-expanded", "false");
-            }
+            details.hidden = !details.hidden;
+
+            button.textContent = details.hidden
+                ? "View Details"
+                : "Hide Details";
+
+            button.setAttribute(
+                "aria-expanded",
+                String(!details.hidden)
+            );
 
         });
     }

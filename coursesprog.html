@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses & Programs | ASM College</title>
+    <script src="js/coursesprog.js" defer></script>
     <style>
         /* Color Palette & CSS Variables */
         :root {
@@ -222,13 +223,13 @@
 
     <!-- Header Section -->
     <header>
-        <a href="index.html" class="logo">ASM College</a>
+        <a href="./index .html" class="logo">ASM College</a>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="./index .html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="coursesprog.html" class="active">Courses & Programs</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="addmission.html">Admissions</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -239,7 +240,11 @@
         <h1>Courses & Academic Programs</h1>
         <p>Empowering minds with industry-oriented undergraduate and postgraduate programs.</p>
     </section>
-
+     <!-- Search / Filter Component -->
+    <div class="search-container" style="max-width: 600px; margin: 20px auto; text-align: center; padding: 0 1rem;">
+        <input type="text" id="course-search-input" placeholder="🔍 Search courses (e.g., BCA, MCA, BTech)..." style="width: 100%; padding: 10px 15px; font-size: 1rem; border: 2px solid #003366; border-radius: 20px; outline: none;">
+        <p id="no-results-msg" style="display: none; color: #d9534f; margin-top: 10px; font-weight: bold;">No matching courses found.</p>
+    </div>
     <!-- Content Container -->
     <main class="container">
 
@@ -257,7 +262,7 @@
                         <li><strong>Duration:</strong> 4 Years</li>
                         <li><strong>Seats:</strong> 120</li>
                     </ul>
-                    <a href="admissions.html" class="btn">Apply Now</a>
+                    <a href="admission.html" class="btn">Apply Now</a>
                 </div>
             </div>
 
@@ -272,7 +277,7 @@
                         <li><strong>Duration:</strong> 3 Years</li>
                         <li><strong>Seats:</strong> 60</li>
                     </ul>
-                    <a href="admissions.html" class="btn">Apply Now</a>
+                    <a href="admission.html" class="btn">Apply Now</a>
                 </div>
             </div>
 
@@ -287,7 +292,7 @@
                         <li><strong>Duration:</strong> 3 Years</li>
                         <li><strong>Seats:</strong> 90</li>
                     </ul>
-                    <a href="admissions.html" class="btn">Apply Now</a>
+                    <a href="admission.html" class="btn">Apply Now</a>
                 </div>
             </div>
         </div>
@@ -306,7 +311,7 @@
                         <li><strong>Duration:</strong> 2 Years</li>
                         <li><strong>Seats:</strong> 60</li>
                     </ul>
-                    <a href="admissions.html" class="btn">Apply Now</a>
+                    <a href="admission.html" class="btn">Apply Now</a>
                 </div>
             </div>
 
@@ -321,7 +326,7 @@
                         <li><strong>Duration:</strong> 2 Years</li>
                         <li><strong>Seats:</strong> 120</li>
                     </ul>
-                    <a href="admissions.html" class="btn">Apply Now</a>
+                    <a href="admission.html" class="btn">Apply Now</a>
                 </div>
             </div>
         </div>
@@ -396,6 +401,8 @@
     <footer>
         <p>&copy; 2026 ASM College. All rights reserved.</p>
     </footer>
-
+    <button id="back-to-top" style="display: none; position: fixed; bottom: 25px; right: 25px; background-color:#003366; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; font-size: 20px; cursor: pointer; box-shadow:0 4px 10px rgba(0,0,0,0,2); z-index: 1000;"></button>
+        ↑
+    </button>
 </body>
 </html>
