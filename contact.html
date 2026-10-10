@@ -3,51 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ASM College - Events & Contact</title>
+  <meta name="theme-color" content="#063b69">
+  <title>Contact Us | ASM College</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="contact-page">
+  <header class="contact-navbar">
+    <a class="contact-logo" href="asm.html">ASM College</a>
+    <nav aria-label="Main navigation">
+      <a href="asm.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="coursesprog.html">Courses &amp; Programs</a>
+      <a href="addmission.html">Admission</a>
+      <a href="#contact" aria-current="page">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Events Section -->
-  <section id="events">
-    <h2>College Events & News</h2>
-    <div class="event-card">
-      <h3>Annual Tech Fest 2026</h3>
-      <p>Date: 15th October 2026</p>
-      <p>Location: Main Auditorium</p>
-      <p>Join us for coding competitions, hackathons, and guest lectures.</p>
-    </div>
+  <main>
+    <section class="contact-hero">
+      <p class="contact-eyebrow">We’re here to help</p>
+      <h1>Get in Touch</h1>
+      <p>Have a question about ASM College? Send us a message or reach us using the details below.</p>
+    </section>
 
-    <div class="event-card">
-      <h3>Guest Lecture: Cloud Computing</h3>
-      <p>Date: 20th October 2026</p>
-      <p>Speaker: Dr. A. Sharma</p>
-      <p>Learn about APIs and modern cloud trends.</p>
-    </div>
-  </section>
+    <section class="contact-events" aria-labelledby="events-heading">
+      <div class="contact-section-heading">
+        <div>
+          <p class="contact-eyebrow">What’s happening</p>
+          <h2 id="events-heading">College Events &amp; News</h2>
+        </div>
+        <span class="contact-heading-rule" aria-hidden="true"></span>
+      </div>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <form id="contact-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" required>
+      <div class="contact-event-grid">
+        <article class="contact-event-card">
+          <span class="contact-event-date">15 October 2026</span>
+          <h3>Annual Tech Fest 2026</h3>
+          <p class="contact-event-detail">Main Auditorium</p>
+          <p>Join us for coding competitions, hackathons, and guest lectures.</p>
+        </article>
+        <article class="contact-event-card">
+          <span class="contact-event-date">20 October 2026</span>
+          <h3>Guest Lecture: Cloud Computing</h3>
+          <p class="contact-event-detail">Speaker: Dr. A. Sharma</p>
+          <p>Learn about APIs and modern cloud trends.</p>
+        </article>
+      </div>
+    </section>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" required>
+    <section class="contact-main" id="contact" aria-labelledby="contact-heading">
+      <div class="contact-section-heading">
+        <div>
+          <p class="contact-eyebrow">Let’s talk</p>
+          <h2 id="contact-heading">Contact Us</h2>
+        </div>
+        <span class="contact-heading-rule" aria-hidden="true"></span>
+      </div>
 
-      <label for="message">Message:</label>
-      <textarea id="message" required></textarea>
+      <div class="contact-layout">
+        <form class="contact-form" id="contact-form">
+          <h3>Send us a message</h3>
+          <p class="contact-form-intro">Fill in the form and we’ll be glad to help.</p>
 
-      <button type="submit">Send Message</button>
-    </form>
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" autocomplete="name" placeholder="e.g. Priya Sharma" required>
 
-    <div class="contact-info">
-      <p><strong>Address:</strong> ASM College, Pune, MH, India</p>
-      <p><strong>Email:</strong> info@asmcollege.edu</p>
-      <p><strong>Phone:</strong> +91-9876543210</p>
-    </div>
-  </section>
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+
+          <label for="message">How can we help?</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+          <button type="submit">Send Message</button>
+          <p class="contact-form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="contact-details" aria-labelledby="details-heading">
+          <h3 id="details-heading">Contact information</h3>
+          <p class="contact-details-intro">Reach out to us directly. We look forward to hearing from you.</p>
+
+          <div class="contact-detail">
+            <span class="contact-detail-icon" aria-hidden="true">@</span>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:info@asmcollege.edu">info@asmcollege.edu</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-icon" aria-hidden="true">☎</span>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:+919876543210">+91-9876543210</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-detail-icon" aria-hidden="true">⌖</span>
+            <div>
+              <h4>Address</h4>
+              <p>ASM College, Pune, MH, India</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="contact-footer">
+    <p>&copy; 2026 ASM College. All Rights Reserved.</p>
+  </footer>
 
   <script src="js/script.js"></script>
 </body>
