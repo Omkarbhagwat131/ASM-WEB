@@ -1,19 +1,34 @@
-const contactForm = document.getElementById("contact-form");
-const formStatus = document.getElementById("form-status");
+document.addEventListener("DOMContentLoaded", function () {
 
-document.querySelectorAll(".contact-event-card").forEach((card) => {
-  card.addEventListener("mouseenter", () => {
-    card.classList.add("is-hovered");
-  });
+    // Contact Form
+    const contactForm = document.getElementById("contact-form");
 
-  card.addEventListener("mouseleave", () => {
-    card.classList.remove("is-hovered");
-  });
-});
+    if (contactForm) {
+        contactForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("Thank you! Your message has been sent.");
+        });
+    }
 
-contactForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+    // MCA View Details
+    const button = document.querySelector(".view-details-btn");
+    const details = document.getElementById("mca-details");
 
-  const name = document.getElementById("name").value.trim();
-  formStatus.textContent = `Thanks, ${name}. This demo does not send messages yet. Please email info@asmcollege.edu to reach us.`;
+    if (button && details) {
+        button.addEventListener("click", function () {
+
+            details.hidden = !details.hidden;
+
+            button.textContent = details.hidden
+                ? "View Details"
+                : "Hide Details";
+
+            button.setAttribute(
+                "aria-expanded",
+                String(!details.hidden)
+            );
+
+        });
+    }
+
 });
