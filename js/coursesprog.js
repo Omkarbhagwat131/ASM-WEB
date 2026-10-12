@@ -1,22 +1,23 @@
 // 1. Live Course Search, Category Filtering & LocalStorage Preference Feature
 const courseSearchInput = document.querySelector("#course-search-input");
-const categorySelect = document.querySelector("#category-filter-select"); // Optional category dropdown if added
+const categorySelect = document.querySelector("#category-filter-select");
 const courseCards = document.querySelectorAll(".course-card");
 const noResultsMessage = document.querySelector("#no-results-msg");
 
 // LocalStorage Preference Key
 const PREF_KEY = "asm-preferred-filter";
 
-// Function to save user preference safely with Error Handling
+// Function to save user preference safely with Error Handling & JSON.stringify
 const saveSearchPreference = (query, category) => {
     try {
-        localStorage.setItem(PREF_KEY, JSON.stringify({ searchQuery: query, selectedCategory: category, timestamp: new Date() }));
+        const preferences = { searchQuery: query, selectedCategory: category, timestamp: new Date() };
+        localStorage.setItem(PREF_KEY, JSON.stringify(preferences));
     } catch (error) {
         console.error("Could not save preference to localStorage:", error);
     }
 };
 
-// Core Filtering Logic using Array / NodeList methods combining Search & Category
+// Core Filtering Logic using Array / NodeList methods combining Search & Category Filter
 const filterCourses = (query = "", selectedCategory = "all") => {
     let matchCount = 0;
 
@@ -25,22 +26,11 @@ const filterCourses = (query = "", selectedCategory = "all") => {
         const courseBadge = card.querySelector(".badge") ? card.querySelector(".badge").textContent.toLowerCase() : "";
         const courseDesc = card.querySelector("p") ? card.querySelector("p").textContent.toLowerCase() : "";
         
-        // Determine category type based on badge or placement in sections
-        const cardParentSection = card.closest("main");
-        let categoryType = "other";
-        if (cardParentSection) {
-            // Check headers or badges to categorize
-            if (courseBadge.includes("b.tech") || courseBadge.includes("bca") || courseBadge.includes("bba") || courseBadge.includes("b.sc")) {
-                categoryType = "ug";
-            } else if (courseBadge.includes("mca") || courseBadge.includes("mba") || courseBadge.includes("m.tech")) {
-                categoryType = "pg";
-            } else if (courseBadge.includes("club") || courseBadge.includes("society")) {
-                categoryType = "clubs";
-            }
-        }
+        // Get category from data-category attribute
+        const cardCategory = card.getAttribute("data-category") || "ug";
 
         const matchesQuery = courseTitle.includes(query) || courseBadge.includes(query) || courseDesc.includes(query);
-        const matchesCategory = selectedCategory === "all" || categoryType === selectedCategory;
+        const matchesCategory = selectedCategory === "all" || cardCategory === selectedCategory;
 
         if (matchesQuery && matchesCategory) {
             card.style.display = "flex";
@@ -55,7 +45,7 @@ const filterCourses = (query = "", selectedCategory = "all") => {
     }
 };
 
-// Function to restore preference on page load
+// Function to restore preference on page load with try/catch error handling
 const restoreSearchPreference = () => {
     try {
         const saved = localStorage.getItem(PREF_KEY);
