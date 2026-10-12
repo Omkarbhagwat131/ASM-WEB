@@ -445,25 +445,113 @@
                 transition-duration: .01ms !important;
             }
         }
+        
+/* College Logo */
+.college-logo {
+    display: block;
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Navigation Menu */
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    border: none;
+    box-shadow: none;
+}
+
+.main-nav a {
+    position: relative;
+    display: inline-block;
+    padding: 8px 0;
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none !important;
+    border: none !important;
+    background: transparent;
+    box-shadow: none;
+    transition: color 0.2s ease;
+}
+
+/* Hover Effect */
+.main-nav a:hover,
+.main-nav a:focus-visible {
+    color: #9bd2ff;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none;
+}
+
+/* Active Navigation Link */
+.main-nav a.active {
+    color: #9bd2ff;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none;
+}
+
+/* Responsive Navigation */
+@media (max-width: 850px) {
+    .site-header {
+        align-items: center;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .main-nav {
+        justify-content: center;
+    }
+}
+
+/* Mobile Screen */
+@media (max-width: 520px) {
+    .main-nav {
+        gap: 6px 14px;
+        justify-content: center;
+    }
+
+    .main-nav a {
+        font-size: 0.84rem;
+    }
+
+    .college-logo {
+        width: 125px;
+    }
+}
+
     </style>
 </head>
 
 <body>
-    <header class="site-header">
-        <a class="brand" href="index.html" aria-label="ASM College home">
-            <span class="brand-mark" aria-hidden="true">ASM</span>
-            <span>ASM College</span>
-        </a>
+    
+<header class="site-header">
 
-        <nav class="site-nav" aria-label="Main navigation">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="coursesprog.html">Courses &amp; Programs</a></li>
-                <li><a href="#campus">Campus</a></li>
-                <li><a href="#student-life">Student Life</a></li>
-            </ul>
-        </nav>
-    </header>
+    <a class="brand" href="home.html" aria-label="ASM College home">
+        <img src="image/asm-logo.png"
+             alt="ASM College Logo"
+             class="college-logo">
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="campus.html" class="active">Campus</a>
+        <a href="coursesprog.html">Courses &amp; Programs</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="placement.html">Placements</a>
+        <a href="department.html">Department</a>
+        <a href="Faculty.html">Faculty</a>
+    </nav>
+
+</header>
+
 
     <main>
         <section class="campus" id="campus" aria-labelledby="campus-title">
@@ -593,3 +681,4 @@
    
 </body>
 </html>
+

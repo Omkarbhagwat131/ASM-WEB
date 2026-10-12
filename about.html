@@ -1,128 +1,284 @@
  <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | ASM NextGen Technical Campus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    <!-- Main Centralized Stylesheet -->
-    <link rel="stylesheet" href="css/asm.css">
+        :root {
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --glow: #60a5fa;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #3b82f6 100%);
+            --card-glass: rgba(255, 255, 255, 0.05);
+            --border-glass: rgba(255, 255, 255, 0.12);
+        }
 
-    <!-- FontAwesome Icons for Visuals -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        body {
+            background-color: #090d16;
+            color: #f1f5f9;
+            min-height: 100vh;
+        }
+
+        /* Navbar Styling */
+        header {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-glass);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            background: linear-gradient(to right, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.8rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active-link {
+            color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--bg-gradient);
+            padding: 6rem 2rem 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(59, 130, 246, 0.15);
+            filter: blur(100px);
+            border-radius: 50%;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        /* Main Container & Glassmorphism Grid */
+        .container {
+            max-width: 1200px;
+            margin: -3rem auto 4rem auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .glass-card {
+            background: var(--card-glass);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(96, 165, 250, 0.4);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
+
+        .glass-card h3 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .glass-card p {
+            color: #94a3b8;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Interactive Mission/Vision Section */
+        .vision-mission-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #ffffff;
+        }
+
+        .vm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .vm-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #060910;
+            border-top: 1px solid var(--border-glass);
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
-
 <body>
 
-    <!-- Centralized Navbar -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <a href="./index .html" class="logo">ASM Technical Campus</a>
-        <ul class="nav-links">
-          <li><a href="./index .html">Home</a></li>
-          <li><a href="about.html" class="active">About Us</a></li>
-          <li><a href="coursesprog.html">Programs</a></li>
-          <li><a href="department.html">Departments</a></li>
-          <li><a href="addmission.html">Admissions</a></li>
-          <li><a href="placement.html">Placements</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-    </nav>
+    <!-- Header & Navigation -->
+    <header>
+        <a href="./index.html" class="logo">ASM Technical Campus</a>
+        <nav>
+            <a href="./index.html" class="nav-item">Home</a>
+            <a href="./about.html" class="nav-item active-link">About Us</a>
+            <a href="./coursesprog.html" class="nav-item">Programs</a>
+            <a href="./Faculty.html" class="nav-item">Faculty</a>
+            <a href="./department.html" class="nav-item">Departments</a>
+            <a href="./addmission.html" class="nav-item">Admissions</a>
+            <a href="./placement.html" class="nav-item">Placements</a>
+            <a href="./contact.html" class="nav-item">Contact Us</a>
+        </nav>
+    </header>
 
-    <!-- ================= HERO SECTION ================= -->
-    <section class="page-hero hero">
-        <div class="container">
-            <span class="hero-subtitle">ABOUT OUR CAMPUS</span>
-            <h1>ASM NextGen Technical Campus</h1>
-            <p class="hero-description">
-                Empowering students with knowledge, innovation, technology, and industry-ready skills for a successful future.
-            </p>
-            <a href="#about" class="btn hero-btn">Explore Our Campus</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Excellence in Education</span>
+            <h1>About ASM Campus</h1>
+            <p>Pioneering technical education, modern engineering culture, and shaping industry-ready professionals through innovation and hands-on learning.</p>
         </div>
     </section>
 
-    <!-- ================= ABOUT SECTION ================= -->
-    <main id="about">
-        <section class="departments-section">
-            <h2>WHO WE ARE</h2>
-            <div class="underline"></div>
-            <p style="max-width: 800px; margin: 0 auto 20px auto; color: #555; font-size: 1.1rem; line-height: 1.6;">
-                Building the next generation of skilled professionals.
-            </p>
-
-            <div class="department-container" style="margin-top: 40px;">
-                <div class="department-card" style="text-align: left;">
-                    <h3>Learning Today. <span style="color: #ff4d4d;">Leading Tomorrow.</span></h3>
-                    <p style="margin-top: 15px; color: #555; line-height: 1.6;">
-                        ASM NextGen Technical Campus is dedicated to providing quality education and creating an environment where students can learn, innovate, and grow.
-                    </p>
-                    <p style="margin-top: 10px; color: #555; line-height: 1.6;">
-                        The campus focuses on developing strong academic foundations along with practical knowledge, technical skills, and professional confidence.
-                    </p>
-                    <p style="margin-top: 10px; color: #555; line-height: 1.6;">
-                        Through modern learning approaches and industry exposure, students are encouraged to transform their ideas into meaningful solutions.
-                    </p>
-                </div>
-
-                <div class="department-card">
-                    <div class="card-icon"><i class="fa-solid fa-eye" style="font-size: 2.5rem; color: #1e3a8a;"></i></div>
-                    <h3>Our Vision</h3>
-                    <p style="margin-top: 15px; color: #555; line-height: 1.6;">
-                        To nurture skilled, confident, and responsible professionals who are ready to contribute to a rapidly changing technological world.
-                    </p>
-                </div>
+    <!-- Glassmorphism Feature Cards -->
+    <div class="container">
+        <div class="grid">
+            <div class="glass-card">
+                <div class="card-icon">🚀</div>
+                <h3>Our Legacy & Growth</h3>
+                <p>Established with a vision to impart quality education, ASM Technical Campus integrates rigorous academics with cutting-edge technological development.</p>
             </div>
-        </section>
-
-        <!-- ================= WHY ASM SECTION ================= -->
-        <section class="departments-section" style="background-color: #f8fafc; padding: 50px 20px;">
-            <h2>WHY ASM NEXTGEN?</h2>
-            <div class="underline"></div>
-            <p style="max-width: 800px; margin: 0 auto 30px auto; color: #555;">
-                An environment designed for learning, growth, and innovation.
-            </p>
-
-            <div class="department-container">
-                <div class="department-card">
-                    <span class="department-code">01</span>
-                    <h3>Quality Education</h3>
-                    <p>Strong academic learning that builds a solid foundation for students.</p>
-                </div>
-
-                <div class="department-card">
-                    <span class="department-code">02</span>
-                    <h3>Practical Learning</h3>
-                    <p>Opportunities to understand concepts through practical and hands-on learning.</p>
-                </div>
-
-                <div class="department-card">
-                    <span class="department-code">03</span>
-                    <h3>Industry Exposure</h3>
-                    <p>Preparing students for professional careers through industry-oriented learning.</p>
-                </div>
-
-                <div class="department-card">
-                    <span class="department-code">04</span>
-                    <h3>Student Growth</h3>
-                    <p>Encouraging confidence, communication, creativity, and overall development.</p>
-                </div>
+            <div class="glass-card">
+                <div class="card-icon">💡</div>
+                <h3>Innovation & R&D</h3>
+                <p>We foster a culture of creative problem solving where students build live web apps, machine learning models, and real-world software solutions.</p>
             </div>
-        </section>
+            <div class="glass-card">
+                <div class="card-icon">🤝</div>
+                <h3>Industry Connect</h3>
+                <p>Regular interactions, technical workshops, and coding hackathons organized with top IT experts ensure our students stay ahead of industry standards.</p>
+            </div>
+        </div>
+    </div>
 
-        <!-- ================= MISSION SECTION ================= -->
-        <section class="departments-section">
-            <h2>OUR MISSION</h2>
-            <div class="underline"></div>
-            <h3 style="margin-top: 20px; font-size: 1.5rem; color: #1e3a8a;">Creating Professionals Who Make a Difference</h3>
-            <p style="max-width: 800px; margin: 20px auto 0 auto; color: #555; line-height: 1.6; font-size: 1.05rem;">
-                We aim to create a learning environment where students are encouraged to explore technology, develop their skills, and become confident professionals ready to face the future.
-            </p>
-        </section>
-    </main>
+    <!-- Vision & Mission Section -->
+    <section class="vision-mission-section">
+        <h2 class="section-title">Core Principles & Mission</h2>
+        <div class="vm-grid">
+            <div class="glass-card">
+                <h3>Our Vision</h3>
+                <p>To be a premier global institution recognized for outstanding academic delivery, technological innovation, and nurturing ethical leaders who transform society.</p>
+            </div>
+            <div class="glass-card">
+                <h3>Our Mission</h3>
+                <p>To provide an immersive ecosystem combining technical mastery, critical thinking, and collaborative projects, preparing students to excel in a dynamic global workspace.</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- ================= FOOTER ================= -->
-    <footer style="background-color: #1e3a8a; color: #fff; text-align: center; padding: 25px 10px; margin-top: 40px;">
-        <h3 style="margin-bottom: 5px;">ASM NextGen Technical Campus</h3>
-        <p style="opacity: 0.8; font-size
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ASM NextGen Technical Campus. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
