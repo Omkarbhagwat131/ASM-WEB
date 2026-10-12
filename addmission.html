@@ -63,13 +63,37 @@
         </section>
 
         <!-- ================= PROGRAMS SECTION ================= -->
-        <section class="departments-section">
+        <section class="departments-section id=
+        programs-section">
             <h2>Choose Your Career Path</h2>
             <div class="underline"></div>
+            <div class="program-filters">
+    <label for="program-search">Search programs</label>
+    <input
+        type="search"
+        id="program-search"
+        placeholder="Search Engineering or MCA..."
+    >
+
+    <label for="program-category">Filter by category</label>
+    <select id="program-category">
+        <option value="all">All programs</option>
+        <option value="ug">Undergraduate (UG)</option>
+        <option value="pg">Postgraduate (PG)</option>
+    </select>
+
+    <button type="button" id="reset-program-filters">
+        Reset filters
+    </button>
+</div>
+
+<p id="program-empty-message" role="status" hidden>
+    No programs match your search. Try another keyword or category.
+</p>
 
             <div class="department-container">
                 <!-- Engineering Card -->
-                <div class="department-card">
+                <div class="department-card program-card" data-category="ug">
                     <div class="card-icon">
                         <i class="fa-solid fa-gears"></i>
                     </div>
@@ -85,7 +109,7 @@
                 </div>
 
                 <!-- MCA Card -->
-                <div class="department-card">
+                <div class="department-card data-program-card"data-category="pg">
                     <div class="card-icon">
                         <i class="fa-solid fa-laptop-code"></i>
                     </div>
