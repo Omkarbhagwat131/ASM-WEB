@@ -101,7 +101,7 @@
             display: none;
             position: absolute;
             right: 0;
-            background-color: var(--white);
+ &nbsp;          background-color: var(--white);
             min-width: 180px;
             box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
             border-radius: 6px;
@@ -285,8 +285,8 @@
     <!-- Header Section -->
     <header>
         <a href="home.html" class="logo">
-    <img src="image/asm-logo.png" alt="ASM College Logo" style="height: 40px; width: auto; border-radius: 50%; background: white; padding: 2px;">
-</a>
+            <img src="image/asm-logo.png" alt="ASM College Logo" style="height: 40px; width: auto; border-radius: 50%; background: white; padding: 2px;">
+        </a>
         <nav>
             <ul>
                 <li><a href="home.html">Home</a></li>
@@ -319,9 +319,18 @@
     </section>
 
     <!-- Search / Filter Component -->
-    <div class="search-container" style="max-width: 600px; margin: 20px auto; text-align: center; padding: 0 1rem;">
-        <input type="text" id="course-search-input" placeholder="🔍 Search courses or clubs (e.g., BCA, B.Sc, Tech Club)..." style="width: 100%; padding: 10px 15px; font-size: 1rem; border: 2px solid #003366; border-radius: 20px; outline: none;">
-        <p id="no-results-msg" style="display: none; color: #d9534f; margin-top: 10px; font-weight: bold;">No matching courses found.</p>
+    <div class="search-container" style="max-width: 600px; margin: 20px auto; text-align: center; padding: 0 1rem; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+        <input type="text" id="course-search-input" placeholder="🔍 Search courses or clubs..." style="flex: 1; min-width: 250px; padding: 10px 15px; font-size: 1rem; border: 2px solid #003366; border-radius: 20px; outline: none;">
+        
+        <!-- Category Filter Dropdown Added -->
+        <select id="category-filter-select" style="padding: 10px 15px; font-size: 1rem; border: 2px solid #003366; border-radius: 20px; outline: none; background: white; cursor: pointer;">
+            <option value="all">All Categories</option>
+            <option value="ug">Undergraduate (UG)</option>
+            <option value="pg">Postgraduate (PG)</option>
+            <option value="clubs">Student Clubs</option>
+        </select>
+        
+        <p id="no-results-msg" style="display: none; color: #d9534f; margin-top: 10px; font-weight: bold; width: 100%;">No matching courses found.</p>
     </div>
 
     <!-- Content Container -->
@@ -330,7 +339,7 @@
         <!-- Undergraduate Section -->
         <h2 class="section-title">Undergraduate Programs (UG)</h2>
         <div class="courses-grid">
-            <div class="course-card">
+            <div class="course-card" data-category="ug">
                 <div>
                     <span class="badge">B.Tech</span>
                     <h3>Computer Science & Engineering</h3>
@@ -345,7 +354,7 @@
                 </div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" data-category="ug">
                 <div>
                     <span class="badge">BCA</span>
                     <h3>Bachelor of Computer Applications</h3>
@@ -360,7 +369,7 @@
                 </div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" data-category="ug">
                 <div>
                     <span class="badge">BBA</span>
                     <h3>Bachelor of Business Administration</h3>
@@ -375,8 +384,7 @@
                 </div>
             </div>
 
-            <!-- New Added UG Course -->
-            <div class="course-card">
+            <div class="course-card" data-category="ug">
                 <div>
                     <span class="badge">B.Sc</span>
                     <h3>Data Science & Analytics</h3>
@@ -395,7 +403,7 @@
         <!-- Postgraduate Section -->
         <h2 class="section-title">Postgraduate Programs (PG)</h2>
         <div class="courses-grid">
-            <div class="course-card">
+            <div class="course-card" data-category="pg">
                 <div>
                     <span class="badge">MCA</span>
                     <h3>Master of Computer Applications</h3>
@@ -410,7 +418,7 @@
                 </div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" data-category="pg">
                 <div>
                     <span class="badge">MBA</span>
                     <h3>Master of Business Administration</h3>
@@ -425,8 +433,7 @@
                 </div>
             </div>
 
-            <!-- New Added PG Course -->
-            <div class="course-card">
+            <div class="course-card" data-category="pg">
                 <div>
                     <span class="badge">M.Tech</span>
                     <h3>Cyber Security & Digital Forensics</h3>
@@ -445,7 +452,7 @@
         <!-- Campus Student Clubs Section -->
         <h2 class="section-title">Student & Campus Clubs</h2>
         <div class="courses-grid">
-            <div class="course-card">
+            <div class="course-card" data-category="clubs">
                 <div>
                     <span class="badge">Tech Club</span>
                     <h3>CodeCrafters - Coding Club</h3>
@@ -460,7 +467,7 @@
                 </div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" data-category="clubs">
                 <div>
                     <span class="badge">Business Club</span>
                     <h3>E-Cell & Management Club</h3>
@@ -475,7 +482,7 @@
                 </div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" data-category="clubs">
                 <div>
                     <span class="badge">Robotics Club</span>
                     <h3>RoboTech & AI Society</h3>
@@ -490,9 +497,9 @@
                 </div>
             </div>
 
-            <div class="course-card">
+            <div class="course-card" data-category="clubs">
                 <div>
-                    <span class="badge">Cultural Club</span>
+                    <span class="badge5">Cultural Club</span>
                     <h3>Aura - Cultural & Arts Club</h3>
                     <p>Encourages student talent in music, drama, dance, photography, and annual college fests.</p>
                 </div>
@@ -505,8 +512,7 @@
                 </div>
             </div>
 
-            <!-- New Added Club -->
-            <div class="course-card">
+            <div class="course-card" data-category="clubs">
                 <div>
                     <span class="badge">Literary Club</span>
                     <h3>Chronicles - Debate & Lit Society</h3>
