@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses & Programs | ASM College</title>
-    <script src="js/coursesprog.js" defer></script>
+   
     <style>
         /* Color Palette & CSS Variables */
         :root {
@@ -404,5 +404,56 @@
     <button id="back-to-top" style="display: none; position: fixed; bottom: 25px; right: 25px; background-color:#003366; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; font-size: 20px; cursor: pointer; box-shadow:0 4px 10px rgba(0,0,0,0,2); z-index: 1000;"></button>
         ↑
     </button>
+    ```html
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Course Search
+    const searchInput = document.getElementById("course-search-input");
+    const noResultsMsg = document.getElementById("no-results-msg");
+    const courseCards = document.querySelectorAll(".course-card");
+
+    if (searchInput && noResultsMsg) {
+        searchInput.addEventListener("input", function () {
+            const searchText = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            courseCards.forEach(function (card) {
+                const cardText = card.textContent.toLowerCase();
+                const matches = cardText.includes(searchText);
+
+                card.style.display = matches ? "" : "none";
+
+                if (matches) {
+                    visibleCount++;
+                }
+            });
+
+            noResultsMsg.style.display =
+                visibleCount === 0 ? "block" : "none";
+        });
+    }
+
+    // Back to Top Button
+    const backToTop = document.getElementById("back-to-top");
+
+    if (backToTop) {
+        window.addEventListener("scroll", function () {
+            backToTop.style.display =
+                window.scrollY > 200 ? "block" : "none";
+        });
+
+        backToTop.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+
+});
+</script>
+```
+
 </body>
 </html>
