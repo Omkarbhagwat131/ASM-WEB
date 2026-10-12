@@ -6,6 +6,7 @@ const noResultsMessage = document.querySelector("#no-results-msg");
 
 const PREF_KEY = "asm-preferred-filter";
 
+// Function to save user preference safely with Error Handling & JSON.stringify
 const saveSearchPreference = (query, category) => {
     try {
         const preferences = { searchQuery: query, selectedCategory: category, timestamp: new Date() };
@@ -15,6 +16,7 @@ const saveSearchPreference = (query, category) => {
     }
 };
 
+// Core Filtering Logic using Array / NodeList methods combining Search & Category Filter
 const filterCourses = (query = "", selectedCategory = "all") => {
     let matchCount = 0;
 
@@ -23,6 +25,7 @@ const filterCourses = (query = "", selectedCategory = "all") => {
         const courseBadge = card.querySelector(".badge") ? card.querySelector(".badge").textContent.toLowerCase() : "";
         const courseDesc = card.querySelector("p") ? card.querySelector("p").textContent.toLowerCase() : "";
         
+        // Get category from data-category attribute
         const cardCategory = card.getAttribute("data-category") || "ug";
 
         const matchesQuery = courseTitle.includes(query) || courseBadge.includes(query) || courseDesc.includes(query);
@@ -41,6 +44,7 @@ const filterCourses = (query = "", selectedCategory = "all") => {
     }
 };
 
+// Function to restore preference on page load with try/catch error handling
 const restoreSearchPreference = () => {
     try {
         const saved = localStorage.getItem(PREF_KEY);
