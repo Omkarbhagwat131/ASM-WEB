@@ -4,10 +4,8 @@ const categorySelect = document.querySelector("#category-filter-select");
 const courseCards = document.querySelectorAll(".course-card");
 const noResultsMessage = document.querySelector("#no-results-msg");
 
-// LocalStorage Preference Key
 const PREF_KEY = "asm-preferred-filter";
 
-// Function to save user preference safely with Error Handling & JSON.stringify
 const saveSearchPreference = (query, category) => {
     try {
         const preferences = { searchQuery: query, selectedCategory: category, timestamp: new Date() };
@@ -17,7 +15,6 @@ const saveSearchPreference = (query, category) => {
     }
 };
 
-// Core Filtering Logic using Array / NodeList methods combining Search & Category Filter
 const filterCourses = (query = "", selectedCategory = "all") => {
     let matchCount = 0;
 
@@ -26,7 +23,6 @@ const filterCourses = (query = "", selectedCategory = "all") => {
         const courseBadge = card.querySelector(".badge") ? card.querySelector(".badge").textContent.toLowerCase() : "";
         const courseDesc = card.querySelector("p") ? card.querySelector("p").textContent.toLowerCase() : "";
         
-        // Get category from data-category attribute
         const cardCategory = card.getAttribute("data-category") || "ug";
 
         const matchesQuery = courseTitle.includes(query) || courseBadge.includes(query) || courseDesc.includes(query);
@@ -45,7 +41,6 @@ const filterCourses = (query = "", selectedCategory = "all") => {
     }
 };
 
-// Function to restore preference on page load with try/catch error handling
 const restoreSearchPreference = () => {
     try {
         const saved = localStorage.getItem(PREF_KEY);
@@ -60,16 +55,14 @@ const restoreSearchPreference = () => {
             filterCourses(parsed.searchQuery || "", parsed.selectedCategory || "all");
         }
     } catch (error) {
-        console.error("Invalid JSON in localStorage, resetting preference:", error);
+        console.error("Invalid JSON in localStorage:", error);
         localStorage.removeItem(PREF_KEY);
     }
 };
 
 if (courseCards.length > 0) {
-    // Restore preference when page loads
     restoreSearchPreference();
 
-    // Event listener for live searching
     if (courseSearchInput) {
         courseSearchInput.addEventListener("input", (e) => {
             const query = e.target.value.toLowerCase().trim();
@@ -79,7 +72,6 @@ if (courseCards.length > 0) {
         });
     }
 
-    // Event listener for category dropdown selection
     if (categorySelect) {
         categorySelect.addEventListener("change", (e) => {
             const selectedCategory = e.target.value;
@@ -88,24 +80,4 @@ if (courseCards.length > 0) {
             saveSearchPreference(currentQuery, selectedCategory);
         });
     }
-}
-
-// 2. Back to Top Button Feature
-const backToTopBtn = document.querySelector("#back-to-top");
-
-if (backToTopBtn) {
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 200) {
-            backToTopBtn.style.display = "block";
-        } else {
-            backToTopBtn.style.display = "none";
-        }
-    });
-
-    backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
 }
