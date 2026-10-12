@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses & Programs | ASM College</title>
-   
+    <script src="js/coursesprog.js" defer></script>
     <style>
         /* Color Palette & CSS Variables */
         :root {
@@ -101,7 +101,7 @@
             display: none;
             position: absolute;
             right: 0;
- &nbsp;          background-color: var(--white);
+            background-color: var(--white);
             min-width: 180px;
             box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
             border-radius: 6px;
@@ -383,6 +383,21 @@
                     <a href="admission.html" class="btn">Apply Now</a>
                 </div>
             </div>
+            <!-- B.Com Course Added -->
+            <div class="course-card" data-category="ug">
+                <div>
+                    <span class="badge">B.Com</span>
+                    <h3>Bachelor of Commerce</h3>
+                    <p>Covers financial accounting, corporate tax, economics, business law, and modern auditing practices.</p>
+                </div>
+                <div>
+                    <ul class="course-details">
+                        <li><strong>Duration:</strong> 3 Years</li>
+                        <li><strong>Seats:</strong> 120</li>
+                    </ul>
+                    <a href="admission.html" class="btn">Apply Now</a>
+                </div>
+            </div>
 
             <div class="course-card" data-category="ug">
                 <div>
@@ -499,7 +514,7 @@
 
             <div class="course-card" data-category="clubs">
                 <div>
-                    <span class="badge5">Cultural Club</span>
+                    <span class="badge">Cultural Club</span>
                     <h3>Aura - Cultural & Arts Club</h3>
                     <p>Encourages student talent in music, drama, dance, photography, and annual college fests.</p>
                 </div>
@@ -530,63 +545,13 @@
 
     </main>
 
-  ```html
-<!-- Footer Section -->
-<footer>
-    <p> ASM College.</p>
-</footer>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2026 ASM College. All rights reserved.</p>
+    </footer>
 
-<!-- Back to Top Button -->
-<button id="back-to-top" style="display: none; position: fixed; bottom: 25px; right: 25px; background-color: #003366; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; font-size: 20px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000;">↑</button>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    // Course Search
-    const searchInput = document.getElementById("course-search-input");
-    const noResultsMsg = document.getElementById("no-results-msg");
-    const courseCards = document.querySelectorAll(".course-card");
-
-    if (searchInput && noResultsMsg) {
-        searchInput.addEventListener("input", function () {
-            const searchText = searchInput.value.toLowerCase().trim();
-            let visibleCount = 0;
-
-            courseCards.forEach(function (card) {
-                const cardText = card.textContent.toLowerCase();
-                const matches = cardText.includes(searchText);
-
-                card.style.display = matches ? "" : "none";
-
-                if (matches) {
-                    visibleCount++;
-                }
-            });
-
-            noResultsMsg.style.display =
-                visibleCount === 0 ? "block" : "none";
-        });
-    }
-
-    // Back to Top Button
-    const backToTop = document.getElementById("back-to-top");
-
-    if (backToTop) {
-        window.addEventListener("scroll", function () {
-            backToTop.style.display =
-                window.scrollY > 200 ? "block" : "none";
-        });
-
-        backToTop.addEventListener("click", function () {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-    }
-
-});
-</script>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" style="display: none; position: fixed; bottom: 25px; right: 25px; background-color:#003366; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; font-size: 20px; cursor: pointer; box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index: 1000;">↑</button>
 
 </body>
 </html>
