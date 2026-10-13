@@ -134,18 +134,24 @@ a { color: inherit; text-decoration: none; }
   min-height: 585px;
   overflow: hidden;
   background-color: #d9e6f0;
-  background-image: url("assets/asm-campus-building.webp");
-  background-position: center;
-  background-size: cover;
+}
+.hero-building-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .hero-shade {
   position: absolute;
+  z-index: 1;
   inset: 0;
   background: linear-gradient(0deg, rgb(6 27 49 / 72%), transparent 46%);
 }
 .hero-photo-caption {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   right: 24px;
   bottom: 24px;
   left: 24px;
@@ -261,7 +267,7 @@ a { color: inherit; text-decoration: none; }
 .button-quiet:hover { background: rgb(255 255 255 / 18%); }
 .social-links {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   top: 50%;
   right: 15px;
   display: flex;
