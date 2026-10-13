@@ -38,3 +38,20 @@ if ("IntersectionObserver" in window) {
 
   observedSections.forEach((section) => sectionObserver.observe(section));
 }
+javascript
+// View Details buttons for all department cards
+document.querySelectorAll(".view-details-btn").forEach(function (button) {
+    button.addEventListener("click", function () {
+        const detailsId = button.getAttribute("aria-controls");
+        const details = document.getElementById(detailsId);
+
+        if (!details) return;
+
+        const isHidden = details.hidden;
+
+        details.hidden = !isHidden;
+        button.setAttribute("aria-expanded", String(isHidden));
+        button.textContent = isHidden ? "Hide Details" : "View Details";
+    });
+});
+
