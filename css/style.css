@@ -129,6 +129,69 @@
   gap: 22px;
 }
 
+.contact-event-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, 0.7fr) auto;
+  align-items: end;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.contact-event-filters label {
+  display: block;
+  margin-bottom: 6px;
+  color: #24435d;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.contact-event-filters input,
+.contact-event-filters select,
+.contact-event-filters button {
+  min-height: 44px;
+  padding: 9px 12px;
+  border: 1px solid #cbd7e1;
+  border-radius: 6px;
+  background: #fff;
+  color: #173b59;
+  font: inherit;
+}
+
+.contact-event-filters input,
+.contact-event-filters select {
+  width: 100%;
+}
+
+.contact-event-filters input:focus,
+.contact-event-filters select:focus,
+.contact-event-filters button:focus-visible {
+  border-color: #0867b5;
+  outline: 3px solid rgb(8 103 181 / 16%);
+}
+
+.contact-event-filters button {
+  border-color: #0867b5;
+  background: #0867b5;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.contact-event-filters button:hover {
+  background: #063b69;
+}
+
+.contact-event-status {
+  min-height: 1.6em;
+  margin: 0 0 12px;
+  color: #334f68;
+  font-size: 14px;
+}
+
+.contact-event-storage-status {
+  color: #8a3b12;
+}
+
 .contact-event-card,
 .contact-form,
 .contact-details {
@@ -140,13 +203,6 @@
 .contact-event-card {
   padding: 24px;
   border-top: 4px solid #0867b5;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-
-.contact-event-card.is-hovered {
-  transform: translateY(-5px);
-  border-top-color: #063b69;
-  box-shadow: 0 10px 22px rgb(6 59 105 / 16%);
 }
 
 .contact-event-date {
@@ -325,6 +381,14 @@
     justify-content: center;
   }
 
+  .contact-event-filters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-event-filters button {
+    grid-column: 1 / -1;
+  }
+
   .contact-event-grid {
     grid-template-columns: 1fr;
   }
@@ -335,6 +399,14 @@
 }
 
 @media (max-width: 480px) {
+  .contact-event-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-event-filters button {
+    grid-column: auto;
+  }
+
   .contact-navbar {
     padding: 18px;
   }
