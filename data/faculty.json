@@ -1,0 +1,69 @@
+
+[
+  {
+    "id": 1,
+    "name": "Dr. Dhananjay Upasni",
+    "designation": "Dean Academics",
+    "department": "Electrical Engineering",
+    "qualification": "Ph.D., M.Tech, B.E.",
+    "experience": "Experience: 12+ Years",
+    "subjects": ["Electrical Machines", "Power Systems"],
+    "image": "image/Dhananjay sir.png",
+    "imageAlt": "Dr. Dhananjay Upasni"
+  },
+  {
+    "id": 2,
+    "name": "Dr. Ketan Desale",
+    "designation": "Head of Department",
+    "department": "Master of Computer Application",
+    "qualification": "Ph.D., M.Tech, B.E.",
+    "experience": "Experience: 12+ Years",
+    "subjects": ["Research Methodology"],
+    "image": "image/Ketan sir.png",
+    "imageAlt": "Dr. Ketan Desale"
+  },
+  {
+    "id": 3,
+    "name": "Prof. Jyoti Mokashi",
+    "designation": "MCA Coordinator & Assistant Professor",
+    "department": "Master of Computer Application",
+    "qualification": "Master of Computer Application",
+    "experience": "Experience: 12+ Years",
+    "subjects": ["Data Structure Analysis & Algorithms"],
+    "image": "image/jyoti mam1.jpeg",
+    "imageAlt": "Prof. Jyoti Mokashi"
+  },
+  {
+    "id": 4,
+    "name": "Prof. Vandana Pendekar",
+    "designation": "Assistant Professor & TPO",
+    "department": "Engineering (ECE)",
+    "qualification": "M.Tech, B.E.",
+    "experience": "Experience: 10+ Years",
+    "subjects": ["Circuit Analysis", "Digital Electronics"],
+    "image": "image/vandana mam.jpeg",
+    "imageAlt": "Prof. Vandana Pendekar"
+  },
+  {
+    "id": 5,
+    "name": "Asst. Prof. Samiksha Pawar",
+    "designation": "Assistant Professor & Placement Coordinator",
+    "department": "Master of Computer Application",
+    "qualification": "Master of Computer Application",
+    "experience": "Experience: 2+ Years",
+    "subjects": ["Software Engineering"],
+    "image": "image/samiksha mam.jpeg",
+    "imageAlt": "Asst. Prof. Samiksha Pawar"
+  },
+  {
+    "id": 6,
+    "name": "Asst. Prof. Sakshi Chikorde",
+    "designation": "Assistant Professor",
+    "department": "Master of Computer Application",
+    "qualification": "Master of Computer Application",
+    "experience": "Experience: 2+ Years",
+    "subjects": ["E-Commerce"],
+    "image": "image/sakshi mam.jpeg",
+    "imageAlt": "Asst. Prof. Sakshi Chikorde"
+  }
+]

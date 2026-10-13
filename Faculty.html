@@ -1,548 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Faculty | ASM's NextGen Technical Campus</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f4f8ff;
-            color: #24364b;
-            line-height: 1.6;
-        }
-
-        /* HEADER */
-        .site-header {
-            background: #ffffff;
-            color: #123d78;
-            padding: 22px 35px 0;
-            border-bottom: 1px solid #dce8f8;
-            box-shadow: 0 3px 15px rgba(20, 65, 120, 0.08);
-        }
-
-        .college-brand {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 125px;
-            width: 100%;
-        }
-
-        /* College logo stays on the left */
-        .college-logo {
-            position: absolute;
-            left: 5px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 105px;
-            height: 105px;
-            object-fit: contain;
-        }
-
-        .college-name {
-            width: 100%;
-            text-align: center;
-            padding: 0 120px;
-        }
-
-        .college-name h1 {
-            color: #1769d1;
-            font-size: 34px;
-            line-height: 1.3;
-            margin-bottom: 5px;
-        }
-
-        .college-name > p:first-of-type {
-            color: #123d78;
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .college-info {
-            color: #60748c;
-            font-size: 14px;
-        }
-
-        /* NAVIGATION BELOW COLLEGE INFORMATION */
-        .main-nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            width: 100%;
-            margin-top: 15px;
-            padding: 15px 0;
-            border-top: 1px solid #e1eaf7;
-        }
-
-        .main-nav a {
-            display: inline-block;
-            color: #425875;
-            text-decoration: none;
-            padding: 9px 14px;
-            border-radius: 7px;
-            font-size: 14px;
-            font-weight: 600;
-            white-space: nowrap;
-            transition: color 0.3s ease,
-                        background-color 0.3s ease,
-                        transform 0.3s ease,
-                        box-shadow 0.3s ease;
-        }
-
-        /* Mouseover effect */
-        .main-nav a:hover {
-            color: #ffffff;
-            background: #1769d1;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(23, 105, 209, 0.2);
-            text-decoration: none;
-        }
-
-        .main-nav a.active {
-            color: #ffffff;
-            background: #0b3d91;
-        }
-
-        .main-nav a.active:hover {
-            background: #1769d1;
-        }
-
-        .main-nav a:focus-visible {
-            outline: 2px solid #1769d1;
-            outline-offset: 3px;
-        }
-
-        /* PAGE TITLE */
-        .page-title {
-            background: linear-gradient(120deg, #0b3d91, #1769d1, #4389ee);
-            color: #ffffff;
-            text-align: center;
-            padding: 65px 20px;
-        }
-
-        .title-label {
-            display: inline-block;
-            padding: 6px 18px;
-            margin-bottom: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.35);
-            border-radius: 25px;
-            color: #e5f1ff;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 1.5px;
-        }
-
-        .page-title h2 {
-            font-size: clamp(34px, 5vw, 48px);
-            margin-bottom: 12px;
-            line-height: 1.2;
-        }
-
-        .page-title p {
-            max-width: 750px;
-            margin: auto;
-            font-size: 18px;
-            color: #e8f2ff;
-        }
-
-        main {
-            max-width: 1250px;
-            margin: auto;
-        }
-
-        /* SEARCH */
-        .faculty-search {
-            text-align: center;
-            padding: 35px 20px 5px;
-        }
-
-        .faculty-search input {
-            width: 100%;
-            max-width: 500px;
-            padding: 14px 20px;
-            border: 1px solid #c8d9f0;
-            border-radius: 30px;
-            font-size: 16px;
-            outline: none;
-            background: #ffffff;
-            color: #24364b;
-            box-shadow: 0 4px 15px rgba(11, 61, 145, 0.06);
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .faculty-search input:focus {
-            border-color: #1769d1;
-            box-shadow: 0 0 0 4px rgba(23, 105, 209, 0.12);
-        }
-
-        #searchMessage {
-            margin-top: 10px;
-            color: #718096;
-            font-size: 14px;
-        }
-
-        /* FACULTY SECTION */
-        .faculty-section {
-            padding: 40px 25px 60px;
-        }
-
-        .section-heading {
-            text-align: center;
-            color: #0b3d91;
-            font-size: 32px;
-            margin-bottom: 35px;
-        }
-
-        .section-heading::after {
-            content: "";
-            display: block;
-            width: 65px;
-            height: 4px;
-            margin: 12px auto 0;
-            border-radius: 5px;
-            background: #3985e8;
-        }
-
-        .faculty-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 25px;
-        }
-
-        .faculty-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 30px 22px;
-            background: #ffffff;
-            border: 1px solid #e0eaf7;
-            border-radius: 15px;
-            box-shadow: 0 6px 22px rgba(11, 61, 145, 0.07);
-            transition: transform 0.3s ease,
-                        box-shadow 0.3s ease,
-                        border-color 0.3s ease;
-        }
-
-        .faculty-card:hover {
-            transform: translateY(-7px);
-            border-color: #9bc5fa;
-            box-shadow: 0 14px 30px rgba(11, 61, 145, 0.14);
-        }
-
-        .faculty-photo {
-            width: 125px;
-            height: 125px;
-            margin-bottom: 18px;
-            border-radius: 50%;
-            overflow: hidden;
-            background: #e4efff;
-            border: 4px solid #e1edff;
-            flex-shrink: 0;
-        }
-
-        .faculty-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
-
-        .faculty-card h3 {
-            color: #0b3d91;
-            font-size: 19px;
-            line-height: 1.4;
-            margin-bottom: 8px;
-        }
-
-        .designation {
-            color: #1769d1;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
-
-        .department,
-        .qualification,
-        .experience {
-            color: #627187;
-            font-size: 14px;
-            margin-bottom: 6px;
-        }
-
-        .view-details {
-            margin-top: 18px;
-            padding: 11px 22px;
-            background: #0b3d91;
-            color: #ffffff;
-            border: 1px solid #0b3d91;
-            border-radius: 7px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .view-details:hover {
-            background: #1769d1;
-            transform: translateY(-2px);
-        }
-
-        #noResults {
-            display: none;
-            text-align: center;
-            color: #60748c;
-            padding: 30px;
-            grid-column: 1 / -1;
-        }
-
-        /* DETAILS POPUP */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            inset: 0;
-            background: rgba(9, 35, 75, 0.65);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            position: relative;
-            background: #ffffff;
-            width: 100%;
-            max-width: 500px;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 32px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
-        }
-
-        #modalPhoto {
-            width: 135px;
-            height: 135px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center;
-            margin: 0 auto 18px;
-            display: block;
-            border: 5px solid #e1edff;
-        }
-
-        .modal-content h2 {
-            color: #0b3d91;
-            margin-bottom: 18px;
-            padding: 0 20px;
-            font-size: 26px;
-        }
-
-        .modal-content p {
-            margin-bottom: 10px;
-            color: #52657c;
-            overflow-wrap: anywhere;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 8px;
-            right: 15px;
-            font-size: 30px;
-            border: none;
-            background: transparent;
-            color: #52657c;
-            cursor: pointer;
-            line-height: 1;
-        }
-
-        .close-modal:hover {
-            color: #1769d1;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #0b3d91;
-            color: #ffffff;
-            padding: 42px 8% 20px;
-            margin-top: 20px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 40px;
-        }
-
-        .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 13px;
-            color: #ffffff;
-        }
-
-        .footer-column p {
-            color: #e0edff;
-            font-size: 14px;
-            margin-bottom: 8px;
-            overflow-wrap: anywhere;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 30px auto 0;
-            padding-top: 18px;
-            border-top: 1px solid rgba(255, 255, 255, 0.25);
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            color: #e0edff;
-            font-size: 13px;
-        }
-
-        /* TABLET */
-        @media (max-width: 900px) {
-            .site-header {
-                padding: 18px 22px 0;
-            }
-
-            .college-info {
-                white-space: normal;
-            }
-
-            .main-nav {
-                gap: 7px;
-            }
-
-            .main-nav a {
-                padding: 8px 10px;
-                font-size: 13px;
-            }
-
-            .faculty-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        /* MOBILE */
-        @media (max-width: 600px) {
-            .site-header {
-                padding: 18px 15px 0;
-            }
-
-            .college-brand {
-                min-height: auto;
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .college-logo {
-                position: static;
-                transform: none;
-                width: 85px;
-                height: 85px;
-                margin-bottom: 5px;
-            }
-
-            .college-name {
-                padding: 0;
-            }
-
-            .college-name h1 {
-                font-size: 27px;
-            }
-
-            .college-name > p:first-of-type {
-                font-size: 14px;
-            }
-
-            .college-info {
-                font-size: 12px;
-            }
-
-            .main-nav {
-                justify-content: center;
-                gap: 7px;
-                margin-top: 16px;
-                padding: 13px 0;
-            }
-
-            .main-nav a {
-                font-size: 12px;
-                padding: 8px 10px;
-            }
-
-            .page-title {
-                padding: 45px 18px;
-            }
-
-            .page-title p {
-                font-size: 16px;
-            }
-
-            .faculty-section {
-                padding: 32px 18px 45px;
-            }
-
-            .faculty-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .faculty-card {
-                padding: 27px 18px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 25px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .modal-content {
-                padding: 28px 20px;
-            }
-
-            .modal-content h2 {
-                font-size: 22px;
-            }
-        }
-
-        /* REDUCED MOTION ACCESSIBILITY */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                scroll-behavior: auto !important;
-                transition-duration: 0.01ms !important;
-                animation-duration: 0.01ms !important;
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/Faculty.css">
+    
 </head>
 
 <body>
@@ -573,11 +41,11 @@
             <a href="about.html">About</a>
             <a href="campus.html">Campus</a>
             <a href="coursesprog.html">Courses &amp; Programs</a>
-            <a href="contacts.html">Contact Us</a>
-            <a href="placements.html">Placements</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="placement.html">Placements</a>
             <a href="department.html">Department</a>
             <a href="Faculty.html" class="active" aria-current="page">Faculty</a>
-            <a href="admissions.html">Admissions</a>
+            <a href="addmission.html">Admissions</a>
         </nav>
     </header>
 
@@ -596,10 +64,10 @@
         <input
             type="text"
             id="searchInput"
-            placeholder="Search faculty by name..."
-            aria-label="Search faculty by name"
+            placeholder="Search Faculty By Name..."
+            aria-label="Search Faculty By Name"
         >
-        <p id="searchMessage">Search faculty by entering their name.</p>
+        <p id="searchMessage">Know our Faculty Members!</p>
     </div>
 
     <main>
@@ -607,96 +75,88 @@
             <h2 class="section-heading">Meet Our Faculty Members</h2>
 
             <div class="faculty-grid" id="facultyGrid">
-
-                <article class="faculty-card">
-                    <div class="faculty-photo">
-                        <img src="image/Dhananjay sir.png" alt="Dr. Dhananjay Upasni">
-                    </div>
-                    <h3>Dr. Dhananjay Upasni</h3>
-                    <p class="designation">Dean Academics</p>
-                    <p class="department">Electrical Engineering</p>
-                    <p class="qualification">Ph.D., M.Tech, B.E.</p>
-                    <p class="experience">Experience: 12+ Years</p>
-                    <button class="view-details" type="button">View Details</button>
-                </article>
-
-                <article class="faculty-card">
-                    <div class="faculty-photo">
-                        <img src="image/Ketan sir.png" alt="Dr. Ketan Desale">
-                    </div>
-                    <h3>Dr. Ketan Desale</h3>
-                    <p class="designation">Head of Department</p>
-                    <p class="department">Master of Computer Application</p>
-                    <p class="qualification">Ph.D., M.Tech, B.E.</p>
-                    <p class="experience">Experience: 12+ Years</p>
-                    <button class="view-details" type="button">View Details</button>
-                </article>
-
-                <article class="faculty-card">
-                    <div class="faculty-photo">
-                        <img src="image/jyoti mam1.jpeg" alt="Prof. Jyoti Mokashi">
-                    </div>
-                    <h3>Prof. Jyoti Mokashi</h3>
-                    <p class="designation">MCA Coordinator &amp; Assistant Professor</p>
-                    <p class="department">Master of Computer Application</p>
-                    <p class="qualification">Master of Computer Application</p>
-                    <p class="experience">Experience: 12+ Years</p>
-                    <button class="view-details" type="button">View Details</button>
-                </article>
-
-                <article class="faculty-card">
-                    <div class="faculty-photo">
-                        <img src="image/vandana mam.jpeg" alt="Prof. Vandana Pendekar">
-                    </div>
-                    <h3>Prof. Vandana Pendekar</h3>
-                    <p class="designation">Assistant Professor &amp; TPO</p>
-                    <p class="department">Engineering (ECE)</p>
-                    <p class="qualification">M.Tech, B.E.</p>
-                    <p class="experience">Experience: 10+ Years</p>
-                    <button class="view-details" type="button">View Details</button>
-                </article>
-
-                <article class="faculty-card">
-                    <div class="faculty-photo">
-                        <img src="image/samiksha mam.jpeg" alt="Asst. Prof. Samiksha Pawar">
-                    </div>
-                    <h3>Asst. Prof. Samiksha Pawar</h3>
-                    <p class="designation">Assistant Professor &amp; Placement Coordinator</p>
-                    <p class="department">Master of Computer Application</p>
-                    <p class="qualification">Master of Computer Application</p>
-                    <p class="experience">Experience: 2+ Years</p>
-                    <button class="view-details" type="button">View Details</button>
-                </article>
-
-                <article class="faculty-card">
-                    <div class="faculty-photo">
-                        <img src="image/sakshi mam.jpeg" alt="Asst. Prof. Sakshi Chikorde">
-                    </div>
-                    <h3>Asst. Prof. Sakshi Chikorde</h3>
-                    <p class="designation">Assistant Professor</p>
-                    <p class="department">Master of Computer Application</p>
-                    <p class="qualification">Master of Computer Application</p>
-                    <p class="experience">Experience: 2+ Years</p>
-                    <button class="view-details" type="button">View Details</button>
-                </article>
-
+                <p id="loadingMessage">Loading faculty information...</p>
                 <p id="noResults">No faculty members found.</p>
             </div>
+
         </section>
+        <section class="enquiry-section" id="enquiry">
+    <div class="enquiry-container">
+        <h2 class="section-heading">Faculty Enquiry Form</h2>
+
+        <p class="enquiry-intro">
+            Have a Question About Our Faculty or Academic Departments?
+            Send us Your Enquiry.
+        </p>
+
+        <form id="enquiryForm" class="enquiry-form" novalidate>
+            <div class="form-field">
+                <label for="enquiryName">Full Name *</label>
+                <input id="enquiryName" name="name"
+                       type="text" required minlength="2"
+                       maxlength="60">
+                <small class="field-error" id="nameError"></small>
+            </div>
+
+            <div class="form-field">
+                <label for="enquiryEmail">Email Address *</label>
+                <input id="enquiryEmail" name="email"
+                       type="email" required maxlength="100">
+                <small class="field-error" id="emailError"></small>
+            </div>
+
+            <div class="form-field">
+                <label for="enquiryPhone">Phone Number *</label>
+                <input id="enquiryPhone" name="phone"
+                       type="tel" inputmode="numeric"
+                       pattern="[6-9][0-9]{9}"
+                       maxlength="10" required
+                       placeholder="10-digit mobile number">
+                <small class="field-error" id="phoneError"></small>
+            </div>
+
+            <div class="form-field">
+                <label for="enquirySubject">Enquiry Subject *</label>
+                <input id="enquirySubject" name="subject"
+                       type="text" required minlength="3"
+                       maxlength="100">
+                <small class="field-error" id="subjectError"></small>
+            </div>
+
+            <div class="form-field full-width">
+                <label for="enquiryMessage">Message *</label>
+                <textarea id="enquiryMessage" name="message"
+                          required minlength="10"
+                          maxlength="1000"></textarea>
+                <small class="field-error" id="messageError"></small>
+            </div>
+
+            <p id="formStatus" class="form-status"
+               role="status" aria-live="polite"></p>
+
+            <button type="submit" class="submit-button">
+                Validate Enquiry
+            </button>
+        </form>
+    </div>
+</section>
     </main>
 
     <!-- FACULTY DETAILS POPUP -->
-    <div class="modal"
-         id="facultyModal"
-         role="dialog"
-         aria-modal="true"
-         aria-labelledby="modalName">
-
+    <div
+        class="modal"
+        id="facultyModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalName"
+    >
         <div class="modal-content">
-            <button class="close-modal"
-                    id="closeModal"
-                    type="button"
-                    aria-label="Close">&times;</button>
+            <button
+                class="close-modal"
+                id="closeModal"
+                type="button"
+                aria-label="Close"
+            >&times;</button>
 
             <img id="modalPhoto" src="" alt="Faculty Photo">
             <h2 id="modalName">Faculty Details</h2>
@@ -739,7 +199,7 @@
         </div>
     </footer>
 
-    <!-- EXISTING JAVASCRIPT FOR SEARCH AND POPUP -->
+    <!-- JAVASCRIPT -->
     <script src="js/Faculty.js"></script>
 
 </body>
