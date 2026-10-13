@@ -1,10 +1,10 @@
-git<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Faculty | ASM College</title>
+    <title>Faculty | ASM's NextGen Technical Campus</title>
 
     <style>
         * {
@@ -13,188 +13,248 @@ git<!DOCTYPE html>
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #f2f7ff;
-            color: #222;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f8ff;
+            color: #24364b;
             line-height: 1.6;
         }
 
         /* HEADER */
         .site-header {
-            background: #0b3d91;
-            color: white;
-            padding: 20px 35px;
-            width: 100%;
+            background: #ffffff;
+            color: #123d78;
+            padding: 22px 35px 0;
+            border-bottom: 1px solid #dce8f8;
+            box-shadow: 0 3px 15px rgba(20, 65, 120, 0.08);
         }
 
-        /* Logo stays on the left */
         .college-brand {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 140px;
+            min-height: 125px;
             width: 100%;
         }
 
+        /* College logo stays on the left */
         .college-logo {
             position: absolute;
-            left: 10px;
+            left: 5px;
             top: 50%;
             transform: translateY(-50%);
-            width: 90px;
-            height: 90px;
+            width: 105px;
+            height: 105px;
             object-fit: contain;
-            background: white;
-            border-radius: 50%;
-            padding: 5px;
         }
 
-        /* College information in the center */
         .college-name {
             width: 100%;
             text-align: center;
-            padding: 0 100px;
+            padding: 0 120px;
         }
 
         .college-name h1 {
+            color: #1769d1;
             font-size: 34px;
             line-height: 1.3;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
 
         .college-name > p:first-of-type {
-            font-size: 16px;
-            margin-bottom: 6px;
+            color: #123d78;
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 5px;
         }
 
         .college-info {
-            color: #dbeafe;
+            color: #60748c;
             font-size: 14px;
-            white-space: nowrap;
         }
 
-        /* Navigation below college information */
+        /* NAVIGATION BELOW COLLEGE INFORMATION */
         .main-nav {
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: nowrap;
-            gap: 22px;
+            flex-wrap: wrap;
+            gap: 10px;
             width: 100%;
-            margin-top: 18px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.22);
+            margin-top: 15px;
+            padding: 15px 0;
+            border-top: 1px solid #e1eaf7;
         }
 
         .main-nav a {
-            color: white;
+            display: inline-block;
+            color: #425875;
             text-decoration: none;
+            padding: 9px 14px;
+            border-radius: 7px;
             font-size: 14px;
+            font-weight: 600;
             white-space: nowrap;
+            transition: color 0.3s ease,
+                        background-color 0.3s ease,
+                        transform 0.3s ease,
+                        box-shadow 0.3s ease;
         }
 
-        .main-nav a:hover,
+        /* Mouseover effect */
+        .main-nav a:hover {
+            color: #ffffff;
+            background: #1769d1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(23, 105, 209, 0.2);
+            text-decoration: none;
+        }
+
         .main-nav a.active {
-            color: #dbeafe;
-            text-decoration: underline;
+            color: #ffffff;
+            background: #0b3d91;
+        }
+
+        .main-nav a.active:hover {
+            background: #1769d1;
+        }
+
+        .main-nav a:focus-visible {
+            outline: 2px solid #1769d1;
+            outline-offset: 3px;
         }
 
         /* PAGE TITLE */
         .page-title {
-            background: linear-gradient(135deg, #0b3d91, #1769d1);
-            color: white;
+            background: linear-gradient(120deg, #0b3d91, #1769d1, #4389ee);
+            color: #ffffff;
             text-align: center;
-            padding: 50px 20px;
+            padding: 65px 20px;
+        }
+
+        .title-label {
+            display: inline-block;
+            padding: 6px 18px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 25px;
+            color: #e5f1ff;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
         }
 
         .page-title h2 {
-            font-size: 40px;
-            margin-bottom: 8px;
+            font-size: clamp(34px, 5vw, 48px);
+            margin-bottom: 12px;
+            line-height: 1.2;
         }
 
         .page-title p {
-            font-size: 20px;
+            max-width: 750px;
+            margin: auto;
+            font-size: 18px;
+            color: #e8f2ff;
         }
 
         main {
-            max-width: 1200px;
+            max-width: 1250px;
             margin: auto;
         }
 
         /* SEARCH */
         .faculty-search {
             text-align: center;
-            padding: 30px 20px 10px;
+            padding: 35px 20px 5px;
         }
 
         .faculty-search input {
             width: 100%;
             max-width: 500px;
-            padding: 14px 18px;
-            border: 1px solid #b7cdea;
+            padding: 14px 20px;
+            border: 1px solid #c8d9f0;
             border-radius: 30px;
             font-size: 16px;
             outline: none;
-            background: white;
-            box-shadow: 0 4px 12px rgba(11, 61, 145, 0.08);
+            background: #ffffff;
+            color: #24364b;
+            box-shadow: 0 4px 15px rgba(11, 61, 145, 0.06);
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         .faculty-search input:focus {
             border-color: #1769d1;
-            box-shadow: 0 0 0 3px rgba(23, 105, 209, 0.12);
+            box-shadow: 0 0 0 4px rgba(23, 105, 209, 0.12);
         }
 
         #searchMessage {
             margin-top: 10px;
-            color: #555;
+            color: #718096;
             font-size: 14px;
         }
 
-        /* FACULTY CARDS */
+        /* FACULTY SECTION */
         .faculty-section {
-            padding: 35px 25px 50px;
+            padding: 40px 25px 60px;
         }
 
         .section-heading {
             text-align: center;
             color: #0b3d91;
-            font-size: 30px;
+            font-size: 32px;
             margin-bottom: 35px;
+        }
+
+        .section-heading::after {
+            content: "";
+            display: block;
+            width: 65px;
+            height: 4px;
+            margin: 12px auto 0;
+            border-radius: 5px;
+            background: #3985e8;
         }
 
         .faculty-grid {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 25px;
         }
 
         .faculty-card {
-            background: white;
-            border: 1px solid #d9e8fa;
-            border-radius: 12px;
-            padding: 25px 20px;
-            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: 0 5px 18px rgba(11, 61, 145, 0.08);
-            transition: 0.3s;
+            text-align: center;
+            padding: 30px 22px;
+            background: #ffffff;
+            border: 1px solid #e0eaf7;
+            border-radius: 15px;
+            box-shadow: 0 6px 22px rgba(11, 61, 145, 0.07);
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease,
+                        border-color 0.3s ease;
         }
 
         .faculty-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(11, 61, 145, 0.15);
+            transform: translateY(-7px);
+            border-color: #9bc5fa;
+            box-shadow: 0 14px 30px rgba(11, 61, 145, 0.14);
         }
 
         .faculty-photo {
-            width: 120px;
-            height: 120px;
+            width: 125px;
+            height: 125px;
             margin-bottom: 18px;
             border-radius: 50%;
-            background: #dbeafe;
             overflow: hidden;
+            background: #e4efff;
+            border: 4px solid #e1edff;
             flex-shrink: 0;
         }
 
@@ -209,44 +269,47 @@ git<!DOCTYPE html>
         .faculty-card h3 {
             color: #0b3d91;
             font-size: 19px;
+            line-height: 1.4;
             margin-bottom: 8px;
         }
 
         .designation {
             color: #1769d1;
-            font-weight: bold;
             font-size: 14px;
+            font-weight: bold;
             margin-bottom: 12px;
         }
 
         .department,
         .qualification,
         .experience {
-            color: #555;
+            color: #627187;
             font-size: 14px;
-            margin-bottom: 7px;
+            margin-bottom: 6px;
         }
 
         .view-details {
-            margin-top: 15px;
-            padding: 10px 20px;
+            margin-top: 18px;
+            padding: 11px 22px;
             background: #0b3d91;
-            color: white;
-            border: none;
-            border-radius: 6px;
+            color: #ffffff;
+            border: 1px solid #0b3d91;
+            border-radius: 7px;
             font-size: 14px;
+            font-weight: bold;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.3s;
         }
 
         .view-details:hover {
             background: #1769d1;
+            transform: translateY(-2px);
         }
 
         #noResults {
             display: none;
             text-align: center;
-            color: #555;
+            color: #60748c;
             padding: 30px;
             grid-column: 1 / -1;
         }
@@ -257,34 +320,34 @@ git<!DOCTYPE html>
             position: fixed;
             z-index: 1000;
             inset: 0;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(9, 35, 75, 0.65);
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
 
         .modal-content {
-            background: white;
+            position: relative;
+            background: #ffffff;
             width: 100%;
             max-width: 500px;
             max-height: 90vh;
             overflow-y: auto;
-            padding: 30px;
-            border-radius: 14px;
+            padding: 32px;
+            border-radius: 16px;
             text-align: center;
-            position: relative;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
         }
 
         #modalPhoto {
-            width: 130px;
-            height: 130px;
+            width: 135px;
+            height: 135px;
             border-radius: 50%;
             object-fit: cover;
             object-position: center;
             margin: 0 auto 18px;
             display: block;
-            border: 4px solid #dbeafe;
+            border: 5px solid #e1edff;
         }
 
         .modal-content h2 {
@@ -296,7 +359,7 @@ git<!DOCTYPE html>
 
         .modal-content p {
             margin-bottom: 10px;
-            color: #444;
+            color: #52657c;
             overflow-wrap: anywhere;
         }
 
@@ -304,24 +367,24 @@ git<!DOCTYPE html>
             position: absolute;
             top: 8px;
             right: 15px;
-            font-size: 28px;
+            font-size: 30px;
             border: none;
             background: transparent;
-            color: #555;
+            color: #52657c;
             cursor: pointer;
             line-height: 1;
         }
 
         .close-modal:hover {
-            color: #0b3d91;
+            color: #1769d1;
         }
 
         /* FOOTER */
         footer {
             background: #0b3d91;
-            color: white;
-            padding: 40px 8% 20px;
-            margin-top: 30px;
+            color: #ffffff;
+            padding: 42px 8% 20px;
+            margin-top: 20px;
         }
 
         .footer-content {
@@ -334,13 +397,14 @@ git<!DOCTYPE html>
 
         .footer-column h3 {
             font-size: 18px;
-            margin-bottom: 12px;
+            margin-bottom: 13px;
+            color: #ffffff;
         }
 
         .footer-column p {
-            color: #dbeafe;
-            font-size: 13px;
-            margin-bottom: 7px;
+            color: #e0edff;
+            font-size: 14px;
+            margin-bottom: 8px;
             overflow-wrap: anywhere;
         }
 
@@ -348,23 +412,31 @@ git<!DOCTYPE html>
             max-width: 1200px;
             margin: 30px auto 0;
             padding-top: 18px;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
             display: flex;
             justify-content: space-between;
             gap: 12px;
-            color: #dbeafe;
+            color: #e0edff;
             font-size: 13px;
         }
 
-        /* TABLET AND SMALL LAPTOP */
-        @media (max-width: 1200px) {
+        /* TABLET */
+        @media (max-width: 900px) {
+            .site-header {
+                padding: 18px 22px 0;
+            }
+
             .college-info {
                 white-space: normal;
             }
 
             .main-nav {
-                flex-wrap: wrap;
-                gap: 12px 20px;
+                gap: 7px;
+            }
+
+            .main-nav a {
+                padding: 8px 10px;
+                font-size: 13px;
             }
 
             .faculty-grid {
@@ -375,7 +447,7 @@ git<!DOCTYPE html>
         /* MOBILE */
         @media (max-width: 600px) {
             .site-header {
-                padding: 18px 15px;
+                padding: 18px 15px 0;
             }
 
             .college-brand {
@@ -387,8 +459,9 @@ git<!DOCTYPE html>
             .college-logo {
                 position: static;
                 transform: none;
-                width: 70px;
-                height: 70px;
+                width: 85px;
+                height: 85px;
+                margin-bottom: 5px;
             }
 
             .college-name {
@@ -400,7 +473,7 @@ git<!DOCTYPE html>
             }
 
             .college-name > p:first-of-type {
-                font-size: 13px;
+                font-size: 14px;
             }
 
             .college-info {
@@ -409,21 +482,18 @@ git<!DOCTYPE html>
 
             .main-nav {
                 justify-content: center;
-                gap: 10px 16px;
-                margin-top: 15px;
-                padding-top: 15px;
+                gap: 7px;
+                margin-top: 16px;
+                padding: 13px 0;
             }
 
             .main-nav a {
-                font-size: 13px;
+                font-size: 12px;
+                padding: 8px 10px;
             }
 
             .page-title {
-                padding: 40px 20px;
-            }
-
-            .page-title h2 {
-                font-size: 32px;
+                padding: 45px 18px;
             }
 
             .page-title p {
@@ -431,11 +501,15 @@ git<!DOCTYPE html>
             }
 
             .faculty-section {
-                padding: 30px 18px;
+                padding: 32px 18px 45px;
             }
 
             .faculty-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .faculty-card {
+                padding: 27px 18px;
             }
 
             .footer-content {
@@ -457,6 +531,17 @@ git<!DOCTYPE html>
                 font-size: 22px;
             }
         }
+
+        /* REDUCED MOTION ACCESSIBILITY */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 
@@ -464,7 +549,6 @@ git<!DOCTYPE html>
 
     <!-- HEADER -->
     <header class="site-header">
-
         <div class="college-brand">
 
             <img
@@ -474,35 +558,37 @@ git<!DOCTYPE html>
             >
 
             <div class="college-name">
-                <h1>ASM College</h1>
-
-                <p>Institute of Management &amp; Computer Studies</p>
-
+                <h1>ASM NextGen Technical Campus</h1>
+                <p>Institute of Management &amp; Engineering</p>
                 <p class="college-info">
-                    A learning-focused institution committed to academic excellence, professional development and student growth.
+                    A learning-focused institution committed to academic excellence,
+                    professional development and student growth.
                 </p>
             </div>
-
         </div>
 
-        <!-- NAVIGATION BELOW COLLEGE INFORMATION -->
-        <nav class="main-nav">
+        <!-- NAVIGATION -->
+        <nav class="main-nav" aria-label="Main navigation">
             <a href="home.html">Home</a>
             <a href="about.html">About</a>
             <a href="campus.html">Campus</a>
-            <a href="coursesprog.html">Courses & Programs</a>
+            <a href="coursesprog.html">Courses &amp; Programs</a>
             <a href="contacts.html">Contact Us</a>
             <a href="placements.html">Placements</a>
             <a href="department.html">Department</a>
-            <a href="Faculty.html" class="active">Faculty</a>
+            <a href="Faculty.html" class="active" aria-current="page">Faculty</a>
+            <a href="admissions.html">Admissions</a>
         </nav>
-
     </header>
 
     <!-- PAGE TITLE -->
     <section class="page-title">
-        <h2>Faculty</h2>
-        <p>Meet our experienced and dedicated faculty members</p>
+        <span class="title-label">EXCELLENCE IN EDUCATION</span>
+        <h2>Our Faculty</h2>
+        <p>
+            Meet our experienced and dedicated faculty members,
+            committed to guiding students towards academic and professional success.
+        </p>
     </section>
 
     <!-- SEARCH BAR -->
@@ -518,15 +604,13 @@ git<!DOCTYPE html>
 
     <main>
         <section class="faculty-section">
-
-            <h2 class="section-heading">Our Faculty</h2>
+            <h2 class="section-heading">Meet Our Faculty Members</h2>
 
             <div class="faculty-grid" id="facultyGrid">
 
                 <article class="faculty-card">
                     <div class="faculty-photo">
-                        <img src="image/Dhananjay sir.jpeg"
-                             alt="Dr. Dhananjay Upasni">
+                        <img src="image/Dhananjay sir.png" alt="Dr. Dhananjay Upasni">
                     </div>
                     <h3>Dr. Dhananjay Upasni</h3>
                     <p class="designation">Dean Academics</p>
@@ -538,8 +622,7 @@ git<!DOCTYPE html>
 
                 <article class="faculty-card">
                     <div class="faculty-photo">
-                        <img src="image/ketan sir.jpeg"
-                             alt="Dr. Ketan Desale">
+                        <img src="image/Ketan sir.png" alt="Dr. Ketan Desale">
                     </div>
                     <h3>Dr. Ketan Desale</h3>
                     <p class="designation">Head of Department</p>
@@ -551,8 +634,7 @@ git<!DOCTYPE html>
 
                 <article class="faculty-card">
                     <div class="faculty-photo">
-                        <img src="image/jyoti mam1.jpeg"
-                             alt="Prof. Jyoti Mokashi">
+                        <img src="image/jyoti mam1.jpeg" alt="Prof. Jyoti Mokashi">
                     </div>
                     <h3>Prof. Jyoti Mokashi</h3>
                     <p class="designation">MCA Coordinator &amp; Assistant Professor</p>
@@ -564,8 +646,7 @@ git<!DOCTYPE html>
 
                 <article class="faculty-card">
                     <div class="faculty-photo">
-                        <img src="image/vandana mam.jpeg"
-                             alt="Prof. Vandana Pendekar">
+                        <img src="image/vandana mam.jpeg" alt="Prof. Vandana Pendekar">
                     </div>
                     <h3>Prof. Vandana Pendekar</h3>
                     <p class="designation">Assistant Professor &amp; TPO</p>
@@ -577,8 +658,7 @@ git<!DOCTYPE html>
 
                 <article class="faculty-card">
                     <div class="faculty-photo">
-                        <img src="image/samiksha mam.jpeg"
-                             alt="Asst. Prof. Samiksha Pawar">
+                        <img src="image/samiksha mam.jpeg" alt="Asst. Prof. Samiksha Pawar">
                     </div>
                     <h3>Asst. Prof. Samiksha Pawar</h3>
                     <p class="designation">Assistant Professor &amp; Placement Coordinator</p>
@@ -590,8 +670,7 @@ git<!DOCTYPE html>
 
                 <article class="faculty-card">
                     <div class="faculty-photo">
-                        <img src="image/sakshi mam.jpeg"
-                             alt="Asst. Prof. Sakshi Chikorde">
+                        <img src="image/sakshi mam.jpeg" alt="Asst. Prof. Sakshi Chikorde">
                     </div>
                     <h3>Asst. Prof. Sakshi Chikorde</h3>
                     <p class="designation">Assistant Professor</p>
@@ -602,7 +681,6 @@ git<!DOCTYPE html>
                 </article>
 
                 <p id="noResults">No faculty members found.</p>
-
             </div>
         </section>
     </main>
@@ -615,18 +693,14 @@ git<!DOCTYPE html>
          aria-labelledby="modalName">
 
         <div class="modal-content">
-
             <button class="close-modal"
                     id="closeModal"
                     type="button"
                     aria-label="Close">&times;</button>
 
             <img id="modalPhoto" src="" alt="Faculty Photo">
-
             <h2 id="modalName">Faculty Details</h2>
-
             <div id="modalDetails"></div>
-
         </div>
     </div>
 
@@ -635,8 +709,8 @@ git<!DOCTYPE html>
         <div class="footer-content">
 
             <div class="footer-column">
-                <h3>ASM College</h3>
-                <p>Institute of Management &amp; Computer Studies</p>
+                <h3>Audyogik Shikshan Mandal’s NextGen Technical Campus</h3>
+                <p>Institute of Management &amp; Engineering</p>
                 <p>
                     Committed to quality education, skill development
                     and overall student growth.
@@ -660,13 +734,13 @@ git<!DOCTYPE html>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 ASM College. All Rights Reserved.</p>
-            <p>Faculty Department | ASM College</p>
+            <p>&copy; 2026 ASM's NextGen Technical Campus. All Rights Reserved.</p>
+            <p>Faculty Department | ASM</p>
         </div>
     </footer>
 
-    <!-- EXISTING JAVASCRIPT -->
-    <script src="faculty.js"></script>
+    <!-- EXISTING JAVASCRIPT FOR SEARCH AND POPUP -->
+    <script src="js/Faculty.js"></script>
 
 </body>
 </html>

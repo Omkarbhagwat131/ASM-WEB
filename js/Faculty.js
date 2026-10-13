@@ -1,24 +1,26 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchInput");
+    const facultyGrid = document.getElementById("facultyGrid");
+    const searchMessage = document.getElementById("searchMessage");
+    const noResults = document.getElementById("noResults");
 
- // Faculty Search
-const searchInput = document.getElementById("searchInput");
-const facultyCards = document.querySelectorAll(".faculty-card");
-const noResults = document.getElementById("noResults");
-const searchMessage = document.getElementById("searchMessage");
+    const facultyModal = document.getElementById("facultyModal");
+    const modalPhoto = document.getElementById("modalPhoto");
+    const modalName = document.getElementById("modalName");
+    const modalDetails = document.getElementById("modalDetails");
+    const closeModal = document.getElementById("closeModal");
 
-if (searchInput && noResults && searchMessage) {
+    const facultyCards = document.querySelectorAll(".faculty-card");
+
+    // SEARCH FACULTY
     searchInput.addEventListener("input", function () {
-        const searchText = this.value.trim().toLowerCase();
+        const searchText = searchInput.value.trim().toLowerCase();
         let visibleCount = 0;
 
         facultyCards.forEach(function (card) {
-            const facultyName =
-                card.querySelector("h3")?.textContent.toLowerCase() || "";
-
-            const designation =
-                card.querySelector(".designation")?.textContent.toLowerCase() || "";
-
-            const department =
-                card.querySelector(".department")?.textContent.toLowerCase() || "";
+            const facultyName = card.querySelector("h3").textContent.toLowerCase();
+            const designation = card.querySelector(".designation").textContent.toLowerCase();
+            const department = card.querySelector(".department").textContent.toLowerCase();
 
             const matches =
                 facultyName.includes(searchText) ||
@@ -32,101 +34,75 @@ if (searchInput && noResults && searchMessage) {
             }
         });
 
-        noResults.style.display =
-            visibleCount === 0 ? "block" : "none";
+        noResults.style.display = visibleCount === 0 ? "block" : "none";
 
         searchMessage.textContent = searchText
             ? visibleCount + " faculty member(s) found."
             : "Search faculty by entering their name.";
     });
-}
 
-// View Details Popup
-const modal = document.getElementById("facultyModal");
-const modalName = document.getElementById("modalName");
-const modalDetails = document.getElementById("modalDetails");
-const modalPhoto = document.getElementById("modalPhoto");
-const closeModal = document.getElementById("closeModal");
-
-if (modal && modalName && modalDetails && modalPhoto && closeModal) {
-    facultyCards.forEach(function (card) {
-        const button = card.querySelector(".view-details");
-
-        if (!button) return;
-
+        // VIEW DETAILS BUTTONS
+    document.querySelectorAll(".view-details").forEach(function (button) {
         button.addEventListener("click", function () {
-            const name =
-                card.querySelector("h3")?.textContent.trim() || "";
+            const card = button.closest(".faculty-card");
 
-            const photo =
-                card.querySelector(".faculty-photo img");
+            const photo = card.querySelector(".faculty-photo img");
+            const name = card.querySelector("h3").textContent;
+            const designation = card.querySelector(".designation").textContent;
+            const department = card.querySelector(".department").textContent;
+            const qualification = card.querySelector(".qualification").textContent;
+            const experience = card.querySelector(".experience").textContent;
 
-            const designation =
-                card.querySelector(".designation")?.textContent.trim() || "";
+            document.getElementById("modalPhoto").src = photo.src;
+            document.getElementById("modalPhoto").alt = photo.alt;
+            document.getElementById("modalName").textContent = name;
 
-            const department =
-                card.querySelector(".department")?.textContent.trim() || "";
+            const details = document.getElementById("modalDetails");
+            details.innerHTML = "";
 
-            const qualification =
-                card.querySelector(".qualification")?.textContent.trim() || "";
-
-            const experience =
-                card.querySelector(".experience")?.textContent.trim() || "";
-
-            // Display faculty photo
-            if (photo) {
-                modalPhoto.src = photo.src;
-                modalPhoto.alt = name;
-            }
-
-            // Display faculty name
-            modalName.textContent = name;
-
-            // Clear previous details
-            modalDetails.replaceChildren();
-
-            // Display faculty information
-            [
-                ["Designation", designation],
-                ["Department", department],
-                ["Qualification", qualification],
-                ["Experience", experience]
-            ].forEach(function (item) {
-                const paragraph = document.createElement("p");
-                const label = document.createElement("strong");
-
-                label.textContent = item[0] + ": ";
-
-                paragraph.append(
-                    label,
-                    document.createTextNode(item[1])
-                );
-
-                modalDetails.appendChild(paragraph);
+            [designation, department, qualification, experience].forEach(function (item) {
+                const p = document.createElement("p");
+                p.textContent = item;
+                details.appendChild(p);
             });
 
-            // Open popup
+            const modal = document.getElementById("facultyModal");
             modal.style.display = "flex";
-            closeModal.focus();
+            document.body.style.overflow = "hidden";
         });
     });
 
-    // Close popup using close button
-    closeModal.addEventListener("click", function () {
-        modal.style.display = "none";
+    // CLOSE POPUP
+    document.getElementById("closeModal").addEventListener("click", function () {
+        document.getElementById("facultyModal").style.display = "none";
+        document.body.style.overflow = "";
     });
 
-    // Close popup by clicking outside
-    modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
+    // CLOSE WHEN CLICKING OUTSIDE
+    document.getElementById("facultyModal").addEventListener("click", function (event) {
+        if (event.target.id === "facultyModal") {
+            event.currentTarget.style.display = "none";
+            document.body.style.overflow = "";
         }
     });
 
-    // Close popup using Escape key
+    // CLOSE USING ESCAPE KEY
     document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
-            modal.style.display = "none";
+            document.getElementById("facultyModal").style.display = "none";
+            document.body.style.overflow = "";
         }
     });
-}
+
+    // CLOSE POPUP WITH ESCAPE KEY
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && facultyModal.style.display === "flex") {
+            closeFacultyModal();
+        }
+    });
+
+    function closeFacultyModal() {
+        facultyModal.style.display = "none";
+        document.body.style.overflow = "";
+    }
+});
