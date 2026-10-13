@@ -1,13 +1,14 @@
 
 :root {
-    --navy: #d9eaf7;
-    --blue: #e8f1f8;
-    --bright-blue: #5b9bd5;
-    --pale-blue: #f0f7fc;
+    color-scheme: light;
+    --navy: #082847;
+    --blue: #103f68;
+    --bright-blue: #1b5d91;
+    --pale-blue: #e8f1f8;
     --ink: #172b3f;
     --muted: #617386;
     --white: #ffffff;
-    --paper: #f8fbfe;
+    --paper: #f5f8fb;
     --font-body: "Roboto", sans-serif;
     --font-heading: "Raleway", sans-serif;
 }
@@ -20,32 +21,36 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 88px;
 }
 
-/* BODY AND BACKGROUND IMAGE */
 body {
     font-family: var(--font-body);
-    background-color: var(--paper);
-    background-image:
-        linear-gradient(
-            rgba(248, 251, 254, 0.82),
-            rgba(248, 251, 254, 0.82)
-        ),
-        url("../image/asm-campus-building.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: var(--white);
     color: var(--ink);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* HEADER */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
 .site-header {
     background: var(--white);
     padding: 22px 35px 0;
-    border-bottom: 1px solid var(--pale-blue);
-    box-shadow: 0 3px 15px rgba(23, 43, 63, 0.08);
+    border-bottom: 1px solid #d8e8f6;
 }
 
 .college-brand {
@@ -75,7 +80,7 @@ body {
 
 .college-name h1 {
     font-family: var(--font-heading);
-    color: #082847;
+    color: var(--navy);
     font-size: 34px;
     line-height: 1.3;
     margin-bottom: 5px;
@@ -83,18 +88,22 @@ body {
 }
 
 .college-name > p:first-of-type {
-    color: #082847;
+    color: var(--blue);
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 5px;
 }
 
 .college-info {
-    color: var(--muted);
+    color: #345675;
     font-size: 14px;
+    font-weight: 500;
 }
 
-/* NAVIGATION */
+/* =========================
+   NAVIGATION
+========================= */
+
 .main-nav {
     display: flex;
     justify-content: center;
@@ -104,29 +113,29 @@ body {
     width: 100%;
     margin-top: 15px;
     padding: 15px 0;
-    border-top: 1px solid var(--pale-blue);
+    border-top: 1px solid #d8e8f6;
+    background: #f2f8fd;
 }
 
 .main-nav a {
     display: inline-block;
-    color: var(--ink);
-    text-decoration: none;
+    color: #174f7c;
+    background: transparent;
     padding: 9px 14px;
-    border-radius: 7px;
-    font-size: 14px;
-    font-weight: 600;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
     white-space: nowrap;
-    transition: 0.3s ease;
+    transition: color 0.2s ease, background 0.2s ease;
 }
 
-.main-nav a:hover {
-    background: var(--pale-blue);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(91, 155, 213, 0.2);
-}
-
+.main-nav a:hover,
 .main-nav a.active {
-    background: var(--navy);
+    color: #075e9c;
+    background: #d9edff;
+    transform: none;
+    box-shadow: none;
 }
 
 .main-nav a:focus-visible {
@@ -134,73 +143,89 @@ body {
     outline-offset: 3px;
 }
 
-/* PAGE TITLE */
+/* =========================
+   PAGE TITLE
+   LIGHT IMAGE & DARK BLUE TEXT
+========================= */
+
 .page-title {
-    background-color: var(--navy);
-    background-image:
+    background:
         linear-gradient(
-            rgba(167, 202, 225, 0.68),
-            rgba(175, 213, 240, 0.72)
+            rgba(255, 255, 255, 0.55),
+            rgba(232, 241, 248, 0.65)
         ),
         url("../image/asm-campus-building.png");
+
+    background-color: #e8f1f8;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: var(--ink);
+
     text-align: center;
     padding: 65px 20px;
+    color: #082847;
 }
 
 .title-label {
     display: inline-block;
     padding: 6px 18px;
     margin-bottom: 16px;
-    border: 1px solid var(--bright-blue);
+    border: 1px solid #103f68;
     border-radius: 25px;
+    color: #103f68;
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 1.5px;
 }
 
 .page-title h2 {
     font-family: var(--font-heading);
+    color: #082847;
     font-size: clamp(34px, 5vw, 48px);
     margin-bottom: 12px;
     line-height: 1.2;
     font-weight: 800;
+    text-shadow: none;
 }
 
 .page-title p {
     max-width: 750px;
     margin: auto;
     font-size: 18px;
-    color: var(--muted);
+    color: #103f68;
+    font-weight: 600;
+    line-height: 1.8;
 }
 
-/* SEARCH */
+/* =========================
+   SEARCH BAR
+========================= */
+
 .faculty-search {
     text-align: center;
-    padding: 35px 20px 5px;
+    padding: 35px 20px 15px;
+    background: var(--white);
 }
 
 .faculty-search input {
     width: 100%;
     max-width: 500px;
     padding: 14px 20px;
-    border: 1px solid var(--navy);
+    border: 1px solid #d6deeb;
     border-radius: 30px;
-    font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 15px;
     outline: none;
-    background: var(--white);
+    background: #f8faff;
     color: var(--ink);
-    box-shadow: 0 4px 15px rgba(23, 43, 63, 0.06);
-    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(8, 40, 71, 0.06);
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease;
 }
 
 .faculty-search input:focus {
-    border-color: var(--bright-blue);
-    box-shadow: 0 0 0 4px rgba(91, 155, 213, 0.18);
+    border-color: var(--blue);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgb(16 63 104 / 10%);
 }
 
 #searchMessage {
@@ -209,14 +234,19 @@ body {
     font-size: 14px;
 }
 
-/* FACULTY SECTION */
+/* =========================
+   FACULTY SECTION
+========================= */
+
 .faculty-section {
     padding: 40px 25px 60px;
+    background: var(--paper);
 }
 
 .section-heading {
     text-align: center;
     font-family: var(--font-heading);
+    color: var(--navy);
     font-size: 32px;
     font-weight: 800;
     margin-bottom: 35px;
@@ -236,28 +266,34 @@ body {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* =========================
+   FACULTY CARD
+========================= */
+
 .faculty-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 30px 22px;
     background: var(--white);
-    border: 1px solid var(--navy);
-    border-radius: 15px;
-    box-shadow: 0 6px 22px rgba(23, 43, 63, 0.07);
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
+    border: 1px solid #dfe7f0;
+    border-radius: 12px;
+    box-shadow: 0 6px 22px rgba(8, 40, 71, 0.07);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
 }
 
 .faculty-card:hover {
-    transform: translateY(-7px);
+    transform: translateY(-5px);
     border-color: var(--bright-blue);
-    box-shadow: 0 14px 30px rgba(23, 43, 63, 0.14);
+    box-shadow: 0 12px 30px rgba(8, 40, 71, 0.12);
 }
 
 .faculty-photo {
@@ -267,7 +303,7 @@ body {
     border-radius: 50%;
     overflow: hidden;
     background: var(--pale-blue);
-    border: 4px solid var(--navy);
+    border: 4px solid #d8e8f6;
     flex-shrink: 0;
 }
 
@@ -281,6 +317,7 @@ body {
 
 .faculty-card h3 {
     font-family: var(--font-heading);
+    color: var(--navy);
     font-size: 19px;
     line-height: 1.4;
     margin-bottom: 8px;
@@ -290,7 +327,7 @@ body {
 .designation {
     color: var(--bright-blue);
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 12px;
 }
 
@@ -303,25 +340,123 @@ body {
     margin-bottom: 6px;
 }
 
-.view-details {
-    margin-top: 18px;
-    padding: 11px 22px;
-    background: var(--navy);
-    color: var(--ink);
-    border: 1px solid var(--navy);
-    border-radius: 7px;
-    font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
+/* =========================
+   THREE-DOT MENU
+========================= */
+
+.faculty-card-menu {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 20;
 }
 
-.view-details:hover {
-    background: var(--blue);
-    border-color: var(--bright-blue);
-    transform: translateY(-2px);
+.three-dots-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--pale-blue);
+    color: var(--navy);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                color 0.2s ease;
 }
+
+.three-dots-btn:hover {
+    background: #cbdff0;
+    color: var(--bright-blue);
+}
+
+.three-dots-btn:focus-visible {
+    outline: 2px solid var(--bright-blue);
+    outline-offset: 3px;
+}
+
+/* Dropdown menu */
+
+.faculty-dropdown {
+    display: none;
+    position: absolute;
+    top: 42px;
+    right: 0;
+    min-width: 175px;
+    padding: 6px;
+    background: var(--white);
+    border: 1px solid #d7e2ec;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(8, 40, 71, 0.16);
+    text-align: left;
+}
+
+.faculty-card-menu.open .faculty-dropdown {
+    display: block;
+}
+
+.faculty-dropdown a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 5px;
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.faculty-dropdown a:hover,
+.faculty-dropdown a:focus-visible {
+    background: var(--pale-blue);
+    color: var(--bright-blue);
+    outline: none;
+}
+
+/* =========================
+   DARK BLUE BUTTONS
+========================= */
+
+.view-details,
+.submit-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    padding: 11px 22px;
+    background: var(--blue);
+    color: var(--white);
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                transform 0.2s ease;
+}
+
+.view-details:hover,
+.submit-button:hover {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+    transform: translateY(-1px);
+}
+
+.view-details:focus-visible,
+.submit-button:focus-visible {
+    outline: 2px solid var(--bright-blue);
+    outline-offset: 3px;
+}
+
+/* =========================
+   NO SEARCH RESULTS
+========================= */
 
 #noResults {
     display: none;
@@ -331,13 +466,16 @@ body {
     grid-column: 1 / -1;
 }
 
-/* DETAILS POPUP */
+/* =========================
+   FACULTY DETAILS POPUP
+========================= */
+
 .modal {
     display: none;
     position: fixed;
     z-index: 1000;
     inset: 0;
-    background: rgba(23, 43, 63, 0.55);
+    background: rgba(8, 40, 71, 0.72);
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -346,14 +484,16 @@ body {
 .modal-content {
     position: relative;
     background: var(--white);
+    color: var(--ink);
     width: 100%;
     max-width: 500px;
     max-height: 90vh;
     overflow-y: auto;
     padding: 32px;
-    border-radius: 16px;
+    border-radius: 14px;
     text-align: center;
-    box-shadow: 0 18px 50px rgba(23, 43, 63, 0.2);
+    border: 1px solid #dfe7f0;
+    box-shadow: 0 18px 50px rgba(8, 40, 71, 0.2);
 }
 
 #modalPhoto {
@@ -369,6 +509,7 @@ body {
 
 .modal-content h2 {
     font-family: var(--font-heading);
+    color: var(--navy);
     margin-bottom: 18px;
     padding: 0 20px;
     font-size: 26px;
@@ -391,13 +532,17 @@ body {
     color: var(--muted);
     cursor: pointer;
     line-height: 1;
+    transition: color 0.2s ease;
 }
 
 .close-modal:hover {
     color: var(--bright-blue);
 }
 
-/* ENQUIRY FORM */
+/* =========================
+   ENQUIRY SECTION
+========================= */
+
 .enquiry-section {
     padding: 55px 20px 65px;
     background: var(--pale-blue);
@@ -408,9 +553,9 @@ body {
     margin: auto;
     padding: 35px;
     background: var(--white);
-    border: 1px solid var(--navy);
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(23, 43, 63, 0.08);
+    border: 1px solid #dfe7f0;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(8, 40, 71, 0.08);
 }
 
 .enquiry-container .section-heading {
@@ -440,6 +585,7 @@ body {
 }
 
 .form-field label {
+    color: var(--ink);
     font-weight: 600;
     font-size: 14px;
 }
@@ -448,9 +594,13 @@ body {
 .form-field textarea {
     width: 100%;
     padding: 12px 14px;
-    border: 1px solid #c8d8e5;
-    border-radius: 7px;
+    border: 1px solid #d6deeb;
+    border-radius: 6px;
+    background: #f8faff;
+    color: var(--ink);
     font: inherit;
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease;
 }
 
 .form-field textarea {
@@ -461,8 +611,9 @@ body {
 .form-field input:focus,
 .form-field textarea:focus {
     outline: none;
-    border-color: var(--bright-blue);
-    box-shadow: 0 0 0 4px rgba(91, 155, 213, 0.18);
+    border-color: var(--blue);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgb(16 63 104 / 10%);
 }
 
 .field-error {
@@ -475,7 +626,7 @@ body {
     grid-column: 1 / -1;
     display: none;
     padding: 10px;
-    border-radius: 7px;
+    border-radius: 6px;
     font-size: 14px;
 }
 
@@ -491,27 +642,20 @@ body {
     color: #176b32;
 }
 
-.submit-button {
-    padding: 11px 22px;
-    background: var(--navy);
-    color: var(--ink);
-    border: 1px solid var(--navy);
-    border-radius: 7px;
-    font-weight: bold;
-    cursor: pointer;
+.enquiry-form .submit-button {
+    justify-self: start;
 }
 
-.submit-button:hover {
-    background: var(--blue);
-    border-color: var(--bright-blue);
-}
+/* =========================
+   FOOTER
+========================= */
 
-/* FOOTER */
 footer {
-    background: var(--navy);
-    color: var(--ink);
+    background: #e8f1f8;
+    color: #172b3f;
     padding: 42px 8% 20px;
-    margin-top: 20px;
+    margin-top: 0;
+    border-top: 1px solid #d8e8f6;
 }
 
 .footer-content {
@@ -524,31 +668,46 @@ footer {
 
 .footer-column h3 {
     font-family: var(--font-heading);
+    color: #082847;
     font-size: 18px;
     margin-bottom: 13px;
     font-weight: 700;
 }
 
 .footer-column p {
-    color: var(--muted);
+    color: #345675;
     font-size: 14px;
     margin-bottom: 8px;
     overflow-wrap: anywhere;
+}
+
+.footer-column a {
+    color: #174f7c;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+    color: #075e9c;
+    text-decoration: underline;
 }
 
 .footer-bottom {
     max-width: 1200px;
     margin: 30px auto 0;
     padding-top: 18px;
-    border-top: 1px solid rgba(23, 43, 63, 0.2);
+    border-top: 1px solid #c5d9eb;
     display: flex;
     justify-content: space-between;
     gap: 12px;
-    color: var(--muted);
+    color: #345675;
     font-size: 13px;
 }
 
-/* TABLET */
+/* =========================
+   TABLET
+========================= */
+
 @media (max-width: 900px) {
     .site-header {
         padding: 18px 22px 0;
@@ -560,7 +719,7 @@ footer {
 
     .main-nav a {
         padding: 8px 10px;
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .faculty-grid {
@@ -568,12 +727,11 @@ footer {
     }
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-    body {
-        background-attachment: scroll;
-    }
+/* =========================
+   MOBILE
+========================= */
 
+@media (max-width: 600px) {
     .site-header {
         padding: 18px 15px 0;
     }
@@ -616,24 +774,37 @@ footer {
     }
 
     .main-nav a {
-        font-size: 12px;
-        padding: 8px 10px;
+        font-size: 11px;
+        padding: 8px 9px;
     }
 
     .page-title {
         padding: 45px 18px;
     }
 
+    .page-title h2 {
+        font-size: 34px;
+    }
+
     .page-title p {
-        font-size: 16px;
+        font-size: 15px;
+    }
+
+    .faculty-search {
+        padding: 28px 18px 12px;
     }
 
     .faculty-section {
         padding: 32px 18px 45px;
     }
 
+    .section-heading {
+        font-size: 27px;
+    }
+
     .faculty-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .faculty-card {
@@ -651,14 +822,6 @@ footer {
         text-align: center;
     }
 
-    .modal-content {
-        padding: 28px 20px;
-    }
-
-    .modal-content h2 {
-        font-size: 22px;
-    }
-
     .enquiry-container {
         padding: 25px 18px;
     }
@@ -672,12 +835,51 @@ footer {
         grid-column: 1;
     }
 
-    .submit-button {
+    .enquiry-form .submit-button {
         width: 100%;
+        justify-self: stretch;
+    }
+
+    .modal-content {
+        padding: 28px 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 22px;
     }
 }
 
-/* REDUCED MOTION ACCESSIBILITY */
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+    .college-name h1 {
+        font-size: 23px;
+    }
+
+    .main-nav {
+        gap: 5px;
+    }
+
+    .main-nav a {
+        font-size: 10px;
+        padding: 7px;
+    }
+
+    .faculty-card {
+        padding: 24px 14px;
+    }
+
+    .enquiry-container {
+        padding: 22px 14px;
+    }
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
