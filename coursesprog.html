@@ -187,7 +187,7 @@
             border-top: 4px solid var(--secondary-blue);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             padding: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -322,7 +322,7 @@
     <div class="search-container" style="max-width: 600px; margin: 20px auto; text-align: center; padding: 0 1rem; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
         <input type="text" id="course-search-input" placeholder="🔍 Search courses or clubs..." style="flex: 1; min-width: 250px; padding: 10px 15px; font-size: 1rem; border: 2px solid #003366; border-radius: 20px; outline: none;">
         
-        <!-- Category Filter Dropdown Added -->
+        <!-- Category Filter Dropdown -->
         <select id="category-filter-select" style="padding: 10px 15px; font-size: 1rem; border: 2px solid #003366; border-radius: 20px; outline: none; background: white; cursor: pointer;">
             <option value="all">All Categories</option>
             <option value="ug">Undergraduate (UG)</option>
@@ -336,9 +336,9 @@
     <!-- Content Container -->
     <main class="container">
 
-        <!-- Undergraduate Section -->
-        <h2 class="section-title">Undergraduate Programs (UG)</h2>
-        <div class="courses-grid">
+        <!-- Undergraduate Section with IDs -->
+        <h2 class="section-title" id="ug-heading">Undergraduate Programs (UG)</h2>
+        <div class="courses-grid" id="ug-section">
             <div class="course-card" data-category="ug">
                 <div>
                     <span class="badge">B.Tech</span>
@@ -383,7 +383,7 @@
                     <a href="admission.html" class="btn">Apply Now</a>
                 </div>
             </div>
-            <!-- B.Com Course Added -->
+
             <div class="course-card" data-category="ug">
                 <div>
                     <span class="badge">B.Com</span>
@@ -415,9 +415,9 @@
             </div>
         </div>
 
-        <!-- Postgraduate Section -->
-        <h2 class="section-title">Postgraduate Programs (PG)</h2>
-        <div class="courses-grid">
+        <!-- Postgraduate Section with IDs -->
+        <h2 class="section-title" id="pg-heading">Postgraduate Programs (PG)</h2>
+        <div class="courses-grid" id="pg-section">
             <div class="course-card" data-category="pg">
                 <div>
                     <span class="badge">MCA</span>
@@ -464,9 +464,9 @@
             </div>
         </div>
 
-        <!-- Campus Student Clubs Section -->
-        <h2 class="section-title">Student & Campus Clubs</h2>
-        <div class="courses-grid">
+        <!-- Campus Student Clubs Section with IDs -->
+        <h2 class="section-title" id="clubs-heading">Student & Campus Clubs</h2>
+        <div class="courses-grid" id="clubs-section">
             <div class="course-card" data-category="clubs">
                 <div>
                     <span class="badge">Tech Club</span>
