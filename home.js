@@ -97,3 +97,13 @@ if (navbar) {
         }
     });
 }
+
+const welcomeButton = document.querySelector("#welcome-button");
+const welcomeMessage = document.querySelector("#welcome-message");
+
+if (welcomeButton && welcomeMessage) {
+  welcomeButton.addEventListener("click", () => {
+    welcomeMessage.textContent =
+      "Explore your future at ASM College!";
+  });
+}
