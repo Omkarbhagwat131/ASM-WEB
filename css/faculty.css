@@ -1,0 +1,673 @@
+
+        :root {
+            --navy: #d9eaf7;
+            --blue: #e8f1f8;
+            --bright-blue: #5b9bd5;
+            --pale-blue: #f0f7fc;
+            --ink: #172b3f;
+            --muted: #617386;
+            --white: #ffffff;
+            --paper: #f8fbfe;
+            --font-body: "Roboto", sans-serif;
+            --font-heading: "Raleway", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        .site-header {
+            background: var(--white);
+            padding: 22px 35px 0;
+            border-bottom: 1px solid var(--pale-blue);
+            box-shadow: 0 3px 15px rgba(23, 43, 63, 0.08);
+        }
+
+        .college-brand {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 125px;
+            width: 100%;
+        }
+
+        .college-logo {
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 105px;
+            height: 105px;
+            object-fit: contain;
+        }
+
+        .college-name {
+            width: 100%;
+            text-align: center;
+            padding: 0 120px;
+        }
+
+        .college-name h1 {
+            font-family: var(--font-heading);
+            color: #082847;
+            font-size: 34px;
+            line-height: 1.3;
+            margin-bottom: 5px;
+            font-weight: 800;
+        }
+
+        .college-name > p:first-of-type {
+            color: #082847;
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .college-info {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* NAVIGATION */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+            margin-top: 15px;
+            padding: 15px 0;
+            border-top: 1px solid var(--pale-blue);
+        }
+
+        .main-nav a {
+            display: inline-block;
+            color: var(--ink);
+            text-decoration: none;
+            padding: 9px 14px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            background: var(--pale-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(91, 155, 213, 0.2);
+        }
+
+        .main-nav a.active {
+            background: var(--navy);
+        }
+
+        .main-nav a:focus-visible {
+            outline: 2px solid var(--bright-blue);
+            outline-offset: 3px;
+        }
+
+        /* PAGE TITLE */
+        .page-title {
+            background:
+                linear-gradient(
+                    rgba(217, 234, 247, 0.78),
+                    rgba(232, 241, 248, 0.82)
+                ),
+                url("image/asm-campus-building.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: var(--ink);
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .title-label {
+            display: inline-block;
+            padding: 6px 18px;
+            margin-bottom: 16px;
+            border: 1px solid var(--bright-blue);
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .page-title h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(34px, 5vw, 48px);
+            margin-bottom: 12px;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+
+        .page-title p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 18px;
+            color: var(--muted);
+        }
+
+        /* SEARCH */
+        .faculty-search {
+            text-align: center;
+            padding: 35px 20px 5px;
+        }
+
+        .faculty-search input {
+            width: 100%;
+            max-width: 500px;
+            padding: 14px 20px;
+            border: 1px solid var(--navy);
+            border-radius: 30px;
+            font-family: var(--font-body);
+            font-size: 16px;
+            outline: none;
+            background: var(--white);
+            color: var(--ink);
+            box-shadow: 0 4px 15px rgba(23, 43, 63, 0.06);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .faculty-search input:focus {
+            border-color: var(--bright-blue);
+            box-shadow: 0 0 0 4px rgba(91, 155, 213, 0.18);
+        }
+
+        #searchMessage {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* FACULTY SECTION */
+        .faculty-section {
+            padding: 40px 25px 60px;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 35px;
+        }
+
+        .section-heading::after {
+            content: "";
+            display: block;
+            width: 65px;
+            height: 4px;
+            margin: 12px auto 0;
+            border-radius: 5px;
+            background: var(--bright-blue);
+        }
+
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .faculty-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 30px 22px;
+            background: var(--white);
+            border: 1px solid var(--navy);
+            border-radius: 15px;
+            box-shadow: 0 6px 22px rgba(23, 43, 63, 0.07);
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease,
+                        border-color 0.3s ease;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--bright-blue);
+            box-shadow: 0 14px 30px rgba(23, 43, 63, 0.14);
+        }
+
+        .faculty-photo {
+            width: 125px;
+            height: 125px;
+            margin-bottom: 18px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--pale-blue);
+            border: 4px solid var(--navy);
+            flex-shrink: 0;
+        }
+
+        .faculty-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .faculty-card h3 {
+            font-family: var(--font-heading);
+            font-size: 19px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .designation {
+            color: var(--bright-blue);
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .department,
+        .qualification,
+        .experience,
+        .subjects {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .view-details {
+            margin-top: 18px;
+            padding: 11px 22px;
+            background: var(--navy);
+            color: var(--ink);
+            border: 1px solid var(--navy);
+            border-radius: 7px;
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .view-details:hover {
+            background: var(--blue);
+            border-color: var(--bright-blue);
+            transform: translateY(-2px);
+        }
+
+        #noResults {
+            display: none;
+            text-align: center;
+            color: var(--muted);
+            padding: 30px;
+            grid-column: 1 / -1;
+        }
+
+        /* DETAILS POPUP */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            inset: 0;
+            background: rgba(23, 43, 63, 0.55);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            position: relative;
+            background: var(--white);
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 18px 50px rgba(23, 43, 63, 0.2);
+        }
+
+        #modalPhoto {
+            width: 135px;
+            height: 135px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            margin: 0 auto 18px;
+            display: block;
+            border: 5px solid var(--pale-blue);
+        }
+
+        .modal-content h2 {
+            font-family: var(--font-heading);
+            margin-bottom: 18px;
+            padding: 0 20px;
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .modal-content p {
+            margin-bottom: 10px;
+            color: var(--muted);
+            overflow-wrap: anywhere;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 8px;
+            right: 15px;
+            font-size: 30px;
+            border: none;
+            background: transparent;
+            color: var(--muted);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: var(--bright-blue);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--navy);
+            color: var(--ink);
+            padding: 42px 8% 20px;
+            margin-top: 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            margin-bottom: 13px;
+            font-weight: 700;
+        }
+
+        .footer-column p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            padding-top: 18px;
+            border-top: 1px solid rgba(23, 43, 63, 0.2);
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* TABLET */
+        @media (max-width: 900px) {
+            .site-header {
+                padding: 18px 22px 0;
+            }
+
+            .main-nav {
+                gap: 7px;
+            }
+
+            .main-nav a {
+                padding: 8px 10px;
+                font-size: 13px;
+            }
+
+            .faculty-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            .site-header {
+                padding: 18px 15px 0;
+            }
+
+            .college-brand {
+                min-height: auto;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .college-logo {
+                position: static;
+                transform: none;
+                width: 85px;
+                height: 85px;
+                margin-bottom: 5px;
+            }
+
+            .college-name {
+                padding: 0;
+            }
+
+            .college-name h1 {
+                font-size: 27px;
+            }
+
+            .college-name > p:first-of-type {
+                font-size: 14px;
+            }
+
+            .college-info {
+                font-size: 12px;
+            }
+
+            .main-nav {
+                justify-content: center;
+                gap: 7px;
+                margin-top: 16px;
+                padding: 13px 0;
+            }
+
+            .main-nav a {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+
+            .page-title {
+                padding: 45px 18px;
+            }
+
+            .page-title p {
+                font-size: 16px;
+            }
+
+            .faculty-section {
+                padding: 32px 18px 45px;
+            }
+
+            .faculty-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faculty-card {
+                padding: 27px 18px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 25px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .modal-content {
+                padding: 28px 20px;
+            }
+
+            .modal-content h2 {
+                font-size: 22px;
+            }
+        }
+
+        /* REDUCED MOTION ACCESSIBILITY */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+        /* ENQUIRY FORM */
+.enquiry-section {
+    padding: 55px 20px 65px;
+    background: var(--pale-blue);
+}
+
+.enquiry-container {
+    max-width: 760px;
+    margin: auto;
+    padding: 35px;
+    background: var(--white);
+    border: 1px solid var(--navy);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(23, 43, 63, 0.08);
+}
+
+.enquiry-container .section-heading {
+    margin-bottom: 12px;
+}
+
+.enquiry-intro {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.enquiry-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-field label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #c8d8e5;
+    border-radius: 7px;
+    font: inherit;
+}
+
+.form-field textarea {
+    min-height: 125px;
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--bright-blue);
+    box-shadow: 0 0 0 4px rgba(91, 155, 213, 0.18);
+}
+
+.field-error {
+    min-height: 18px;
+    color: #b42318;
+    font-size: 12px;
+}
+
+.form-status {
+    grid-column: 1 / -1;
+    display: none;
+    padding: 10px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.form-status.error {
+    display: block;
+    background: #fff0ef;
+    color: #9f1c13;
+}
+
+.form-status.success {
+    display: block;
+    background: #edf9f0;
+    color: #176b32;
+}
+
+.submit-button {
+    padding: 11px 22px;
+    background: var(--navy);
+    color: var(--ink);
+    border: 1px solid var(--navy);
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: var(--blue);
+    border-color: var(--bright-blue);
+}
+
+@media (max-width: 600px) {
+    .enquiry-container {
+        padding: 25px 18px;
+    }
+
+    .enquiry-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-field.full-width,
+    .form-status {
+        grid-column: 1;
+    }
+
+    .submit-button {
+        width: 100%;
+    }
+}
