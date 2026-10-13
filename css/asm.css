@@ -968,3 +968,28 @@ footer p {
 .nav-links li a.active {
     color: #ff4d4d;
 }
+
+/* Admission Page - Remove Red, Use Blue and White */
+
+body:has(#admission-process) .hero-btn,
+body:has(#admission-process) .btn {
+    background: #0d6efd !important;
+    color: #ffffff !important;
+    border: 2px solid #0d6efd !important;
+}
+
+body:has(#admission-process) .hero-btn:hover,
+body:has(#admission-process) .btn:hover {
+    background: #ffffff !important;
+    color: #0d6efd !important;
+    border-color: #0d6efd !important;
+}
+
+/* Red accent lines and icons */
+body:has(#admission-process) .underline {
+    background-color: #0d6efd !important;
+}
+
+body:has(#admission-process) .card-icon {
+    color: #0d6efd !important;
+}

@@ -77,3 +77,23 @@ if (forgotPassword && loginEmail && loginMessage) {
     loginMessage.textContent = "Password reset is not connected to an email service yet.";
   });
 }
+
+const navbar = document.querySelector("nav");
+
+if (navbar) {
+    navbar.addEventListener("mouseover", (event) => {
+        const link = event.target.closest("a");
+
+        if (link && navbar.contains(link)) {
+            link.style.color = "orange";
+        }
+    });
+
+    navbar.addEventListener("mouseout", (event) => {
+        const link = event.target.closest("a");
+
+        if (link && navbar.contains(link)) {
+            link.style.color = "";
+        }
+    });
+}
