@@ -1,5 +1,6 @@
 
         :root {
+            color-scheme: light;
             --navy: #d9eaf7;
             --blue: #e8f1f8;
             --bright-blue: #5b9bd5;
@@ -32,6 +33,7 @@
         /* HEADER */
         .site-header {
             background: var(--white);
+            color: var(--ink);
             padding: 22px 35px 0;
             border-bottom: 1px solid var(--pale-blue);
             box-shadow: 0 3px 15px rgba(23, 43, 63, 0.08);
@@ -64,7 +66,7 @@
 
         .college-name h1 {
             font-family: var(--font-heading);
-            color: #082847;
+            color: var(--ink);
             font-size: 34px;
             line-height: 1.3;
             margin-bottom: 5px;
@@ -72,7 +74,7 @@
         }
 
         .college-name > p:first-of-type {
-            color: #082847;
+            color: var(--bright-blue);
             font-size: 17px;
             font-weight: 600;
             margin-bottom: 5px;
@@ -105,17 +107,26 @@
             font-size: 14px;
             font-weight: 600;
             white-space: nowrap;
-            transition: 0.3s ease;
+            transition: color 0.3s ease,
+                        background-color 0.3s ease,
+                        transform 0.3s ease,
+                        box-shadow 0.3s ease;
         }
 
         .main-nav a:hover {
+            color: var(--ink);
             background: var(--pale-blue);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(91, 155, 213, 0.2);
         }
 
         .main-nav a.active {
+            color: var(--ink);
             background: var(--navy);
+        }
+
+        .main-nav a.active:hover {
+            background: var(--blue);
         }
 
         .main-nav a:focus-visible {
@@ -123,20 +134,36 @@
             outline-offset: 3px;
         }
 
-        /* PAGE TITLE */
+        /* PAGE TITLE: COLLEGE BUILDING BACKGROUND */
         .page-title {
-            background:
-                linear-gradient(
-                    rgba(217, 234, 247, 0.78),
-                    rgba(232, 241, 248, 0.82)
-                ),
-                url("image/asm-campus-building.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            background: var(--pale-blue);
             color: var(--ink);
             text-align: center;
             padding: 65px 20px;
+        }
+
+        .page-title::before {
+            content: "";
+            position: absolute;
+            inset: -8px;
+            background-image: url("image/asm-campus-building.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(4px);
+            transform: scale(1.03);
+            z-index: -2;
+        }
+
+        .page-title::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(240, 247, 252, 0.78);
+            z-index: -1;
         }
 
         .title-label {
@@ -145,13 +172,16 @@
             margin-bottom: 16px;
             border: 1px solid var(--bright-blue);
             border-radius: 25px;
+            color: var(--ink);
             font-size: 13px;
             font-weight: bold;
             letter-spacing: 1.5px;
         }
 
         .page-title h2 {
+            position: relative;
             font-family: var(--font-heading);
+            color: var(--ink);
             font-size: clamp(34px, 5vw, 48px);
             margin-bottom: 12px;
             line-height: 1.2;
@@ -159,10 +189,16 @@
         }
 
         .page-title p {
+            position: relative;
             max-width: 750px;
             margin: auto;
             font-size: 18px;
             color: var(--muted);
+        }
+
+        main {
+            max-width: 1250px;
+            margin: auto;
         }
 
         /* SEARCH */
@@ -186,6 +222,10 @@
             transition: border-color 0.3s, box-shadow 0.3s;
         }
 
+        .faculty-search input::placeholder {
+            color: var(--muted);
+        }
+
         .faculty-search input:focus {
             border-color: var(--bright-blue);
             box-shadow: 0 0 0 4px rgba(91, 155, 213, 0.18);
@@ -204,6 +244,7 @@
 
         .section-heading {
             text-align: center;
+            color: var(--ink);
             font-family: var(--font-heading);
             font-size: 32px;
             font-weight: 800;
@@ -227,6 +268,7 @@
         }
 
         .faculty-card {
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -242,9 +284,77 @@
         }
 
         .faculty-card:hover {
-            transform: translateY(-7px);
+            transform: translateY(-5px);
             border-color: var(--bright-blue);
             box-shadow: 0 14px 30px rgba(23, 43, 63, 0.14);
+        }
+
+        /* THREE-DOT MENU */
+        .faculty-menu {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 5;
+        }
+
+        .menu-dots {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background: var(--pale-blue);
+            color: var(--ink);
+            font-size: 25px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+
+        .menu-dots:hover,
+        .faculty-menu.open .menu-dots {
+            background: var(--navy);
+        }
+
+        .menu-dots:focus-visible {
+            outline: 2px solid var(--bright-blue);
+            outline-offset: 2px;
+        }
+
+        .menu-links {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            min-width: 175px;
+            padding: 7px;
+            background: var(--white);
+            border: 1px solid var(--navy);
+            border-radius: 9px;
+            box-shadow: 0 8px 22px rgba(23, 43, 63, 0.15);
+            text-align: left;
+        }
+
+        .faculty-menu.open .menu-links {
+            display: block;
+        }
+
+        .menu-links a {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 6px;
+            color: var(--ink);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .menu-links a:hover {
+            background: var(--pale-blue);
+            color: #1769aa;
         }
 
         .faculty-photo {
@@ -268,6 +378,7 @@
 
         .faculty-card h3 {
             font-family: var(--font-heading);
+            color: var(--ink);
             font-size: 19px;
             line-height: 1.4;
             margin-bottom: 8px;
@@ -283,8 +394,7 @@
 
         .department,
         .qualification,
-        .experience,
-        .subjects {
+        .experience {
             color: var(--muted);
             font-size: 14px;
             margin-bottom: 6px;
@@ -356,6 +466,7 @@
 
         .modal-content h2 {
             font-family: var(--font-heading);
+            color: var(--ink);
             margin-bottom: 18px;
             padding: 0 20px;
             font-size: 26px;
@@ -404,6 +515,7 @@
             font-family: var(--font-heading);
             font-size: 18px;
             margin-bottom: 13px;
+            color: var(--ink);
             font-weight: 700;
         }
 
@@ -430,6 +542,10 @@
         @media (max-width: 900px) {
             .site-header {
                 padding: 18px 22px 0;
+            }
+
+            .college-info {
+                white-space: normal;
             }
 
             .main-nav {
@@ -544,130 +660,3 @@
                 animation-duration: 0.01ms !important;
             }
         }
-        /* ENQUIRY FORM */
-.enquiry-section {
-    padding: 55px 20px 65px;
-    background: var(--pale-blue);
-}
-
-.enquiry-container {
-    max-width: 760px;
-    margin: auto;
-    padding: 35px;
-    background: var(--white);
-    border: 1px solid var(--navy);
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(23, 43, 63, 0.08);
-}
-
-.enquiry-container .section-heading {
-    margin-bottom: 12px;
-}
-
-.enquiry-intro {
-    text-align: center;
-    color: var(--muted);
-    margin-bottom: 25px;
-}
-
-.enquiry-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-}
-
-.form-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.form-field.full-width {
-    grid-column: 1 / -1;
-}
-
-.form-field label {
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.form-field input,
-.form-field textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #c8d8e5;
-    border-radius: 7px;
-    font: inherit;
-}
-
-.form-field textarea {
-    min-height: 125px;
-    resize: vertical;
-}
-
-.form-field input:focus,
-.form-field textarea:focus {
-    outline: none;
-    border-color: var(--bright-blue);
-    box-shadow: 0 0 0 4px rgba(91, 155, 213, 0.18);
-}
-
-.field-error {
-    min-height: 18px;
-    color: #b42318;
-    font-size: 12px;
-}
-
-.form-status {
-    grid-column: 1 / -1;
-    display: none;
-    padding: 10px;
-    border-radius: 7px;
-    font-size: 14px;
-}
-
-.form-status.error {
-    display: block;
-    background: #fff0ef;
-    color: #9f1c13;
-}
-
-.form-status.success {
-    display: block;
-    background: #edf9f0;
-    color: #176b32;
-}
-
-.submit-button {
-    padding: 11px 22px;
-    background: var(--navy);
-    color: var(--ink);
-    border: 1px solid var(--navy);
-    border-radius: 7px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.submit-button:hover {
-    background: var(--blue);
-    border-color: var(--bright-blue);
-}
-
-@media (max-width: 600px) {
-    .enquiry-container {
-        padding: 25px 18px;
-    }
-
-    .enquiry-form {
-        grid-template-columns: 1fr;
-    }
-
-    .form-field.full-width,
-    .form-status {
-        grid-column: 1;
-    }
-
-    .submit-button {
-        width: 100%;
-    }
-}
