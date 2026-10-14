@@ -1,7 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("searchInput");
-    const departmentFilter = document.getElementById("departmentFilter");
     const facultyGrid = document.getElementById("facultyGrid");
     const searchMessage = document.getElementById("searchMessage");
     const noResults = document.getElementById("noResults");
@@ -47,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             facultyData = data;
-            populateDepartmentFilter();
             renderFaculty(facultyData);
 
             try {
@@ -65,19 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
             searchMessage.textContent =
                 "Faculty information could not be loaded.";
         }
-    }
-
-    function populateDepartmentFilter() {
-        if (!departmentFilter) return;
-
-        [...new Set(facultyData.map(faculty => faculty.department).filter(Boolean))]
-            .sort((first, second) => first.localeCompare(second))
-            .forEach(department => {
-                const option = document.createElement("option");
-                option.value = department;
-                option.textContent = department;
-                departmentFilter.appendChild(option);
-            });
     }
 
     // 2. Create faculty cards and clickable three-dots menu.
@@ -203,7 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. Search faculty.
     function searchFaculty() {
         const searchText = searchInput.value.trim().toLowerCase();
-        const selectedDepartment = departmentFilter?.value || "all";
         let visibleCount = 0;
 
         facultyGrid.querySelectorAll(".faculty-card").forEach(card => {
@@ -221,10 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ].join(" ").toLowerCase()
                 : "";
 
-            const matchesSearch = searchableText.includes(searchText);
-            const matchesDepartment = selectedDepartment === "all" ||
-                faculty?.department === selectedDepartment;
-            const matches = matchesSearch && matchesDepartment;
+            const matches = searchableText.includes(searchText);
             card.style.display = matches ? "" : "none";
 
             if (matches) {
@@ -234,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         noResults.style.display = visibleCount === 0 ? "block" : "none";
 
-        searchMessage.textContent = searchText || selectedDepartment !== "all"
+        searchMessage.textContent = searchText
             ? `${visibleCount} faculty members found.`
             : "Meet our experienced and dedicated faculty members!";
 
@@ -246,7 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     searchInput.addEventListener("input", searchFaculty);
-    departmentFilter?.addEventListener("change", searchFaculty);
 
     // 4. Three-dots click handler.
     facultyGrid.addEventListener("click", event => {
