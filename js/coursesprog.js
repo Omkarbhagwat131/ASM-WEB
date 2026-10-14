@@ -96,8 +96,8 @@ if (courseCards.length > 0) {
     // Mouse Events Integration (mouseenter & mouseleave interactive effect)
     courseCards.forEach((card) => {
         card.addEventListener("mouseenter", () => {
-            card.style.backgroundColor = "#f0f8ff"; // Light blue tint on hover
-            card.style.borderColor = "#0056b3";
+            card.style.backgroundColor = "#e8f1f8"; // Pale blue tint on hover using new theme color
+            card.style.borderColor = "#103f68";
         });
 
         card.addEventListener("mouseleave", () => {
