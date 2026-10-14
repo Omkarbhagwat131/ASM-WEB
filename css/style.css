@@ -1,3 +1,6 @@
+ /* ==========================================================================
+   1. GLOBAL RESET & BASE STYLES
+   ========================================================================== */
 .contact-page *,
 .contact-page *::before,
 .contact-page *::after {
@@ -6,7 +9,7 @@
 
 .contact-page {
   margin: 0;
-  background: #f5f7fa;
+  background: #f8fafc;
   color: #173b59;
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -14,8 +17,12 @@
 
 .contact-page a {
   color: inherit;
+  text-decoration: none;
 }
 
+/* ==========================================================================
+   2. NAVBAR STYLES
+   ========================================================================== */
 .contact-navbar {
   display: flex;
   align-items: center;
@@ -26,10 +33,9 @@
 }
 
 .contact-logo {
-  color: #fff;
+  color: #ffffff;
   font-size: 26px;
   font-weight: 700;
-  text-decoration: none;
   white-space: nowrap;
 }
 
@@ -41,10 +47,10 @@
 }
 
 .contact-navbar nav a {
-  color: #fff;
+  color: #ffffff;
   font-size: 15px;
   font-weight: 700;
-  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .contact-navbar nav a:hover,
@@ -53,306 +59,191 @@
   color: #b9ddff;
 }
 
+/* ==========================================================================
+   3. PLACEMENT HERO SECTION (MATCHING HOME PAGE LIGHT THEME)
+   ========================================================================== */
+.placement-hero,
 .contact-hero {
-  padding: 65px 24px 70px;
-  background: #0867b5;
-  color: #fff;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #eef2f7 0%, #dce5ef 100%);
+  color: #0b2545;
   text-align: center;
+  border-bottom: 1px solid #d0d7de;
 }
 
+.hero-tag,
 .contact-eyebrow {
-  margin: 0 0 8px;
-  color: #0867b5;
+  display: inline-block;
+  background-color: #ffffff;
+  color: #063b69;
+  border: 1px solid #cbd5e1;
+  padding: 6px 16px;
+  border-radius: 20px;
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
 }
 
-.contact-hero .contact-eyebrow {
-  color: #d7ebff;
-}
-
+.placement-hero h1,
 .contact-hero h1 {
   margin: 0 0 12px;
-  font-size: clamp(34px, 5vw, 46px);
+  font-size: clamp(32px, 5vw, 44px);
+  color: #063b69;
+  font-weight: 700;
   line-height: 1.2;
 }
 
+.placement-hero p,
 .contact-hero > p:last-child {
-  max-width: 620px;
-  margin: 0 auto;
-  color: #e8f4ff;
+  max-width: 650px;
+  margin: 0 auto 24px auto;
+  color: #4a5568;
+  font-size: 16px;
 }
 
-.contact-events,
-.contact-main {
-  width: min(1120px, calc(100% - 48px));
-  margin: 0 auto;
-}
-
-.contact-events {
-  padding: 48px 0 16px;
-}
-
-.contact-main {
-  padding: 40px 0 64px;
-}
-
-.contact-section-heading {
+.hero-buttons {
   display: flex;
-  align-items: center;
-  gap: 24px;
-  margin-bottom: 24px;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
 }
 
-.contact-section-heading .contact-eyebrow {
-  margin-bottom: 2px;
-}
-
-.contact-section-heading h2 {
-  margin: 0;
-  color: #063b69;
-  font-size: clamp(25px, 3vw, 32px);
-  line-height: 1.25;
-}
-
-.contact-heading-rule {
-  flex: 1;
-  height: 2px;
-  background: #cfe2f3;
-}
-
-.contact-event-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.contact-event-card,
-.contact-form,
-.contact-details {
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 3px 14px rgb(6 59 105 / 8%);
-}
-
-.contact-event-card {
-  padding: 24px;
-  border-top: 4px solid #0867b5;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-
-.contact-event-card.is-hovered {
-  transform: translateY(-5px);
-  border-top-color: #063b69;
-  box-shadow: 0 10px 22px rgb(6 59 105 / 16%);
-}
-
-.contact-event-date {
-  display: inline-block;
-  margin-bottom: 8px;
-  color: #0867b5;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.contact-event-card h3 {
-  margin: 0 0 8px;
-  color: #063b69;
-  font-size: 20px;
-}
-
-.contact-event-card p {
-  margin: 8px 0 0;
-  color: #5b6874;
-}
-
-.contact-event-card .contact-event-detail {
-  color: #334f68;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.contact-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
-  align-items: stretch;
-  gap: 24px;
-}
-
-.contact-form,
-.contact-details {
-  padding: clamp(22px, 4vw, 34px);
-}
-
-.contact-form h3,
-.contact-details h3 {
-  margin: 0;
-  color: #063b69;
-  font-size: 22px;
-}
-
-.contact-form-intro,
-.contact-details-intro {
-  margin: 5px 0 22px;
-  color: #687887;
-  font-size: 14px;
-}
-
-.contact-form label {
-  display: block;
-  margin: 16px 0 6px;
-  color: #24435d;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.contact-form input,
-.contact-form textarea {
-  display: block;
-  width: 100%;
-  padding: 12px 13px;
-  border: 1px solid #cbd7e1;
+.hero-buttons .btn-primary {
+  background-color: #063b69;
+  color: #ffffff;
+  padding: 11px 26px;
   border-radius: 6px;
-  background: #fff;
-  color: #173b59;
-  font: inherit;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #8795a2;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #0867b5;
-  outline: 3px solid rgb(8 103 181 / 16%);
-}
-
-.contact-form textarea {
-  min-height: 130px;
-  resize: vertical;
-}
-
-.contact-form button {
-  margin-top: 20px;
-  padding: 12px 20px;
-  border: 0;
-  border-radius: 6px;
-  background: #0867b5;
-  color: #fff;
-  cursor: pointer;
-  font: inherit;
   font-weight: 700;
-  transition: background-color 160ms ease;
-}
-
-.contact-form button:hover {
-  background: #063b69;
-}
-
-.contact-form button:focus-visible {
-  outline: 3px solid #83bdf0;
-  outline-offset: 3px;
-}
-
-.contact-form-status {
-  min-height: 1.6em;
-  margin: 12px 0 0;
-  color: #245b35;
-  font-size: 14px;
-}
-
-.contact-detail {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  margin-top: 24px;
-}
-
-.contact-detail-icon {
-  display: grid;
-  width: 40px;
-  height: 40px;
-  flex: 0 0 40px;
-  place-items: center;
-  border-radius: 50%;
-  background: #e5f1fb;
-  color: #0867b5;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.contact-detail h4 {
-  margin: 0 0 3px;
-  color: #063b69;
   font-size: 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.contact-detail p,
-.contact-detail a {
-  margin: 0;
+.hero-buttons .btn-primary:hover {
+  background-color: #0867b5;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. PLACEMENT STATISTICS SECTION
+   ========================================================================== */
+.stats-section {
+  background-color: #f8fafc;
+  padding: 45px 20px;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.stat-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px 28px;
+  text-align: center;
+  flex: 1;
+  min-width: 220px;
+  box-shadow: 0 4px 14px rgba(6, 59, 105, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 22px rgba(6, 59, 105, 0.12);
+}
+
+.stat-box .stat-icon {
+  font-size: 32px;
+  color: #0867b5;
+  margin-bottom: 8px;
+}
+
+.stat-box h2 {
+  font-size: 34px;
+  color: #063b69;
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.stat-box .stat-label {
   color: #5b6874;
   font-size: 14px;
-  overflow-wrap: anywhere;
-}
-
-.contact-detail a:hover {
-  color: #0867b5;
-}
-
-.contact-footer {
-  padding: 20px 24px;
-  background: #063b69;
-  color: #fff;
-  text-align: center;
-}
-
-.contact-footer p {
+  font-weight: 600;
   margin: 0;
+}
+
+/* ==========================================================================
+   5. PLACED STUDENTS & FILTER SECTION
+   ========================================================================== */
+.placed-students-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+}
+
+.section-title {
+  font-size: 32px;
+  color: #063b69;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.section-subtitle {
+  color: #64748b;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+/* Filter Buttons */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.filter-btn {
+  background-color: #ffffff;
+  border: 2px solid #0867b5;
+  color: #0867b5;
+  padding: 8px 22px;
+  border-radius: 25px;
   font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-@media (max-width: 760px) {
-  .contact-navbar {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .contact-navbar nav {
-    justify-content: center;
-  }
-
-  .contact-event-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-layout {
-    grid-template-columns: 1fr;
-  }
+.filter-btn.active, 
+.filter-btn:hover {
+  background-color: #0867b5;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(8, 103, 181, 0.25);
 }
 
-@media (max-width: 480px) {
-  .contact-navbar {
-    padding: 18px;
-  }
-
-  .contact-navbar nav {
-    gap: 8px 16px;
-  }
-
-  .contact-navbar nav a {
-    font-size: 14px;
-  }
-
-  .contact-events,
-  .contact-main {
-    width: min(100% - 32px, 1120px);
-  }
-
-  .contact-section-heading {
-    gap: 14px;
-  }
+/* Student Cards Grid */
+.students-grid {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  max-width: 1120px;
+  margin: 0 auto;
 }
+
+.student-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 24px 20px;
+  width: 260px;
+  box-shadow: 0 4px 16px rgba(6, 59, 105, 0.08);
+  border:
