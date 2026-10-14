@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -414,24 +414,18 @@
 
     <!-- Centralized Dynamic Navbar -->
     <nav class="navbar">
-      <div class="nav-container">
-<<<<<<< HEAD
-        <a href="./index .html" class="logo">ASM Technical Campus</a>
-        <ul class="nav-links">
-          <li><a href="./index .html">Home</a></li>
-=======
-        <a href="home.html" class="logo">ASM Technical Campus</a>
-        <ul class="nav-links">
-          <li><a href="home.html">Home</a></li>
->>>>>>> 9e5a322f21c9c33ba922940025799b70d67c4338
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="coursesprog.html">Programs</a></li>
-          <li><a href="department.html">Departments</a></li>
-          <li><a href="addmission.html" class="active">Admissions</a></li>
-          <li><a href="placement.html">Placements</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
+        <div class="nav-container">
+            <a href="home.html" class="logo">ASM Technical Campus</a>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="coursesprog.html">Programs</a></li>
+                <li><a href="department.html">Departments</a></li>
+                <li><a href="addmission.html" class="active">Admissions</a></li>
+                <li><a href="placement.html">Placements</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
     </nav>
 
         </div>
@@ -439,231 +433,165 @@
 
     <main>
 
-        <!-- Hero Section -->
-        <section class="admissions-hero">
-            <span class="hero-subtitle">Admissions 2026–27</span>
-
-            <h1>Build Your Future with ASM</h1>
-
-            <p>
-                Explore Engineering and Computer Applications programmes
-                and take the next step towards your academic and
-                professional goals at ASM's NextGen Technical Campus.
-            </p>
-
-            <a href="#admission-process" class="admission-btn">
-                Explore Admission Process
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
+        <!-- ================= HERO SECTION ================= -->
+        <section class="page-hero hero">
+            <div class="container">
+                <span class="hero-subtitle">Admissions 2026-27</span>
+                <h1>Engineering & MCA Admissions</h1>
+                <p class="hero-description">
+                    Start your journey towards a successful career in Engineering and Computer Applications at ASM's
+                    Nextgen Technical Campus.
+                </p>
+                <a href="#admission-process" class="btn hero-btn">View Admission Process</a>
+            </div>
         </section>
 
-        <!-- Introduction -->
-        <section class="admission-section">
+        <!-- ================= INTRO SECTION ================= -->
+        <section class="departments-section admission-intro">
             <h2>Shape Your Future With Us</h2>
-            <div class="section-underline"></div>
-
-            <p class="section-intro">
-                Develop your technical knowledge, practical skills and
-                problem-solving abilities in a learning environment
-                focused on academic growth, innovation and career
-                development. Explore the programmes below to find
-                the right path for your goals.
+            <div class="underline"></div>
+            <p>
+                ASM's Nextgen Technical Campus provides students with an environment focused on technical education,
+                practical learning, innovation, and career development.
+            </p>
+            <p>
+                Students aspiring to build careers in Engineering and Computer Applications can explore our
+                undergraduate and postgraduate programmes and begin their academic journey with ASM.
             </p>
         </section>
 
-        <!-- Programmes -->
-        <section class="admission-section">
+        <!-- ================= PROGRAMS SECTION ================= -->
+        <section class="departments-section career-path-section" id="career-path">
             <h2>Choose Your Career Path</h2>
             <div class="section-underline"></div>
 
-            <div class="admission-grid">
+            <div class="program-filters">
+                <div class="program-filter">
+                    <label for="program-search">Search programs</label>
+                    <input
+                        type="search"
+                        id="program-search"
+                        placeholder="Search by program title"
+                        autocomplete="off"
+                    >
+                </div>
+                <div class="program-filter">
+                    <label for="program-type-filter">Program type</label>
+                    <select id="program-type-filter">
+                        <option value="all">All programs</option>
+                        <option value="ug">UG Program</option>
+                        <option value="pg">PG Program</option>
+                    </select>
+                </div>
+            </div>
+            <p class="program-filter-status" id="program-filter-status" role="status" aria-live="polite"></p>
 
-                <article class="admission-card">
-                    <div class="admission-icon">
+            <div class="department-container program-grid">
+                <!-- Engineering Card -->
+                <div class="department-card" data-program-type="ug">
+                    <div class="card-icon">
                         <i class="fa-solid fa-gears"></i>
                     </div>
 
                     <span class="card-label">Undergraduate</span>
                     <h3>Engineering</h3>
-
-                    <p>
-                        Build a foundation in engineering, technology
-                        and practical problem-solving through
-                        laboratory work and project-based learning.
-                    </p>
-
-                    <ul>
-                        <li>Engineering fundamentals</li>
+                    <p>Build a strong foundation in engineering, technology, and problem-solving through practical and
+                        industry-oriented education.</p>
+                    <ul class="department-feature-list">
+                        <li>Technical & engineering fundamentals</li>
                         <li>Practical laboratory experience</li>
                         <li>Project-based learning</li>
                         <li>Technical skill development</li>
                     </ul>
                 </article>
 
-                <article class="admission-card">
-                    <div class="admission-icon">
+                <!-- MCA Card -->
+                <div class="department-card" data-program-type="pg">
+                    <div class="card-icon">
                         <i class="fa-solid fa-laptop-code"></i>
                     </div>
 
                     <span class="card-label">Postgraduate</span>
                     <h3>Master of Computer Applications (MCA)</h3>
-
-                    <p>
-                        Strengthen your knowledge of computer
-                        applications, software development and
-                        modern computing technologies.
-                    </p>
-
-                    <ul>
-                        <li>Programming and software development</li>
-                        <li>Database and web technologies</li>
-                        <li>Practical software projects</li>
-                        <li>Professional skill development</li>
+                    <p>Develop advanced knowledge in computer applications, software development, programming, and
+                        modern technologies.</p>
+                    <ul class="department-feature-list">
+                        <li>Programming & software development</li>
+                        <li>Database & web technologies</li>
+                        <li>Practical full-stack projects</li>
+                        <li>Professional career development</li>
                     </ul>
                 </article>
 
             </div>
         </section>
 
-        <!-- Eligibility Criteria -->
-        <section class="admission-section">
+        <!-- ================= ELIGIBILITY CRITERIA ================= -->
+        <section class="departments-section" id="eligibility-criteria">
             <h2>Eligibility Criteria</h2>
             <div class="section-underline"></div>
 
-            <p class="section-intro">
-                Applicants should verify the current eligibility,
-                entrance examination and admission requirements
-                for their chosen programme.
-            </p>
-
-            <div class="eligibility-grid">
-
-                <article class="admission-card">
-                    <div class="admission-icon">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-
+            <div class="department-container eligibility-grid">
+                <div class="department-card">
+                    <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
                     <h3>Engineering Qualification</h3>
-
-                    <p>
-                        Applicants generally need to meet the prescribed
-                        educational qualifications, subjects and minimum
-                        marks for the selected undergraduate engineering
-                        programme.
-                    </p>
-                </article>
-
-                <article class="admission-card">
-                    <div class="admission-icon">
-                        <i class="fa-solid fa-file-signature"></i>
-                    </div>
+                    <p>Successfully completed higher secondary education (12th/HSC) or diploma with required marks
+                        and subjects as per admission rules.</p>
+                </div>
 
                     <h3>Engineering Entrance</h3>
+                    <p>Fulfill applicable entrance examination requirements (MH-CET / JEE) and merit guidelines
+                        prescribed for admission.</p>
+                </div>
 
-                    <p>
-                        Applicants must meet the applicable entrance
-                        examination and merit requirements, as specified
-                        by the current admission rules.
-                    </p>
-                </article>
-
-                <article class="admission-card">
-                    <div class="admission-icon">
-                        <i class="fa-solid fa-user-graduate"></i>
-                    </div>
-
-                    <h3>MCA Graduation Requirement</h3>
-
-                    <p>
-                        Applicants need a recognised bachelor's degree
-                        and must satisfy the current subject and
-                        eligibility requirements for MCA admission.
-                    </p>
-                </article>
-
-                <article class="admission-card">
-                    <div class="admission-icon">
-                        <i class="fa-solid fa-award"></i>
-                    </div>
+                <div class="department-card">
+                    <div class="card-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                    <h3>MCA Graduation</h3>
+                    <p>Completed recognized Bachelor's degree (BCA/B.Sc/B.Com/B.A) with Mathematics/Statistics at
+                        10+2 level or Graduation level.</p>
+                </div>
 
                     <h3>MCA Entrance Requirements</h3>
-
-                    <p>
-                        Applicants must fulfil the applicable entrance
-                        examination, merit and counselling requirements
-                        prescribed for the admission year.
-                    </p>
-                </article>
-
-            </div>
-
-            <div class="admission-note">
-                <strong>Important:</strong>
-                Eligibility rules may vary by programme and admission
-                year. Confirm the latest official requirements before
-                applying.
+                    <p>Must qualify the applicable entrance examination as per university and government admission
+                        guidelines.</p>
+                </div>
             </div>
         </section>
-
-        <!-- Admission Process -->
-        <section class="admission-section" id="admission-process">
+        <!-- ================= ADMISSION PROCESS ================= -->
+        <section class="departments-section" id="admission-process">
             <h2>Admission Process</h2>
-            <div class="section-underline"></div>
+            <div class="underline"></div>
 
-            <div class="process-grid">
+            <div class="department-container">
+                <div class="department-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+                    <h3>Step 1: Application</h3>
+                    <p>Complete the admission application form and provide the required details.</p>
+                </div>
 
-                <article class="admission-card">
-                    <div class="process-number">1</div>
-                    <h3>Application</h3>
+                <div class="department-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                    </div>
+                    <h3>Step 2: Document Verification</h3>
+                    <p>Submit the necessary academic documents for verification.</p>
+                </div>
 
-                    <p>
-                        Review the programme requirements and complete
-                        the applicable admission application.
-                    </p>
-                </article>
-
-                <article class="admission-card">
-                    <div class="process-number">2</div>
-                    <h3>Document Verification</h3>
-
-                    <p>
-                        Prepare and submit the required academic and
-                        supporting documents for verification.
-                    </p>
-                </article>
-
-                <article class="admission-card">
-                    <div class="process-number">3</div>
-                    <h3>Admission Confirmation</h3>
-
-                    <p>
-                        Complete the prescribed counselling,
-                        fee payment and admission formalities.
-                    </p>
-                </article>
-
+                <div class="department-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <h3>Step 3: Admission Confirmation</h3>
+                    <p>Complete the applicable admission formalities as instructed by the college.</p>
+                </div>
             </div>
         </section>
-
-        <!-- Contact CTA -->
-        <section class="admission-cta">
-            <h2>Ready to Begin Your Journey?</h2>
-
-            <p>
-                Contact the college to confirm current programme
-                availability, eligibility and admission procedures.
-            </p>
-
-            <a href="contacts.html" class="contact-btn">
-                Contact Us
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-        </section>
-
     </main>
 
-    <!-- Scripts -->
+    <script src="asm.js"></script>
     <script src="js/admission.js"></script>
-
 </body>
+
 </html>
