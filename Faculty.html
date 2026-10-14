@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,19 +7,25 @@
 
     <title>Faculty | ASM's NextGen Technical Campus</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/Faculty.css">
-    
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&family=Roboto:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Faculty CSS -->
+    <link rel="stylesheet" href="css/faculty.css">
 </head>
 
 <body>
 
     <!-- HEADER -->
     <header class="site-header">
-        <div class="college-brand">
 
+        <div class="college-brand">
             <img
                 src="image/asm-logo.png"
                 alt="ASM College Logo"
@@ -27,7 +34,9 @@
 
             <div class="college-name">
                 <h1>ASM NextGen Technical Campus</h1>
+
                 <p>Institute of Management &amp; Engineering</p>
+
                 <p class="college-info">
                     A learning-focused institution committed to academic excellence,
                     professional development and student growth.
@@ -45,102 +54,191 @@
             <a href="placement.html">Placements</a>
             <a href="department.html">Department</a>
             <a href="Faculty.html" class="active" aria-current="page">Faculty</a>
-            <a href="admissions.html">Admissions</a>
+            <a href="admission.html">Admissions</a>
         </nav>
+
     </header>
+
 
     <!-- PAGE TITLE -->
     <section class="page-title">
+
         <span class="title-label">EXCELLENCE IN EDUCATION</span>
+
         <h2>Our Faculty</h2>
+
         <p>
             Meet our experienced and dedicated faculty members,
             committed to guiding students towards academic and professional success.
         </p>
+
     </section>
 
+
     <!-- SEARCH BAR -->
-    <div class="faculty-search">
+    <section class="faculty-search" aria-label="Search faculty">
+
         <input
             type="text"
             id="searchInput"
-            placeholder="Search Faculty By Name..."
-            aria-label="Search Faculty By Name"
+            placeholder="Search faculty by name..."
+            aria-label="Search faculty by name"
+            autocomplete="off"
         >
-        <p id="searchMessage">Know our Faculty Members!</p>
-    </div>
 
-    <main>
-        <section class="faculty-section">
-            <h2 class="section-heading">Meet Our Faculty Members</h2>
-
-            <div class="faculty-grid" id="facultyGrid">
-                <p id="loadingMessage">Loading faculty information...</p>
-                <p id="noResults">No faculty members found.</p>
-            </div>
-
-        </section>
-        <section class="enquiry-section" id="enquiry">
-    <div class="enquiry-container">
-        <h2 class="section-heading">Faculty Enquiry Form</h2>
-
-        <p class="enquiry-intro">
-            Have a Question About Our Faculty or Academic Departments?
-            Send us Your Enquiry.
+        <p id="searchMessage">
+            Search faculty by entering their name.
         </p>
 
-        <form id="enquiryForm" class="enquiry-form" novalidate>
-            <div class="form-field">
-                <label for="enquiryName">Full Name *</label>
-                <input id="enquiryName" name="name"
-                       type="text" required minlength="2"
-                       maxlength="60">
-                <small class="field-error" id="nameError"></small>
+    </section>
+
+
+    <!-- FACULTY SECTION -->
+    <main>
+
+        <section class="faculty-section">
+
+            <h2 class="section-heading">Meet Our Faculty Members</h2>
+
+            <!-- Faculty cards will be generated from data/faculty.json -->
+            <div
+                class="faculty-grid"
+                id="facultyGrid"
+                aria-live="polite"
+            >
+                <!-- JavaScript inserts faculty cards here -->
             </div>
 
-            <div class="form-field">
-                <label for="enquiryEmail">Email Address *</label>
-                <input id="enquiryEmail" name="email"
-                       type="email" required maxlength="100">
-                <small class="field-error" id="emailError"></small>
-            </div>
+            <!-- Displayed when no matching faculty is found -->
+            <p id="noResults" hidden>
+                No faculty members found.
+            </p>
 
-            <div class="form-field">
-                <label for="enquiryPhone">Phone Number *</label>
-                <input id="enquiryPhone" name="phone"
-                       type="tel" inputmode="numeric"
-                       pattern="[6-9][0-9]{9}"
-                       maxlength="10" required
-                       placeholder="10-digit mobile number">
-                <small class="field-error" id="phoneError"></small>
-            </div>
+        </section>
 
-            <div class="form-field">
-                <label for="enquirySubject">Enquiry Subject *</label>
-                <input id="enquirySubject" name="subject"
-                       type="text" required minlength="3"
-                       maxlength="100">
-                <small class="field-error" id="subjectError"></small>
-            </div>
-
-            <div class="form-field full-width">
-                <label for="enquiryMessage">Message *</label>
-                <textarea id="enquiryMessage" name="message"
-                          required minlength="10"
-                          maxlength="1000"></textarea>
-                <small class="field-error" id="messageError"></small>
-            </div>
-
-            <p id="formStatus" class="form-status"
-               role="status" aria-live="polite"></p>
-
-            <button type="submit" class="submit-button">
-                Validate Enquiry
-            </button>
-        </form>
-    </div>
-</section>
     </main>
+
+
+    <!-- ENQUIRY FORM -->
+    <section class="enquiry-section" id="enquiry">
+
+        <div class="enquiry-container">
+
+            <div class="enquiry-info">
+
+                <span class="enquiry-label">GET IN TOUCH</span>
+
+                <h2>Have an Enquiry?</h2>
+
+                <p>
+                    Have questions about our faculty, courses, or admissions?
+                    Fill out the form and our team will get in touch with you shortly!
+                </p>
+
+            </div>
+
+
+            <!-- ENQUIRY FORM FIELDS -->
+            <form class="enquiry-form" id="enquiryForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="enquiryName">Full Name *</label>
+
+                        <input
+                            type="text"
+                            id="enquiryName"
+                            name="name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enquiryEmail">Email Address *</label>
+
+                        <input
+                            type="email"
+                            id="enquiryEmail"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="enquiryPhone">Mobile Number *</label>
+
+                        <input
+                            type="tel"
+                            id="enquiryPhone"
+                            name="phone"
+                            placeholder="Enter mobile number"
+                            autocomplete="tel"
+                            pattern="[0-9]{10}"
+                            maxlength="10"
+                            inputmode="numeric"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="enquirySubject">Enquiry Type *</label>
+
+                        <select
+                            id="enquirySubject"
+                            name="subject"
+                            required
+                        >
+                            <option value="">Select enquiry type</option>
+                            <option value="Admissions">Admissions</option>
+                            <option value="Courses">Courses &amp; Programs</option>
+                            <option value="Faculty">Faculty Information</option>
+                            <option value="Placements">Placements</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="enquiryMessage">Your Message *</label>
+
+                    <textarea
+                        id="enquiryMessage"
+                        name="message"
+                        rows="5"
+                        placeholder="Write your enquiry here..."
+                        required
+                    ></textarea>
+                </div>
+
+
+                <button type="submit" class="enquiry-submit">
+                    Submit Enquiry
+                </button>
+
+                <p
+                    id="enquiryStatus"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+
+        </div>
+
+    </section>
+
 
     <!-- FACULTY DETAILS POPUP -->
     <div
@@ -149,43 +247,64 @@
         role="dialog"
         aria-modal="true"
         aria-labelledby="modalName"
+        aria-hidden="true"
     >
+
         <div class="modal-content">
+
             <button
                 class="close-modal"
                 id="closeModal"
                 type="button"
-                aria-label="Close"
-            >&times;</button>
+                aria-label="Close faculty details"
+            >
+                &times;
+            </button>
 
-            <img id="modalPhoto" src="" alt="Faculty Photo">
+            <img
+                id="modalPhoto"
+                src=""
+                alt="Faculty Photo"
+            >
+
             <h2 id="modalName">Faculty Details</h2>
+
             <div id="modalDetails"></div>
+
         </div>
+
     </div>
+
 
     <!-- FOOTER -->
     <footer>
+
         <div class="footer-content">
 
             <div class="footer-column">
                 <h3>Audyogik Shikshan Mandal’s NextGen Technical Campus</h3>
+
                 <p>Institute of Management &amp; Engineering</p>
+
                 <p>
                     Committed to quality education, skill development
                     and overall student growth.
                 </p>
             </div>
 
+
             <div class="footer-column">
                 <h3>Academic Information</h3>
+
                 <p>Computer Applications</p>
                 <p>Management Studies</p>
                 <p>Engineering &amp; Technology</p>
             </div>
 
+
             <div class="footer-column">
                 <h3>Contact Information</h3>
+
                 <p>Talegaon Dabhade, Pune, Maharashtra</p>
                 <p>Email: admission.asmnextgen@asmedu.org</p>
                 <p>Phone: +91 90280 76028</p>
@@ -193,13 +312,80 @@
 
         </div>
 
+
         <div class="footer-bottom">
-            <p>&copy; 2026 ASM's NextGen Technical Campus. All Rights Reserved.</p>
+            <p>
+                &copy; 2026 ASM's NextGen Technical Campus. All Rights Reserved.
+            </p>
+
             <p>Faculty Department | ASM</p>
         </div>
+
     </footer>
 
-    <!-- JAVASCRIPT -->
+
+    <!-- THREE-DOT MENU JAVASCRIPT -->
+    <script>
+        function toggleFacultyMenu(button) {
+            const currentMenu = button.closest(".faculty-menu");
+
+            if (!currentMenu) {
+                return;
+            }
+
+            const isOpen = currentMenu.classList.contains("open");
+
+            document.querySelectorAll(".faculty-menu").forEach(function(menu) {
+                menu.classList.remove("open");
+
+                const menuButton = menu.querySelector(".menu-dots");
+
+                if (menuButton) {
+                    menuButton.setAttribute("aria-expanded", "false");
+                }
+            });
+
+            if (!isOpen) {
+                currentMenu.classList.add("open");
+                button.setAttribute("aria-expanded", "true");
+            }
+        }
+
+
+        // Close faculty menus when clicking outside
+        document.addEventListener("click", function(event) {
+            if (!event.target.closest(".faculty-menu")) {
+                document.querySelectorAll(".faculty-menu").forEach(function(menu) {
+                    menu.classList.remove("open");
+
+                    const button = menu.querySelector(".menu-dots");
+
+                    if (button) {
+                        button.setAttribute("aria-expanded", "false");
+                    }
+                });
+            }
+        });
+
+
+        // Close faculty menus when pressing Escape
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                document.querySelectorAll(".faculty-menu").forEach(function(menu) {
+                    menu.classList.remove("open");
+
+                    const button = menu.querySelector(".menu-dots");
+
+                    if (button) {
+                        button.setAttribute("aria-expanded", "false");
+                    }
+                });
+            }
+        });
+    </script>
+
+
+    <!-- FACULTY DATA, SEARCH AND VIEW DETAILS -->
     <script src="js/Faculty.js"></script>
 
 </body>
