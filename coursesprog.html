@@ -4,37 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses & Programs | ASM College</title>
+    <!-- Google Fonts for New Font Variables -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <script src="js/coursesprog.js" defer></script>
     <style>
-        /* Color Palette & CSS Variables */
+        /* New Color Palette & Typography Variables */
         :root {
-            --primary-blue: #003366;
-            --secondary-blue: #0056b3;
-            --light-blue: #e6f0fa;
-            --accent-blue: #007bff;
-            --white: #ffffff;
-            --gray-light: #f8f9fa;
-            --text-dark: #212529;
-            --text-muted: #6c757d;
-            --border-color: #dcdcdc;
+            color-scheme: light;
+            --navy: #082847;
+            --blue: #103f68;
+            --bright-blue: #1b5d91;
+            --pale-blue: #e8f1f8;
+            --ink: #172b3f;
+            --muted: #617386;
+            --white: #fff;
+            --paper: #f5f8fb;
+            --font-body: "Roboto", sans-serif;
+            --font-heading: "Raleway", sans-serif;
+            
+            /* Backward compatibility mapping */
+            --primary-blue: var(--navy);
+            --secondary-blue: var(--blue);
+            --light-blue: var(--pale-blue);
+            --accent-blue: var(--bright-blue);
+            --gray-light: var(--paper);
+            --text-dark: var(--ink);
+            --text-muted: var(--muted);
+            --border-color: #cbd5e1;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-body);
         }
 
         body {
-            background-color: var(--gray-light);
-            color: var(--text-dark);
+            background-color: var(--paper);
+            color: var(--ink);
             line-height: 1.6;
+            scroll-behavior: smooth; /* Smooth scrolling enabled */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
         }
 
         /* Header & Navigation */
         header {
-            background-color: var(--primary-blue);
+            background-color: var(--navy);
             color: var(--white);
             padding: 1rem 2rem;
             display: flex;
@@ -110,19 +129,18 @@
         }
 
         .dropdown-content a {
-            color: var(--text-dark);
+            color: var(--ink);
             padding: 10px 15px;
             text-decoration: none;
             display: block;
             font-size: 0.9rem;
-            border-bottom: 1px solid var(--gray-light);
+            border-bottom: 1px solid var(--paper);
             transition: background 0.2s;
         }
 
         .dropdown-content a:hover {
-            background-color: var(--light-blue);
-            color: var(--primary-blue);
-            border-bottom: 1px solid var(--gray-light);
+            background-color: var(--pale-blue);
+            color: var(--navy);
         }
 
         .dropdown:hover .dropdown-content {
@@ -131,7 +149,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            background: linear-gradient(135deg, var(--navy), var(--blue));
             color: var(--white);
             text-align: center;
             padding: 3rem 1rem;
@@ -140,6 +158,7 @@
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
         }
 
         .hero p {
@@ -156,18 +175,19 @@
 
         .section-title {
             text-align: center;
-            color: var(--primary-blue);
+            color: var(--navy);
             margin-bottom: 2rem;
             margin-top: 2rem;
             font-size: 2rem;
             position: relative;
+            font-family: var(--font-heading);
         }
 
         .section-title::after {
             content: '';
             width: 60px;
             height: 3px;
-            background-color: var(--secondary-blue);
+            background-color: var(--bright-blue);
             display: block;
             margin: 8px auto 0;
         }
@@ -184,10 +204,10 @@
         .course-card {
             background-color: var(--white);
             border-radius: 8px;
-            border-top: 4px solid var(--secondary-blue);
+            border-top: 4px solid var(--blue);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             padding: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -199,15 +219,15 @@
         }
 
         .course-card h3 {
-            color: var(--primary-blue);
+            color: var(--navy);
             margin-bottom: 0.5rem;
             font-size: 1.3rem;
         }
 
         .course-card .badge {
             display: inline-block;
-            background-color: var(--light-blue);
-            color: var(--secondary-blue);
+            background-color: var(--pale-blue);
+            color: var(--blue);
             padding: 0.25rem 0.6rem;
             border-radius: 4px;
             font-size: 0.85rem;
@@ -217,7 +237,7 @@
         }
 
         .course-card p {
-            color: var(--text-muted);
+            color: var(--muted);
             font-size: 0.95rem;
             margin-bottom: 1rem;
         }
@@ -226,7 +246,7 @@
             list-style: none;
             margin-bottom: 1.5rem;
             font-size: 0.9rem;
-            border-top: 1px solid var(--gray-light);
+            border-top: 1px solid var(--paper);
             padding-top: 0.8rem;
         }
 
@@ -238,7 +258,7 @@
 
         .btn {
             display: inline-block;
-            background-color: var(--primary-blue);
+            background-color: var(--navy);
             color: var(--white);
             text-align: center;
             padding: 0.6rem 1.2rem;
@@ -249,12 +269,12 @@
         }
 
         .btn:hover {
-            background-color: var(--secondary-blue);
+            background-color: var(--bright-blue);
         }
 
         /* Footer */
         footer {
-            background-color: var(--primary-blue);
+            background-color: var(--navy);
             color: var(--white);
             text-align: center;
             padding: 1.5rem;
@@ -264,6 +284,29 @@
         footer p {
             font-size: 0.9rem;
             opacity: 0.8;
+        }
+
+        /* Back to Top Button Styles */
+        #back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--bright-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        #back-to-top:hover {
+            background-color: var(--blue);
         }
 
         /* Responsive Design */
@@ -320,10 +363,10 @@
 
     <!-- Search / Filter Component -->
     <div class="search-container" style="max-width: 600px; margin: 20px auto; text-align: center; padding: 0 1rem; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
-        <input type="text" id="course-search-input" placeholder="🔍 Search courses or clubs..." style="flex: 1; min-width: 250px; padding: 10px 15px; font-size: 1rem; border: 2px solid #003366; border-radius: 20px; outline: none;">
+        <input type="text" id="course-search-input" placeholder="🔍 Search courses or clubs..." style="flex: 1; min-width: 250px; padding: 10px 15px; font-size: 1rem; border: 2px solid var(--navy); border-radius: 20px; outline: none;">
         
-        <!-- Category Filter Dropdown Added -->
-        <select id="category-filter-select" style="padding: 10px 15px; font-size: 1rem; border: 2px solid #003366; border-radius: 20px; outline: none; background: white; cursor: pointer;">
+        <!-- Category Filter Dropdown -->
+        <select id="category-filter-select" style="padding: 10px 15px; font-size: 1rem; border: 2px solid var(--navy); border-radius: 20px; outline: none; background: white; cursor: pointer;">
             <option value="all">All Categories</option>
             <option value="ug">Undergraduate (UG)</option>
             <option value="pg">Postgraduate (PG)</option>
@@ -336,9 +379,9 @@
     <!-- Content Container -->
     <main class="container">
 
-        <!-- Undergraduate Section -->
-        <h2 class="section-title">Undergraduate Programs (UG)</h2>
-        <div class="courses-grid">
+        <!-- Undergraduate Section with IDs -->
+        <h2 class="section-title" id="ug-heading">Undergraduate Programs (UG)</h2>
+        <div class="courses-grid" id="ug-section">
             <div class="course-card" data-category="ug">
                 <div>
                     <span class="badge">B.Tech</span>
@@ -383,7 +426,7 @@
                     <a href="admission.html" class="btn">Apply Now</a>
                 </div>
             </div>
-            <!-- B.Com Course Added -->
+
             <div class="course-card" data-category="ug">
                 <div>
                     <span class="badge">B.Com</span>
@@ -415,9 +458,9 @@
             </div>
         </div>
 
-        <!-- Postgraduate Section -->
-        <h2 class="section-title">Postgraduate Programs (PG)</h2>
-        <div class="courses-grid">
+        <!-- Postgraduate Section with IDs -->
+        <h2 class="section-title" id="pg-heading">Postgraduate Programs (PG)</h2>
+        <div class="courses-grid" id="pg-section">
             <div class="course-card" data-category="pg">
                 <div>
                     <span class="badge">MCA</span>
@@ -464,9 +507,9 @@
             </div>
         </div>
 
-        <!-- Campus Student Clubs Section -->
-        <h2 class="section-title">Student & Campus Clubs</h2>
-        <div class="courses-grid">
+        <!-- Campus Student Clubs Section with IDs -->
+        <h2 class="section-title" id="clubs-heading">Student & Campus Clubs</h2>
+        <div class="courses-grid" id="clubs-section">
             <div class="course-card" data-category="clubs">
                 <div>
                     <span class="badge">Tech Club</span>
@@ -551,7 +594,24 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" style="display: none; position: fixed; bottom: 25px; right: 25px; background-color:#003366; color: white; border: none; border-radius: 50%; width: 45px; height: 45px; font-size: 20px; cursor: pointer; box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index: 1000;">↑</button>
+    <button id="back-to-top" title="Go to top">↑</button>
 
+    <!-- Script for Back to Top Scroll Behavior -->
+    <script>
+        const backToTopBtn = document.getElementById("back-to-top");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        });
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
 </body>
 </html>
