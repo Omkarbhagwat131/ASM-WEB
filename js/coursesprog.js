@@ -22,7 +22,8 @@ const filterCourses = (query = "", selectedCategory = "all") => {
 
     courseCards.forEach((card) => {
         const courseTitle = card.querySelector("h3") ? card.querySelector("h3").textContent.toLowerCase() : "";
-        const courseBadge = card.querySelector(".badge") ? card.querySelector(".badge").textContent.toLowerCase() : "";
+        const courseBadgeElement = card.querySelector(".badge, .home-course-badge");
+        const courseBadge = courseBadgeElement ? courseBadgeElement.textContent.toLowerCase() : "";
         const courseDesc = card.querySelector("p") ? card.querySelector("p").textContent.toLowerCase() : "";
         
         // Get category from data-category attribute
