@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#063b69">
   <title>Contact Us | ASM College</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contact.css">
 </head>
 <body class="contact-page">
   <header class="contact-navbar">
@@ -38,20 +38,31 @@
         <span class="contact-heading-rule" aria-hidden="true"></span>
       </div>
 
-      <div class="contact-event-grid">
-        <article class="contact-event-card">
-          <span class="contact-event-date">15 October 2026</span>
-          <h3>Annual Tech Fest 2026</h3>
-          <p class="contact-event-detail">Main Auditorium</p>
-          <p>Join us for coding competitions, hackathons, and guest lectures.</p>
-        </article>
-        <article class="contact-event-card">
-          <span class="contact-event-date">20 October 2026</span>
-          <h3>Guest Lecture: Cloud Computing</h3>
-          <p class="contact-event-detail">Speaker: Dr. A. Sharma</p>
-          <p>Learn about APIs and modern cloud trends.</p>
-        </article>
-      </div>
+      <form class="contact-event-filters" id="event-filters" role="search">
+        <div>
+          <label for="event-search">Search events</label>
+          <input
+            id="event-search"
+            name="search"
+            type="search"
+            placeholder="Search by title, date, or details"
+            autocomplete="off"
+          >
+        </div>
+        <div>
+          <label for="event-category">Filter by category</label>
+          <select id="event-category" name="category">
+            <option value="all">All categories</option>
+            <option value="technology">Technology</option>
+            <option value="guest-lecture">Guest lectures</option>
+          </select>
+        </div>
+        <button type="button" data-action="clear-filters">Clear filters</button>
+      </form>
+
+      <p class="contact-event-status" id="event-results-status" role="status" aria-live="polite"></p>
+      <p class="contact-event-status contact-event-storage-status" id="event-storage-status" role="status" aria-live="polite"></p>
+      <div class="contact-event-grid" id="event-list"></div>
     </section>
 
     <section class="contact-main" id="contact" aria-labelledby="contact-heading">
@@ -115,6 +126,6 @@
     <p>&copy; 2026 ASM College. All Rights Reserved.</p>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="js/contact.js"></script>
 </body>
 </html>
