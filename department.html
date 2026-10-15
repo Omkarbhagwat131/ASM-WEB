@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,11 +62,43 @@
                 font-size: 14px;
             }
         }
+        
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    background: #0b3d91;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#back-to-top:hover {
+    background: #082b66;
+}
+
+@media (max-width: 600px) {
+    #back-to-top {
+        bottom: 18px;
+        right: 18px;
+        width: 44px;
+        height: 44px;
+    }
+}
+
     </style>
 </head>
 
-<body>
+<body> 
 
+   
 <header class="navbar">
     <div class="logo">ASM College</div>
     <nav class="main-nav">
@@ -91,95 +122,199 @@
     <h2>Academic Departments</h2>
     <div class="underline"></div>
 
-    <div class="department-container">
-
-        <div class="department-card">
-            <span class="department-code">BCA</span>
-            <h3>Computer Applications</h3>
-            <p>Learn programming, software development, web technologies and databases.</p>
-        </div>
-
-        <div class="department-card">
-            <span class="department-code">BBA</span>
-            <h3>Business Administration</h3>
-            <p>Develop leadership, management, business strategy and entrepreneurship skills.</p>
-        </div>
-
-        <div class="department-card">
-            <span class="department-code">B.Com</span>
-            <h3>Commerce</h3>
-            <p>Study accounting, finance, taxation, economics and commerce.</p>
-        </div>
-
-        <div class="department-card">
-            <span class="department-code">B.Sc</span>
-            <h3>Information Technology</h3>
-            <p>Learn IT, networking, databases, programming and emerging technologies.</p>
-        </div>
-
-        <div class="department-card">
-            <span class="department-code">MBA</span>
-            <h3>Management Studies</h3>
-            <p>Build skills in finance, marketing, human resources and management.</p>
-        </div>
-
     
-<div class="department-card">
-    <span class="department-code">MCA</span>
+<div class="department-search">
+    <input
+        type="text"
+        id="department-search"
+        placeholder="Search departments..."
+        aria-label="Search departments"
+    >
+    <p id="search-message" aria-live="polite"></p>
+    
+<section class="departments-section">
+    <h2>Academic Departments</h2>
+    <div class="underline"></div>
 
-    <h3>Master of Computer Applications</h3>
-
-    <p>
-        Learn programming, software engineering, cloud computing,
-        database management and application development.
-    </p>
-
-    <button type="button"
-            class="view-details-btn"
-            aria-expanded="false">
-        View Details
-    </button>
-
-    <div id="mca-details" class="course-details" hidden>
-
-        <h3>About MCA</h3>
-        <p>
-            MCA is a postgraduate course focused on computer
-            applications, programming and software development.
-        </p>
-
-        <h3>Subjects and Skills</h3>
-        <ul>
-            <li>Python and Java Programming</li>
-            <li>Database Management Systems</li>
-            <li>Software Engineering</li>
-            <li>Web Development</li>
-            <li>Cloud Computing</li>
-            <li>Artificial Intelligence and Data Science</li>
-        </ul>
-
-        <h3>Career Opportunities</h3>
-        <ul>
-            <li>Software Developer</li>
-            <li>Web Developer</li>
-            <li>Cloud Engineer</li>
-            <li>Data Analyst</li>
-            <li>System Analyst</li>
-        </ul>
-
-        <p><strong>Course Duration:</strong> Generally 2 years, subject to university rules.</p>
-
+    <div class="department-search">
+        <input
+            type="text"
+            id="department-search"
+            placeholder="Search departments..."
+            aria-label="Search departments"
+        >
+        <p id="search-message" aria-live="polite"></p>
     </div>
-</div>
 
-
+    <div class="department-container" id="department-container">
+        <!-- Department cards will load from JSON -->
     </div>
 </section>
+
+   
+</section>
+
+<button
+    type="button"
+    id="back-to-top"
+    aria-label="Back to top"
+    title="Back to top">
+    ↑
+</button>
+
 <footer>
     <p>2026 ASM College.</p>
 </footer>
 
 <script src="js/asm.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    const container = document.querySelector("#department-container");
+    const searchInput = document.querySelector("#department-search");
+    const message = document.querySelector("#search-message");
+    const backToTopButton = document.querySelector("#back-to-top");
+
+    try {
+        const response = await fetch("data/departments.json");
+
+        if (!response.ok) {
+            throw new Error("Unable to load departments.json");
+        }
+
+        const data = await response.json();
+
+        data.departments.forEach((department) => {
+            const card = document.createElement("div");
+            card.className = "department-card";
+
+            const code = document.createElement("span");
+            code.className = "department-code";
+            code.textContent = department.code;
+
+            const heading = document.createElement("h3");
+            heading.textContent = department.name;
+
+            const description = document.createElement("p");
+            description.textContent = department.description;
+
+            card.append(code, heading, description);
+
+            if (department.code === "MCA") {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = "view-details-btn";
+                button.textContent = "View Details";
+                button.setAttribute("aria-expanded", "false");
+
+                const details = document.createElement("div");
+                details.className = "course-details";
+                details.hidden = true;
+
+                const aboutHeading = document.createElement("h3");
+                aboutHeading.textContent = "About MCA";
+
+                const about = document.createElement("p");
+                about.textContent = department.about;
+
+                details.append(aboutHeading, about);
+
+                function addList(title, items) {
+                    const heading = document.createElement("h3");
+                    heading.textContent = title;
+
+                    const list = document.createElement("ul");
+
+                    items.forEach((item) => {
+                        const li = document.createElement("li");
+                        li.textContent = item;
+                        list.appendChild(li);
+                    });
+
+                    details.append(heading, list);
+                }
+
+                addList("Subjects and Skills", department.subjects);
+                addList("Career Opportunities", department.careers);
+
+                const duration = document.createElement("p");
+                duration.textContent =
+                    "Course Duration: " + department.duration;
+                details.appendChild(duration);
+
+                button.addEventListener("click", () => {
+                    details.hidden = !details.hidden;
+                    button.textContent = details.hidden
+                        ? "View Details"
+                        : "Hide Details";
+                    button.setAttribute(
+                        "aria-expanded",
+                        String(!details.hidden)
+                    );
+                });
+
+                card.append(button, details);
+            }
+
+            container.appendChild(card);
+        });
+
+        // Department Search
+        if (searchInput && message) {
+            try {
+                searchInput.value =
+                    localStorage.getItem("asmDepartmentSearch") || "";
+            } catch (error) {}
+
+            function updateSearch() {
+                const query = searchInput.value.toLowerCase().trim();
+                let count = 0;
+
+                container.querySelectorAll(".department-card").forEach((card) => {
+                    const matches = card.textContent
+                        .toLowerCase()
+                        .includes(query);
+
+                    card.hidden = !matches;
+                    if (matches) count++;
+                });
+
+                message.textContent = count === 0
+                    ? "No departments found."
+                    : `${count} department(s) found.`;
+            }
+
+            searchInput.addEventListener("input", () => {
+                updateSearch();
+
+                try {
+                    localStorage.setItem(
+                        "asmDepartmentSearch",
+                        searchInput.value
+                    );
+                } catch (error) {}
+            });
+
+            updateSearch();
+        }
+    } catch (error) {
+        console.error("Department loading error:", error);
+        container.textContent = "Unable to load departments.";
+    }
+
+    // Back to Top
+    if (backToTopButton) {
+        window.addEventListener("scroll", () => {
+            backToTopButton.style.display =
+                window.scrollY > 200 ? "block" : "none";
+        });
+
+        backToTopButton.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+});
+</script>
 
 </body>
 </html>

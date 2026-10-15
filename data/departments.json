@@ -1,0 +1,53 @@
+
+
+{
+  "departments": [
+    {
+      "code": "BCA",
+      "name": "Computer Applications",
+      "description": "Learn programming, software development, web technologies and databases."
+    },
+    {
+      "code": "BBA",
+      "name": "Business Administration",
+      "description": "Develop leadership, management, business strategy and entrepreneurship skills."
+    },
+    {
+      "code": "B.Com",
+      "name": "Commerce",
+      "description": "Study accounting, finance, taxation, economics and commerce."
+    },
+    {
+      "code": "B.Sc",
+      "name": "Information Technology",
+      "description": "Learn IT, networking, databases, programming and emerging technologies."
+    },
+    {
+      "code": "MBA",
+      "name": "Management Studies",
+      "description": "Build skills in finance, marketing, human resources and management."
+    },
+    {
+      "code": "MCA",
+      "name": "Master of Computer Applications",
+      "description": "Learn programming, software engineering, cloud computing, database management and application development.",
+      "about": "MCA is a postgraduate course focused on computer applications, programming and software development.",
+      "subjects": [
+        "Python and Java Programming",
+        "Database Management Systems",
+        "Software Engineering",
+        "Web Development",
+        "Cloud Computing",
+        "Artificial Intelligence and Data Science"
+      ],
+      "careers": [
+        "Software Developer",
+        "Web Developer",
+        "Cloud Engineer",
+        "Data Analyst",
+        "System Analyst"
+      ],
+      "duration": "Generally 2 years, subject to university rules."
+    }
+  ]
+}
