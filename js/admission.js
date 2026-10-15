@@ -1,105 +1,141 @@
-/* Program search, type filtering, and saved preferences */
+document.addEventListener("DOMContentLoaded", () => {
+    let admissionData = null;
 
-document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.getElementById("program-search");
-    const typeSelect = document.getElementById("program-type-filter");
-    const status = document.getElementById("program-filter-status");
-    const programCards = document.querySelectorAll("#career-path .department-card");
-    const preferenceKey = "asm-admission-program-preferences";
+    const form = document.querySelector("#admission-form");
+    const programSelect = document.querySelector("#selectedProgram");
+    const infoFee = document.querySelector("#info-fee");
+    const infoSeats = document.querySelector("#info-seats");
+    const infoEligibility = document.querySelector("#info-eligibility");
+    const datesList = document.querySelector("#important-dates-list");
+    const alertBox = document.querySelector("#form-alert");
 
-    if (searchInput && typeSelect && status && programCards.length > 0) {
-        function savePreferences() {
-            try {
-                localStorage.setItem(preferenceKey, JSON.stringify({
-                    search: searchInput.value,
-                    type: typeSelect.value
-                })); 
-            } catch (error) {
-                console.error("Could not save admission program preferences:", error);
-            }
+    // Fetch JSON Data
+    const fetchAdmissionData = async () => {
+        try {
+            const response = await fetch("data/admission-data.json");
+            if (!response.ok) throw new Error("Failed to load admission data");
+            admissionData = await response.json();
+            
+            renderImportantDates(admissionData.importantDates);
+            autoSelectCourseFromURL();
+            updateProgramCalculatedInfo();
+        } catch (error) {
+            console.error("Error loading JSON:", error);
         }
+    };
 
-        function filterPrograms() {
-            const searchText = searchInput.value.trim().toLowerCase();
-            const selectedType = typeSelect.value;
-            let visibleCount = 0;
+    // Auto select program if coming from courses page with parameter e.g. admission.html?course=bca-ug
+    const autoSelectCourseFromURL = () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseParam = urlParams.get("course");
+        if (courseParam && programSelect) {
+            programSelect.value = courseParam;
+        }
+    };
 
-            programCards.forEach(function (card) {
-                const title = card.querySelector("h3");
-                const matchesTitle = title && title.textContent.toLowerCase().includes(searchText);
-                const matchesType =
-                    selectedType === "all" || card.dataset.programType === selectedType;
-                const isVisible = matchesTitle && matchesType;
+    // Update Program details dynamically
+    const updateProgramCalculatedInfo = () => {
+        if (!admissionData || !programSelect) return;
+        const selectedKey = programSelect.value;
+        const programInfo = admissionData.feeStructure[selectedKey];
+        
+        if (programInfo) {
+            infoFee.textContent = programInfo.tuition;
+            infoSeats.textContent = programInfo.seats;
+            const categoryKey = selectedKey.includes("ug") ? "ug" : "pg";
+            infoEligibility.textContent = admissionData.eligibilityCriteria[categoryKey];
+        }
+    };
 
-                card.hidden = !isVisible;
-                if (isVisible) {
-                    visibleCount += 1;
+    if (programSelect) {
+        programSelect.addEventListener("change", updateProgramCalculatedInfo);
+    }
+
+    // Render Important Dates
+    const renderImportantDates = (dates) => {
+        if (!datesList) return;
+        datesList.innerHTML = "";
+        dates.forEach(d => {
+            const li = document.createElement("li");
+            li.innerHTML = `<strong>${d.event}:</strong> ${d.date}`;
+            datesList.appendChild(li);
+        });
+    };
+
+    // Multi-Step Form Navigation Logic
+    const nextBtns = document.querySelectorAll(".next-btn");
+    const prevBtns = document.querySelectorAll(".prev-btn");
+
+    nextBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const currentStep = btn.closest(".form-step-content");
+            const nextStepId = btn.getAttribute("data-next");
+            
+            // Basic validation before next
+            const inputs = currentStep.querySelectorAll("input, select");
+            let isValid = true;
+            inputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    isValid = false;
                 }
             });
 
-            status.textContent = visibleCount === 0
-                ? "No programs match your search."
-                : visibleCount + (visibleCount === 1 ? " program found." : " programs found.");
-            savePreferences();
-        }
-
-        try {
-            const savedPreferences = localStorage.getItem(preferenceKey);
-            if (savedPreferences) {
-                const preferences = JSON.parse(savedPreferences);
-                if (preferences && typeof preferences.search === "string") {
-                    searchInput.value = preferences.search;
-                }
-                if (preferences && ["all", "ug", "pg"].includes(preferences.type)) {
-                    typeSelect.value = preferences.type;
-                }
+            if (isValid) {
+                currentStep.classList.remove("active-step");
+                document.querySelector(`#${nextStepId}`).classList.add("active-step");
+                updateStepIndicators(nextStepId);
             }
-        } catch (error) {
-            console.error("Could not load admission program preferences:", error);
-        }
+        });
+    });
 
-        searchInput.addEventListener("input", filterPrograms);
-        typeSelect.addEventListener("change", filterPrograms);
-        filterPrograms();
+    prevBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const currentStep = btn.closest(".form-step-content");
+            const prevStepId = btn.getAttribute("data-prev");
+            currentStep.classList.remove("active-step");
+            document.querySelector(`#${prevStepId}`).classList.add("active-step");
+            updateStepIndicators(prevStepId);
+        });
+    });
+
+    const updateStepIndicators = (activeStepId) => {
+        document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
+        if (activeStepId === "step-1") document.querySelector("#step-1-indicator").classList.add("active");
+        if (activeStepId === "step-2") document.querySelector("#step-2-indicator").classList.add("active");
+        if (activeStepId === "step-3") document.querySelector("#step-3-indicator").classList.add("active");
+    };
+
+    // Document Checklist Interactive Counter
+    const docCheckboxes = document.querySelectorAll(".doc-check");
+    const progressText = document.querySelector("#checklist-progress");
+
+    docCheckboxes.forEach(cb => {
+        cb.addEventListener("change", () => {
+            const checkedCount = document.querySelectorAll(".doc-check:checked").length;
+            if (progressText) {
+                progressText.textContent = `${checkedCount} of ${docCheckboxes.length} Documents Ready`;
+            }
+        });
+    });
+
+    // Form Submit Handler
+    if (form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const fullName = document.querySelector("#fullName").value;
+            
+            alertBox.style.display = "block";
+            alertBox.style.backgroundColor = "#dcfce7";
+            alertBox.style.color = "#15803d";
+            alertBox.textContent = `🎉 Congratulations ${fullName}! Your admission application has been submitted successfully (Demo Submission).`;
+
+            form.reset();
+            setTimeout(() => {
+                window.location.href = "coursesprog.html";
+            }, 3000);
+        });
     }
-});
 
-/* ADMISSION MODULE - Event 1: Card hover */
-
-document.addEventListener("DOMContentLoaded", function () {
-    const programCards = document.querySelectorAll(
-        "#admission-process .department-card, #eligibility-criteria .department-card"
-    );
-
-    programCards.forEach(function (card) {
-        card.addEventListener("mouseenter", function () {
-            card.style.transform = "translateY(-5px)";
-            card.style.boxShadow = "0 8px 20px rgba(0, 0, 0, 0.15)";
-            card.style.transition =
-                "transform 0.3s, box-shadow 0.3s";
-        });
-
-        card.addEventListener("mouseleave", function () {
-            card.style.transform = "";
-            card.style.boxShadow = "";
-        });
-    });
-});
-
-/* ADMISSION MODULE - Event 2: Card click */
-
-document.addEventListener("DOMContentLoaded", function () {
-    const programCards = document.querySelectorAll(
-        "#admission-process .department-card, #eligibility-criteria .department-card"
-    );
-
-    programCards.forEach(function (card) {
-        card.addEventListener("click", function () {
-            const heading = card.querySelector("h3");
-
-            if (heading) {
-                alert("You selected: " + heading.textContent);
-            }
-        });
-    });
+    fetchAdmissionData();
 });

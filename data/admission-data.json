@@ -1,0 +1,20 @@
+{
+  "eligibilityCriteria": {
+    "ug": "12th Pass with minimum 50% aggregate marks in relevant stream.",
+    "pg": "Graduation degree with minimum 50% marks from a recognized university.",
+    "diploma": "10th or 12th Pass with science/maths background."
+  },
+  "feeStructure": {
+    "cse-ug": { "name": "B.Tech Computer Science", "tuition": "₹1,20,000 / year", "seats": "120 Seats Left" },
+    "bca-ug": { "name": "BCA (Computer Applications)", "tuition": "₹80,000 / year", "seats": "60 Seats Left" },
+    "bba-ug": { "name": "BBA (Business Admin)", "tuition": "₹75,000 / year", "seats": "90 Seats Left" },
+    "mca-pg": { "name": "MCA (Master of Computer Apps)", "tuition": "₹90,000 / year", "seats": "60 Seats Left" },
+    "mba-pg": { "name": "MBA (Business Admin)", "tuition": "₹1,40,000 / year", "seats": "120 Seats Left" }
+  },
+  "importantDates": [
+    { "event": "Application Phase 1 Opens", "date": "15th November 2026" },
+    { "event": "Early Bird Scholarship Deadline", "date": "10th December 2026" },
+    { "event": "Entrance Assessment Test (ASM-SAT)", "date": "20th December 2026" },
+    { "event": "Merit List Declaration", "date": "28th December 2026" }
+  ]
+}

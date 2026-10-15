@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div>
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                         <span class="badge" style="margin-bottom: 0;">${course.badge}</span>
-                        <span style="font-size: 0.85rem; font-weight: 600; color: #d97706;">⭐ ${course.rating} (${course.reviewsCount})</span>
+                        <span style="font-size: 0.85rem; font-weight: 600; color: #16a34a;">⭐ ${course.rating} (${course.reviewsCount})</span>
                     </div>
                     <h3>${course.title}</h3>
                     <p>${course.description}</p>
