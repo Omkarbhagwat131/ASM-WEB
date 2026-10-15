@@ -62,6 +62,37 @@
                 font-size: 14px;
             }
         }
+        
+#back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    background: #0b3d91;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#back-to-top:hover {
+    background: #082b66;
+}
+
+@media (max-width: 600px) {
+    #back-to-top {
+        bottom: 18px;
+        right: 18px;
+        width: 44px;
+        height: 44px;
+    }
+}
+
     </style>
 </head>
 
@@ -186,6 +217,15 @@
 
     </div>
 </section>
+
+<button
+    type="button"
+    id="back-to-top"
+    aria-label="Back to top"
+    title="Back to top">
+    ↑
+</button>
+
 <footer>
     <p>2026 ASM College.</p>
 </footer>
@@ -194,13 +234,17 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Department Search
+    
+    
+    // Department Search with localStorage
     const searchInput = document.querySelector("#department-search");
     const cards = document.querySelectorAll(".department-card");
     const message = document.querySelector("#search-message");
 
     if (searchInput && message) {
-        searchInput.addEventListener("input", () => {
+        const storageKey = "asmDepartmentSearch";
+
+        function updateDepartmentSearch(saveValue = false) {
             const searchText = searchInput.value.toLowerCase().trim();
             let count = 0;
 
@@ -210,14 +254,40 @@ document.addEventListener("DOMContentLoaded", () => {
                     .includes(searchText);
 
                 card.hidden = !matches;
-                if (matches) count++;
+
+                if (matches) {
+                    count++;
+                }
             });
 
             message.textContent = count === 0
                 ? "No departments found."
                 : `${count} department(s) found.`;
+
+            if (saveValue) {
+                try {
+                    localStorage.setItem(storageKey, searchInput.value);
+                } catch (error) {
+                    console.warn("Could not save search.");
+                }
+            }
+        }
+
+        try {
+            searchInput.value = localStorage.getItem(storageKey) || "";
+        } catch (error) {
+            searchInput.value = "";
+        }
+
+        updateDepartmentSearch();
+
+        searchInput.addEventListener("input", () => {
+            updateDepartmentSearch(true);
         });
     }
+
+        });
+    
 
     // MCA View Details
     const button = document.querySelector(".view-details-btn");
@@ -238,7 +308,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-});
+    // Back-to-Top Button
+    const backToTopButton = document.querySelector("#back-to-top");
+
+    if (backToTopButton) {
+        window.addEventListener("scroll", () => {
+            backToTopButton.style.display =
+                window.scrollY > 200 ? "block" : "none";
+        });
+
+        backToTopButton.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+
+
 </script>
 </body>
 </html>
