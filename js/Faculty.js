@@ -1,55 +1,36 @@
-/* =========================================================
-   Faculty.js  -  Day 4 + Day 5 (Vanilla JavaScript only)
-   ========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
-    // ---------- DOM elements ----------
-    const facultyGrid = document.getElementById("facultyGrid");
     const searchInput = document.getElementById("searchInput");
+    const facultyGrid = document.getElementById("facultyGrid");
     const searchMessage = document.getElementById("searchMessage");
     const noResults = document.getElementById("noResults");
+    const loadingMessage = document.getElementById("loadingMessage");
 
-    const modal = document.getElementById("facultyModal");
-    const closeModalBtn = document.getElementById("closeModal");
+    const facultyModal = document.getElementById("facultyModal");
     const modalPhoto = document.getElementById("modalPhoto");
     const modalName = document.getElementById("modalName");
     const modalDetails = document.getElementById("modalDetails");
+    const closeModalButton = document.getElementById("closeModal");
 
     const enquiryForm = document.getElementById("enquiryForm");
-    const enquiryStatus = document.getElementById("enquiryStatus");
+    const formStatus = document.getElementById("formStatus");
 
-    // ---------- State ----------
-    let facultyMembers = [];
-    let lastFocusedElement = null;
+    const STORAGE_KEY = "facultySearchPreference";
+    const DEPARTMENT_KEY = "facultyDepartmentPreference";
+    let facultyData = [];
 
-    const STORAGE_KEYS = {
-        search: "facultySearch",
-        department: "facultyDepartment"
-    };
+    // Check required HTML elements.
+    const requiredElements = [
+        searchInput, facultyGrid, searchMessage, noResults,
+        loadingMessage, facultyModal, modalPhoto, modalName,
+        modalDetails, closeModalButton, enquiryForm, formStatus
+    ];
 
-    // ---------- localStorage helpers ----------
-    const saveToStorage = (key, value) => {
-        try {
-            localStorage.setItem(key, value);
-        } catch (error) {
-            console.warn("localStorage not available:", error);
-        }
-    };
+    if (requiredElements.some(element => !element)) {
+        console.error("Required HTML elements are missing.");
+        return;
+    }
 
-    const loadFromStorage = (key) => {
-        try {
-            return localStorage.getItem(key) || "";
-        } catch (error) {
-            console.warn("localStorage not available:", error);
-            return "";
-        }
-    };
-
-    // Remove extra "Experience: " if JSON already has it
-    const cleanExperience = (value) =>
-        String(value || "").replace(/^Experience:\s*/i, "").trim();
-
-    // ---------- Department dropdown (same row as search bar) ----------
+    // Department dropdown: placed beside the search bar in the same row.
     let departmentFilter = document.getElementById("departmentFilter");
 
     if (!departmentFilter) {
@@ -71,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
             cursor: "pointer"
         });
 
-        // One horizontal row: search bar + department
         const filterRow = document.createElement("div");
         Object.assign(filterRow.style, {
             display: "flex",
@@ -91,338 +71,478 @@ document.addEventListener("DOMContentLoaded", () => {
         filterRow.append(searchInput, departmentFilter);
     }
 
-    const buildDepartmentOptions = (members) => {
-        const departments = [...new Set(members.map((f) => f.department))].sort();
+    // Build dropdown options from the JSON data.
+    function buildDepartmentOptions() {
+        const departments = [
+            ...new Set(facultyData.map(faculty => faculty.department).filter(Boolean))
+        ].sort();
 
-        departmentFilter.innerHTML = "";
+        departmentFilter.replaceChildren();
 
         const allOption = document.createElement("option");
         allOption.value = "";
         allOption.textContent = "All Departments";
         departmentFilter.appendChild(allOption);
 
-        departments.forEach((dept) => {
+        departments.forEach(department => {
             const option = document.createElement("option");
-            option.value = dept;
-            option.textContent = dept;
+            option.value = department;
+            option.textContent = department;
             departmentFilter.appendChild(option);
-        });
-    };
-
-    // ---------- Load JSON data ----------
-    const loadFaculty = async () => {
-        try {
-            const response = await fetch("./data/faculty.json");
-
-            if (!response.ok) {
-                throw new Error(`Could not load faculty.json (status ${response.status})`);
-            }
-
-            facultyMembers = await response.json();
-
-            buildDepartmentOptions(facultyMembers);
-
-            // Restore saved preferences
-            searchInput.value = loadFromStorage(STORAGE_KEYS.search);
-            const savedDept = loadFromStorage(STORAGE_KEYS.department);
-            if ([...departmentFilter.options].some((o) => o.value === savedDept)) {
-                departmentFilter.value = savedDept;
-            }
-
-            applyFilters();
-        } catch (error) {
-            console.error("Faculty loading error:", error);
-            facultyGrid.innerHTML = "";
-            const message = document.createElement("p");
-            message.textContent =
-                "Unable to load faculty details. Please check the JSON file path and try again.";
-            facultyGrid.appendChild(message);
-        }
-    };
-
-    // ---------- Render cards ----------
-    const createCard = (faculty) => {
-        const card = document.createElement("article");
-        card.className = "faculty-card";
-        card.dataset.id = faculty.id;
-
-        // Three-dot menu
-        const menu = document.createElement("div");
-        menu.className = "faculty-menu";
-
-        const dots = document.createElement("button");
-        dots.className = "menu-dots";
-        dots.type = "button";
-        dots.textContent = "⋮";
-        dots.setAttribute("aria-label", "Open faculty links");
-        dots.setAttribute("aria-expanded", "false");
-
-        const menuLinks = document.createElement("div");
-        menuLinks.className = "menu-links";
-
-        if (faculty.linkedin) {
-            const linkedin = document.createElement("a");
-            linkedin.href = faculty.linkedin;
-            linkedin.target = "_blank";
-            linkedin.rel = "noopener noreferrer";
-            linkedin.textContent = "LinkedIn Profile";
-            menuLinks.appendChild(linkedin);
-        }
-
-        menu.append(dots, menuLinks);
-
-        // Photo
-        const photoWrapper = document.createElement("div");
-        photoWrapper.className = "faculty-photo";
-
-        const photo = document.createElement("img");
-        photo.src = faculty.image;
-        photo.alt = faculty.name;
-        photo.loading = "lazy";
-        photo.onerror = () => {
-            photo.alt = "Faculty photo unavailable";
-        };
-        photoWrapper.appendChild(photo);
-
-        // Text details
-        const name = document.createElement("h3");
-        name.textContent = faculty.name;
-
-        const designation = document.createElement("p");
-        designation.className = "designation";
-        designation.textContent = faculty.designation;
-
-        const department = document.createElement("p");
-        department.className = "department";
-        department.textContent = faculty.department;
-
-        const qualification = document.createElement("p");
-        qualification.className = "qualification";
-        qualification.textContent = faculty.qualification;
-
-        const experience = document.createElement("p");
-        experience.className = "experience";
-        experience.textContent = `Experience: ${cleanExperience(faculty.experience)}`;
-
-        // View Details button (click handled by event delegation)
-        const detailsButton = document.createElement("button");
-        detailsButton.className = "view-details";
-        detailsButton.type = "button";
-        detailsButton.textContent = "View Details";
-        detailsButton.dataset.id = faculty.id;
-
-        card.append(
-            menu,
-            photoWrapper,
-            name,
-            designation,
-            department,
-            qualification,
-            experience,
-            detailsButton
-        );
-
-        return card;
-    };
-
-    const displayFaculty = (members) => {
-        facultyGrid.innerHTML = "";
-
-        if (noResults) {
-            noResults.hidden = members.length !== 0;
-        }
-
-        members.forEach((faculty) => {
-            facultyGrid.appendChild(createCard(faculty));
-        });
-    };
-
-    // ---------- Search + Department filter ----------
-    const applyFilters = () => {
-        const query = searchInput.value.trim().toLowerCase();
-        const selectedDept = departmentFilter.value;
-
-        const filtered = facultyMembers.filter((faculty) => {
-            const matchesName = faculty.name.toLowerCase().includes(query);
-            const matchesDept = !selectedDept || faculty.department === selectedDept;
-            return matchesName && matchesDept;
-        });
-
-        displayFaculty(filtered);
-
-        if (searchMessage) {
-            searchMessage.textContent =
-                query || selectedDept
-                    ? `Showing ${filtered.length} matching faculty member(s).`
-                    : "Search faculty by entering their name.";
-        }
-    };
-
-    searchInput.addEventListener("input", () => {
-        saveToStorage(STORAGE_KEYS.search, searchInput.value);
-        applyFilters();
-    });
-
-    departmentFilter.addEventListener("change", () => {
-        saveToStorage(STORAGE_KEYS.department, departmentFilter.value);
-        applyFilters();
-    });
-
-    // ---------- Three-dot menu helpers ----------
-    const closeAllMenus = () => {
-        document.querySelectorAll(".faculty-menu.open").forEach((menu) => {
-            menu.classList.remove("open");
-            const btn = menu.querySelector(".menu-dots");
-            if (btn) btn.setAttribute("aria-expanded", "false");
-        });
-    };
-
-    const toggleMenu = (dotsButton) => {
-        const menu = dotsButton.closest(".faculty-menu");
-        const wasOpen = menu.classList.contains("open");
-
-        closeAllMenus();
-
-        if (!wasOpen) {
-            menu.classList.add("open");
-            dotsButton.setAttribute("aria-expanded", "true");
-        }
-    };
-
-    // ---------- Modal ----------
-    const showFacultyDetails = (faculty) => {
-        lastFocusedElement = document.activeElement;
-
-        modalPhoto.src = faculty.image;
-        modalPhoto.alt = faculty.name;
-        modalName.textContent = faculty.name;
-        modalDetails.replaceChildren();
-
-        const details = [
-            ["Designation", faculty.designation],
-            ["Department", faculty.department],
-            ["Qualification", faculty.qualification],
-            ["Experience", cleanExperience(faculty.experience)],
-            ["Subjects", Array.isArray(faculty.subjects) ? faculty.subjects.join(", ") : ""]
-        ];
-
-        details.forEach(([label, value]) => {
-            const paragraph = document.createElement("p");
-            const strong = document.createElement("strong");
-            strong.textContent = `${label}: `;
-            paragraph.append(strong, document.createTextNode(value || "Not provided"));
-            modalDetails.appendChild(paragraph);
-        });
-
-        modal.classList.add("show");
-        modal.style.display = "flex"; // works even if CSS .modal.show is missing
-        modal.setAttribute("aria-hidden", "false");
-        closeModalBtn.focus();
-    };
-
-    const hideModal = () => {
-        modal.classList.remove("show");
-        modal.style.display = "none";
-        modal.setAttribute("aria-hidden", "true");
-
-        if (lastFocusedElement) {
-            lastFocusedElement.focus();
-        }
-    };
-
-    closeModalBtn.addEventListener("click", hideModal);
-
-    modal.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            hideModal();
-        }
-    });
-
-    // ---------- EVENT DELEGATION: one listener for all cards ----------
-    facultyGrid.addEventListener("click", (event) => {
-        // Three-dot button
-        const dotsButton = event.target.closest(".menu-dots");
-        if (dotsButton) {
-            toggleMenu(dotsButton);
-            return;
-        }
-
-        // View Details button
-        const detailsButton = event.target.closest(".view-details");
-        if (detailsButton) {
-            const id = Number(detailsButton.dataset.id);
-            const faculty = facultyMembers.find((f) => f.id === id);
-
-            if (faculty) {
-                showFacultyDetails(faculty);
-            }
-        }
-    });
-
-    // Close menus when clicking outside
-    document.addEventListener("click", (event) => {
-        if (!event.target.closest(".faculty-menu")) {
-            closeAllMenus();
-        }
-    });
-
-    // Escape key closes menus and modal
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-            closeAllMenus();
-
-            if (modal.classList.contains("show")) {
-                hideModal();
-            }
-        }
-    });
-
-    // ---------- Enquiry form validation ----------
-    if (enquiryForm && enquiryStatus) {
-        const showStatus = (message, isError) => {
-            enquiryStatus.textContent = message;
-            enquiryStatus.style.color = isError ? "#c0392b" : "#1e8449";
-        };
-
-        enquiryForm.addEventListener("submit", (event) => {
-            event.preventDefault(); // stop page reload
-
-            const name = document.getElementById("enquiryName").value.trim();
-            const email = document.getElementById("enquiryEmail").value.trim();
-            const phone = document.getElementById("enquiryPhone").value.trim();
-            const subject = document.getElementById("enquirySubject").value;
-            const message = document.getElementById("enquiryMessage").value.trim();
-
-            if (name.length < 3) {
-                showStatus("Please enter a valid name (minimum 3 characters).", true);
-                return;
-            }
-
-            if (!/^\S+@\S+\.\S+$/.test(email)) {
-                showStatus("Please enter a valid email address.", true);
-                return;
-            }
-
-            if (!/^[0-9]{10}$/.test(phone)) {
-                showStatus("Mobile number must be exactly 10 digits.", true);
-                return;
-            }
-
-            if (subject === "") {
-                showStatus("Please select an enquiry type.", true);
-                return;
-            }
-
-            if (message.length < 10) {
-                showStatus("Message must be at least 10 characters.", true);
-                return;
-            }
-
-            showStatus("Thank you! Your enquiry has been submitted.", false);
-            enquiryForm.reset();
         });
     }
 
-    // ---------- Start ----------
-    loadFaculty();
+    // 1. Load faculty data from JSON.
+    async function loadFacultyData() {
+        try {
+            const response = await fetch("data/faculty.json");
+
+            if (!response.ok) {
+                throw new Error("Could not load data/faculty.json");
+            }
+
+            const data = await response.json();
+
+            if (!Array.isArray(data)) {
+                throw new Error("Faculty JSON must contain an array.");
+            }
+
+            facultyData = data;
+            renderFaculty(facultyData);
+            buildDepartmentOptions();
+
+            try {
+                searchInput.value = localStorage.getItem(STORAGE_KEY) || "";
+
+                const savedDepartment = localStorage.getItem(DEPARTMENT_KEY) || "";
+                if ([...departmentFilter.options].some(option => option.value === savedDepartment)) {
+                    departmentFilter.value = savedDepartment;
+                }
+            } catch (error) {
+                console.warn("Could not restore search preference.");
+            }
+
+            searchFaculty();
+
+        } catch (error) {
+            console.error("Faculty JSON loading error:", error);
+            loadingMessage.textContent =
+                "Could not load faculty data. Check the JSON path and use Live Server.";
+            searchMessage.textContent =
+                "Faculty information could not be loaded.";
+        }
+    }
+
+    // 2. Create faculty cards and clickable three-dots menu.
+    function renderFaculty(list) {
+        facultyGrid.querySelectorAll(".faculty-card").forEach(card => {
+            card.remove();
+        });
+
+        list.forEach(faculty => {
+            const card = document.createElement("article");
+            card.className = "faculty-card";
+            card.dataset.facultyId = String(faculty.id);
+
+            // Faculty photo.
+            const photoWrapper = document.createElement("div");
+            photoWrapper.className = "faculty-photo";
+
+            const image = document.createElement("img");
+            image.src = faculty.image || "";
+            image.alt = faculty.imageAlt || faculty.name || "Faculty photo";
+            image.loading = "lazy";
+
+            image.addEventListener("error", () => {
+                console.warn("Faculty image could not be loaded:", faculty.image);
+            });
+
+            photoWrapper.appendChild(image);
+
+            // Three-dots menu.
+            const menu = document.createElement("div");
+            menu.className = "faculty-card-menu";
+
+            const dotsButton = document.createElement("button");
+            dotsButton.type = "button";
+            dotsButton.className = "three-dots-btn";
+            dotsButton.textContent = "\u22EE";
+            dotsButton.setAttribute(
+                "aria-label",
+                "More options for " + (faculty.name || "faculty member")
+            );
+            dotsButton.setAttribute("aria-haspopup", "true");
+            dotsButton.setAttribute("aria-expanded", "false");
+
+            // Dropdown.
+            const dropdown = document.createElement("div");
+            dropdown.className = "faculty-dropdown";
+
+            const linkedInLink = document.createElement("a");
+            linkedInLink.textContent = "LinkedIn Profile";
+
+            const linkedinUrl = (faculty.linkedin || "").trim();
+            let validLinkedInUrl = "";
+
+            try {
+                const parsedUrl = new URL(linkedinUrl);
+
+                if (
+                    ["https:", "http:"].includes(parsedUrl.protocol) &&
+                    (
+                        parsedUrl.hostname === "linkedin.com" ||
+                        parsedUrl.hostname.endsWith(".linkedin.com")
+                    )
+                ) {
+                    validLinkedInUrl = parsedUrl.href;
+                }
+            } catch (error) {
+                // No valid URL is available.
+            }
+
+            if (validLinkedInUrl) {
+                linkedInLink.href = validLinkedInUrl;
+                linkedInLink.target = "_blank";
+                linkedInLink.rel = "noopener noreferrer";
+            } else {
+                linkedInLink.href = "#";
+                linkedInLink.addEventListener("click", event => {
+                    event.preventDefault();
+                    alert("LinkedIn profile URL is not available for this faculty member.");
+                });
+            }
+
+            dropdown.appendChild(linkedInLink);
+            menu.append(dotsButton, dropdown);
+
+            // Faculty details.
+            const name = document.createElement("h3");
+            name.textContent = faculty.name || "Name not available";
+
+            card.append(
+                photoWrapper,
+                menu,
+                name,
+                createParagraph("designation", faculty.designation),
+                createParagraph("department", faculty.department),
+                createParagraph("qualification", faculty.qualification),
+                createParagraph("experience", faculty.experience),
+                createParagraph(
+                    "subjects",
+                    "Subjects Taught: " + (faculty.subjects || []).join(", ")
+                )
+            );
+
+            // View Details button.
+            const detailsButton = document.createElement("button");
+            detailsButton.type = "button";
+            detailsButton.className = "view-details";
+            detailsButton.textContent = "View Details";
+
+            card.appendChild(detailsButton);
+            facultyGrid.insertBefore(card, noResults);
+        });
+
+        loadingMessage.style.display = "none";
+    }
+
+    function createParagraph(className, value) {
+        const paragraph = document.createElement("p");
+        paragraph.className = className;
+        paragraph.textContent = value || "";
+        return paragraph;
+    }
+
+    // 3. Search faculty + department filter.
+    function searchFaculty() {
+        const searchText = searchInput.value.trim().toLowerCase();
+        const selectedDepartment = departmentFilter.value;
+        let visibleCount = 0;
+
+        facultyGrid.querySelectorAll(".faculty-card").forEach(card => {
+            const faculty = facultyData.find(
+                item => String(item.id) === card.dataset.facultyId
+            );
+
+            const searchableText = faculty
+                ? [
+                    faculty.name,
+                    faculty.designation,
+                    faculty.department,
+                    faculty.qualification,
+                    faculty.experience
+                ].join(" ").toLowerCase()
+                : "";
+
+            const matchesDepartment =
+                !selectedDepartment ||
+                (faculty && faculty.department === selectedDepartment);
+
+            const matches = searchableText.includes(searchText) && matchesDepartment;
+            card.style.display = matches ? "" : "none";
+
+            if (matches) {
+                visibleCount++;
+            }
+        });
+
+        noResults.style.display = visibleCount === 0 ? "block" : "none";
+
+        searchMessage.textContent = (searchText || selectedDepartment)
+            ? `${visibleCount} faculty members found.`
+            : "Meet our experienced and dedicated faculty members!";
+
+        try {
+            localStorage.setItem(STORAGE_KEY, searchInput.value);
+            localStorage.setItem(DEPARTMENT_KEY, departmentFilter.value);
+        } catch (error) {
+            console.warn("Could not save search preference.");
+        }
+    }
+
+    searchInput.addEventListener("input", searchFaculty);
+    departmentFilter.addEventListener("change", searchFaculty);
+
+    // 4. Three-dots click handler.
+    facultyGrid.addEventListener("click", event => {
+        const dotsButton = event.target.closest(".three-dots-btn");
+
+        if (dotsButton) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const currentMenu = dotsButton.closest(".faculty-card-menu");
+
+            if (!currentMenu) return;
+
+            const wasOpen = currentMenu.classList.contains("open");
+
+            // Close every open menu first.
+            document.querySelectorAll(".faculty-card-menu.open").forEach(menu => {
+                menu.classList.remove("open");
+
+                const button = menu.querySelector(".three-dots-btn");
+                if (button) {
+                    button.setAttribute("aria-expanded", "false");
+                }
+            });
+
+            // Open the clicked menu if it was previously closed.
+            if (!wasOpen) {
+                currentMenu.classList.add("open");
+                dotsButton.setAttribute("aria-expanded", "true");
+            }
+
+            return;
+        }
+
+        // Close menu when clicking another area inside the faculty grid.
+        if (!event.target.closest(".faculty-card-menu")) {
+            closeAllMenus();
+        }
+    });
+
+    // Close menu when clicking outside the faculty grid/menu.
+    document.addEventListener("click", event => {
+        if (!event.target.closest(".faculty-card-menu")) {
+            closeAllMenus();
+        }
+    });
+
+    function closeAllMenus() {
+        document.querySelectorAll(".faculty-card-menu.open").forEach(menu => {
+            menu.classList.remove("open");
+
+            const button = menu.querySelector(".three-dots-btn");
+            if (button) {
+                button.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+
+    // 5. View Details popup.
+    function openFacultyModal(faculty) {
+        if (!faculty) {
+            console.warn("Faculty details not found.");
+            return;
+        }
+
+        modalPhoto.src = faculty.image || "";
+        modalPhoto.alt = faculty.imageAlt || faculty.name || "Faculty photo";
+        modalName.textContent = faculty.name || "Faculty Details";
+        modalDetails.replaceChildren();
+
+        [
+            faculty.designation,
+            faculty.department,
+            faculty.qualification,
+            faculty.experience,
+            (faculty.subjects || []).length
+                ? "Subjects Taught: " + faculty.subjects.join(", ")
+                : ""
+        ].filter(Boolean).forEach(detail => {
+            const paragraph = document.createElement("p");
+            paragraph.textContent = detail;
+            modalDetails.appendChild(paragraph);
+        });
+
+        facultyModal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+        closeModalButton.focus();
+    }
+
+    facultyGrid.addEventListener("click", event => {
+        const button = event.target.closest(".view-details");
+
+        if (!button || !facultyGrid.contains(button)) return;
+
+        const card = button.closest(".faculty-card");
+        if (!card) return;
+
+        const faculty = facultyData.find(
+            item => String(item.id) === card.dataset.facultyId
+        );
+
+        openFacultyModal(faculty);
+    });
+
+    // 6. Close popup.
+    function closeFacultyModal() {
+        facultyModal.style.display = "none";
+        document.body.style.overflow = "";
+    }
+
+    closeModalButton.addEventListener("click", closeFacultyModal);
+
+    facultyModal.addEventListener("click", event => {
+        if (event.target === facultyModal) {
+            closeFacultyModal();
+        }
+    });
+
+    // Escape closes the popup and dropdown menu.
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            if (facultyModal.style.display === "flex") {
+                closeFacultyModal();
+            }
+            closeAllMenus();
+        }
+    });
+
+    // 7. Enquiry form validation.
+    const fieldRules = [
+        {
+            id: "enquiryName",
+            errorId: "nameError",
+            validate: value =>
+                value.trim().length >= 2 && value.trim().length <= 60
+                    ? ""
+                    : "Name must contain 2–60 characters."
+        },
+        {
+            id: "enquiryEmail",
+            errorId: "emailError",
+            validate: (value, input) =>
+                value.trim() && !input.validity.typeMismatch
+                    ? ""
+                    : "Enter a valid email address."
+        },
+        {
+            id: "enquiryPhone",
+            errorId: "phoneError",
+            validate: value =>
+                /^[6-9][0-9]{9}$/.test(value.trim())
+                    ? ""
+                    : "Enter a valid 10-digit Indian mobile number."
+        },
+        {
+            id: "enquirySubject",
+            errorId: "subjectError",
+            validate: value =>
+                value.trim().length >= 3 && value.trim().length <= 100
+                    ? ""
+                    : "Subject must contain 3–100 characters."
+        },
+        {
+            id: "enquiryMessage",
+            errorId: "messageError",
+            validate: value =>
+                value.trim().length >= 10 && value.trim().length <= 1000
+                    ? ""
+                    : "Message must contain 10–1000 characters."
+        }
+    ];
+
+    function validateField(rule) {
+        const input = document.getElementById(rule.id);
+        const errorElement = document.getElementById(rule.errorId);
+
+        if (!input || !errorElement) {
+            console.error("Missing form field or error element:", rule.id);
+            return false;
+        }
+
+        const errorMessage = rule.validate(input.value, input);
+        errorElement.textContent = errorMessage;
+        input.setAttribute("aria-invalid", errorMessage ? "true" : "false");
+
+        return errorMessage === "";
+    }
+
+    fieldRules.forEach(rule => {
+        const input = document.getElementById(rule.id);
+        if (!input) {
+            console.error("Missing form input:", rule.id);
+            return;
+        }
+
+        input.addEventListener("blur", () => validateField(rule));
+
+        input.addEventListener("input", () => {
+            if (input.getAttribute("aria-invalid") === "true") {
+                validateField(rule);
+            }
+        });
+    });
+
+    enquiryForm.addEventListener("submit", event => {
+        event.preventDefault();
+
+        const allValid = fieldRules
+            .map(rule => validateField(rule))
+            .every(Boolean);
+
+        formStatus.className = "form-status";
+        formStatus.textContent = "";
+
+        if (!allValid) {
+            formStatus.classList.add("error");
+            formStatus.textContent =
+                "Please correct the highlighted fields and try again.";
+
+            const firstInvalid =
+                enquiryForm.querySelector('[aria-invalid="true"]');
+
+            if (firstInvalid) firstInvalid.focus();
+            return;
+        }
+
+        formStatus.classList.add("success");
+        formStatus.textContent =
+            "Validation successful. This demo does not send your enquiry. A backend is required to submit it.";
+
+        enquiryForm.reset();
+
+        fieldRules.forEach(rule => {
+            const errorElement = document.getElementById(rule.errorId);
+            const input = document.getElementById(rule.id);
+
+            if (errorElement) errorElement.textContent = "";
+            if (input) input.removeAttribute("aria-invalid");
+        });
+    });
+
+    // Start loading faculty information.
+    loadFacultyData();
 });
