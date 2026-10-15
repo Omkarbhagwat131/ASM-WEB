@@ -106,3 +106,46 @@ footer {
         gap: 15px;
     }
 }
+/* View Details Button */
+.view-details-btn {
+    background: #0867b5;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.view-details-btn:hover {
+    background: #063b69;
+}
+
+/* MCA Details */
+.course-details {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f5f7fa;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.course-details h3 {
+    margin: 15px 0 10px;
+    color: #063b69;
+}
+
+.course-details ul {
+    padding-left: 22px;
+    margin: 10px 0;
+}
+
+.course-details li {
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.course-details p {
+    margin-bottom: 12px;
+}
