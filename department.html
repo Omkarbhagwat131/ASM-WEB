@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,8 +65,9 @@
     </style>
 </head>
 
-<body>
+<body> 
 
+   
 <header class="navbar">
     <div class="logo">ASM College</div>
     <nav class="main-nav">
@@ -90,6 +90,17 @@
 <section class="departments-section">
     <h2>Academic Departments</h2>
     <div class="underline"></div>
+
+    
+<div class="department-search">
+    <input
+        type="text"
+        id="department-search"
+        placeholder="Search departments..."
+        aria-label="Search departments"
+    >
+    <p id="search-message" aria-live="polite"></p>
+</div>
 
     <div class="department-container">
 
@@ -180,6 +191,54 @@
 </footer>
 
 <script src="js/asm.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
 
+    // Department Search
+    const searchInput = document.querySelector("#department-search");
+    const cards = document.querySelectorAll(".department-card");
+    const message = document.querySelector("#search-message");
+
+    if (searchInput && message) {
+        searchInput.addEventListener("input", () => {
+            const searchText = searchInput.value.toLowerCase().trim();
+            let count = 0;
+
+            cards.forEach((card) => {
+                const matches = card.textContent
+                    .toLowerCase()
+                    .includes(searchText);
+
+                card.hidden = !matches;
+                if (matches) count++;
+            });
+
+            message.textContent = count === 0
+                ? "No departments found."
+                : `${count} department(s) found.`;
+        });
+    }
+
+    // MCA View Details
+    const button = document.querySelector(".view-details-btn");
+    const details = document.querySelector("#mca-details");
+
+    if (button && details) {
+        button.addEventListener("click", () => {
+            details.hidden = !details.hidden;
+
+            button.textContent = details.hidden
+                ? "View Details"
+                : "Hide Details";
+
+            button.setAttribute(
+                "aria-expanded",
+                String(!details.hidden)
+            );
+        });
+    }
+
+});
+</script>
 </body>
 </html>
