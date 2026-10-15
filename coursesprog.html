@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses & Programs | ASM College</title>
-    <!-- Google Fonts for New Font Variables -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <script src="js/coursesprog.js" defer></script>
     <style>
-        /* New Color Palette & Typography Variables */
         :root {
             color-scheme: light;
             --navy: #082847;
@@ -21,311 +20,68 @@
             --paper: #f5f8fb;
             --font-body: "Roboto", sans-serif;
             --font-heading: "Raleway", sans-serif;
-            
-            /* Backward compatibility mapping */
-            --primary-blue: var(--navy);
-            --secondary-blue: var(--blue);
-            --light-blue: var(--pale-blue);
-            --accent-blue: var(--bright-blue);
-            --gray-light: var(--paper);
-            --text-dark: var(--ink);
-            --text-muted: var(--muted);
             --border-color: #cbd5e1;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: var(--font-body);
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font-body); }
+        body { background-color: var(--paper); color: var(--ink); line-height: 1.6; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
 
-        body {
-            background-color: var(--paper);
-            color: var(--ink);
-            line-height: 1.6;
-            scroll-behavior: smooth; /* Smooth scrolling enabled */
-        }
+        header { background-color: var(--navy); color: var(--white); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        header .logo { font-size: 1.5rem; font-weight: bold; color: var(--white); text-decoration: none; }
+        nav ul { display: flex; list-style: none; gap: 1.2rem; align-items: center; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+        nav a:hover, nav a.active { color: #99ccff; border-bottom: 2px solid #99ccff; }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-heading);
-        }
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn { background-color: transparent; color: white; padding: 6px 10px; font-size: 1.1rem; border: 1px solid rgba(255,255,255,0.4); border-radius: 4px; cursor: pointer; display: flex; flex-direction: column; gap: 3px; align-items: center; justify-content: center; }
+        .dropbtn span { display: block; width: 18px; height: 2px; background-color: white; }
+        .dropdown-content { display: none; position: absolute; right: 0; background-color: var(--white); min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); border-radius: 6px; z-index: 1000; overflow: hidden; }
+        .dropdown-content a { color: var(--ink); padding: 10px 15px; text-decoration: none; display: block; font-size: 0.9rem; border-bottom: 1px solid var(--paper); transition: background 0.2s; }
+        .dropdown-content a:hover { background-color: var(--pale-blue); color: var(--navy); }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        /* Header & Navigation */
-        header {
-            background-color: var(--navy);
-            color: var(--white);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+        .hero { background: linear-gradient(135deg, var(--navy), var(--blue)); color: var(--white); text-align: center; padding: 3rem 1rem; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; }
 
-        header .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--white);
-            text-decoration: none;
-        }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        .section-title { text-align: center; color: var(--navy); margin: 2rem 0; font-size: 2rem; position: relative; }
+        .section-title::after { content: ''; width: 60px; height: 3px; background-color: var(--bright-blue); display: block; margin: 8px auto 0; }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.2rem;
-            align-items: center;
-        }
+        .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
 
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+        .course-card { background-color: var(--white); border-radius: 8px; border-top: 4px solid var(--blue); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); padding: 1.5rem; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; }
+        .course-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); }
+        .course-card h3 { color: var(--navy); margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .course-card .badge { display: inline-block; background-color: var(--pale-blue); color: var(--blue); padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; width: fit-content; }
+        .course-card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
+        .course-details { list-style: none; margin-bottom: 1.5rem; font-size: 0.9rem; border-top: 1px solid var(--paper); padding-top: 0.8rem; }
+        .course-details li { margin-bottom: 0.4rem; display: flex; justify-content: space-between; }
+        
+        .card-actions { display: flex; gap: 8px; }
+        .btn { flex: 1; display: inline-block; background-color: var(--navy); color: var(--white); text-align: center; padding: 0.6rem 0.8rem; border-radius: 4px; text-decoration: none; font-weight: 500; transition: background-color 0.3s ease; border: none; cursor: pointer; font-size: 0.9rem; }
+        .btn:hover { background-color: var(--bright-blue); }
+        .btn-outline { background-color: transparent; border: 1px solid var(--navy); color: var(--navy); }
+        .btn-outline:hover { background-color: var(--pale-blue); color: var(--navy); }
 
-        nav a:hover, nav a.active {
-            color: #99ccff;
-            border-bottom: 2px solid #99ccff;
-        }
+        /* Modal Styles */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; justify-content: center; align-items: center; padding: 1rem; }
+        .modal-content { background: white; padding: 2rem; border-radius: 8px; max-width: 500px; width: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.3); position: relative; }
+        .modal-close { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; color: var(--muted); border: none; background: none; }
+        .modal-highlights { margin: 1rem 0; padding-left: 1.2rem; color: var(--muted); }
 
-        /* Dropdown Menu Styles for 3-line extra links */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
+        footer { background-color: var(--navy); color: var(--white); text-align: center; padding: 1.5rem; margin-top: 3rem; }
+        #back-to-top { display: none; position: fixed; bottom: 25px; right: 25px; background-color: var(--bright-blue); color: var(--white); border: none; border-radius: 50%; width: 45px; height: 45px; font-size: 20px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; }
 
-        .dropbtn {
-            background-color: transparent;
-            color: white;
-            padding: 6px 10px;
-            font-size: 1.1rem;
-            border: 1px solid rgba(255,255,255,0.4);
-            border-radius: 4px;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .dropbtn span {
-            display: block;
-            width: 18px;
-            height: 2px;
-            background-color: white;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: var(--white);
-            min-width: 180px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            border-radius: 6px;
-            z-index: 1000;
-            overflow: hidden;
-        }
-
-        .dropdown-content a {
-            color: var(--ink);
-            padding: 10px 15px;
-            text-decoration: none;
-            display: block;
-            font-size: 0.9rem;
-            border-bottom: 1px solid var(--paper);
-            transition: background 0.2s;
-        }
-
-        .dropdown-content a:hover {
-            background-color: var(--pale-blue);
-            color: var(--navy);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--navy), var(--blue));
-            color: var(--white);
-            text-align: center;
-            padding: 3rem 1rem;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-family: var(--font-heading);
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .section-title {
-            text-align: center;
-            color: var(--navy);
-            margin-bottom: 2rem;
-            margin-top: 2rem;
-            font-size: 2rem;
-            position: relative;
-            font-family: var(--font-heading);
-        }
-
-        .section-title::after {
-            content: '';
-            width: 60px;
-            height: 3px;
-            background-color: var(--bright-blue);
-            display: block;
-            margin: 8px auto 0;
-        }
-
-        /* Grid Layout */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        /* Card Styles */
-        .course-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            border-top: 4px solid var(--blue);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            padding: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .course-card h3 {
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .course-card .badge {
-            display: inline-block;
-            background-color: var(--pale-blue);
-            color: var(--blue);
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            width: fit-content;
-        }
-
-        .course-card p {
-            color: var(--muted);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .course-details {
-            list-style: none;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--paper);
-            padding-top: 0.8rem;
-        }
-
-        .course-details li {
-            margin-bottom: 0.4rem;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--navy);
-            color: var(--white);
-            text-align: center;
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--bright-blue);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--navy);
-            color: var(--white);
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Back to Top Button Styles */
-        #back-to-top {
-            display: none;
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: var(--bright-blue);
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
-            transition: background-color 0.3s ease;
-        }
-
-        #back-to-top:hover {
-            background-color: var(--blue);
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+            header { flex-direction: column; gap: 1rem; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
         <a href="home.html" class="logo">
             <img src="image/asm-logo.png" alt="ASM College Logo" style="height: 40px; width: auto; border-radius: 50%; background: white; padding: 2px;">
@@ -337,12 +93,9 @@
                 <li><a href="coursesprog.html" class="active">Courses & Programs</a></li>
                 <li><a href="admission.html">Admissions</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <!-- 3-line Menu for additional quick links -->
                 <li class="dropdown">
                     <button class="dropbtn" aria-label="Menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        <span><span></span><span></span><span></span></span>
                     </button>
                     <div class="dropdown-content">
                         <a href="campus.html">Campus Life</a>
@@ -355,262 +108,71 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <h1>Courses & Academic Programs</h1>
         <p>Empowering minds with industry-oriented undergraduate, postgraduate programs and vibrant student clubs.</p>
     </section>
 
-    <!-- Search / Filter Component -->
-    <div class="search-container" style="max-width: 600px; margin: 20px auto; text-align: center; padding: 0 1rem; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
-        <input type="text" id="course-search-input" placeholder="🔍 Search courses or clubs..." style="flex: 1; min-width: 250px; padding: 10px 15px; font-size: 1rem; border: 2px solid var(--navy); border-radius: 20px; outline: none;">
+    <!-- Search & Filter Component with Clear Button -->
+    <div class="search-container" style="max-width: 700px; margin: 20px auto; text-align: center; padding: 0 1rem; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+        <input type="text" id="course-search-input" placeholder="🔍 Search courses or clubs..." style="flex: 1; min-width: 230px; padding: 10px 15px; font-size: 1rem; border: 2px solid var(--navy); border-radius: 20px; outline: none;">
         
-        <!-- Category Filter Dropdown -->
         <select id="category-filter-select" style="padding: 10px 15px; font-size: 1rem; border: 2px solid var(--navy); border-radius: 20px; outline: none; background: white; cursor: pointer;">
             <option value="all">All Categories</option>
             <option value="ug">Undergraduate (UG)</option>
             <option value="pg">Postgraduate (PG)</option>
             <option value="clubs">Student Clubs</option>
         </select>
+
+        <button id="clear-search-btn" style="padding: 10px 18px; font-size: 0.95rem; background: var(--navy); color: white; border: none; border-radius: 20px; cursor: pointer;">Clear</button>
         
         <p id="no-results-msg" style="display: none; color: #d9534f; margin-top: 10px; font-weight: bold; width: 100%;">No matching courses found.</p>
     </div>
 
-    <!-- Content Container -->
+    <!-- Content Container (Dynamically Populated via JavaScript) -->
     <main class="container">
-
-        <!-- Undergraduate Section with IDs -->
         <h2 class="section-title" id="ug-heading">Undergraduate Programs (UG)</h2>
-        <div class="courses-grid" id="ug-section">
-            <div class="course-card" data-category="ug">
-                <div>
-                    <span class="badge">B.Tech</span>
-                    <h3>Computer Science & Engineering</h3>
-                    <p>Learn software development, artificial intelligence, web technologies, and data structures.</p>
-                </div>
-                <div>
-                    <ul class="course-details">
-                        <li><strong>Duration:</strong> 4 Years</li>
-                        <li><strong>Seats:</strong> 120</li>
-                    </ul>
-                    <a href="admission.html" class="btn">Apply Now</a>
-                </div>
-            </div>
+        <div class="courses-grid" id="ug-section"></div>
 
-            <div class="course-card" data-category="ug">
-                <div>
-                    <span class="badge">BCA</span>
-                    <h3>Bachelor of Computer Applications</h3>
-                    <p>Designed for students aspiring to excel in software engineering, programming, and IT applications.</p>
-                </div>
-                <div>
-                    <ul class="course-details">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Seats:</strong> 60</li>
-                    </ul>
-                    <a href="admission.html" class="btn">Apply Now</a>
-                </div>
-            </div>
-
-            <div class="course-card" data-category="ug">
-                <div>
-                    <span class="badge">BBA</span>
-                    <h3>Bachelor of Business Administration</h3>
-                    <p>Develop leadership, managerial skills, business strategy, and entrepreneurial acumen.</p>
-                </div>
-                <div>
-                    <ul class="course-details">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Seats:</strong> 90</li>
-                    </ul>
-                    <a href="admission.html" class="btn">Apply Now</a>
-                </div>
-            </div>
-
-            <div class="course-card" data-category="ug">
-                <div>
-                    <span class="badge">B.Com</span>
-                    <h3>Bachelor of Commerce</h3>
-                    <p>Covers financial accounting, corporate tax, economics, business law, and modern auditing practices.</p>
-                </div>
-                <div>
-                    <ul class="course-details">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Seats:</strong> 120</li>
-                    </ul>
-                    <a href="admission.html" class="btn">Apply Now</a>
-                </div>
-            </div>
-
-            <div class="course-card" data-category="ug">
-                <div>
-                    <span class="badge">B.Sc</span>
-                    <h3>Data Science & Analytics</h3>
-                    <p>Focuses on statistical modeling, big data visualization, Python programming, and machine learning.</p>
-                </div>
-                <div>
-                    <ul class="course-details">
-                        <li><strong>Duration:</strong> 3 Years</li>
-                        <li><strong>Seats:</strong> 60</li>
-                    </ul>
-                    <a href="admission.html" class="btn">Apply Now</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Postgraduate Section with IDs -->
         <h2 class="section-title" id="pg-heading">Postgraduate Programs (PG)</h2>
-        <div class="courses-grid" id="pg-section">
-            <div class="course-card" data-category="pg">
-                <div>
-                    <span class="badge">MCA</span>
-                    <h3>Master of Computer Applications</h3>
-                    <p>Advanced study in computing systems, modern framework architecture, and software management.</p>
-                </div>
-                <div>
-                    <ul class="course-details">
-                        <li><strong>Duration:</strong> 2 Years</li>
-                        <li><strong>Seats:</strong> 60</li>
-                    </ul>
-                    <a href="admission.html" class="btn">Apply Now</a>
-                </div>
-            </div>
+        <div class="courses-grid" id="pg-section"></div>
 
-            <div class="course-card" data-category="pg">
-                <div>
-                    <span class="badge">MBA</span>
-                    <h3>Master of Business Administration</h3>
-                    <p>Specialization in Finance, Marketing, Human Resource Management, and Business Analytics.</p>
-                </div>
-                <div>
-                    <ul class="course-details">
-                        <li><strong>Duration:</strong> 2 Years</li>
-                        <li><strong>Seats:</strong> 120</li>
-                    </ul>
-                    <a href="admission.html" class="btn">Apply Now</a>
-                </div>
-            </div>
-
-            <div class="course-card" data-category="pg">
-                <div>
-                    <span class="badge">M.Tech</span>
-                    <h3>Cyber Security & Digital Forensics</h3>
-                    <p>Advanced training in network security, ethical hacking, cryptography, and cyber threat mitigation.</p>
-                </div>
-                <div>
-                    <ul class="course-details">
-                        <li><strong>Duration:</strong> 2 Years</li>
-                        <li><strong>Seats:</strong> 40</li>
-                    </ul>
-                    <a href="admission.html" class="btn">Apply Now</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Campus Student Clubs Section with IDs -->
         <h2 class="section-title" id="clubs-heading">Student & Campus Clubs</h2>
-        <div class="courses-grid" id="clubs-section">
-            <div class="course-card" data-category="clubs">
-                <div>
-                    <span class="badge">Tech Club</span>
-                    <h3>CodeCrafters - Coding Club</h3>
-                    <p>Organizes hackathons, competitive programming contests, and open-source project workshops.</p>
-                </div>
-                <div>
-                    <ul class="course-details">
-                        <li><strong>Activities:</strong> Hackathons & Coding</li>
-                        <li><strong>Eligibility:</strong> Open to All</li>
-                    </ul>
-                    <a href="#" class="btn">Join Club</a>
-                </div>
-            </div>
-
-            <div class="course-card" data-category="clubs">
-                <div>
-                    <span class="badge">Business Club</span>
-                    <h3>E-Cell & Management Club</h3>
-                    <p>Promotes entrepreneurship, startup pitch competitions, and leadership networking sessions.</p>
-                </div>
-                <div>
-                    <ul class="course-details">
-                        <li><strong>Activities:</strong> Pitching & Seminars</li>
-                        <li><strong>Eligibility:</strong> Open to All</li>
-                    </ul>
-                    <a href="#" class="btn">Join Club</a>
-                </div>
-            </div>
-
-            <div class="course-card" data-category="clubs">
-                <div>
-                    <span class="badge">Robotics Club</span>
-                    <h3>RoboTech & AI Society</h3>
-                    <p>Hands-on work with IoT, robotics hardware, automation, and AI innovation projects.</p>
-                </div>
-                <div>
-                    <ul class="course-details">
-                        <li><strong>Activities:</strong> Hardware & AI Bots</li>
-                        <li><strong>Eligibility:</strong> Tech Enthusiasts</li>
-                    </ul>
-                    <a href="#" class="btn">Join Club</a>
-                </div>
-            </div>
-
-            <div class="course-card" data-category="clubs">
-                <div>
-                    <span class="badge">Cultural Club</span>
-                    <h3>Aura - Cultural & Arts Club</h3>
-                    <p>Encourages student talent in music, drama, dance, photography, and annual college fests.</p>
-                </div>
-                <div>
-                    <ul class="course-details">
-                        <li><strong>Activities:</strong> Performing Arts & Fests</li>
-                        <li><strong>Eligibility:</strong> Open to All</li>
-                    </ul>
-                    <a href="#" class="btn">Join Club</a>
-                </div>
-            </div>
-
-            <div class="course-card" data-category="clubs">
-                <div>
-                    <span class="badge">Literary Club</span>
-                    <h3>Chronicles - Debate & Lit Society</h3>
-                    <p>Hosts Model United Nations (MUN), creative writing workshops, public speaking, and annual quizzes.</p>
-                </div>
-                <div>
-                    <ul class="course-details">
-                        <li><strong>Activities:</strong> Debates & Writing</li>
-                        <li><strong>Eligibility:</strong> Open to All</li>
-                    </ul>
-                    <a href="#" class="btn">Join Club</a>
-                </div>
-            </div>
-        </div>
-
+        <div class="courses-grid" id="clubs-section"></div>
     </main>
 
-    <!-- Footer Section -->
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="course-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <span class="badge" id="modal-badge" style="margin-bottom: 0.5rem;"></span>
+            <h2 id="modal-title" style="color: var(--navy); margin-bottom: 0.5rem;"></h2>
+            <p id="modal-desc" style="color: var(--muted); margin-bottom: 1rem;"></p>
+            <ul class="course-details">
+                <li><strong>Duration:</strong> <span id="modal-duration"></span></li>
+                <li><strong>Seats / Slots:</strong> <span id="modal-seats"></span></li>
+                <li><strong>Eligibility:</strong> <span id="modal-eligibility"></span></li>
+                <li><strong>Fees:</strong> <span id="modal-fees"></span></li>
+            </ul>
+            <h4 style="margin-bottom: 0.4rem; color: var(--navy);">Key Highlights:</h4>
+            <ul class="modal-highlights" id="modal-highlights-list"></ul>
+            <a href="admission.html" id="modal-action-btn" class="btn" style="display: block; text-align: center; margin-top: 1rem;">Apply Now</a>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2026 ASM College. All rights reserved.</p>
     </footer>
 
-    <!-- Back to Top Button -->
     <button id="back-to-top" title="Go to top">↑</button>
 
-    <!-- Script for Back to Top Scroll Behavior -->
     <script>
         const backToTopBtn = document.getElementById("back-to-top");
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.style.display = "block";
-            } else {
-                backToTopBtn.style.display = "none";
-            }
+            backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
         });
         backToTopBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
     </script>
 </body>
