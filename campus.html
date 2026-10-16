@@ -8,6 +8,7 @@
     <meta name="description" content="Explore the campus and student life at ASM College.">
     <title>Campus &amp; Student Life | ASM College</title>
    <script src="js/campus.js" defer></script>
+   <link rel="icon" type="image/png" href="image/asm-logo.png">
 
     <style>
         :root {
@@ -526,6 +527,255 @@
     }
 }
 
+
+/* Reduce spacing between Student Life sections */
+#json-student-life,
+#campus-gallery {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#json-student-life .section-heading,
+#campus-gallery .section-heading {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Reduce gap after Bring Your Curiosity */
+.life-note {
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+
+/* Smaller main campus building image */
+.campus-main-gallery {
+    grid-template-columns: minmax(0, 340px);
+    justify-content: center;
+}
+
+.campus-main-gallery .gallery-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+/* Explore campus button */
+.explore-campus-action {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0 24px;
+}
+
+#explore-campus-button {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    background: var(--blue, #1769aa);
+    color: white;
+    cursor: pointer;
+    font: inherit;
+}
+
+#explore-campus-button:hover {
+    opacity: 0.9;
+}
+
+/* Additional photos appear in a smaller grid */
+.explore-campus-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.explore-campus-gallery .gallery-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+/* Center the main campus photo above the Explore button */
+.campus-main-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto 16px;
+}
+
+.campus-main-gallery .gallery-card {
+    width: 300px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.campus-main-gallery .gallery-image-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+.campus-main-gallery .gallery-card img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+/* Keep the Explore button centered below the photo */
+.explore-campus-action {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto 24px;
+}
+
+/* Main campus photo centered */
+.campus-main-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto 16px;
+}
+
+.campus-main-gallery .gallery-card {
+    width: 300px;
+    max-width: 90%;
+}
+
+/* Additional campus photos in one horizontal row */
+.explore-campus-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+    overflow-x: auto;
+    padding: 10px 4px 16px;
+}
+
+.explore-campus-gallery .gallery-card {
+    flex: 0 0 calc((100% - 32px) / 3);
+    min-width: 180px;
+    max-width: 280px;
+}
+
+.explore-campus-gallery .gallery-image-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+.explore-campus-gallery .gallery-card img {
+    display: block;
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+/* Enlarge clicked photo in the center of the screen */
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.lightbox-content {
+    max-width: 95vw;
+    max-height: 90vh;
+    text-align: center;
+    overflow: auto;
+}
+
+.lightbox-image {
+    display: block;
+    max-width: 90vw;
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+
+/* Keep Explore photos hidden until the button is clicked */
+.explore-campus-gallery[hidden] {
+    display: none !important;
+}
+
+/* Show photos horizontally after clicking Explore */
+.explore-campus-gallery:not([hidden]) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+.activity-image-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.activity-image {
+    display: block;
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.activity-photo-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.activity-large-image {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+}
+
+.activity-photo-close {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    color: white;
+    background: transparent;
+    border: none;
+    font-size: 36px;
+    cursor: pointer;
+}
+
     </style>
 </head>
 
@@ -728,9 +978,56 @@
 
             </div>
         </section>
-    </main>
+        <!-- JSON Student Life Section -->
+<section class="student-life section" id="json-student-life">
+    <div class="section-heading">
+        <p class="eyebrow">Explore more</p>
+        <h2>Campus Activities</h2>
+        <p>Discover activities and opportunities available on campus.</p>
+    </div>
+    <div id="json-student-life-container" class="life-grid"></div>
+</section>
 
-   
+<!-- JSON Gallery Section -->
+
+
+<section class="student-life section" id="campus-gallery">
+
+    <div class="section-heading">
+        <p class="eyebrow">Our Campus</p>
+        <h2>Campus Gallery</h2>
+    </div>
+
+    <!-- Main college building -->
+    <div class="section-heading campus-main-heading">
+        <h3>ASM College Campus</h3>
+    </div>
+
+    <div id="asm-campus-gallery-container"
+         class="gallery-grid campus-main-gallery">
+    </div>
+
+    <!-- Explore button -->
+    <div class="explore-campus-action">
+        <button
+            type="button"
+            id="explore-campus-button"
+            aria-expanded="false"
+            aria-controls="explore-campus-gallery-container">
+            Explore College Campus
+        </button>
+    </div>
+
+    <!-- Additional photos: hidden initially -->
+    <div id="explore-campus-gallery-container"
+         class="gallery-grid explore-campus-gallery"
+         hidden>
+    </div>
+
+</section>
+
+    </main>
+    
 </body>
 </html>
 

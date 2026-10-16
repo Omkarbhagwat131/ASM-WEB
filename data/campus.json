@@ -1,0 +1,55 @@
+
+{
+"studentLife": [
+  {
+    "id": "library",
+    "title": "Library",
+    "description": "Explore learning resources and study spaces.",
+    "image": "image/library2.jpeg"
+  },
+  {
+    "id": "sports",
+    "title": "Sports",
+    "description": "Explore sports and fitness activities.",
+    "image": "image/asm-sports.jpeg"
+  },
+  {
+    "id": "events",
+    "title": "Cultural Events",
+    "description": "Discover campus celebrations and programs.",
+    "image": "image/asm-event.jpeg"
+  }
+],
+"gallery": [
+  {
+    "id": "campus",
+    "title": "ASM College Campus",
+    "category": "Facilities",
+    "description": "Explore our college campus.",
+    "image": "image/asm-campus-building.png"
+  },
+  {
+    "id": "campus-2",
+    "title": "College Building",
+    "category": "Campus",
+    "description": "Explore our college building.",
+    "image": "image/asm-campus2.jpeg"
+  },
+  {
+    "id": "campus-3",
+    "title": "College Campus",
+    "category": "Campus",
+    "description": "Discover more of our campus.",
+    "image": "image/asm-campus.jpeg"
+  },
+  {
+    "id": "campus-4",
+    "title": "College Library",
+    "category": "Facilities",
+    "description": "Explore our library facilities.",
+    "image": "image/asm-library.jpeg"
+  }
+
+
+  ]
+}
