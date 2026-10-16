@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Dhananjay Upasni",
+    "designation": "Dean Academics",
+    "department": "Electrical Engineering",
+    "qualification": "Ph.D., M.Tech, B.E.",
+    "experience": "Experience: 12+ Years",
+    "subjects": ["Electrical Machines", "Power Systems"],
+    "image": "image/Dhananjay sir.jpeg",
+    "linkedin":  "https://www.linkedin.com/in/dr-dhananjay-upasani-93771153/",
+    "imageAlt": "Dr. Dhananjay Upasni"
+  },
+
+  {
+    "id": 2,
+    "name": "Dr. Ketan Desale",
+    "designation": "Head of Department",
+    "department": "Master of Computer Application",
+    "qualification": "Ph.D., M.Tech, B.E.",
+    "experience": "Experience: 12+ Years",
+    "subjects": ["Research Methodology"],
+    "image": "image/ketan sir.jpeg",
+    "linkedin": "https://www.linkedin.com/in/dr-ketan-desale-56551927/",
+    "imageAlt": "Dr. Ketan Desale"
+  },
+  {
+    "id": 3,
+    "name": "Prof. Jyoti Mokashi",
+    "designation": "MCA Coordinator & Assistant Professor",
+    "department": "Master of Computer Application",
+    "qualification": "Master of Computer Application",
+    "experience": "Experience: 12+ Years",
+    "subjects": ["Data Structure Analysis & Algorithms"],
+    "image": "image/jyoti mam1.jpeg",
+     "linkedin": "https://www.linkedin.com/in/jyoti-mokashi-7aaa255b/",
+    "imageAlt": "Prof. Jyoti Mokashi"
+  },
+  {
+    "id": 4,
+    "name": "Prof. Vandana Pendekar",
+    "designation": "Assistant Professor & TPO",
+    "department": "Engineering (ECE)",
+    "qualification": "M.Tech, B.E.",
+    "experience": "Experience: 10+ Years",
+    "subjects": ["Circuit Analysis", "Digital Electronics"],
+    "image": "image/vandana mam.jpeg",
+     "linkedin": "https://www.linkedin.com/in/vandana-pednekar-a2879a47/",
+    "imageAlt": "Prof. Vandana Pendekar"
+  },
+  {
+    "id": 5,
+    "name": "Asst. Prof. Samiksha Pawar",
+    "designation": "Assistant Professor & Placement Coordinator",
+    "department": "Master of Computer Application",
+    "qualification": "Master of Computer Application",
+    "experience": "Experience: 2+ Years",
+    "subjects": ["Software Engineering"],
+    "image": "image/samiksha mam.jpeg",
+     "linkedin": "https://www.linkedin.com/in/samikshapawar2904/",
+    "imageAlt": "Asst. Prof. Samiksha Pawar"
+  },
+  {
+    "id": 6,
+    "name": "Asst. Prof. Sakshi Chikorde",
+    "designation": "Assistant Professor",
+    "department": "Master of Computer Application",
+    "qualification": "Master of Computer Application",
+    "experience": "Experience: 2+ Years",
+    "subjects": ["E-Commerce"],
+    "image": "image/sakshi mam.jpeg",
+     "linkedin": "https://www.linkedin.com/in/sakshi-chikorde-44a9b9249/",
+    "imageAlt": "Asst. Prof. Sakshi Chikorde"
+  }
+]

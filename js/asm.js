@@ -38,7 +38,7 @@ if ("IntersectionObserver" in window) {
 
   observedSections.forEach((section) => sectionObserver.observe(section));
 }
-javascript
+
 // View Details buttons for all department cards
 document.querySelectorAll(".view-details-btn").forEach(function (button) {
     button.addEventListener("click", function () {
@@ -54,4 +54,3 @@ document.querySelectorAll(".view-details-btn").forEach(function (button) {
         button.textContent = isHidden ? "Hide Details" : "View Details";
     });
 });
-

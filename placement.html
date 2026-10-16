@@ -122,81 +122,790 @@
             background: var(--dark-blue) !important;
             color: var(--white) !important;
         }
-    </style>
-</head>
 
-<body>
+        .placement-page {
+            --placement-navy: #102a43;
+            --placement-blue: #1769aa;
+            --placement-blue-dark: #0d4f87;
+            --placement-grey: #f2f5f9;
+            --placement-border: #dce4ed;
+            color: var(--placement-navy);
+            background: #ffffff;
+        }
 
-    <!-- Main Header -->
-    <header class="main-header" style="
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #3b82f6 100%);
-        color: white;
-        text-align: center;
-        padding: 35px 15px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-        position: relative;
-        overflow: hidden;
-    ">
+        .placement-page h1,
+        .placement-page h2,
+        .placement-page h3 {
+            color: var(--placement-navy);
+        }
 
-        <div style="
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 150px;
-            height: 150px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 50%;
-            pointer-events: none;
-        "></div>
+        .placement-page .placement-topbar {
+            min-height: 38px;
+            padding: 7px clamp(16px, 5vw, 64px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px 24px;
+            color: #425466;
+            background: var(--placement-grey);
+            border-bottom: 1px solid var(--placement-border);
+            font-size: 13px;
+        }
 
-        <h1 style="
-            margin: 0;
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        ">
-            ASM Web Portal
-        </h1>
+        .placement-topbar-contact,
+        .placement-topbar-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+        }
 
-        <p style="
-            margin: 8px 0 0;
-            font-size: 0.95rem;
-            opacity: 0.9;
-            font-weight: 300;
-            letter-spacing: 0.3px;
-        ">
-            Excellence in Education, Innovation &amp; Leadership
-        </p>
-    </header>
+        .placement-topbar a {
+            color: inherit;
+            transition: color 0.25s ease;
+        }
 
-    <!-- Navigation -->
-    <nav class="sub-nav" style="
-        background: #1e293b;
-        text-align: center;
-        padding: 14px 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    ">
+        .placement-topbar a:hover {
+            color: var(--placement-blue);
+        }
 
-        <span style="
+        .placement-page .placement-header {
+            min-height: 112px;
+            padding: 14px clamp(16px, 5vw, 64px);
+            display: grid;
+            grid-template-columns: 90px minmax(0, 1fr) 90px;
+            align-items: center;
+            gap: 18px;
+            background: #ffffff;
+            border-bottom: 1px solid var(--placement-border);
+        }
+
+        .placement-brand-logo,
+        .placement-legacy-logo {
             display: block;
-            color: #94a3b8;
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        ">
-            ASM Technical Campus
-        </span>
+            width: 76px;
+            height: 76px;
+            object-fit: contain;
+        }
 
-        <div style="
+        .placement-legacy-logo {
+            justify-self: end;
+            width: 68px;
+            height: 68px;
+        }
+
+        .placement-brand-copy {
+            text-align: center;
+            color: var(--placement-navy);
+        }
+
+        .placement-brand-copy small {
+            display: block;
+            margin-bottom: 3px;
+            color: var(--placement-blue);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .placement-brand-copy h2 {
+            margin: 0;
+            font-size: clamp(18px, 2.5vw, 25px);
+            font-weight: 800;
+        }
+
+        .placement-brand-copy span,
+        .placement-brand-copy p {
+            display: block;
+            margin: 4px 0 0;
+            color: #5d6b7a;
+            font-size: 12px;
+        }
+
+        .placement-page .placement-nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            padding: 12px clamp(16px, 4vw, 48px);
+            background: rgba(16, 42, 67, 0.97);
+            box-shadow: 0 8px 24px rgba(16, 42, 67, 0.16);
+            backdrop-filter: blur(12px);
+        }
+
+        .placement-nav-brand {
+            display: block;
+            margin-bottom: 9px;
+            color: #c8d8e8;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .placement-nav-links {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
             flex-wrap: wrap;
-        ">
+            gap: 8px;
+        }
+
+        .placement-page .nav-item {
+            padding: 8px 13px;
+            color: #eaf2fb;
+            background: transparent;
+            border: 1px solid transparent;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .placement-page .nav-item:hover,
+        .placement-page .nav-item.active-link {
+            color: #ffffff;
+            background: var(--placement-blue);
+            border-color: var(--placement-blue);
+            box-shadow: 0 5px 14px rgba(23, 105, 170, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .placement-menu-toggle {
+            display: none;
+            width: 44px;
+            height: 42px;
+            padding: 9px;
+            color: #ffffff;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .placement-menu-toggle span {
+            display: block;
+            height: 2px;
+            margin: 4px 0;
+            background: currentColor;
+        }
+
+        .placement-page .placement-hero {
+            position: relative;
+            min-height: 430px;
+            padding: 78px 22px;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 80% 18%, rgba(124, 190, 242, 0.18), transparent 36%),
+                linear-gradient(125deg, #102a43 0%, #174f7c 58%, #2679b8 100%);
+        }
+
+        .placement-page .placement-hero::after {
+            position: absolute;
+            right: -90px;
+            bottom: -190px;
+            width: 420px;
+            height: 420px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 50%;
+            content: "";
+            pointer-events: none;
+        }
+
+        .placement-page .hero-content {
+            position: relative;
+            z-index: 1;
+            width: min(100%, 800px);
+        }
+
+        .placement-page .placement-hero .badge {
+            padding: 8px 16px;
+            color: #e8f3fc;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            font-size: 12px;
+            letter-spacing: 1.2px;
+        }
+
+        .placement-page .placement-hero .hero-content h1 {
+            margin: 0 0 16px;
+            color: #ffffff;
+            font-size: clamp(34px, 5vw, 56px);
+            line-height: 1.12;
+        }
+
+        .placement-page .placement-hero .hero-content p {
+            max-width: 620px;
+            margin-bottom: 27px;
+            color: #e3edf7;
+            font-size: clamp(16px, 2vw, 18px);
+        }
+
+        .placement-page .hero-buttons {
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .placement-page .hero-buttons a,
+        .placement-page .brochure-link {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 46px;
+            padding: 11px 23px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .placement-page .hero-buttons .btn-primary {
+            color: #ffffff;
+            background: var(--placement-blue);
+            border: 1px solid #73b8ef;
+            box-shadow: 0 8px 20px rgba(7, 28, 48, 0.2);
+        }
+
+        .placement-page .hero-buttons .btn-primary:hover {
+            color: var(--placement-navy);
+            background: #ffffff;
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .placement-brochure-action {
+            margin-top: 25px;
+        }
+
+        .placement-page .hero-buttons .btn-secondary {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+        }
+
+        .placement-page .hero-buttons .btn-secondary:hover {
+            color: var(--placement-navy);
+            background: #ffffff;
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .placement-page .stats-section {
+            padding: 35px 22px;
+            background: #f2f5f9;
+        }
+
+        .placement-page .stats-container {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px !important;
+            margin: 0 auto !important;
+        }
+
+        .placement-page .stat-box,
+        .placement-page .student-card,
+        .placement-page .department-card,
+        .placement-page .step-card,
+        .placement-page .document-item {
+            background: #ffffff;
+            border: 1px solid var(--placement-border);
+            box-shadow: 0 8px 24px rgba(16, 42, 67, 0.07);
+            transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+        }
+
+        .placement-page .stat-box {
+            min-width: 0;
+            padding: 24px 18px;
+            border-radius: 14px;
+        }
+
+        .placement-page .stat-box:hover,
+        .placement-page .student-card:hover,
+        .placement-page .department-card:hover,
+        .placement-page .step-card:hover,
+        .placement-page .document-item:hover {
+            border-color: #9ccbed;
+            box-shadow: 0 16px 34px rgba(16, 76, 125, 0.13);
+            transform: translateY(-5px);
+        }
+
+        .placement-page .stat-icon,
+        .placement-page .department-card .card-icon,
+        .placement-page .document-icon {
+            color: var(--placement-blue);
+        }
+
+        .placement-page .counter {
+            color: var(--placement-navy) !important;
+            font-size: clamp(32px, 4vw, 44px) !important;
+        }
+
+        .placement-page .stat-label {
+            margin: 0;
+            color: #5f6f80;
+            font-size: 14px;
+        }
+
+        .placement-page .placed-students-section {
+            padding: 42px 22px;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .placement-page .placed-students-section h2 {
+            margin: 0 0 10px;
+            color: var(--placement-navy);
+            font-size: clamp(25px, 3.5vw, 34px);
+        }
+
+        .placement-page .placed-students-section > p {
+            margin: 0 0 25px;
+            color: #64748b;
+        }
+
+        .placement-page .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0 auto 26px;
+        }
+
+        .placement-page .filter-btn {
+            min-width: 82px;
+            padding: 9px 18px;
+            color: var(--placement-blue);
+            background: #ffffff;
+            border: 1px solid #9ccbed;
+            border-radius: 999px;
+            cursor: pointer;
+            font: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            transition: color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .placement-page .filter-btn.active,
+        .placement-page .filter-btn:hover {
+            color: #ffffff;
+            background: var(--placement-blue);
+            box-shadow: 0 6px 15px rgba(23, 105, 170, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .placement-page .students-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 260px));
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .placement-page .student-card {
+            width: auto;
+            padding: 24px 18px;
+            border-radius: 14px;
+        }
+
+        .placement-page .student-card[hidden] {
+            display: none !important;
+        }
+
+        .placement-page .student-img-box {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 17px;
+            overflow: hidden;
+            border: 4px solid #e5f1fa;
+            border-radius: 50%;
+        }
+
+        .placement-page .student-img-box img {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.45s ease;
+        }
+
+        .placement-page .student-img-box:hover img,
+        .placement-page .student-card:hover .student-img-box img {
+            transform: scale(1.08);
+        }
+
+        .placement-page .student-card h3 {
+            margin: 0 0 6px;
+            font-size: 19px;
+        }
+
+        .placement-page .student-card .branch,
+        .placement-page .student-card .package {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .placement-page .company-badge,
+        .placement-page .department-code {
+            display: inline-flex;
+            margin: 10px 0;
+            padding: 6px 12px;
+            color: var(--placement-blue-dark);
+            background: #eaf3fb;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .placement-page .brochure-link {
+            color: #ffffff;
+            background: var(--placement-blue);
+            border: 1px solid var(--placement-blue);
+        }
+
+        .placement-page .brochure-link:hover {
+            color: var(--placement-blue);
+            background: #ffffff;
+            box-shadow: 0 8px 18px rgba(23, 105, 170, 0.16);
+            transform: translateY(-2px);
+        }
+
+        .placement-page .departments-section {
+            padding: 24px clamp(18px, 4vw, 48px) 48px;
+            background: #f7f9fc;
+        }
+
+        .placement-page .departments-section:nth-of-type(even) {
+            background: #ffffff;
+        }
+
+        .placement-page .departments-section h2 {
+            margin-top: 18px;
+            color: var(--placement-navy);
+        }
+
+        .placement-page .departments-section .underline {
+            background: var(--placement-blue);
+        }
+
+        .placement-page .department-container,
+        .placement-page .steps-grid,
+        .placement-page .document-list {
+            width: min(100%, 1120px);
+            margin: 18px auto 0;
+        }
+
+        .placement-page .department-container {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .placement-page .department-card {
+            width: auto;
+            padding: 25px 20px;
+            border-radius: 14px;
+            background: #f8fafc;
+        }
+
+        .placement-page .department-card h3,
+        .placement-page .step-card h3,
+        .placement-page .document-item h3 {
+            color: var(--placement-navy);
+            font-size: 18px;
+        }
+
+        .placement-page .department-card p,
+        .placement-page .step-card p,
+        .placement-page .document-item p {
+            color: #5e6e7e;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .placement-page .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .placement-page .step-card {
+            width: auto;
+            padding: 22px 17px;
+            border-radius: 14px;
+            background: #f8fafc;
+        }
+
+        .placement-page .step-number {
+            color: #ffffff !important;
+            background: var(--placement-blue);
+        }
+
+        .placement-page .document-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .placement-page .document-item {
+            width: auto;
+            min-height: 106px;
+            padding: 20px;
+            border-left: 4px solid var(--placement-blue);
+            border-radius: 12px;
+            background: #f8fafc;
+        }
+
+        .placement-page .document-icon {
+            flex: 0 0 38px;
+            width: 38px;
+            height: 38px;
+            background: #eaf3fb;
+        }
+
+        .placement-page .placement-footer {
+            margin-top: 0;
+            padding: 24px 18px;
+            color: #e5edf5;
+            background: var(--placement-navy);
+            text-align: center;
+        }
+
+        .placement-page .placement-footer p {
+            margin: 0;
+            color: inherit;
+        }
+
+        .placement-back-to-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 20;
+            display: grid;
+            width: 48px;
+            height: 48px;
+            place-items: center;
+            color: #ffffff;
+            background: var(--placement-blue);
+            border: 0;
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(16, 42, 67, 0.25);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+        }
+
+        .placement-back-to-top.is-visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .placement-back-to-top:hover {
+            background: var(--placement-blue-dark);
+            transform: translateY(-3px);
+        }
+
+        .placement-page :focus-visible {
+            outline: 3px solid #83c5f4;
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 900px) {
+            .placement-page .department-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .placement-page .steps-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 680px) {
+            .placement-page .placement-topbar {
+                justify-content: center;
+                padding: 9px 16px;
+                text-align: center;
+            }
+
+            .placement-topbar-contact,
+            .placement-topbar-links {
+                justify-content: center;
+            }
+
+            .placement-page .placement-header {
+                min-height: auto;
+                grid-template-columns: 54px minmax(0, 1fr) 46px;
+                gap: 8px;
+                padding: 13px 15px;
+            }
+
+            .placement-brand-logo {
+                width: 48px;
+                height: 48px;
+            }
+
+            .placement-legacy-logo {
+                width: 42px;
+                height: 42px;
+            }
+
+            .placement-brand-copy small {
+                font-size: 9px;
+                letter-spacing: 1px;
+            }
+
+            .placement-brand-copy h2 {
+                font-size: clamp(14px, 4vw, 19px);
+                line-height: 1.2;
+            }
+
+            .placement-brand-copy span {
+                font-size: 10px;
+            }
+
+            .placement-brand-copy p {
+                display: none;
+            }
+
+            .placement-page .placement-nav {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                align-items: center;
+                gap: 4px 12px;
+                padding: 10px 15px;
+            }
+
+            .placement-nav-brand {
+                margin: 0;
+                text-align: left;
+            }
+
+            .placement-menu-toggle {
+                display: block;
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            .placement-nav-links {
+                display: none;
+                grid-column: 1 / -1;
+                grid-row: 2;
+                align-items: stretch;
+                flex-direction: column;
+                gap: 5px;
+                padding-top: 8px;
+            }
+
+            .placement-nav-links.is-open {
+                display: flex;
+            }
+
+            .placement-page .nav-item {
+                padding: 11px 12px;
+                text-align: left;
+            }
+
+            .placement-page .placement-hero {
+                min-height: auto;
+                padding: 60px 20px;
+            }
+
+            .placement-page .placement-hero .hero-content h1 {
+                font-size: clamp(32px, 9vw, 43px);
+            }
+
+            .placement-page .hero-buttons {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .placement-page .hero-buttons a {
+                width: 100%;
+            }
+
+            .placement-page .stats-container {
+                grid-template-columns: 1fr;
+                max-width: 440px;
+            }
+
+            .placement-page .department-container,
+            .placement-page .steps-grid,
+            .placement-page .document-list,
+            .placement-page .students-grid {
+                grid-template-columns: minmax(0, 1fr);
+                width: min(100%, 440px);
+            }
+
+            .placement-page .department-card,
+            .placement-page .step-card,
+            .placement-page .student-card {
+                width: 100%;
+            }
+
+            .placement-page .departments-section {
+                padding: 20px 18px 38px;
+            }
+
+            .placement-page .placed-students-section {
+                padding: 36px 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .placement-page *,
+            .placement-page *::before,
+            .placement-page *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="placement-page">
+
+   <!-- TOP CONTACT BAR -->
+<div class="placement-topbar">
+  <div class="placement-topbar-contact">
+    <span>📞 +91 90280 76028</span>
+    <span>✉️ admission.asmnext@asmedu.org</span>
+  </div>
+  <div class="placement-topbar-links">
+    <a href="campus.html">Campus Media</a>
+    <a href="addmission.html">FRA - Fee Structure</a>
+  </div>
+</div>
+
+<!-- MAIN HEADER WITH ASM LOGO -->
+<header class="placement-header">
+  <!-- Left ASM Logo -->
+  <a href="home.html" aria-label="ASM home">
+    <img src="image/asm-logo.png" alt="ASM Logo" class="placement-brand-logo">
+  </a>
+
+  <!-- Center Text Info -->
+  <div class="placement-brand-copy">
+    <small>AUDYOGIK SHIKSHAN MANDAL</small>
+    <h2>ASM's NEXTGEN TECHNICAL CAMPUS</h2>
+    <span>Talegaon Dabhade, Maval, Pune</span>
+    <p>Approved by AICTE | Affiliated to Savitribai Phule Pune University | DTE CODE - 16355</p>
+  </div>
+
+  <!-- Right Legacy Logo -->
+  <img src="image/42-years.png" alt="42 Years Legacy" class="placement-legacy-logo">
+</header>
+
+    <!-- Navigation -->
+    <nav class="sub-nav placement-nav" aria-label="Main navigation">
+        <span class="placement-nav-brand">
+            ASM Technical Campus
+        </span>
+
+        <button class="placement-menu-toggle" type="button" aria-expanded="false" aria-controls="placement-nav-links" aria-label="Open navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="placement-nav-links" id="placement-nav-links">
             <a href="home.html" class="nav-item">Home</a>
             <a href="about.html" class="nav-item">About Us</a>
             <a href="coursesprog.html" class="nav-item">Programs</a>
@@ -261,6 +970,57 @@
 
             </div>
         </section>
+<!-- ================= PLACED STUDENTS HALL OF FAME ================= -->
+<section class="placed-students-section" aria-labelledby="placed-students-heading">
+<h2 id="placed-students-heading">Our Placed Students</h2>
+<p>Celebrating the people and achievements behind every placement.</p>
+<div class="filter-container" role="group" aria-label="Filter placed students">
+  <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+  <button class="filter-btn" data-filter="mca" aria-pressed="false">MCA</button>
+  <button class="filter-btn" data-filter="bca" aria-pressed="false">BCA</button>
+</div>
+
+<!-- STUDENTS GRID -->
+<div class="students-grid">
+  <!-- Student Card 1 -->
+  <div class="student-card" data-category="mca">
+    <div class="student-img-box">
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300" alt="Rahul Sharma" loading="lazy">
+    </div>
+    <h3>Rahul Sharma</h3>
+    <p class="branch">MCA (2025 Passout)</p>
+    <div class="company-badge">TCS</div>
+    <p class="package">Package: 7.5 LPA</p>
+  </div>
+
+  <!-- Student Card 2 -->
+  <div class="student-card" data-category="bca">
+    <div class="student-img-box">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300" alt="Priya Patil" loading="lazy">
+    </div>
+    <h3>Priya Patil</h3>
+    <p class="branch">BCA (2025 Passout)</p>
+    <div class="company-badge">Infosys</div>
+    <p class="package">Package: 6.0 LPA</p>
+  </div>
+
+  <!-- Student Card 3 -->
+  <div class="student-card" data-category="mca">
+    <div class="student-img-box">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300" alt="Amit Deshmukh" loading="lazy">
+    </div>
+    <h3>Amit Deshmukh</h3>
+    <p class="branch">MCA (2025 Passout)</p>
+    <div class="company-badge">XDE Studios</div>
+    <p class="package">Package: 12.0 LPA</p>
+  </div>
+</div>
+
+<!-- BROCHURE LINK -->
+<div class="placement-brochure-action">
+  <a href="#" id="download-brochure" class="brochure-link"><i class="fa-solid fa-download" aria-hidden="true"></i>&nbsp; Download Placement Brochure (2025-26)</a>
+</div>
+</section>
 
         <!-- Placement Highlights -->
         <section class="departments-section">
@@ -442,20 +1202,15 @@
     </main>
 
     <!-- Footer -->
-    <footer style="
-        background-color: #0f172a;
-        color: #ffffff;
-        text-align: center;
-        padding: 20px;
-        margin-top: 40px;
-    ">
+    <footer class="placement-footer">
         <p>
             &copy; 2026 ASM's Nextgen Technical Campus.
             All Rights Reserved.
         </p>
     </footer>
-
+    <button class="placement-back-to-top" id="placement-back-to-top" type="button" aria-label="Back to top" title="Back to top">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
     <script src="js/placement.js" defer></script>
-
 </body>
 </html>

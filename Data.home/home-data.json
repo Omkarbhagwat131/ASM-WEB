@@ -1,0 +1,328 @@
+{
+	"meta": {
+		"title": "ASM's NEXTGEN TECHNICAL CAMPUS | Talegaon Dabhade, Pune",
+		"description": "Discover ASM's Nextgen Technical Campus in Talegaon Dabhade, Maval, Pune. Explore programs, admissions, campus life and placements.",
+		"themeColor": "#e8f3fc"
+	},
+	"assets": {
+		"logo": "image/asm-logo.png",
+		"anniversaryLogo": "image/42-years.png",
+		"building": "image/asm-campus-building.png",
+		"socialLinks": {
+			"facebook": "https://www.facebook.com/NextGenTechnicalCampus/",
+			"instagram": "https://www.instagram.com/asm_next/",
+			"linkedin": "https://www.linkedin.com/company/asm-nextgen-technical-campus/",
+			"youtube": "https://www.youtube.com/@ASMNextgenTechnicalCampus"
+		}
+	},
+	"topbar": {
+		"phone": "+91 90280 76028",
+		"phoneHref": "tel:+919028076028",
+		"email": "admission.asmnext@asmedu.org",
+		"emailHref": "mailto:admission.asmnext@asmedu.org",
+		"campusMedia": "Campus Media",
+		"feeStructure": "FRA - Fee Structure"
+	},
+	"header": {
+		"mandal": "AUDYOGIK SHIKSHAN MANDAL",
+		"college": "ASM's NEXTGEN TECHNICAL CAMPUS",
+		"location": "Talegaon Dabhade, Maval, Pune",
+		"approval": "Approved by AICTE | Affiliated to Savitribai Phule Pune University | DTE CODE - 16355",
+		"logoAlt": "ASM's Nextgen Technical Campus logo",
+		"anniversaryAlt": "ASM celebrating 42 years",
+		"brandAriaLabel": "ASM logo — go to homepage",
+		"menuOpen": "Open navigation menu",
+		"menuClose": "Close navigation menu",
+		"navigationAriaLabel": "Main navigation",
+		"navigation": {
+			"home": "Home",
+			"placements": "Placements",
+			"courses": "Courses & Programs",
+			"campus": "Campus",
+			"contact": "Contact Us",
+			"faculty": "Faculty",
+			"departments": "Department",
+			"about": "About",
+			"admission": "Admission"
+		},
+		"utility": {
+			"brochure": "Information Brochure",
+			"programs": "AICTE Approved Programs"
+		}
+	},
+	"hero": {
+		"buildingAlt": "ASM's NextGen Technical Campus building",
+		"caption": "ASM'S NEXTGEN TECHNICAL CAMPUS",
+		"location": "Talegaon Dabhade, Maval, Pune",
+		"social": {
+			"facebook": "ASM on Facebook",
+			"instagram": "ASM on Instagram",
+			"linkedin": "ASM on LinkedIn",
+			"youtube": "ASM on YouTube"
+		},
+		"socialNavigationLabel": "ASM social media",
+		"login": {
+			"logoAlt": "ASM logo",
+			"title": "Welcome Back",
+			"subtitle": "Login to access the ASM Web Portal",
+			"emailLabel": "Email address",
+			"emailAriaLabel": "Email address",
+			"emailPlaceholder": "Enter your email",
+			"passwordLabel": "Password",
+			"passwordAriaLabel": "Password",
+			"passwordPlaceholder": "Enter your password",
+			"showPassword": "Show",
+			"hidePassword": "Hide",
+			"loginButton": "Login",
+			"forgotPassword": "Forgot Password?",
+			"loginUnavailable": "Login is not connected to an account service yet.",
+			"emailRequired": "Enter a valid email address first.",
+			"passwordResetUnavailable": "Password reset is not connected to an email service yet."
+		}
+	},
+	"about": {
+		"heroSubtitle": "ABOUT OUR CAMPUS",
+		"title": "ASM NextGen Technical Campus",
+		"description": "Empowering students with knowledge, innovation, technology, and industry-ready skills for a successful future.",
+		"exploreButton": "Explore Our Campus",
+		"whoHeading": "WHO WE ARE",
+		"whoIntro": "Building the next generation of skilled professionals.",
+		"storyTitleStart": "Learning Today.",
+		"storyTitleEnd": "Leading Tomorrow.",
+		"storyParagraphs": [
+			"ASM NextGen Technical Campus is dedicated to providing quality education and creating an environment where students can learn, innovate, and grow.",
+			"The campus focuses on developing strong academic foundations along with practical knowledge, technical skills, and professional confidence.",
+			"Through modern learning approaches and industry exposure, students are encouraged to transform their ideas into meaningful solutions."
+		],
+		"visionHeading": "Our Vision",
+		"visionDescription": "To nurture skilled, confident, and responsible professionals who are ready to contribute to a rapidly changing technological world.",
+		"whyHeading": "WHY ASM NEXTGEN?",
+		"whyIntro": "An environment designed for learning, growth, and innovation.",
+		"whyCards": [
+			{"number": "01", "title": "Quality Education", "description": "Strong academic learning that builds a solid foundation for students."},
+			{"number": "02", "title": "Practical Learning", "description": "Opportunities to understand concepts through practical and hands-on learning."},
+			{"number": "03", "title": "Industry Exposure", "description": "Preparing students for professional careers through industry-oriented learning."},
+			{"number": "04", "title": "Student Growth", "description": "Encouraging confidence, communication, creativity, and overall development."}
+		],
+		"missionHeading": "OUR MISSION",
+		"missionTitle": "Creating Professionals Who Make a Difference",
+		"missionDescription": "We aim to create a learning environment where students are encouraged to explore technology, develop their skills, and become confident professionals ready to face the future."
+	},
+	"placements": {
+		"eyebrow": "CAREER DEVELOPMENT & TRAINING",
+		"title": "Training & Placement Cell",
+		"description": "Empowering students with industry-driven skills, career guidance, and top placement opportunities at leading tech companies.",
+		"recruitersButton": "Our Top Recruiters",
+		"statsButton": "View Statistics",
+		"stats": [
+			{"target": 18, "display": "18+", "label": "Highest Package (LPA)"},
+			{"target": 200, "display": "200+", "label": "Top Recruiters"},
+			{"target": 60000, "display": "60000+", "label": "Alumni Placed"}
+		],
+		"highlightsHeading": "Placement Highlights",
+		"highlights": [
+			{"badge": "Success Rate", "value": "85%+", "description": "Consistent annual placement rate across Engineering and MCA streams."},
+			{"badge": "Highest Package", "value": "12 LPA", "description": "Highest offer bagged by our students in software engineering roles."},
+			{"badge": "Hiring Partners", "value": "50+", "description": "Active corporate recruiting partners conducting annual campus drives."},
+			{"badge": "Average Package", "value": "4.5 LPA", "description": "Average salary package offered to fresh graduates."}
+		],
+		"trainingHeading": "Placement Preparation & Training",
+		"training": [
+			{"number": "01", "title": "Technical Aptitude", "description": "Rigorous coding sessions in Java, Python, Web Dev, & Data Structures."},
+			{"number": "02", "title": "Soft Skills & Communication", "description": "Personality development, public speaking, and business etiquettes."},
+			{"number": "03", "title": "Mock Interviews", "description": "1-on-1 technical and HR mock interviews with industry experts."},
+			{"number": "04", "title": "Resume & Portfolio", "description": "Professional resume building and GitHub portfolio development."},
+			{"number": "05", "title": "Campus Drives", "description": "On-campus and pool recruitment drives with partner companies."}
+		],
+		"recruitersHeading": "Our Key Recruiters",
+		"recruiters": [
+			{"title": "Software & IT Services", "description": "TCS, Infosys, Wipro, Capgemini, Cognizant, Tech Mahindra."},
+			{"title": "Product & Web Startups", "description": "FinTech solutions, cloud platforms, and software product firms."},
+			{"title": "Core Engineering Companies", "description": "Automation, Embedded Systems, and Manufacturing firms."},
+			{"title": "Data & Cloud Solutions", "description": "Data analytics, cloud infrastructure, and database administration."}
+		]
+	},
+	"courses": {
+		"eyebrow": "COURSES & PROGRAMS",
+		"title": "Courses & Academic Programs",
+		"description": "Empowering minds with industry-oriented undergraduate, postgraduate programs and vibrant student clubs.",
+		"searchPlaceholder": "Search courses or clubs...",
+		"searchAriaLabel": "Search courses or clubs",
+		"categoryAriaLabel": "Filter courses by category",
+		"categories": [
+			{"value": "all", "label": "All Categories"},
+			{"value": "ug", "label": "Undergraduate (UG)"},
+			{"value": "pg", "label": "Postgraduate (PG)"},
+			{"value": "clubs", "label": "Student Clubs"}
+		],
+		"noResults": "No matching courses found.",
+		"undergraduateHeading": "Undergraduate Programs (UG)",
+		"undergraduate": [
+			{"category": "ug", "badge": "B.Tech", "title": "Computer Science & Engineering", "description": "Learn software development, artificial intelligence, web technologies, and data structures.", "durationLabel": "Duration:", "duration": "4 Years", "seatsLabel": "Seats:", "seats": "120", "action": "Apply Now"},
+			{"category": "ug", "badge": "BCA", "title": "Bachelor of Computer Applications", "description": "Designed for students aspiring to excel in software engineering, programming, and IT applications.", "durationLabel": "Duration:", "duration": "3 Years", "seatsLabel": "Seats:", "seats": "60", "action": "Apply Now"},
+			{"category": "ug", "badge": "BBA", "title": "Bachelor of Business Administration", "description": "Develop leadership, managerial skills, business strategy, and entrepreneurial acumen.", "durationLabel": "Duration:", "duration": "3 Years", "seatsLabel": "Seats:", "seats": "90", "action": "Apply Now"},
+			{"category": "ug", "badge": "B.Com", "title": "Bachelor of Commerce", "description": "Covers financial accounting, corporate tax, economics, business law, and modern auditing practices.", "durationLabel": "Duration:", "duration": "3 Years", "seatsLabel": "Seats:", "seats": "120", "action": "Apply Now"},
+			{"category": "ug", "badge": "B.Sc", "title": "Data Science & Analytics", "description": "Focuses on statistical modeling, big data visualization, Python programming, and machine learning.", "durationLabel": "Duration:", "duration": "3 Years", "seatsLabel": "Seats:", "seats": "60", "action": "Apply Now"}
+		],
+		"postgraduateHeading": "Postgraduate Programs (PG)",
+		"postgraduate": [
+			{"category": "pg", "badge": "MCA", "title": "Master of Computer Applications", "description": "Advanced study in computing systems, modern framework architecture, and software management.", "durationLabel": "Duration:", "duration": "2 Years", "seatsLabel": "Seats:", "seats": "60", "action": "Apply Now"},
+			{"category": "pg", "badge": "MBA", "title": "Master of Business Administration", "description": "Specialization in Finance, Marketing, Human Resource Management, and Business Analytics.", "durationLabel": "Duration:", "duration": "2 Years", "seatsLabel": "Seats:", "seats": "120", "action": "Apply Now"},
+			{"category": "pg", "badge": "M.Tech", "title": "Cyber Security & Digital Forensics", "description": "Advanced training in network security, ethical hacking, cryptography, and cyber threat mitigation.", "durationLabel": "Duration:", "duration": "2 Years", "seatsLabel": "Seats:", "seats": "40", "action": "Apply Now"}
+		],
+		"clubsHeading": "Student & Campus Clubs",
+		"clubs": [
+			{"category": "clubs", "badge": "Tech Club", "title": "CodeCrafters - Coding Club", "description": "Organizes hackathons, competitive programming contests, and open-source project workshops.", "activityLabel": "Activities:", "activity": "Hackathons & Coding", "eligibilityLabel": "Eligibility:", "eligibility": "Open to All", "action": "Join Club"},
+			{"category": "clubs", "badge": "Business Club", "title": "E-Cell & Management Club", "description": "Promotes entrepreneurship, startup pitch competitions, and leadership networking sessions.", "activityLabel": "Activities:", "activity": "Pitching & Seminars", "eligibilityLabel": "Eligibility:", "eligibility": "Open to All", "action": "Join Club"},
+			{"category": "clubs", "badge": "Robotics Club", "title": "RoboTech & AI Society", "description": "Hands-on work with IoT, robotics hardware, automation, and AI innovation projects.", "activityLabel": "Activities:", "activity": "Hardware & AI Bots", "eligibilityLabel": "Eligibility:", "eligibility": "Tech Enthusiasts", "action": "Join Club"},
+			{"category": "clubs", "badge": "Cultural Club", "title": "Aura - Cultural & Arts Club", "description": "Encourages student talent in music, drama, dance, photography, and annual college fests.", "activityLabel": "Activities:", "activity": "Performing Arts & Fests", "eligibilityLabel": "Eligibility:", "eligibility": "Open to All", "action": "Join Club"},
+			{"category": "clubs", "badge": "Literary Club", "title": "Chronicles - Debate & Lit Society", "description": "Hosts Model United Nations (MUN), creative writing workshops, public speaking, and annual quizzes.", "activityLabel": "Activities:", "activity": "Debates & Writing", "eligibilityLabel": "Eligibility:", "eligibility": "Open to All", "action": "Join Club"}
+		]
+	},
+	"campus": {
+		"eyebrow": "Your place to learn and belong",
+		"title": "Campus life, your way.",
+		"description": "A welcoming place to learn, meet new people, and make the most of every opportunity. Find your space and make your college experience your own.",
+		"features": [
+			{"number": "01", "title": "Spaces to focus", "description": "Settle into a supportive learning environment where ideas and ambition can grow."},
+			{"number": "02", "title": "A community to belong to", "description": "Meet people, share perspectives, and build friendships along the way."},
+			{"number": "03", "title": "Room to discover", "description": "Explore new interests and find opportunities to grow beyond the classroom."}
+		],
+		"studentLifeEyebrow": "Make every day count",
+		"studentLifeTitle": "Student life is what you make it",
+		"studentLifeDescription": "Bring your interests, meet your people, and create memories in a community where there is always something new to try.",
+		"searchLabel": "Search Student Life",
+		"searchPlaceholder": "Search clubs, arts, sports, events...",
+		"lifeCards": [
+			{"tag": "CLUBS", "title": "Clubs & communities", "description": "Connect with people who share your interests and discover new ones together.", "details": "Explore student groups, shared interests, teamwork, and opportunities to connect with your college community.", "button": "Learn more", "buttonExpanded": "Show less"},
+			{"tag": "ARTS", "title": "Arts & culture", "description": "Express yourself, celebrate creativity, and experience fresh perspectives.", "details": "Discover creative activities, cultural celebrations, artistic expression, and opportunities to share your talents.", "button": "Learn more", "buttonExpanded": "Show less"},
+			{"tag": "MOVE", "title": "Sports & wellbeing", "description": "Make time for movement, teamwork, and a healthy balance in college life.", "details": "Explore physical activities, teamwork, sports participation, and ways to maintain a healthy college-life balance.", "button": "Learn more", "buttonExpanded": "Show less"},
+			{"tag": "LIVE", "title": "Events & celebrations", "description": "Come together, get involved, and make moments worth remembering.", "details": "Discover college celebrations, student gatherings, campus activities, and opportunities to participate in events.", "button": "Learn more", "buttonExpanded": "Show less"}
+		],
+		"note": "Bring your curiosity. Find your community. Make this chapter yours."
+	},
+	"contact": {
+		"eyebrow": "We’re here to help",
+		"title": "Get in Touch",
+		"description": "Have a question about ASM College? Send us a message or reach us using the details below.",
+		"eventsEyebrow": "What’s happening",
+		"eventsHeading": "College Events & News",
+		"events": [
+			{"date": "15 October 2026", "title": "Annual Tech Fest 2026", "detail": "Main Auditorium", "description": "Join us for coding competitions, hackathons, and guest lectures."},
+			{"date": "20 October 2026", "title": "Guest Lecture: Cloud Computing", "detail": "Speaker: Dr. A. Sharma", "description": "Learn about APIs and modern cloud trends."}
+		],
+		"talkEyebrow": "Let’s talk",
+		"sectionHeading": "Contact Us",
+		"formTitle": "Send us a message",
+		"formIntro": "Fill in the form and we’ll be glad to help.",
+		"nameLabel": "Your name",
+		"namePlaceholder": "e.g. Priya Sharma",
+		"emailLabel": "Email address",
+		"emailPlaceholder": "you@example.com",
+		"messageLabel": "How can we help?",
+		"messagePlaceholder": "Write your message here...",
+		"sendButton": "Send Message",
+		"detailsTitle": "Contact information",
+		"detailsIntro": "Reach out to us directly. We look forward to hearing from you.",
+		"emailHeading": "Email",
+		"email": "admission.asmnext@asmedu.org",
+		"emailHref": "mailto:admission.asmnext@asmedu.org",
+		"phoneHeading": "Phone",
+		"phone": "+91 90280 76028",
+		"phoneHref": "tel:+919028076028",
+		"addressHeading": "Address",
+		"address": "ASM's NextGen Technical Campus, Talegaon Dabhade, Maval, Pune"
+	},
+	"faculty": {
+		"eyebrow": "EXCELLENCE IN EDUCATION",
+		"title": "Our Faculty",
+		"description": "Meet our experienced and dedicated faculty members, committed to guiding students towards academic and professional success.",
+		"searchLabel": "Search Faculty By Name",
+		"searchPlaceholder": "Search Faculty By Name...",
+		"departmentLabel": "Filter by Department",
+		"allDepartments": "All Departments",
+		"initialStatus": "Know our Faculty Members!",
+		"sectionHeading": "Meet Our Faculty Members",
+		"loading": "Loading faculty information...",
+		"noResults": "No faculty members found.",
+		"enquiryHeading": "Faculty Enquiry Form",
+		"enquiryIntro": "Have a Question About Our Faculty or Academic Departments? Send us Your Enquiry.",
+		"nameLabel": "Full Name *",
+		"emailLabel": "Email Address *",
+		"phoneLabel": "Phone Number *",
+		"phonePlaceholder": "10-digit mobile number",
+		"subjectLabel": "Enquiry Subject *",
+		"messageLabel": "Message *",
+		"validateButton": "Validate Enquiry",
+		"modalCloseLabel": "Close",
+		"modalPhotoAlt": "Faculty Photo",
+		"modalTitle": "Faculty Details"
+	},
+	"departments": {
+		"eyebrow": "ASM ACADEMICS",
+		"title": "Our Departments",
+		"description": "Explore our departments and discover opportunities for academic and professional growth.",
+		"sectionHeading": "Academic Departments",
+		"searchPlaceholder": "Search departments...",
+		"searchAriaLabel": "Search departments",
+		"menuAriaLabel": "Choose a department",
+		"noResults": "No departments found.",
+		"mcaDetailsButton": "View Details",
+		"mcaDetailsButtonExpanded": "Hide Details",
+		"items": [
+			{"id": "bca", "code": "BCA", "title": "Computer Applications", "description": "Learn programming, software development, web technologies and databases."},
+			{"id": "bba", "code": "BBA", "title": "Business Administration", "description": "Develop leadership, management, business strategy and entrepreneurship skills."},
+			{"id": "bcom", "code": "B.Com", "title": "Commerce", "description": "Study accounting, finance, taxation, economics and commerce."},
+			{"id": "bsc", "code": "B.Sc", "title": "Information Technology", "description": "Learn IT, networking, databases, programming and emerging technologies."},
+			{"id": "mba", "code": "MBA", "title": "Management Studies", "description": "Build skills in finance, marketing, human resources and management."},
+			{"id": "mca", "code": "MCA", "title": "Master of Computer Applications", "description": "Learn programming, software engineering, cloud computing, database management and application development."}
+		],
+		"viewDetails": "View Details",
+		"hideDetails": "Hide Details",
+		"mcaAboutHeading": "About MCA",
+		"mcaAbout": "MCA is a postgraduate course focused on computer applications, programming and software development.",
+		"subjectsHeading": "Subjects and Skills",
+		"subjects": ["Python and Java Programming", "Database Management Systems", "Software Engineering", "Web Development", "Cloud Computing", "Artificial Intelligence and Data Science"],
+		"careersHeading": "Career Opportunities",
+		"careers": ["Software Developer", "Web Developer", "Cloud Engineer", "Data Analyst", "System Analyst"],
+		"durationLabel": "Course Duration:",
+		"duration": "Generally 2 years, subject to university rules."
+	},
+	"admission": {
+		"eyebrow": "Admissions 2026–27",
+		"title": "Build Your Future with ASM",
+		"description": "Explore Engineering and Computer Applications programmes and take the next step towards your academic and professional goals at ASM's NextGen Technical Campus.",
+		"processButton": "Explore Admission Process",
+		"introHeading": "Shape Your Future With Us",
+		"introDescription": "Develop your technical knowledge, practical skills and problem-solving abilities in a learning environment focused on academic growth, innovation and career development. Explore the programmes below to find the right path for your goals.",
+		"programsHeading": "Choose Your Career Path",
+		"programs": [
+			{"level": "Undergraduate", "title": "Engineering", "description": "Build a foundation in engineering, technology and practical problem-solving through laboratory work and project-based learning.", "points": ["Engineering fundamentals", "Practical laboratory experience", "Project-based learning", "Technical skill development"]},
+			{"level": "Postgraduate", "title": "Master of Computer Applications (MCA)", "description": "Strengthen your knowledge of computer applications, software development and modern computing technologies.", "points": ["Programming and software development", "Database and web technologies", "Practical software projects", "Professional skill development"]}
+		],
+		"eligibilityHeading": "Eligibility Criteria",
+		"eligibilityIntro": "Applicants should verify the current eligibility, entrance examination and admission requirements for their chosen programme.",
+		"eligibility": [
+			{"title": "Engineering Qualification", "description": "Applicants generally need to meet the prescribed educational qualifications, subjects and minimum marks for the selected undergraduate engineering programme."},
+			{"title": "Engineering Entrance", "description": "Applicants must meet the applicable entrance examination and merit requirements, as specified by the current admission rules."},
+			{"title": "MCA Graduation Requirement", "description": "Applicants need a recognised bachelor's degree and must satisfy the current subject and eligibility requirements for MCA admission."},
+			{"title": "MCA Entrance Requirements", "description": "Applicants must fulfil the applicable entrance examination, merit and counselling requirements prescribed for the admission year."}
+		],
+		"importantLabel": "Important:",
+		"importantNote": "Eligibility rules may vary by programme and admission year. Confirm the latest official requirements before applying.",
+		"processHeading": "Admission Process",
+		"steps": [
+			{"number": "1", "title": "Application", "description": "Review the programme requirements and complete the applicable admission application."},
+			{"number": "2", "title": "Document Verification", "description": "Prepare and submit the required academic and supporting documents for verification."},
+			{"number": "3", "title": "Admission Confirmation", "description": "Complete the prescribed counselling, fee payment and admission formalities."}
+		],
+		"ctaHeading": "Ready to Begin Your Journey?",
+		"ctaDescription": "Contact the college to confirm current programme availability, eligibility and admission procedures.",
+		"contactButton": "Contact Us"
+	},
+	"footer": {
+		"title": "ASM NextGen Technical Campus",
+		"description": "Empowering students with knowledge, innovation, and technology.",
+		"copyright": "© 2026 ASM NextGen Technical Campus. All rights reserved."
+	}
+}
