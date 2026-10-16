@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,51 +14,34 @@
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="home.js" defer></script>
-  <script src="js/coursesprog.js" defer></script>
-  <script src="js/campus.js" defer></script>
-  <script src="js/placement.js" defer></script>
-  <script src="js/script.js" defer></script>
-  <script src="js/asm.js" defer></script>
-  <script src="js/Faculty.js" defer></script>
 </head>
 
 <body>
 
+  <!-- Topbar -->
   <div class="topbar">
     <div class="container topbar-inner">
-
       <div class="topbar-contact">
         <a class="phone-link" href="tel:+919028076028">
-          <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M6.5 3.75h3l1.5 4-2 1.5a15 15 0 0 0 5.75 5.75l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.95a2 2 0 0 1 2-2.2Z"/>
-          </svg>
-          +91 90280 76028
+          <i class="fa-solid fa-phone"></i> +91 90280 76028
         </a>
-
         <a class="email-link" href="mailto:admission.asmnextgen@asmedu.org">
-          <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M3.75 5.75h16.5v12.5H3.75z"/>
-            <path d="m4.25 6.5 7.75 6 7.75-6"/>
-          </svg>
-          admission.asmnextgen@asmedu.org
+          <i class="fa-solid fa-envelope"></i> admission.asmnextgen@asmedu.org
         </a>
       </div>
-
       <div class="topbar-links">
         <a href="#campus">Campus Media</a>
-        <span aria-hidden="true">|</span>
+        <span>|</span>
         <a href="#admission">FRA - Fee Structure</a>
       </div>
-
     </div>
   </div>
 
+  <!-- Header -->
   <header class="site-header">
-
     <div class="container header-inner">
-
       <a class="brand" href="#home" aria-label="ASM logo — go to homepage">
-        <img class="brand-logo" src="image/asm-logo.png" alt="ASM's Nextgen Technical Campus logo">
+        <img class="brand-logo animate-logo" src="image/asm-logo.png" alt="ASM's Nextgen Technical Campus logo">
       </a>
 
       <div class="campus-heading">
@@ -67,7 +49,11 @@
         <p class="college-name">ASM's NEXTGEN TECHNICAL CAMPUS</p>
         <p class="brand-location">Talegaon Dabhade, Maval, Pune</p>
         <p class="brand-approval">
-          Approved by AICTE | Affiliated to Savitribai Phule Pune University | DTE CODE - 16355
+          <span>Approved by AICTE</span> | 
+          <a href="https://www.unipune.ac.in" target="_blank" rel="noopener noreferrer" class="sppu-badge-box">
+            Affiliated to Savitribai Phule Pune University <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 10px;"></i>
+          </a> | 
+          <span>DTE CODE - 16355</span>
         </p>
       </div>
       <img class="anniversary-logo" src="image/42-years.png" alt="ASM celebrating 42 years">
@@ -75,518 +61,85 @@
 
     <div class="navigation-row">
       <div class="container navigation-inner">
-
         <nav class="main-navigation" id="main-navigation" aria-label="Main navigation">
-
           <a href="#home" class="nav-link active">Home</a>
-
           <a href="#placements" class="nav-link">Placements</a>
-
           <a href="#courses" class="nav-link">Courses &amp; Programs</a>
-
           <a href="#campus" class="nav-link">Campus</a>
-
           <a href="#contact" class="nav-link">Contact Us</a>
-
           <a href="#faculty" class="nav-link">Faculty</a>
-
           <a href="#departments" class="nav-link">Department</a>
-
           <a href="#about" class="nav-link">About</a>
-
           <a href="#admission" class="nav-link">Admission</a>
-
         </nav>
-
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-          aria-controls="main-navigation">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
         </button>
-
       </div>
     </div>
-
-    <div class="header-utility">
-      <div class="container utility-inner">
-        <a href="#courses">Information Brochure</a>
-        <span aria-hidden="true">|</span>
-        <a href="#courses">AICTE Approved Programs</a>
-      </div>
-    </div>
-
   </header>
 
   <main>
-
+    <!-- Hero Section with Single Full Building Background & Animated Login Card -->
     <section class="hero" id="home">
+      <div class="hero-shade"></div>
 
-      <div
-        class="hero-photo"
-        role="img"
-        aria-label="ASM's NextGen Technical Campus building"
-        style="background-image: url('image/asm-campus-building.png');">
-
-        <div class="hero-shade"></div>
-
-        <div class="hero-photo-caption">
-          <span>ASM'S NEXTGEN TECHNICAL CAMPUS</span>
-          <strong>Talegaon Dabhade, Maval, Pune</strong>
+      <div class="hero-content-wrapper container">
+        <div class="hero-left-intro">
+          <span class="eyebrow"><span></span> WELCOME TO NEXTGEN</span>
+          <h1 class="hero-main-title">ASM'S NEXTGEN TECHNICAL CAMPUS</h1>
+          <p class="hero-subtext">Empowering students with innovation, advanced technical skills, and industry-ready knowledge at Talegaon Dabhade, Pune.</p>
+          <div class="hero-buttons">
+            <a href="#courses" class="button button-primary">Explore Programs</a>
+            <a href="#admission" class="button button-quiet">Admissions Open</a>
+          </div>
         </div>
 
-        <nav class="social-links" aria-label="ASM social media">
-
-          <a
-            class="social-link social-facebook"
-            href="https://www.facebook.com/NextGenTechnicalCampus/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="ASM on Facebook">
-
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M13.4 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2v2.3H7.6V13h2.7v8h3.1Z"/>
-            </svg>
-          </a>
-
-          <a
-            class="social-link social-instagram"
-            href="https://www.instagram.com/asm_next/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="ASM on Instagram">
-
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3.5" y="3.5" width="17" height="17" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle class="instagram-dot" cx="17.6" cy="6.7" r="1"/>
-            </svg>
-          </a>
-
-          <a
-            class="social-link social-linkedin"
-            href="https://www.linkedin.com/company/asm-nextgen-technical-campus/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="ASM on LinkedIn">
-
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6.5 8.5a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4ZM5 10h3v9H5zM10 10h2.9v1.2h.1a3.2 3.2 0 0 1 2.9-1.5c3.1 0 3.7 2 3.7 4.6V19h-3v-4.2c0-1 0-2.4-1.5-2.4s-1.8 1.1-1.8 2.3V19h-3V10Z"/>
-            </svg>
-          </a>
-
-          <a
-            class="social-link social-youtube"
-            href="https://www.youtube.com/@ASMNextgenTechnicalCampus"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="ASM on YouTube">
-
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M21 7.2a2.5 2.5 0 0 0-1.8-1.8C17.6 5 12 5 12 5s-5.6 0-7.2.4A2.5 2.5 0 0 0 3 7.2 26 26 0 0 0 2.6 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C6.4 19 12 19 12 19s5.6 0 7.2-.4a2.5 2.5 0 0 0 1.8-1.8 26 26 0 0 0 .4-4.8 26 26 0 0 0-.4-4.8Z"/>
-              <path class="youtube-play" d="m10 15.5 5-3.5-5-3.5z"/>
-            </svg>
-          </a>
-
-        </nav>
-      </div>
-
-      <section class="hero-login-card" aria-labelledby="login-title">
-        <img class="login-logo" src="image/asm-logo.png" alt="ASM logo">
-        <h1 id="login-title">Welcome Back</h1>
-        <p class="login-subtitle">Login to access the ASM Web Portal</p>
-
-        <form id="login-form">
-
-          <label class="login-field">
-            <span>Email address</span>
-            <input
-              id="login-email"
-              name="email"
-              type="email"
-              autocomplete="username"
-              placeholder="Enter your email"
-              required>
-          </label>
-
-          <label class="login-field">
-            <span>Password</span>
-
-            <span class="password-input">
-              <input
-                id="login-password"
-                name="password"
-                type="password"
-                autocomplete="current-password"
-                placeholder="Enter your password"
-                minlength="6"
-                required>
-
-              <button
-                class="password-toggle"
-                type="button"
-                aria-label="Show password"
-                aria-pressed="false">
-                Show
-              </button>
-            </span>
-          </label>
-
-          <button class="login-submit" type="submit">Login</button>
-
-          <button class="forgot-password" id="forgot-password" type="button">
-            Forgot Password?
-          </button>
-
-          <p
-            class="login-message"
-            id="login-message"
-            role="status"
-            aria-live="polite"></p>
-
-        </form>
-      </section>
-
-    </section>
-
-    <section class="home-about about-page" id="about">
-      <section class="page-hero hero">
-        <div class="container">
-          <span class="hero-subtitle">ABOUT OUR CAMPUS</span>
-
-          <h1>ASM NextGen Technical Campus</h1>
-
-          <p class="hero-description">
-            Empowering students with knowledge, innovation, technology,
-            and industry-ready skills for a successful future.
-          </p>
-
-          <a href="#about-content" class="btn hero-btn">Explore Our Campus</a>
-        </div>
-      </section>
-
-      <div id="about-content">
-        <section class="departments-section">
-          <h2>WHO WE ARE</h2>
-          <div class="underline"></div>
-
-          <p style="max-width: 800px; margin: 0 auto 20px; color: var(--muted); font-size: 1.1rem; line-height: 1.6;">
-            Building the next generation of skilled professionals.
-          </p>
-
-          <div class="department-container" style="margin-top: 40px;">
-
-            <div class="department-card" style="text-align: left;">
-              <h3>
-                Learning Today.
-                <span style="color: var(--bright-blue);">Leading Tomorrow.</span>
-              </h3>
-
-              <p style="margin-top: 15px; color: var(--muted); line-height: 1.6;">
-                ASM NextGen Technical Campus is dedicated to providing
-                quality education and creating an environment where
-                students can learn, innovate, and grow.
-              </p>
-
-              <p style="margin-top: 10px; color: var(--muted); line-height: 1.6;">
-                The campus focuses on developing strong academic
-                foundations along with practical knowledge, technical
-                skills, and professional confidence.
-              </p>
-
-              <p style="margin-top: 10px; color: var(--muted); line-height: 1.6;">
-                Through modern learning approaches and industry exposure,
-                students are encouraged to transform their ideas into
-                meaningful solutions.
-              </p>
+        <!-- Login Card with Top-Left Logo & Smooth Animations -->
+        <section class="hero-login-card fade-up-anim" aria-labelledby="login-title">
+          <div class="login-card-header">
+            <img class="login-logo pulse-anim" src="image/asm-logo.png" alt="ASM logo">
+            <div>
+              <h2 id="login-title">Student Portal</h2>
+              <p class="login-subtitle">Login to access your dashboard</p>
             </div>
-
-            <div class="department-card">
-              <div class="card-icon">
-                <i class="fa-solid fa-eye"
-                  style="font-size: 2.5rem; color: var(--bright-blue);"></i>
-              </div>
-
-              <h3>Our Vision</h3>
-
-              <p style="margin-top: 15px; color: var(--muted); line-height: 1.6;">
-                To nurture skilled, confident, and responsible
-                professionals who are ready to contribute to a rapidly
-                changing technological world.
-              </p>
-            </div>
-
           </div>
-        </section>
 
-        <section class="departments-section"
-          style="background-color: var(--paper); padding: 50px 20px;">
+          <form id="login-form">
+            <label class="login-field">
+              <span>Email address</span>
+              <input id="login-email" name="email" type="email" placeholder="Enter your email" required>
+            </label>
 
-          <h2>WHY ASM NEXTGEN?</h2>
-          <div class="underline"></div>
+            <label class="login-field">
+              <span>Password</span>
+              <span class="password-input">
+                <input id="login-password" name="password" type="password" placeholder="Enter your password" minlength="6" required>
+                <button class="password-toggle" type="button">Show</button>
+              </span>
+            </label>
 
-          <p style="max-width: 800px; margin: 0 auto 30px; color: var(--muted);">
-            An environment designed for learning, growth, and innovation.
-          </p>
-
-          <div class="department-container">
-
-            <div class="department-card">
-              <span class="department-code">01</span>
-              <h3>Quality Education</h3>
-              <p>Strong academic learning that builds a solid foundation for students.</p>
-            </div>
-
-            <div class="department-card">
-              <span class="department-code">02</span>
-              <h3>Practical Learning</h3>
-              <p>Opportunities to understand concepts through practical and hands-on learning.</p>
-            </div>
-
-            <div class="department-card">
-              <span class="department-code">03</span>
-              <h3>Industry Exposure</h3>
-              <p>Preparing students for professional careers through industry-oriented learning.</p>
-            </div>
-
-            <div class="department-card">
-              <span class="department-code">04</span>
-              <h3>Student Growth</h3>
-              <p>Encouraging confidence, communication, creativity, and overall development.</p>
-            </div>
-
-          </div>
-        </section>
-
-        <section class="departments-section">
-          <h2>OUR MISSION</h2>
-          <div class="underline"></div>
-
-          <h3 style="margin-top: 20px; font-size: 1.5rem; color: var(--bright-blue);">
-            Creating Professionals Who Make a Difference
-          </h3>
-
-          <p style="max-width: 800px; margin: 20px auto 0; color: var(--muted); line-height: 1.6; font-size: 1.05rem;">
-            We aim to create a learning environment where students are
-            encouraged to explore technology, develop their skills, and
-            become confident professionals ready to face the future.
-          </p>
+            <button class="login-submit" type="submit">Login to Portal</button>
+            <button class="forgot-password" type="button">Forgot Password?</button>
+            <p class="login-message" id="login-message" role="status" aria-live="polite"></p>
+          </form>
         </section>
       </div>
-    </section>
 
-    <section class="home-page-section home-placement" id="placements">
-      <section class="home-page-hero">
-        <div class="home-section-inner">
-          <p class="home-eyebrow">CAREER DEVELOPMENT &amp; TRAINING</p>
-          <h1>Training &amp; Placement Cell</h1>
-          <p>Empowering students with industry-driven skills, career guidance, and top placement opportunities at leading tech companies.</p>
-          <div class="home-action-row">
-            <a class="home-button" href="#placement-recruiters">Our Top Recruiters</a>
-            <a class="home-button home-button-outline" href="#placement-stats">View Statistics</a>
-          </div>
-        </div>
-      </section>
-      <section class="home-section-inner home-stats" id="placement-stats">
-        <article><i class="fa-solid fa-trophy" aria-hidden="true"></i><strong class="counter" data-target="18">18+</strong><span>Highest Package (LPA)</span></article>
-        <article><i class="fa-solid fa-building" aria-hidden="true"></i><strong class="counter" data-target="200">200+</strong><span>Top Recruiters</span></article>
-        <article><i class="fa-solid fa-user-graduate" aria-hidden="true"></i><strong class="counter" data-target="60000">60000+</strong><span>Alumni Placed</span></article>
-      </section>
-      <section class="home-section-inner home-content-block">
-        <h2 class="home-section-title">Placement Highlights</h2>
-        <div class="home-card-grid">
-          <article class="home-info-card"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><span class="home-course-badge">Success Rate</span><h3>85%+</h3><p>Consistent annual placement rate across Engineering and MCA streams.</p></article>
-          <article class="home-info-card"><i class="fa-solid fa-sack-dollar" aria-hidden="true"></i><span class="home-course-badge">Highest Package</span><h3>12 LPA</h3><p>Highest offer bagged by our students in software engineering roles.</p></article>
-          <article class="home-info-card"><i class="fa-solid fa-handshake" aria-hidden="true"></i><span class="home-course-badge">Hiring Partners</span><h3>50+</h3><p>Active corporate recruiting partners conducting annual campus drives.</p></article>
-          <article class="home-info-card"><i class="fa-solid fa-user-check" aria-hidden="true"></i><span class="home-course-badge">Average Package</span><h3>4.5 LPA</h3><p>Average salary package offered to fresh graduates.</p></article>
-        </div>
-      </section>
-      <section class="home-section-inner home-content-block">
-        <h2 class="home-section-title">Placement Preparation &amp; Training</h2>
-        <div class="home-card-grid">
-          <article class="home-info-card"><span class="home-step-number">01</span><h3>Technical Aptitude</h3><p>Rigorous coding sessions in Java, Python, Web Dev, &amp; Data Structures.</p></article>
-          <article class="home-info-card"><span class="home-step-number">02</span><h3>Soft Skills &amp; Communication</h3><p>Personality development, public speaking, and business etiquettes.</p></article>
-          <article class="home-info-card"><span class="home-step-number">03</span><h3>Mock Interviews</h3><p>1-on-1 technical and HR mock interviews with industry experts.</p></article>
-          <article class="home-info-card"><span class="home-step-number">04</span><h3>Resume &amp; Portfolio</h3><p>Professional resume building and GitHub portfolio development.</p></article>
-          <article class="home-info-card"><span class="home-step-number">05</span><h3>Campus Drives</h3><p>On-campus and pool recruitment drives with partner companies.</p></article>
-        </div>
-      </section>
-      <section class="home-section-inner home-content-block" id="placement-recruiters">
-        <h2 class="home-section-title">Our Key Recruiters</h2>
-        <div class="home-card-grid">
-          <article class="home-info-card"><i class="fa-solid fa-building" aria-hidden="true"></i><h3>Software &amp; IT Services</h3><p>TCS, Infosys, Wipro, Capgemini, Cognizant, Tech Mahindra.</p></article>
-          <article class="home-info-card"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i><h3>Product &amp; Web Startups</h3><p>FinTech solutions, cloud platforms, and software product firms.</p></article>
-          <article class="home-info-card"><i class="fa-solid fa-gears" aria-hidden="true"></i><h3>Core Engineering Companies</h3><p>Automation, Embedded Systems, and Manufacturing firms.</p></article>
-          <article class="home-info-card"><i class="fa-solid fa-network-wired" aria-hidden="true"></i><h3>Data &amp; Cloud Solutions</h3><p>Data analytics, cloud infrastructure, and database administration.</p></article>
-        </div>
-      </section>
+      <!-- Social Links Bar -->
+      <nav class="social-links" aria-label="ASM social media">
+        <a class="social-link social-facebook" href="https://www.facebook.com/NextGenTechnicalCampus/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="social-link social-instagram" href="https://www.instagram.com/asm_next/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+        <a class="social-link social-linkedin" href="https://www.linkedin.com/company/asm-nextgen-technical-campus/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a class="social-link social-youtube" href="https://www.youtube.com/@ASMNextgenTechnicalCampus" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+      </nav>
     </section>
-
-    <section class="home-page-section home-courses" id="courses">
-      <section class="home-page-hero">
-        <div class="home-section-inner">
-          <p class="home-eyebrow">COURSES &amp; PROGRAMS</p>
-          <h1>Courses &amp; Academic Programs</h1>
-          <p>Empowering minds with industry-oriented undergraduate, postgraduate programs and vibrant student clubs.</p>
-        </div>
-      </section>
-      <div class="home-section-inner home-course-tools">
-        <input type="text" id="course-search-input" placeholder="Search courses or clubs..." aria-label="Search courses or clubs">
-        <select id="category-filter-select" aria-label="Filter courses by category">
-          <option value="all">All Categories</option><option value="ug">Undergraduate (UG)</option><option value="pg">Postgraduate (PG)</option><option value="clubs">Student Clubs</option>
-        </select>
-        <p id="no-results-msg" role="status" hidden>No matching courses found.</p>
-      </div>
-      <section class="home-section-inner home-content-block">
-        <h2 class="home-section-title">Undergraduate Programs (UG)</h2>
-        <div class="home-card-grid home-course-grid">
-          <article class="course-card" data-category="ug"><span class="home-course-badge">B.Tech</span><h3>Computer Science &amp; Engineering</h3><p>Learn software development, artificial intelligence, web technologies, and data structures.</p><ul><li><strong>Duration:</strong> 4 Years</li><li><strong>Seats:</strong> 120</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-          <article class="course-card" data-category="ug"><span class="home-course-badge">BCA</span><h3>Bachelor of Computer Applications</h3><p>Designed for students aspiring to excel in software engineering, programming, and IT applications.</p><ul><li><strong>Duration:</strong> 3 Years</li><li><strong>Seats:</strong> 60</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-          <article class="course-card" data-category="ug"><span class="home-course-badge">BBA</span><h3>Bachelor of Business Administration</h3><p>Develop leadership, managerial skills, business strategy, and entrepreneurial acumen.</p><ul><li><strong>Duration:</strong> 3 Years</li><li><strong>Seats:</strong> 90</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-          <article class="course-card" data-category="ug"><span class="home-course-badge">B.Com</span><h3>Bachelor of Commerce</h3><p>Covers financial accounting, corporate tax, economics, business law, and modern auditing practices.</p><ul><li><strong>Duration:</strong> 3 Years</li><li><strong>Seats:</strong> 120</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-          <article class="course-card" data-category="ug"><span class="home-course-badge">B.Sc</span><h3>Data Science &amp; Analytics</h3><p>Focuses on statistical modeling, big data visualization, Python programming, and machine learning.</p><ul><li><strong>Duration:</strong> 3 Years</li><li><strong>Seats:</strong> 60</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-        </div>
-      </section>
-      <section class="home-section-inner home-content-block">
-        <h2 class="home-section-title">Postgraduate Programs (PG)</h2>
-        <div class="home-card-grid home-course-grid">
-          <article class="course-card" data-category="pg"><span class="home-course-badge">MCA</span><h3>Master of Computer Applications</h3><p>Advanced study in computing systems, modern framework architecture, and software management.</p><ul><li><strong>Duration:</strong> 2 Years</li><li><strong>Seats:</strong> 60</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-          <article class="course-card" data-category="pg"><span class="home-course-badge">MBA</span><h3>Master of Business Administration</h3><p>Specialization in Finance, Marketing, Human Resource Management, and Business Analytics.</p><ul><li><strong>Duration:</strong> 2 Years</li><li><strong>Seats:</strong> 120</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-          <article class="course-card" data-category="pg"><span class="home-course-badge">M.Tech</span><h3>Cyber Security &amp; Digital Forensics</h3><p>Advanced training in network security, ethical hacking, cryptography, and cyber threat mitigation.</p><ul><li><strong>Duration:</strong> 2 Years</li><li><strong>Seats:</strong> 40</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-        </div>
-      </section>
-      <section class="home-section-inner home-content-block">
-        <h2 class="home-section-title">Student &amp; Campus Clubs</h2>
-        <div class="home-card-grid home-course-grid">
-          <article class="course-card" data-category="clubs"><span class="home-course-badge">Tech Club</span><h3>CodeCrafters - Coding Club</h3><p>Organizes hackathons, competitive programming contests, and open-source project workshops.</p><ul><li><strong>Activities:</strong> Hackathons &amp; Coding</li><li><strong>Eligibility:</strong> Open to All</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
-          <article class="course-card" data-category="clubs"><span class="home-course-badge">Business Club</span><h3>E-Cell &amp; Management Club</h3><p>Promotes entrepreneurship, startup pitch competitions, and leadership networking sessions.</p><ul><li><strong>Activities:</strong> Pitching &amp; Seminars</li><li><strong>Eligibility:</strong> Open to All</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
-          <article class="course-card" data-category="clubs"><span class="home-course-badge">Robotics Club</span><h3>RoboTech &amp; AI Society</h3><p>Hands-on work with IoT, robotics hardware, automation, and AI innovation projects.</p><ul><li><strong>Activities:</strong> Hardware &amp; AI Bots</li><li><strong>Eligibility:</strong> Tech Enthusiasts</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
-          <article class="course-card" data-category="clubs"><span class="home-course-badge">Cultural Club</span><h3>Aura - Cultural &amp; Arts Club</h3><p>Encourages student talent in music, drama, dance, photography, and annual college fests.</p><ul><li><strong>Activities:</strong> Performing Arts &amp; Fests</li><li><strong>Eligibility:</strong> Open to All</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
-          <article class="course-card" data-category="clubs"><span class="home-course-badge">Literary Club</span><h3>Chronicles - Debate &amp; Lit Society</h3><p>Hosts Model United Nations (MUN), creative writing workshops, public speaking, and annual quizzes.</p><ul><li><strong>Activities:</strong> Debates &amp; Writing</li><li><strong>Eligibility:</strong> Open to All</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
-        </div>
-      </section>
-    </section>
-
-    <section class="home-page-section home-campus" id="campus">
-      <section class="home-page-hero">
-        <div class="home-section-inner">
-          <p class="home-eyebrow">Your place to learn and belong</p>
-          <h1>Campus life, your way.</h1>
-          <p>A welcoming place to learn, meet new people, and make the most of every opportunity. Find your space and make your college experience your own.</p>
-          <div class="home-card-grid">
-            <article class="home-info-card"><span class="home-step-number">01</span><h2>Spaces to focus</h2><p>Settle into a supportive learning environment where ideas and ambition can grow.</p></article>
-            <article class="home-info-card"><span class="home-step-number">02</span><h2>A community to belong to</h2><p>Meet people, share perspectives, and build friendships along the way.</p></article>
-            <article class="home-info-card"><span class="home-step-number">03</span><h2>Room to discover</h2><p>Explore new interests and find opportunities to grow beyond the classroom.</p></article>
-          </div>
-        </div>
-      </section>
-      <section class="home-section-inner home-content-block">
-        <div class="home-section-heading"><p class="home-eyebrow">Make every day count</p><h2 class="home-section-title">Student life is what you make it</h2><p>Bring your interests, meet your people, and create memories in a community where there is always something new to try.</p></div>
-        <div class="home-campus-search"><label for="life-search-input">Search Student Life</label><input type="search" id="life-search-input" placeholder="Search clubs, arts, sports, events..." autocomplete="off"><p id="search-message" role="status" aria-live="polite"></p></div>
-        <div class="home-card-grid">
-          <article class="home-info-card life-card"><span class="home-step-number">CLUBS</span><h3>Clubs &amp; communities</h3><p>Connect with people who share your interests and discover new ones together.</p><div class="card-details" hidden><p>Explore student groups, shared interests, teamwork, and opportunities to connect with your college community.</p></div><button class="home-small-button card-toggle" type="button" aria-expanded="false">Learn more</button></article>
-          <article class="home-info-card life-card"><span class="home-step-number">ARTS</span><h3>Arts &amp; culture</h3><p>Express yourself, celebrate creativity, and experience fresh perspectives.</p><div class="card-details" hidden><p>Discover creative activities, cultural celebrations, artistic expression, and opportunities to share your talents.</p></div><button class="home-small-button card-toggle" type="button" aria-expanded="false">Learn more</button></article>
-          <article class="home-info-card life-card"><span class="home-step-number">MOVE</span><h3>Sports &amp; wellbeing</h3><p>Make time for movement, teamwork, and a healthy balance in college life.</p><div class="card-details" hidden><p>Explore physical activities, teamwork, sports participation, and ways to maintain a healthy college-life balance.</p></div><button class="home-small-button card-toggle" type="button" aria-expanded="false">Learn more</button></article>
-          <article class="home-info-card life-card"><span class="home-step-number">LIVE</span><h3>Events &amp; celebrations</h3><p>Come together, get involved, and make moments worth remembering.</p><div class="card-details" hidden><p>Discover college celebrations, student gatherings, campus activities, and opportunities to participate in events.</p></div><button class="home-small-button card-toggle" type="button" aria-expanded="false">Learn more</button></article>
-        </div>
-        <p class="home-campus-note">Bring your curiosity. Find your community. Make this chapter yours.</p>
-      </section>
-    </section>
-
-    <section class="home-page-section home-contact" id="contact">
-      <section class="home-page-hero"><div class="home-section-inner"><p class="home-eyebrow">We’re here to help</p><h1>Get in Touch</h1><p>Have a question about ASM College? Send us a message or reach us using the details below.</p></div></section>
-      <section class="home-section-inner home-content-block">
-        <div class="home-section-heading"><p class="home-eyebrow">What’s happening</p><h2 class="home-section-title">College Events &amp; News</h2></div>
-        <div class="home-card-grid">
-          <article class="home-info-card"><span class="home-course-badge">15 October 2026</span><h3>Annual Tech Fest 2026</h3><p><strong>Main Auditorium</strong></p><p>Join us for coding competitions, hackathons, and guest lectures.</p></article>
-          <article class="home-info-card"><span class="home-course-badge">20 October 2026</span><h3>Guest Lecture: Cloud Computing</h3><p><strong>Speaker: Dr. A. Sharma</strong></p><p>Learn about APIs and modern cloud trends.</p></article>
-        </div>
-      </section>
-      <section class="home-section-inner home-content-block">
-        <div class="home-section-heading"><p class="home-eyebrow">Let’s talk</p><h2 class="home-section-title">Contact Us</h2></div>
-        <div class="home-contact-grid">
-          <form class="home-form" id="contact-form"><h3>Send us a message</h3><p>Fill in the form and we’ll be glad to help.</p><label for="name">Your name</label><input type="text" id="name" name="name" autocomplete="name" placeholder="e.g. Priya Sharma" required><label for="email">Email address</label><input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required><label for="message">How can we help?</label><textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea><button class="home-button" type="submit">Send Message</button><p class="home-form-status" id="form-status" role="status" aria-live="polite"></p></form>
-          <aside class="home-info-card home-contact-details"><h3>Contact information</h3><p>Reach out to us directly. We look forward to hearing from you.</p><h4>Email</h4><a href="mailto:info@asmcollege.edu">info@asmcollege.edu</a><h4>Phone</h4><a href="tel:+919876543210">+91-9876543210</a><h4>Address</h4><p>ASM College, Pune, MH, India</p></aside>
-        </div>
-      </section>
-    </section>
-
-    <section class="home-page-section home-faculty" id="faculty">
-      <section class="home-page-hero"><div class="home-section-inner"><p class="home-eyebrow">EXCELLENCE IN EDUCATION</p><h1>Our Faculty</h1><p>Meet our experienced and dedicated faculty members, committed to guiding students towards academic and professional success.</p></div></section>
-      <section class="home-section-inner home-content-block">
-        <div class="home-faculty-search"><div class="home-faculty-controls"><label for="searchInput">Search Faculty By Name<input type="text" id="searchInput" placeholder="Search Faculty By Name..." aria-label="Search Faculty By Name"></label><label for="departmentFilter">Filter by Department<select id="departmentFilter" aria-label="Filter faculty by department"><option value="all">All Departments</option></select></label></div><p id="searchMessage">Know our Faculty Members!</p></div>
-        <h2 class="home-section-title">Meet Our Faculty Members</h2>
-        <div class="home-faculty-grid" id="facultyGrid"><p id="loadingMessage">Loading faculty information...</p><p id="noResults" hidden>No faculty members found.</p></div>
-      </section>
-      <section class="home-section-inner home-content-block" id="enquiry">
-        <div class="home-form-wrap"><h2 class="home-section-title">Faculty Enquiry Form</h2><p>Have a Question About Our Faculty or Academic Departments? Send us Your Enquiry.</p>
-          <form id="enquiryForm" class="home-form" novalidate><div class="home-form-grid">
-            <label>Full Name *<input id="enquiryName" name="name" type="text" required minlength="2" maxlength="60"><small class="field-error" id="nameError"></small></label>
-            <label>Email Address *<input id="enquiryEmail" name="email" type="email" required maxlength="100"><small class="field-error" id="emailError"></small></label>
-            <label>Phone Number *<input id="enquiryPhone" name="phone" type="tel" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" required placeholder="10-digit mobile number"><small class="field-error" id="phoneError"></small></label>
-            <label>Enquiry Subject *<input id="enquirySubject" name="subject" type="text" required minlength="3" maxlength="100"><small class="field-error" id="subjectError"></small></label>
-            <label class="home-form-full">Message *<textarea id="enquiryMessage" name="message" required minlength="10" maxlength="1000"></textarea><small class="field-error" id="messageError"></small></label>
-          </div><p id="formStatus" class="home-form-status" role="status" aria-live="polite"></p><button type="submit" class="home-button">Validate Enquiry</button></form>
-      </section>
-      <div class="home-modal" id="facultyModal" role="dialog" aria-modal="true" aria-labelledby="modalName" hidden><div class="home-modal-content"><button class="home-modal-close" id="closeModal" type="button" aria-label="Close">&times;</button><img id="modalPhoto" src="" alt="Faculty Photo"><h2 id="modalName">Faculty Details</h2><div id="modalDetails"></div></div></div>
-    </section>
-
-    <section class="home-page-section home-departments" id="departments">
-      <section class="home-page-hero"><div class="home-section-inner"><p class="home-eyebrow">ASM ACADEMICS</p><h1>Our Departments</h1><p>Explore our departments and discover opportunities for academic and professional growth.</p></div></section>
-      <section class="home-section-inner home-content-block">
-        <h2 class="home-section-title">Academic Departments</h2>
-        <div class="home-department-toolbar"><input id="department-search" type="search" placeholder="Search departments..." aria-label="Search departments"><div class="home-department-picker"><button id="department-menu-toggle" type="button" aria-label="Choose a department" aria-controls="department-menu" aria-expanded="false" title="Choose a department">&#8942;</button><div id="department-menu" class="home-department-menu" role="menu" hidden>
-          <button type="button" class="home-department-option" data-department-target="department-bca" role="menuitem">BCA - Computer Applications</button><button type="button" class="home-department-option" data-department-target="department-bba" role="menuitem">BBA - Business Administration</button><button type="button" class="home-department-option" data-department-target="department-bcom" role="menuitem">B.Com - Commerce</button><button type="button" class="home-department-option" data-department-target="department-bsc" role="menuitem">B.Sc - Information Technology</button><button type="button" class="home-department-option" data-department-target="department-mba" role="menuitem">MBA - Management Studies</button><button type="button" class="home-department-option" data-department-target="department-mca" role="menuitem">MCA - Master of Computer Applications</button>
-        </div></div></div>
-        <p id="department-search-status" class="home-department-status" role="status" aria-live="polite"></p>
-        <div class="home-card-grid home-department-results">
-          <article id="department-bca" class="home-info-card" hidden><span class="home-course-badge">BCA</span><h3>Computer Applications</h3><p>Learn programming, software development, web technologies and databases.</p></article>
-          <article id="department-bba" class="home-info-card" hidden><span class="home-course-badge">BBA</span><h3>Business Administration</h3><p>Develop leadership, management, business strategy and entrepreneurship skills.</p></article>
-          <article id="department-bcom" class="home-info-card" hidden><span class="home-course-badge">B.Com</span><h3>Commerce</h3><p>Study accounting, finance, taxation, economics and commerce.</p></article>
-          <article id="department-bsc" class="home-info-card" hidden><span class="home-course-badge">B.Sc</span><h3>Information Technology</h3><p>Learn IT, networking, databases, programming and emerging technologies.</p></article>
-          <article id="department-mba" class="home-info-card" hidden><span class="home-course-badge">MBA</span><h3>Management Studies</h3><p>Build skills in finance, marketing, human resources and management.</p></article>
-          <article id="department-mca" class="home-info-card home-mca-card" hidden><span class="home-course-badge">MCA</span><h3>Master of Computer Applications</h3><p>Learn programming, software engineering, cloud computing, database management and application development.</p><button type="button" class="home-small-button view-details-btn" aria-expanded="false" aria-controls="mca-details">View Details</button><div id="mca-details" class="home-mca-details" hidden><h3>About MCA</h3><p>MCA is a postgraduate course focused on computer applications, programming and software development.</p><h3>Subjects and Skills</h3><ul><li>Python and Java Programming</li><li>Database Management Systems</li><li>Software Engineering</li><li>Web Development</li><li>Cloud Computing</li><li>Artificial Intelligence and Data Science</li></ul><h3>Career Opportunities</h3><ul><li>Software Developer</li><li>Web Developer</li><li>Cloud Engineer</li><li>Data Analyst</li><li>System Analyst</li></ul><p><strong>Course Duration:</strong> Generally 2 years, subject to university rules.</p></div></article>
-        </div>
-      </section>
-    </section>
-
-    <section class="home-page-section home-admission" id="admission">
-      <section class="home-page-hero"><div class="home-section-inner"><p class="home-eyebrow">Admissions 2026–27</p><h1>Build Your Future with ASM</h1><p>Explore Engineering and Computer Applications programmes and take the next step towards your academic and professional goals at ASM's NextGen Technical Campus.</p><a class="home-button" href="#admission-process">Explore Admission Process</a></div></section>
-      <section class="home-section-inner home-content-block"><h2 class="home-section-title">Shape Your Future With Us</h2><p class="home-section-intro">Develop your technical knowledge, practical skills and problem-solving abilities in a learning environment focused on academic growth, innovation and career development. Explore the programmes below to find the right path for your goals.</p></section>
-      <section class="home-section-inner home-content-block"><h2 class="home-section-title">Choose Your Career Path</h2><div class="home-card-grid">
-        <article class="home-info-card"><i class="fa-solid fa-gears" aria-hidden="true"></i><span class="home-course-badge">Undergraduate</span><h3>Engineering</h3><p>Build a foundation in engineering, technology and practical problem-solving through laboratory work and project-based learning.</p><ul><li>Engineering fundamentals</li><li>Practical laboratory experience</li><li>Project-based learning</li><li>Technical skill development</li></ul></article>
-        <article class="home-info-card"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i><span class="home-course-badge">Postgraduate</span><h3>Master of Computer Applications (MCA)</h3><p>Strengthen your knowledge of computer applications, software development and modern computing technologies.</p><ul><li>Programming and software development</li><li>Database and web technologies</li><li>Practical software projects</li><li>Professional skill development</li></ul></article>
-      </div></section>
-      <section class="home-section-inner home-content-block"><h2 class="home-section-title">Eligibility Criteria</h2><p class="home-section-intro">Applicants should verify the current eligibility, entrance examination and admission requirements for their chosen programme.</p><div class="home-card-grid">
-        <article class="home-info-card"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><h3>Engineering Qualification</h3><p>Applicants generally need to meet the prescribed educational qualifications, subjects and minimum marks for the selected undergraduate engineering programme.</p></article>
-        <article class="home-info-card"><i class="fa-solid fa-file-signature" aria-hidden="true"></i><h3>Engineering Entrance</h3><p>Applicants must meet the applicable entrance examination and merit requirements, as specified by the current admission rules.</p></article>
-        <article class="home-info-card"><i class="fa-solid fa-user-graduate" aria-hidden="true"></i><h3>MCA Graduation Requirement</h3><p>Applicants need a recognised bachelor's degree and must satisfy the current subject and eligibility requirements for MCA admission.</p></article>
-        <article class="home-info-card"><i class="fa-solid fa-award" aria-hidden="true"></i><h3>MCA Entrance Requirements</h3><p>Applicants must fulfil the applicable entrance examination, merit and counselling requirements prescribed for the admission year.</p></article>
-      </div><p class="home-admission-note"><strong>Important:</strong> Eligibility rules may vary by programme and admission year. Confirm the latest official requirements before applying.</p></section>
-      <section class="home-section-inner home-content-block" id="admission-process"><h2 class="home-section-title">Admission Process</h2><div class="home-card-grid">
-        <article class="home-info-card"><span class="home-step-number">1</span><h3>Application</h3><p>Review the programme requirements and complete the applicable admission application.</p></article>
-        <article class="home-info-card"><span class="home-step-number">2</span><h3>Document Verification</h3><p>Prepare and submit the required academic and supporting documents for verification.</p></article>
-        <article class="home-info-card"><span class="home-step-number">3</span><h3>Admission Confirmation</h3><p>Complete the prescribed counselling, fee payment and admission formalities.</p></article>
-      </div></section>
-      <section class="home-admission-contact"><div class="home-section-inner"><h2>Ready to Begin Your Journey?</h2><p>Contact the college to confirm current programme availability, eligibility and admission procedures.</p><a class="home-button" href="#contact">Contact Us</a></div></section>
-    </section>
-
   </main>
 
-  <footer style="background-color: var(--navy); color: var(--white); text-align: center; padding: 25px 10px; margin-top: 40px;">
-    <h3 style="margin-bottom: 5px;">ASM NextGen Technical Campus</h3>
-
-    <p style="opacity: 0.8; font-size: 0.9rem;">
-      Empowering students with knowledge, innovation, and technology.
-    </p>
-
-    <p style="font-size: 0.85rem; margin-top: 10px;">
-      &copy; 2026 ASM NextGen Technical Campus. All rights reserved.
-    </p>
+  <footer style="background-color: var(--navy); color: var(--white); text-align: center; padding: 25px 10px;">
+    <h3>ASM NextGen Technical Campus</h3>
+    <p style="opacity: 0.8; font-size: 0.9rem;">Empowering students with knowledge, innovation, and technology.</p>
+    <p style="font-size: 0.85rem; margin-top: 10px;">&copy; 2026 ASM NextGen Technical Campus. All rights reserved.</p>
   </footer>
 
 </body>

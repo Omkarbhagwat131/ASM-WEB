@@ -1,0 +1,44 @@
+{
+  "pageTitle": "About Us | ASM Group of Institutes",
+  "heading": "About ASM Group Of Institutes",
+  "paragraph1": "Established in 1983, the Audyogik Shikshan Mandal (ASM) Group of Institutes has persistently provided the corporate world with well-rounded professionals, who have gone on to become leaders in their spheres.",
+  "paragraph2": "The ASM Group of Institutes provides the complete educational package, starting from KG to Ph.D., and state-of-the-art infrastructure, which includes Wi-Fi enabled campuses, sporting facilities, well-stocked libraries, computer centers, and classrooms, all equipped with the latest technology. ASM's placement cell has a track record to reckon with, which includes over 72,000+ alumni working with top-notch MNCs in India and abroad.",
+  "badges": [
+    {
+      "value": "42+",
+      "label": "Years of Rich Legacy",
+      "positionClass": "badge-top-left",
+      "colorClass": "badge-red"
+    },
+    {
+      "value": "250+",
+      "label": "Recruiters from Top Companies",
+      "positionClass": "badge-top-right",
+      "colorClass": "badge-purple"
+    },
+    {
+      "value": "60+",
+      "label": "Our Alumni in Countries",
+      "positionClass": "badge-mid-left",
+      "colorClass": "badge-pink"
+    },
+    {
+      "value": "75,000+",
+      "label": "Global Alumni Network",
+      "positionClass": "badge-mid-right",
+      "colorClass": "badge-orange"
+    },
+    {
+      "value": "KG to Ph.D.",
+      "label": "Holistic Education",
+      "positionClass": "badge-bottom-left",
+      "colorClass": "badge-blue"
+    },
+    {
+      "value": "12+ Reputed",
+      "label": "Institutes under ASM Group",
+      "positionClass": "badge-bottom-right",
+      "colorClass": "badge-green"
+    }
+  ]
+}

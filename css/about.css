@@ -1,0 +1,268 @@
+/* =================================================_ */
+/* LIGHT THEME & ANIMATED ABOUT PAGE CSS             */
+/* =================================================_ */
+
+:root {
+  color-scheme: light;
+  --navy: #082847;
+  --blue: #103f68;
+  --bright-blue: #1b5d91;
+  --pale-blue: #e8f1f8;
+  --ink: #172b3f;
+  --muted: #617386;
+  --white: #fff;
+  --paper: #f5f8fb;
+  --font-body: "Roboto", sans-serif;
+  --font-heading: "Raleway", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--pale-blue);
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --- Header --- */
+.about-header {
+  background-color: var(--white);
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(27, 93, 145, 0.15);
+  box-shadow: 0 4px 15px rgba(8, 40, 71, 0.05);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.logo-text span {
+  color: var(--bright-blue);
+}
+
+.back-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--bright-blue);
+}
+
+/* --- Main Section --- */
+.about-main {
+  margin: 3rem auto 4rem auto;
+}
+
+/* --- Information Section with Entrance Animation --- */
+.info-section {
+  background: var(--white);
+  border: 1px solid rgba(27, 93, 145, 0.15);
+  border-radius: 20px;
+  padding: 3.5rem;
+  box-shadow: 0 10px 30px rgba(8, 40, 71, 0.08);
+  margin-bottom: 3rem;
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(27, 93, 145, 0.1);
+  color: var(--bright-blue);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.info-section h1 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.5px;
+}
+
+.lead-text {
+  font-size: 1.15rem;
+  color: var(--blue);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.info-section p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+/* --- Stats Grid Below --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat-card {
+  background: var(--white);
+  border: 1px solid rgba(27, 93, 145, 0.15);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(8, 40, 71, 0.05);
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:nth-child(1) { animation-delay: 150ms; }
+.stat-card:nth-child(2) { animation-delay: 250ms; }
+.stat-card:nth-child(3) { animation-delay: 350ms; }
+.stat-card:nth-child(4) { animation-delay: 450ms; }
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(8, 40, 71, 0.12);
+  border-color: var(--bright-blue);
+}
+
+.stat-card h2 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--bright-blue);
+  margin-bottom: 0.25rem;
+}
+
+.stat-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* --- Footer --- */
+.about-footer {
+  background-color: var(--navy);
+  color: var(--pale-blue);
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Keyframe Animation --- */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* --- Dark Blue Header Styling (Courses Page Style) --- */
+.about-header {
+  background-color: #082847; /* Dark Blue / Navy Color */
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+/* Header Text / Links in White Color */
+.nav-menu a {
+  text-decoration: none;
+  color: #ffffff; /* Adii */
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+  color: #22d3ee; /* Cyan / Bright Blue Highlight */
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #ffffff;
+  min-width: 180px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1001;
+}
+
+.dropdown-content a {
+  color: #172b3f !important; /* Text gurraacha dropdown keessatti */
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #e8f1f8;
+  color: #103f68 !important;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
