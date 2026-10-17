@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#e8f3fc">
+  <meta name="theme-color" content="#071d44">
   <meta name="description" content="Discover ASM's Nextgen Technical Campus in Talegaon Dabhade, Maval, Pune. Explore programs, admissions, campus life and placements.">
   <title>ASM's NEXTGEN TECHNICAL CAMPUS | Talegaon Dabhade, Pune</title>
 
@@ -11,78 +11,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="home.css">
+  <!-- CSS file: home.css (HTML chya same folder madhe theva) -->
+  <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="home.js" defer></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+   <div id="header"></div>
+    <script src="js/header.js"></script>
 
-  <!-- Topbar -->
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <div class="topbar-contact">
-        <a class="phone-link" href="tel:+919028076028">
-          <i class="fa-solid fa-phone"></i> +91 90280 76028
-        </a>
-        <a class="email-link" href="mailto:admission.asmnextgen@asmedu.org">
-          <i class="fa-solid fa-envelope"></i> admission.asmnextgen@asmedu.org
-        </a>
-      </div>
-      <div class="topbar-links">
-        <a href="#campus">Campus Media</a>
-        <span>|</span>
-        <a href="#admission">FRA - Fee Structure</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#home" aria-label="ASM logo — go to homepage">
-        <img class="brand-logo animate-logo" src="image/asm-logo.png" alt="ASM's Nextgen Technical Campus logo">
-      </a>
-
-      <div class="campus-heading">
-        <p class="mandal-name">AUDYOGIK SHIKSHAN MANDAL</p>
-        <p class="college-name">ASM's NEXTGEN TECHNICAL CAMPUS</p>
-        <p class="brand-location">Talegaon Dabhade, Maval, Pune</p>
-        <p class="brand-approval">
-          <span>Approved by AICTE</span> | 
-          <a href="https://www.unipune.ac.in" target="_blank" rel="noopener noreferrer" class="sppu-badge-box">
-            Affiliated to Savitribai Phule Pune University <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 10px;"></i>
-          </a> | 
-          <span>DTE CODE - 16355</span>
-        </p>
-      </div>
-      <img class="anniversary-logo" src="image/42-years.png" alt="ASM celebrating 42 years">
-    </div>
-
-    <div class="navigation-row">
-      <div class="container navigation-inner">
-        <nav class="main-navigation" id="main-navigation" aria-label="Main navigation">
-          <a href="#home" class="nav-link active">Home</a>
-          <a href="#placements" class="nav-link">Placements</a>
-          <a href="#courses" class="nav-link">Courses &amp; Programs</a>
-          <a href="#campus" class="nav-link">Campus</a>
-          <a href="#contact" class="nav-link">Contact Us</a>
-          <a href="#faculty" class="nav-link">Faculty</a>
-          <a href="#departments" class="nav-link">Department</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#admission" class="nav-link">Admission</a>
-        </nav>
-        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </header>
 
   <main>
-    <!-- Hero Section with Single Full Building Background & Animated Login Card -->
+    <!-- HERO -->
     <section class="hero" id="home">
+      <div class="hero-bg"></div>
       <div class="hero-shade"></div>
+      <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
 
       <div class="hero-content-wrapper container">
         <div class="hero-left-intro">
@@ -91,14 +36,13 @@
           <p class="hero-subtext">Empowering students with innovation, advanced technical skills, and industry-ready knowledge at Talegaon Dabhade, Pune.</p>
           <div class="hero-buttons">
             <a href="#courses" class="button button-primary">Explore Programs</a>
-            <a href="#admission" class="button button-quiet">Admissions Open</a>
+            <a href="#admission" class="button button-gold">Admissions Open</a>
           </div>
         </div>
 
-        <!-- Login Card with Top-Left Logo & Smooth Animations -->
-        <section class="hero-login-card fade-up-anim" aria-labelledby="login-title">
+        <section class="hero-login-card" aria-labelledby="login-title">
           <div class="login-card-header">
-            <img class="login-logo pulse-anim" src="image/asm-logo.png" alt="ASM logo">
+            <img class="login-logo" src="image/asm-logo.png" alt="ASM logo">
             <div>
               <h2 id="login-title">Student Portal</h2>
               <p class="login-subtitle">Login to access your dashboard</p>
@@ -115,32 +59,222 @@
               <span>Password</span>
               <span class="password-input">
                 <input id="login-password" name="password" type="password" placeholder="Enter your password" minlength="6" required>
-                <button class="password-toggle" type="button">Show</button>
+                <button type="button" class="password-toggle" id="password-toggle">Show</button>
               </span>
             </label>
 
             <button class="login-submit" type="submit">Login to Portal</button>
-            <button class="forgot-password" type="button">Forgot Password?</button>
-            <p class="login-message" id="login-message" role="status" aria-live="polite"></p>
+            <button class="forgot-password" type="button" id="forgot-btn">Forgot Password?</button>
+            <p class="login-message" id="login-message" role="status"></p>
           </form>
         </section>
       </div>
 
-      <!-- Social Links Bar -->
       <nav class="social-links" aria-label="ASM social media">
-        <a class="social-link social-facebook" href="https://www.facebook.com/NextGenTechnicalCampus/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
-        <a class="social-link social-instagram" href="https://www.instagram.com/asm_next/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-        <a class="social-link social-linkedin" href="https://www.linkedin.com/company/asm-nextgen-technical-campus/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a class="social-link social-youtube" href="https://www.youtube.com/@ASMNextgenTechnicalCampus" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+        <a class="social-link social-facebook" href="https://www.facebook.com/NextGenTechnicalCampus/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="social-link social-instagram" href="https://www.instagram.com/asm_next/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a class="social-link social-linkedin" href="https://www.linkedin.com/company/asm-nextgen-technical-campus/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a class="social-link social-youtube" href="https://www.youtube.com/@ASMNextgenTechnicalCampus" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
       </nav>
+    </section>
+
+    <!-- STATS (numbers tumchya nusar badla) -->
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="reveal zoom"><div class="stat-number"><span class="counter" data-target="42">0</span>+</div><div class="stat-label">YEARS OF ASM LEGACY</div></div>
+        <div class="reveal zoom delay-1"><div class="stat-number"><span class="counter" data-target="1000">0</span>+</div><div class="stat-label">STUDENTS</div></div>
+        <div class="reveal zoom delay-2"><div class="stat-number"><span class="counter" data-target="50">0</span>+</div><div class="stat-label">RECRUITERS</div></div>
+        <div class="reveal zoom delay-3"><div class="stat-number"><span class="counter" data-target="100">0</span>+</div><div class="stat-label">FACULTY &amp; STAFF</div></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="reveal from-left">
+          <h2>About ASM's NextGen Technical Campus</h2>
+          <p>Run by Audyogik Shikshan Mandal, the campus at Talegaon Dabhade, Maval, Pune focuses on practical technical education, research and industry exposure.</p>
+          <ul class="about-points">
+            <li><i class="fa-solid fa-circle-check"></i> Approved by AICTE</li>
+            <li><i class="fa-solid fa-circle-check"></i> Affiliated to Savitribai Phule Pune University</li>
+            <li><i class="fa-solid fa-circle-check"></i> Industry-focused training and placement support</li>
+          </ul>
+        </div>
+        <div class="about-visual reveal from-right">
+          <img src="image/asm-logo.png" alt="ASM logo">
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section class="section alt" id="courses">
+      <div class="container">
+        <div class="section-head reveal"><h2>Courses &amp; Programs</h2><p>Programs designed to build strong fundamentals and job-ready skills.</p></div>
+        <div class="card-grid">
+          <article class="card reveal"><div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div><h3>Computer Engineering</h3><p>Programming, software development, data and modern computing.</p></article>
+          <article class="card reveal delay-1"><div class="card-icon"><i class="fa-solid fa-microchip"></i></div><h3>Electronics &amp; Telecom</h3><p>Electronics, embedded systems, communication and IoT.</p></article>
+          <article class="card reveal delay-2"><div class="card-icon"><i class="fa-solid fa-gears"></i></div><h3>Mechanical Engineering</h3><p>Design, manufacturing, thermal systems and automation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPARTMENTS -->
+    <section class="section" id="departments">
+      <div class="container">
+        <div class="section-head reveal"><h2>Departments</h2><p>Well-equipped departments with labs and learning resources.</p></div>
+        <div class="card-grid">
+          <article class="card reveal"><div class="card-icon"><i class="fa-solid fa-building-columns"></i></div><h3>Engineering</h3><p>Core technical departments with modern laboratories.</p></article>
+          <article class="card reveal delay-1"><div class="card-icon"><i class="fa-solid fa-flask"></i></div><h3>Applied Science</h3><p>Strong base in mathematics, physics and chemistry.</p></article>
+          <article class="card reveal delay-2"><div class="card-icon"><i class="fa-solid fa-briefcase"></i></div><h3>Training &amp; Placement</h3><p>Aptitude, soft skills and interview preparation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACULTY -->
+    <section class="section alt" id="faculty">
+      <div class="container">
+        <div class="section-head reveal"><h2>Our Faculty</h2><p>Experienced mentors who guide students in academics and careers.</p></div>
+        <div class="card-grid">
+          <article class="card reveal"><div class="card-icon"><i class="fa-solid fa-chalkboard-user"></i></div><h3>Experienced Teachers</h3><p>Qualified faculty with academic and industry background.</p></article>
+          <article class="card reveal delay-1"><div class="card-icon"><i class="fa-solid fa-user-graduate"></i></div><h3>Student Mentoring</h3><p>Regular mentoring to support learning and growth.</p></article>
+          <article class="card reveal delay-2"><div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div><h3>Research &amp; Projects</h3><p>Guidance for innovative projects and publications.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLACEMENTS -->
+    <section class="section" id="placements">
+      <div class="container">
+        <div class="section-head reveal"><h2>Placements</h2><p>Our students are placed with leading recruiters. (Company names badla)</p></div>
+      </div>
+      <div class="marquee reveal">
+        <div class="marquee-track">
+          <span class="company-chip">TCS</span><span class="company-chip">Infosys</span><span class="company-chip">Wipro</span><span class="company-chip">Capgemini</span><span class="company-chip">Cognizant</span><span class="company-chip">Tech Mahindra</span>
+          <span class="company-chip">TCS</span><span class="company-chip">Infosys</span><span class="company-chip">Wipro</span><span class="company-chip">Capgemini</span><span class="company-chip">Cognizant</span><span class="company-chip">Tech Mahindra</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAMPUS -->
+    <section class="section alt" id="campus">
+      <div class="container">
+        <div class="section-head reveal"><h2>Campus Life</h2><p>A vibrant campus with facilities that support learning and growth.</p></div>
+        <div class="campus-grid">
+          <div class="campus-tile reveal zoom"><i class="fa-solid fa-book-open"></i>Library</div>
+          <div class="campus-tile reveal zoom delay-1"><i class="fa-solid fa-flask-vial"></i>Laboratories</div>
+          <div class="campus-tile reveal zoom delay-2"><i class="fa-solid fa-futbol"></i>Sports</div>
+          <div class="campus-tile reveal zoom delay-3"><i class="fa-solid fa-utensils"></i>Canteen</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADMISSION -->
+    <section class="admission" id="admission">
+      <div class="container reveal">
+        <h2>Admissions Open</h2>
+        <p>Start your journey at ASM's NextGen Technical Campus. Contact our admission cell for eligibility, fee structure and process.</p>
+        <a class="button button-gold" href="mailto:admission.asmnextgen@asmedu.org">Apply / Enquire Now</a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal"><h2>Contact Us</h2><p>We are happy to answer your questions.</p></div>
+        <div class="contact-grid">
+          <div class="card contact-item reveal"><div class="card-icon"><i class="fa-solid fa-location-dot"></i></div><h3>Address</h3><p>Talegaon Dabhade, Maval, Pune</p></div>
+          <div class="card contact-item reveal delay-1"><div class="card-icon"><i class="fa-solid fa-phone"></i></div><h3>Phone</h3><p><a href="tel:+919028076028">+91 90280 76028</a></p></div>
+          <div class="card contact-item reveal delay-2"><div class="card-icon"><i class="fa-solid fa-envelope"></i></div><h3>Email</h3><p><a href="mailto:admission.asmnextgen@asmedu.org">admission.asmnextgen@asmedu.org</a></p></div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer style="background-color: var(--navy); color: var(--white); text-align: center; padding: 25px 10px;">
+  <footer class="site-footer">
     <h3>ASM NextGen Technical Campus</h3>
-    <p style="opacity: 0.8; font-size: 0.9rem;">Empowering students with knowledge, innovation, and technology.</p>
-    <p style="font-size: 0.85rem; margin-top: 10px;">&copy; 2026 ASM NextGen Technical Campus. All rights reserved.</p>
+    <p>Empowering students with knowledge, innovation, and technology.</p>
+    <p>&copy; 2026 ASM NextGen Technical Campus. All rights reserved.</p>
   </footer>
 
+  <button class="to-top" id="to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script>
+    // Header shrink + scroll progress + back-to-top
+    const header = document.getElementById('site-header');
+    const bar = document.getElementById('scroll-progress');
+    const toTop = document.getElementById('to-top');
+    function onScroll() {
+      const y = window.scrollY;
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+      header.classList.toggle('scrolled', y > 80);
+      toTop.classList.toggle('visible', y > 500);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Mobile menu
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-navigation');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Counters
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target, target = +el.dataset.target, start = performance.now(), dur = 1800;
+        (function tick(now) {
+          const p = Math.min((now - start) / dur, 1);
+          el.textContent = Math.floor(target * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(tick);
+        })(start);
+        counterIO.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('.counter').forEach(el => counterIO.observe(el));
+
+    // Active nav link on scroll
+    const links = [...document.querySelectorAll('.nav-link')];
+    const sections = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => spy.observe(s));
+
+    // Password show/hide
+    const pwd = document.getElementById('login-password');
+    const pwdBtn = document.getElementById('password-toggle');
+    pwdBtn.addEventListener('click', () => {
+      pwd.type = pwd.type === 'password' ? 'text' : 'password';
+      pwdBtn.textContent = pwd.type === 'password' ? 'Show' : 'Hide';
+    });
+
+    // Login form (demo - real login tumhi backend la jodaycha)
+    const msg = document.getElementById('login-message');
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      msg.className = 'login-message ok';
+      msg.textContent = 'Login request received. Portal connection pending.';
+    });
+    document.getElementById('forgot-btn').addEventListener('click', () => {
+      msg.className = 'login-message err';
+      msg.textContent = 'Please contact the admission office to reset your password.';
+    });
+  </script>
 </body>
 </html>

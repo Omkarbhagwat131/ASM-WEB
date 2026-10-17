@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,22 +6,42 @@
   <meta name="theme-color" content="#063b69">
   <title>Contact Us | ASM College</title>
   <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="contact-page">
-  <header class="contact-navbar">
-    <a class="contact-logo" href="asm.html">ASM College</a>
-     <nav class="main-nav">
-            <a href="home.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="campus.html">Campus</a>
-            <a href="coursesprog.html">Courses & Programs</a>
-            <a href="contacts.html">Contact Us</a>
-            <a href="placements.html">Placements</a>
-            <a href="department.html">Department</a>
-            <a href="Faculty.html" class="active">Faculty</a>
-        </nav>
-  </header>
+  <style>
+    /* --- Added Best & Smooth Animations --- */
+    .contact-hero {
+      animation: fadeInDown 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
 
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal-anim {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-anim.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Interactive Hover Glow / Lift Effects */
+    .contact-event-card, .contact-form, .contact-details {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-event-card:hover, .contact-form:hover, .contact-details:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(6, 59, 105, 0.12);
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+    <script src="js/header.js"></script>
   <main>
     <section class="contact-hero">
       <p class="contact-eyebrow">We’re here to help</p>
@@ -29,7 +49,7 @@
       <p>Have a question about ASM College? Send us a message or reach us using the details below.</p>
     </section>
 
-    <section class="contact-events" aria-labelledby="events-heading">
+    <section class="contact-events reveal-anim" aria-labelledby="events-heading">
       <div class="contact-section-heading">
         <div>
           <p class="contact-eyebrow">What’s happening</p>
@@ -54,7 +74,7 @@
       </div>
     </section>
 
-    <section class="contact-main" id="contact" aria-labelledby="contact-heading">
+    <section class="contact-main reveal-anim" id="contact" aria-labelledby="contact-heading">
       <div class="contact-section-heading">
         <div>
           <p class="contact-eyebrow">Let’s talk</p>
@@ -116,5 +136,23 @@
   </footer>
 
   <script src="js/script.js"></script>
+
+  <!-- Animation Observer Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal-anim').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
 </body>
 </html>

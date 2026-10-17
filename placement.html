@@ -1,189 +1,648 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Placements | ASM Technical Campus</title>
 
-    <!-- Main Centralized Stylesheet -->
-    <link rel="stylesheet" href="css/asm.css">
-
     <!-- FontAwesome Icons for Visuals -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-
-   <!-- TOP CONTACT BAR -->
-<div style="background-color: #ffffff; padding: 6px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; border-bottom: 1px solid #eee; color: #333;">
-  <div>
-    <span style="margin-right: 15px;">📞 +91 90280 76028</span>
-    <span>✉️ admission.asmnextgen@asmedu.org</span>
-  </div>
-  <div>
-    <a href="#" style="color: #666; text-decoration: none; margin-right: 10px;">Campus Media</a> | 
-    <a href="#" style="color: #666; text-decoration: none; margin-left: 10px;">FRA - Fee Structure</a>
-  </div>
-</div>
-
-<!-- MAIN HEADER WITH ASM LOGO -->
-<header style="background-color: #ffffff; padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #f0f0f0;">
-  <!-- Left ASM Logo -->
-  <div style="display: flex; align-items: center; gap: 15px;">
-    <img src="image/asm-logo.png" alt="ASM Logo" style="height: 65px; object-fit: contain;">
-  </div>
-
-  <!-- Center Text Info -->
-  <div style="text-align: center; color: #1a237e;">
-    <small style="font-size: 0.75rem; letter-spacing: 1px; font-weight: 600; color: #444; display: block; margin-bottom: 2px;">AUDYOGIK SHIKSHAN MANDAL</small>
-    <h2 style="margin: 0; font-size: 1.4rem; font-weight: 800; color: #0d1b2a;">ASM's NEXTGEN TECHNICAL CAMPUS</h2>
-    <span style="font-size: 0.75rem; color: #555; display: block; margin-top: 2px;">Talegaon Dabhade, Maval, Pune</span>
-    <p style="margin: 3px 0 0 0; font-size: 0.7rem; color: #666; font-weight: 500;">Approved by AICTE | Affiliated to Savitribai Phule Pune University | DTE CODE - 16355</p>
-  </div>
-
-  <!-- Right Legacy Logo -->
-  <div>
-    <img src="image/42-years.png" alt="42 Years Legacy" style="height: 60px; object-fit: contain;">
-  </div>
-</header>
-
-    <!-- GRAPHICAL SUB-NAVBAR -->
-    <nav class="sub-nav" style="
-        background: #1e293b;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        border-bottom: 3px solid #f97316;
-        text-align: center;
-        padding: 14px 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    ">
-        <span style="display: block; color: #94a3b8; font-weight: 600; margin-bottom: 10px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px;">
-            ASM Technical Campus
-        </span>
-
-        <div style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
-            <a href="home.html" class="nav-item">Home</a>
-            <a href="about.html" class="nav-item">About Us</a>
-            <a href="coursesprog.html" class="nav-item">Programs</a>
-            <a href="Faculty.html" class="nav-item">Faculty</a>
-            <a href="department.html" class="nav-item">Departments</a>
-            <a href="addmission.html" class="nav-item">Admissions</a>
-            <a href="placement.html" class="nav-item active-link">Placements</a>
-            <a href="contact.html" class="nav-item">Contact Us</a>
-        </div>
-    </nav>
+    <link rel="stylesheet" href="css/style.css">
 
     <style>
-        .nav-item {
-            color: #f1f5f9;
+        :root {
+            color-scheme: light;
+            --navy: #082847;
+            --blue: #103f68;
+            --bright-blue: #1b5d91;
+            --pale-blue: #e8f1f8;
+            --ink: #172b3f;
+            --muted: #617386;
+            --white: #fff;
+            --paper: #f5f8fb;
+            --font-body: "Roboto", sans-serif;
+            --font-heading: "Raleway", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--ink);
+            background: var(--paper);
+            line-height: 1.65;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+        }
+
+        /* Navbar Header */
+        .navbar {
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(8, 40, 71, 0.15);
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 50%;
+            background: var(--white);
+            padding: 2px;
+            object-fit: contain;
+        }
+
+        .navbar nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .navbar nav a {
+            color: #c5d6e6;
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
-            padding: 6px 14px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
         }
 
-        .nav-item:hover {
-            background: #f97316;
-            color: #ffffff !important;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+        .navbar nav a:hover, 
+        .navbar nav a.active {
+            background: var(--bright-blue);
+            color: var(--white);
         }
 
-        .active-link {
-            background: #f97316 !important;
-            color: #ffffff !important;
+        /* Hero Section */
+        .placement-hero {
+            background: var(--navy);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--bright-blue);
+            color: var(--white);
+            font-size: 0.85rem;
             font-weight: 600;
-            box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: fadeInDown 0.8s ease-out both;
+        }
+
+        .placement-hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 14px;
+            animation: rise 0.9s cubic-bezier(.2, .8, .2, 1) both;
+        }
+
+        .placement-hero p {
+            color: #d0e1f0;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            animation: rise 0.9s 0.15s cubic-bezier(.2, .8, .2, 1) both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: rise 0.9s 0.3s cubic-bezier(.2, .8, .2, 1) both;
+        }
+
+        .btn-primary {
+            background: var(--bright-blue);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(27, 93, 145, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--white);
+            color: var(--navy);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--blue);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bright-blue);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: none; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: none; }
+        }
+
+        /* --- Scroll Reveal Animation Classes --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 50px 20px;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .stat-box {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(8, 40, 71, .06);
+            border-top: 4px solid var(--bright-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(27, 93, 145, 0.15);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            color: var(--bright-blue);
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-box:hover .stat-icon {
+            transform: scale(1.15);
+        }
+
+        .stat-box h2 {
+            font-size: 2.2rem;
+            color: var(--navy);
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Filter & Hall of Fame */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 40px 0 20px;
+        }
+
+        .filter-btn {
+            background: var(--white);
+            border: 1px solid #cbd5e1;
+            padding: 8px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--navy);
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--bright-blue);
+            color: var(--white);
+            border-color: var(--bright-blue);
+            transform: translateY(-2px);
+        }
+
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .student-card {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(8, 40, 71, .06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .student-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(8, 40, 71, 0.12);
+        }
+
+        .student-img-box img {
+            border: 3px solid var(--pale-blue);
+            margin-bottom: 15px;
+            transition: transform 0.4s ease;
+        }
+
+        .student-card:hover .student-img-box img {
+            transform: scale(1.05);
+        }
+
+        .student-card h3 {
+            color: var(--navy);
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+
+        .branch {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .company-badge {
+            display: inline-block;
+            background: var(--pale-blue);
+            color: var(--bright-blue);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .package {
+            color: var(--ink);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .brochure-link {
+            display: inline-block;
+            background: var(--bright-blue);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 30px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(27, 93, 145, 0.25);
+        }
+
+        .brochure-link:hover {
+            background: var(--navy);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(8, 40, 71, 0.3);
+        }
+
+        /* Departments & Highlights Section */
+        .departments-section {
+            max-width: 1180px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .departments-section h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            color: var(--navy);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .underline {
+            width: 70px;
+            height: 4px;
+            background: var(--bright-blue);
+            border-radius: 2px;
+            margin-bottom: 40px;
+            transform-origin: left;
+            animation: grow-line 1.2s ease-out both;
+        }
+
+        @keyframes grow-line {
+            from { transform: scaleX(0); }
+        }
+
+        .department-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .department-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(8, 40, 71, .06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--bright-blue);
+        }
+
+        .department-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(8, 40, 71, 0.12);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--bright-blue);
+            margin-bottom: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .department-card:hover .card-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .department-code {
+            display: inline-block;
+            background: var(--pale-blue);
+            color: var(--bright-blue);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .department-card h3 {
+            color: var(--navy);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .department-card p {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        /* Steps / Training Grid */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .step-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(8, 40, 71, .05);
+            position: relative;
+            overflow: hidden;
+            border-top: 3px solid var(--bright-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(8, 40, 71, 0.1);
+        }
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--pale-blue);
+            display: block;
+            margin-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .step-card:hover .step-number {
+            color: var(--bright-blue);
+        }
+
+        .step-card h3 {
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .step-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Document List (Recruiters) */
+        .document-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .document-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 14px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            box-shadow: 0 6px 20px rgba(8, 40, 71, .05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .document-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(8, 40, 71, 0.1);
+        }
+
+        .document-icon {
+            background: var(--pale-blue);
+            color: var(--bright-blue);
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .document-item:hover .document-icon {
+            background: var(--bright-blue);
+            color: var(--white);
+        }
+
+        .document-item h3 {
+            color: var(--navy);
+            font-size: 1.05rem;
+            margin-bottom: 2px;
+        }
+
+        .document-item p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: #c5d6e6;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .navbar {
+                flex-direction: column;
+                gap: 14px;
+                padding: 16px 20px;
+            }
+            .navbar nav {
+                justify-content: center;
+                gap: 8px;
+            }
         }
     </style>
+</head>
+<body>
+    <div id="header"></div>
+    <script src="js/header.js"></script>
 
-    <main>
+   
+<main>
         <!-- Enhanced Hero Section -->
         <section class="placement-hero">
             <div class="hero-content">
-                <span class="badge">CAREER DEVELOPMENT & TRAINING</span>
+                <span class="badge">Career Development & Training</span>
                 <h1>Training & Placement Cell</h1>
                 <p>Empowering students with industry-driven skills, career guidance, and top placement opportunities at leading tech companies.</p>
                 
                 <div class="hero-buttons">
                     <a href="#recruiters" class="btn-primary">Our Top Recruiters</a>
-                    <a href="#stats" class="btn-secondary" style="background-color: #0b2545; color: #ffffff; padding: 12px 24px; border-radius: 6px;
-                     text-decoration: none; font-weight: 600;">View Statistics</a>
+                    <a href="#stats" class="btn-secondary">View Statistics</a>
                 </div>
             </div>
         </section> 
 
-         <!-- Placement Statistics Section -->
+        <!-- Placement Statistics Section -->
         <section id="stats" class="stats-section">
           <div class="stats-container">
-            <div class="stat-box">
+            <div class="stat-box reveal">
               <i class="fa-solid fa-trophy stat-icon"></i> 
               <h2 class="counter" data-target="18">18+</h2>
               <p class="stat-label">Highest Package (LPA)</p>
             </div>
-            <div class="stat-box">
+            <div class="stat-box reveal">
               <i class="fa-solid fa-building stat-icon"></i> 
               <h2 class="counter" data-target="200">200+</h2>
               <p class="stat-label">Top Recruiters</p>
             </div>
-            <div class="stat-box">
+            <div class="stat-box reveal">
               <i class="fa-solid fa-user-graduate stat-icon"></i>
               <h2 class="counter" data-target="60000">60000+</h2>
               <p class="stat-label">Alumni Placed</p>
             </div>
           </div>
         </section>
-<!-- ================= PLACED STUDENTS HALL OF FAME ================= -->
- <!-- 1. FILTER BUTTONS -->
-<div class="filter-container">
-  <button class="filter-btn active" data-filter="all">All</button>
-  <button class="filter-btn" data-filter="mca">MCA</button>
-  <button class="filter-btn" data-filter="bca">BCA</button>
-</div>
 
-<!-- STUDENTS GRID -->
-<div class="students-grid">
-  <!-- Student Card 1 -->
-  <div class="student-card" data-category="mca">
-    <div class="student-img-box">
-      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300" alt="Rahul Sharma" 
-      style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%;">
-    </div>
-    <h3>Rahul Sharma</h3>
-    <p class="branch">MCA (2025 Passout)</p>
-    <div class="company-badge">TCS</div>
-    <p class="package">Package: 7.5 LPA</p>
-  </div>
+        <!-- PLACED STUDENTS HALL OF FAME -->
+        <div class="filter-container">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="mca">MCA</button>
+          <button class="filter-btn" data-filter="bca">BCA</button>
+        </div>
 
-  <!-- Student Card 2 -->
-  <div class="student-card" data-category="bca">
-    <div class="student-img-box">
-      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300" alt="Priya Patil" style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%;">
-    </div>
-    <h3>Priya Patil</h3>
-    <p class="branch">BCA (2025 Passout)</p>
-    <div class="company-badge">Infosys</div>
-    <p class="package">Package: 6.0 LPA</p>
-  </div>
+        <!-- STUDENTS GRID -->
+        <div class="students-grid">
+          <div class="student-card reveal" data-category="mca">
+            <div class="student-img-box">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300" alt="Rahul Sharma" style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%;">
+            </div>
+            <h3>Rahul Sharma</h3>
+            <p class="branch">MCA (2025 Passout)</p>
+            <div class="company-badge">TCS</div>
+            <p class="package">Package: 7.5 LPA</p>
+          </div>
 
-  <!-- Student Card 3 -->
-  <div class="student-card" data-category="mca">
-    <div class="student-img-box">
-      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300" alt="Amit Deshmukh" style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%;">
-    </div>
-    <h3>Amit Deshmukh</h3>
-    <p class="branch">MCA (2025 Passout)</p>
-    <div class="company-badge">XDE Studios</div>
-    <p class="package">Package: 12.0 LPA</p>
-  </div>
-</div>
+          <div class="student-card reveal" data-category="bca">
+            <div class="student-img-box">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300" alt="Priya Patil" style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%;">
+            </div>
+            <h3>Priya Patil</h3>
+            <p class="branch">BCA (2025 Passout)</p>
+            <div class="company-badge">Infosys</div>
+            <p class="package">Package: 6.0 LPA</p>
+          </div>
 
-<!-- BROCHURE LINK -->
-<div style="text-align: center; margin-top: 25px;">
-  <a href="#" id="download-brochure" class="brochure-link">Download Placement Brochure (2025-26)</a>
-</div>
+          <div class="student-card reveal" data-category="mca">
+            <div class="student-img-box">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300" alt="Amit Deshmukh" style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%;">
+            </div>
+            <h3>Amit Deshmukh</h3>
+            <p class="branch">MCA (2025 Passout)</p>
+            <div class="company-badge">XDE Studios</div>
+            <p class="package">Package: 12.0 LPA</p>
+          </div>
+        </div>
+
+        <!-- BROCHURE LINK -->
+        <div style="text-align: center;">
+          <a href="#" id="download-brochure" class="brochure-link">Download Placement Brochure (2025-26)</a>
+        </div>
 
         <!-- Department Overview Section -->
         <section class="departments-section">
@@ -191,28 +650,28 @@
             <div class="underline"></div>
 
             <div class="department-container">
-                <div class="department-card">
+                <div class="department-card reveal">
                     <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
                     <span class="department-code">Success Rate</span>
                     <h3>85%+</h3>
                     <p>Consistent annual placement rate across Engineering and MCA streams.</p>
                 </div>
 
-                <div class="department-card">
+                <div class="department-card reveal">
                     <div class="card-icon"><i class="fa-solid fa-sack-dollar"></i></div>
                     <span class="department-code">Highest Package</span>
                     <h3>12 LPA</h3>
                     <p>Highest offer bagged by our students in software engineering roles.</p>
                 </div>
 
-                <div class="department-card">
+                <div class="department-card reveal">
                     <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
                     <span class="department-code">Hiring Partners</span>
                     <h3>50+</h3>
                     <p>Active corporate recruiting partners conducting annual campus drives.</p>
                 </div>
 
-                <div class="department-card">
+                <div class="department-card reveal">
                     <div class="card-icon"><i class="fa-solid fa-user-check"></i></div>
                     <span class="department-code">Average Package</span>
                     <h3>4.5 LPA</h3>
@@ -227,31 +686,31 @@
             <div class="underline"></div>
 
             <div class="steps-grid">
-                <div class="step-card">
+                <div class="step-card reveal">
                     <span class="step-number">01</span>
                     <h3>Technical Aptitude</h3>
                     <p>Rigorous coding sessions in Java, Python, Web Dev, & Data Structures.</p>
                 </div>
 
-                <div class="step-card">
+                <div class="step-card reveal">
                     <span class="step-number">02</span>
                     <h3>Soft Skills & Communication</h3>
                     <p>Personality development, public speaking, and business etiquettes.</p>
                 </div>
 
-                <div class="step-card">
+                <div class="step-card reveal">
                     <span class="step-number">03</span>
                     <h3>Mock Interviews</h3>
                     <p>1-on-1 technical and HR mock interviews with industry experts.</p>
                 </div>
 
-                <div class="step-card">
+                <div class="step-card reveal">
                     <span class="step-number">04</span>
                     <h3>Resume & Portfolio</h3>
                     <p>Professional resume building and GitHub portfolio development.</p>
                 </div>
 
-                <div class="step-card">
+                <div class="step-card reveal">
                     <span class="step-number">05</span>
                     <h3>Campus Drives</h3>
                     <p>On-campus and pool recruitment drives with partner companies.</p>
@@ -265,7 +724,7 @@
             <div class="underline"></div>
 
             <div class="document-list">
-                <div class="document-item">
+                <div class="document-item reveal">
                     <span class="document-icon"><i class="fa-solid fa-building"></i></span>
                     <div>
                         <h3>Software & IT Services</h3>
@@ -273,7 +732,7 @@
                     </div>
                 </div>
 
-                <div class="document-item">
+                <div class="document-item reveal">
                     <span class="document-icon"><i class="fa-solid fa-laptop-code"></i></span>
                     <div>
                         <h3>Product & Web Startups</h3>
@@ -281,7 +740,7 @@
                     </div>
                 </div>
 
-                <div class="document-item">
+                <div class="document-item reveal">
                     <span class="document-icon"><i class="fa-solid fa-gears"></i></span>
                     <div>
                         <h3>Core Engineering Companies</h3>
@@ -289,7 +748,7 @@
                     </div>
                 </div>
 
-                <div class="document-item">
+                <div class="document-item reveal">
                     <span class="document-icon"><i class="fa-solid fa-network-wired"></i></span>
                     <div>
                         <h3>Data & Cloud Solutions</h3>
@@ -300,10 +759,32 @@
         </section>
     </main>
 
-    <footer style="background-color: #0f172a; color: #fff; text-align: center; padding: 20px; margin-top: 40px;">
+    <footer>
         <p>&copy; 2026 ASM's Nextgen Technical Campus. All Rights Reserved.</p>
     </footer>
-<script src="/js/placement.js" defer></script>
-<link rel="stylesheet" href="css/style.css">
+
+    <script src="js/placement.js" defer></script>
+
+    <!-- Scroll Reveal Animation Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const observerOptions = {
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>

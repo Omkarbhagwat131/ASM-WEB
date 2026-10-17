@@ -1,684 +1,226 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0b2d52">
-    <meta name="description" content="Explore the campus and student life at ASM College.">
-    <title>Campus &amp; Student Life | ASM College</title>
-    <script src="campus.js" defer></script>
-
-    <style>
-        :root {
-            --navy: #0b2d52;
-            --blue: #1769aa;
-            --bright-blue: #2f8fe5;
-            --pale-blue: #eaf4fd;
-            --white: #fff;
-            --ink: #172b42;
-            --muted: #61748a;
-            --line: #dce8f3;
-            --shadow: 0 16px 42px rgba(11, 45, 82, .09);
-        }
-
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            margin: 0;
-            background: #f7faff;
-            color: var(--ink);
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.65;
-        }
-
-        a { color: inherit; }
-
-        :focus-visible {
-            outline: 3px solid #70baff;
-            outline-offset: 3px;
-        }
-
-        .site-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            min-height: 76px;
-            padding: 14px max(6vw, 22px);
-            background: var(--navy);
-            color: var(--white);
-            box-shadow: 0 5px 22px rgba(6, 31, 58, .16);
-        }
-
-        .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 11px;
-            color: var(--white);
-            font-size: 1.15rem;
-            font-weight: 750;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .brand-mark {
-            display: grid;
-            width: 39px;
-            height: 39px;
-            place-items: center;
-            border: 1px solid rgba(255,255,255,.38);
-            border-radius: 12px;
-            background: rgba(255,255,255,.12);
-            color: #bfe1ff;
-            font-size: .9rem;
-            font-weight: 800;
-        }
-
-        .site-nav ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 8px 25px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .site-nav a {
-            color: rgba(255,255,255,.84);
-            font-size: .92rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: color .2s ease;
-        }
-
-        .site-nav a:hover,
-        .site-nav a:focus-visible {
-            color: #a9d7ff;
-        }
-
-        .section {
-            width: min(1120px, calc(100% - 40px));
-            margin: 0 auto;
-        }
-
-        .campus {
-            position: relative;
-            isolation: isolate;
-            overflow: hidden;
-            width: 100%;
-            padding: 82px max(6vw, 22px) 78px;
-            background: linear-gradient(135deg, #0b2d52, #145b96);
-            color: var(--white);
-        }
-
-        .campus::before,
-        .campus::after {
-            position: absolute;
-            z-index: -1;
-            border: 1px solid rgba(255,255,255,.13);
-            border-radius: 50%;
-            content: "";
-            pointer-events: none;
-        }
-
-        .campus::before {
-            top: -255px;
-            right: -90px;
-            width: 570px;
-            height: 570px;
-            box-shadow: 0 0 0 45px rgba(255,255,255,.035),
-                        0 0 0 90px rgba(255,255,255,.025);
-        }
-
-        .campus::after {
-            bottom: -330px;
-            left: -165px;
-            width: 470px;
-            height: 470px;
-        }
-
-        .campus-inner {
-            width: min(1120px, 100%);
-            margin: 0 auto;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            margin: 0 0 13px;
-            color: #acd9ff;
-            font-size: .77rem;
-            font-weight: 800;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-        }
-
-        .eyebrow::before {
-            width: 26px;
-            height: 2px;
-            background: currentColor;
-            content: "";
-        }
-
-        .campus h1 {
-            max-width: 690px;
-            margin: 0 0 14px;
-            font-size: clamp(2.7rem, 6vw, 4.5rem);
-            line-height: 1.06;
-            letter-spacing: -.045em;
-        }
-
-        .campus h1 span { color: #9bd2ff; }
-
-        .campus-intro {
-            max-width: 670px;
-            margin: 0;
-            color: rgba(255,255,255,.84);
-            font-size: 1.08rem;
-        }
-
-        .campus-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-            margin-top: 42px;
-        }
-
-        .campus-card {
-            min-height: 205px;
-            padding: 23px 22px;
-            border: 1px solid rgba(255,255,255,.2);
-            border-radius: 13px;
-            background: rgba(255,255,255,.09);
-            backdrop-filter: blur(5px);
-            transition: transform .2s ease, background .2s ease;
-        }
-
-        .campus-card:hover {
-            transform: translateY(-4px);
-            background: rgba(255,255,255,.14);
-        }
-
-        .icon-box {
-            display: grid;
-            width: 43px;
-            height: 43px;
-            margin-bottom: 18px;
-            place-items: center;
-            border: 1px solid rgba(255,255,255,.19);
-            border-radius: 12px;
-            background: rgba(255,255,255,.13);
-            color: #c7e6ff;
-            font-size: 1.05rem;
-            font-weight: 800;
-        }
-
-        .campus-card h2 { margin: 0 0 6px; font-size: 1.13rem; }
-        .campus-card p { margin: 0; color: rgba(255,255,255,.76); font-size: .92rem; }
-
-        .student-life { padding: 78px 0 88px; }
-
-        .section-heading {
-            max-width: 670px;
-            margin-bottom: 30px;
-        }
-
-        .section-heading .eyebrow { color: var(--blue); }
-
-        .section-heading h2 {
-            margin: 0 0 10px;
-            color: var(--navy);
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            line-height: 1.14;
-            letter-spacing: -.035em;
-        }
-
-        .section-heading > p:last-child {
-            margin: 0;
-            color: var(--muted);
-        }
-
-        /* Student Life Search */
-        .life-search {
-            max-width: 520px;
-            margin: 0 0 24px;
-        }
-
-        .life-search label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--navy);
-            font-weight: 700;
-        }
-
-        .life-search input {
-            width: 100%;
-            padding: 13px 16px;
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            background: var(--white);
-            color: var(--ink);
-            font: inherit;
-        }
-
-        .life-search input:focus {
-            outline: 2px solid var(--bright-blue);
-            outline-offset: 2px;
-        }
-
-        #search-message {
-            margin: 8px 0 0;
-            color: var(--muted);
-            font-size: .9rem;
-        }
-
-        .life-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .life-card {
-            position: relative;
-            overflow: hidden;
-            min-height: 205px;
-            padding: 22px 20px;
-            border: 1px solid var(--line);
-            border-radius: 13px;
-            background: var(--white);
-            box-shadow: 0 8px 25px rgba(15,58,99,.045);
-            transition: transform .2s ease, box-shadow .2s ease;
-        }
-
-        .life-card::after {
-            position: absolute;
-            right: -27px;
-            bottom: -37px;
-            width: 105px;
-            height: 105px;
-            border: 1px solid #d7eafb;
-            border-radius: 50%;
-            content: "";
-            pointer-events: none;
-        }
-
-        .life-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-
-        .life-card[hidden] {
-            display: none;
-        }
-
-        .life-icon {
-            display: grid;
-            width: 44px;
-            height: 44px;
-            margin-bottom: 18px;
-            place-items: center;
-            border-radius: 12px;
-            background: var(--pale-blue);
-            color: var(--blue);
-            font-size: .83rem;
-            font-weight: 850;
-            letter-spacing: .02em;
-        }
-
-        .life-card h3 {
-            margin: 0 0 7px;
-            color: var(--navy);
-            font-size: 1.08rem;
-        }
-
-        .life-card p {
-            margin: 0;
-            color: var(--muted);
-            font-size: .9rem;
-        }
-
-        /* Interactive card details */
-        .card-details {
-            margin-top: 14px;
-            padding-top: 12px;
-            border-top: 1px solid var(--line);
-        }
-
-        .card-details p {
-            margin: 0;
-            color: var(--muted);
-            font-size: .9rem;
-        }
-
-        .card-details[hidden] {
-            display: none;
-        }
-
-        .card-toggle {
-            position: relative;
-            z-index: 1;
-            margin-top: 14px;
-            padding: 8px 13px;
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            background: var(--pale-blue);
-            color: var(--navy);
-            font: inherit;
-            font-size: .88rem;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .card-toggle:hover {
-            border-color: var(--bright-blue);
-        }
-
-        .life-note {
-            margin-top: 22px;
-            padding: 17px 20px;
-            border-left: 3px solid var(--bright-blue);
-            border-radius: 0 9px 9px 0;
-            background: var(--pale-blue);
-            color: var(--navy);
-            font-weight: 650;
-        }
-
-        .site-footer {
-            padding: 22px 18px;
-            background: #071f39;
-            color: rgba(255,255,255,.75);
-            text-align: center;
-            font-size: .88rem;
-        }
-
-        .site-footer p { margin: 0; }
-
-        @media (max-width: 850px) {
-            .site-header {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .site-nav ul {
-                justify-content: flex-start;
-                gap: 8px 20px;
-            }
-
-            .campus-grid,
-            .life-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 520px) {
-            .site-header { padding: 14px 18px; }
-            .site-nav ul { gap: 7px 16px; }
-            .site-nav a { font-size: .85rem; }
-            .campus { padding: 64px 18px 58px; }
-
-            .campus h1 {
-                font-size: clamp(2.6rem, 13vw, 3.5rem);
-            }
-
-            .campus-intro { font-size: 1rem; }
-
-            .campus-grid,
-            .life-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .campus-card { min-height: auto; }
-            .student-life { padding: 62px 0 68px; }
-            .section { width: calc(100% - 36px); }
-            .life-card { min-height: auto; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-
-            *, *::before, *::after {
-                transition-duration: .01ms !important;
-            }
-        }
-        
-/* College Logo */
-.college-logo {
-    display: block;
-    width: 150px;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life on Campus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+:root {
+  color-scheme: light;
+  --navy: #082847;
+  --blue: #103f68;
+  --bright-blue: #1b5d91;
+  --pale-blue: #e8f1f8;
+  --ink: #172b3f;
+  --muted: #617386;
+  --white: #fff;
+  --paper: #f5f8fb;
+  --font-body: "Roboto", sans-serif;
+  --font-heading: "Raleway", sans-serif;
 }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--ink); background: var(--paper); line-height: 1.65; }
+h1, h2, h3, h4, .logo { font-family: var(--font-heading); }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+:focus-visible { outline: 3px solid var(--bright-blue); outline-offset: 3px; }
+.wrap { width: min(1180px, 100% - 40px); margin: 0 auto; }
 
-/* Navigation Menu */
-.main-nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 8px 20px;
-    border: none;
-    box-shadow: none;
+/* Top contact bar */
+.topbar { background: var(--navy); color: #c5d6e6; font-size: .88rem; }
+.topbar .wrap { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; flex-wrap: wrap; }
+.topbar div { display: flex; gap: 22px; }
+.topbar a:hover { color: var(--white); }
+
+/* Header */
+.header { background: var(--white); position: sticky; top: 0; z-index: 20; box-shadow: 0 2px 14px rgba(8, 40, 71, .08); }
+.header .wrap { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 20px; }
+.logo { display: flex; align-items: center; gap: 12px; font-weight: 800; color: var(--navy); font-size: 1.2rem; line-height: 1.1; }
+.logo i { width: 40px; height: 40px; border-radius: 10px; background: var(--navy); position: relative; flex: none; }
+.logo i::after { content: ""; position: absolute; inset: 9px; border-radius: 5px; background: var(--bright-blue); animation: spin-soft 6s ease-in-out infinite; }
+@keyframes spin-soft { 50% { transform: rotate(90deg) scale(.8); border-radius: 50%; } }
+.nav { display: flex; gap: 6px; font-weight: 500; }
+.nav > li { position: relative; }
+.nav > li > a { display: block; padding: 10px 14px; border-radius: 8px; color: var(--ink); transition: background .2s, color .2s; }
+.nav > li > a:hover, .nav > li > a.on { background: var(--pale-blue); color: var(--navy); }
+.drop { position: absolute; top: 100%; left: 0; min-width: 210px; background: var(--white); border-radius: 12px; padding: 8px; box-shadow: 0 14px 34px rgba(8, 40, 71, .18); opacity: 0; visibility: hidden; transform: translateY(10px); transition: .22s; }
+.nav li:hover .drop, .nav li:focus-within .drop { opacity: 1; visibility: visible; transform: none; }
+.drop a { display: block; padding: 9px 14px; border-radius: 8px; font-size: .95rem; }
+.drop a:hover { background: var(--navy); color: var(--white); }
+.apply { background: var(--bright-blue); color: var(--white); padding: 11px 22px; border-radius: 10px; font-weight: 500; transition: background .2s, transform .15s; }
+.apply:hover { background: var(--navy); transform: translateY(-2px); }
+
+/* Page banner */
+.banner { background: var(--navy); color: var(--white); position: relative; overflow: hidden; padding: clamp(56px, 9vw, 110px) 0; }
+.banner h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; animation: rise .9s cubic-bezier(.2, .8, .2, 1) both; }
+.crumbs { margin-top: 18px; color: #c5d6e6; animation: rise .9s .15s cubic-bezier(.2, .8, .2, 1) both; }
+.crumbs a:hover { color: var(--white); text-decoration: underline; }
+@keyframes rise { from { opacity: 0; transform: translateY(34px); } to { opacity: 1; transform: none; } }
+.orb { position: absolute; border-radius: 50%; background: var(--blue); animation: float 9s ease-in-out infinite; }
+.orb.a { width: 340px; height: 340px; right: -80px; top: -120px; }
+.orb.b { width: 180px; height: 180px; right: 22%; bottom: -70px; background: var(--bright-blue); animation-delay: -3s; }
+.orb.c { width: 90px; height: 90px; right: 8%; bottom: 40px; border: 3px solid var(--bright-blue); background: none; animation-delay: -6s; }
+@keyframes float { 50% { transform: translate(-24px, 28px) scale(1.06); } }
+
+/* Marquee strip */
+.strip { background: var(--bright-blue); color: var(--white); overflow: hidden; white-space: nowrap; padding: 12px 0; font-family: var(--font-heading); font-weight: 700; }
+.strip div { display: inline-flex; gap: 48px; padding-left: 48px; animation: scroll 28s linear infinite; }
+.strip:hover div { animation-play-state: paused; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+
+/* Sections */
+.section { padding: clamp(52px, 7vw, 92px) 0; }
+.section.alt { background: var(--pale-blue); }
+.sec-head { max-width: 680px; margin-bottom: 38px; }
+.sec-head h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); color: var(--navy); font-weight: 800; line-height: 1.15; }
+.sec-head p { color: var(--muted); margin-top: 12px; }
+.sec-head::after { content: ""; display: block; width: 70px; height: 5px; border-radius: 3px; background: var(--bright-blue); margin-top: 20px; transform-origin: left; animation: grow-line 1.2s ease-out both; }
+@keyframes grow-line { from { transform: scaleX(0); } }
+
+/* Photo placeholders & Images */
+.ph { position: relative; overflow: hidden; border-radius: 16px; background: linear-gradient(135deg, var(--blue), var(--bright-blue)); display: grid; place-items: center; color: rgba(255, 255, 255, .75); font-size: .9rem; min-height: 100%; transition: transform .35s, box-shadow .35s; }
+.ph img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.ph::before { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .22) 50%, transparent 70%); transform: translateX(-100%); animation: shimmer 3.2s ease-in-out infinite; animation-delay: calc(var(--n, 0) * 280ms); z-index: 2; pointer-events: none; }
+.ph::after { content: ""; width: 44px; height: 34px; border: 3px solid rgba(255, 255, 255, .55); border-radius: 8px; position: absolute; top: 42%; left: 50%; transform: translate(-50%, -60%); }
+.ph span { position: relative; margin-top: 58px; z-index: 1; }
+@keyframes shimmer { 60%, 100% { transform: translateX(100%); } }
+.ph:hover { transform: scale(1.03); box-shadow: 0 18px 40px rgba(8, 40, 71, .28); }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.grid-3 .ph { aspect-ratio: 4 / 3; }
+/* Activity cards - Centered & Balanced */
+.cards { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; }
+.card { background: var(--white); border-radius: 18px; padding: 12px 12px 22px; text-align: center; transition: transform .3s, box-shadow .3s; width: 280px; flex: 1 1 260px; max-width: 300px; }
+.card:hover { transform: translateY(-8px); box-shadow: 0 20px 42px rgba(8, 40, 71, .15); }
+.card .ph { aspect-ratio: 16 / 11; }
+.card h3 { color: var(--navy); margin-top: 18px; font-size: 1.15rem; position: relative; display: inline-block; }
+.card h3::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 3px; background: var(--bright-blue); transform: scaleX(0); transition: transform .3s; }
+.card:hover h3::after { transform: scaleX(1); }
+
+/* Footer */
+.footer { background: var(--navy); color: #c5d6e6; padding: 64px 0 0; }
+.cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 36px; }
+.footer h4 { color: var(--white); margin-bottom: 16px; font-size: 1.05rem; }
+.footer li { margin-bottom: 9px; }
+.footer a:hover { color: var(--white); text-decoration: underline; }
+.map { aspect-ratio: 4 / 3; border-radius: 14px; background: var(--blue); display: grid; place-items: center; position: relative; overflow: hidden; }
+.map::before { content: ""; width: 22px; height: 22px; border-radius: 50% 50% 50% 0; background: var(--white); transform: rotate(-45deg); animation: bounce 1.6s ease-in-out infinite; }
+.map::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent 0 34px, rgba(255, 255, 255, .06) 34px 35px), repeating-linear-gradient(90deg, transparent 0 34px, rgba(255, 255, 255, .06) 34px 35px); }
+@keyframes bounce { 50% { transform: rotate(-45deg) translate(8px, -8px); } }
+.copy { margin-top: 48px; border-top: 1px solid var(--blue); padding: 20px 0; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: .9rem; }
+.copy div { display: flex; gap: 20px; }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .nav, .apply { display: none; }
+  .cards, .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .cols { grid-template-columns: 1fr 1fr; }
 }
-
-.main-nav a {
-    position: relative;
-    display: inline-block;
-    padding: 8px 0;
-    color: #ffffff;
-    font-size: 0.92rem;
-    font-weight: 600;
-    text-decoration: none !important;
-    border: none !important;
-    background: transparent;
-    box-shadow: none;
-    transition: color 0.2s ease;
+@media (max-width: 560px) {
+  .cards, .grid-3, .cols { grid-template-columns: 1fr; }
 }
-
-/* Hover Effect */
-.main-nav a:hover,
-.main-nav a:focus-visible {
-    color: #9bd2ff;
-    text-decoration: none !important;
-    border-bottom: none !important;
-    box-shadow: none;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
-
-/* Active Navigation Link */
-.main-nav a.active {
-    color: #9bd2ff;
-    text-decoration: none !important;
-    border-bottom: none !important;
-    box-shadow: none;
-}
-
-/* Responsive Navigation */
-@media (max-width: 850px) {
-    .site-header {
-        align-items: center;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .main-nav {
-        justify-content: center;
-    }
-}
-
-/* Mobile Screen */
-@media (max-width: 520px) {
-    .main-nav {
-        gap: 6px 14px;
-        justify-content: center;
-    }
-
-    .main-nav a {
-        font-size: 0.84rem;
-    }
-
-    .college-logo {
-        width: 125px;
-    }
-}
-
-    </style>
+</style>
 </head>
-
 <body>
-    
-<header class="site-header">
-
-    <a class="brand" href="home.html" aria-label="ASM College home">
-        <img src="image/asm-logo.png"
-             alt="ASM College Logo"
-             class="college-logo">
-    </a>
-
-    <nav class="main-nav" aria-label="Main navigation">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="campus.html" class="active">Campus</a>
-        <a href="coursesprog.html">Courses &amp; Programs</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="placement.html">Placements</a>
-        <a href="department.html">Department</a>
-        <a href="Faculty.html">Faculty</a>
-    </nav>
-
-</header>
+  <div id="header"></div>
+    <script src="js/header.js"></script>
 
 
-    <main>
-        <section class="campus" id="campus" aria-labelledby="campus-title">
-            <div class="campus-inner">
-                <p class="eyebrow">Your place to learn and belong</p>
+<section class="banner">
+  <span class="orb a"></span><span class="orb b"></span><span class="orb c"></span>
+  <div class="wrap">
+    <h1>Life on Campus</h1>
+    <p class="crumbs"><a href="#">Home</a> &nbsp;/&nbsp; Life on campus</p>
+  </div>
+</section>
 
-                <h1 id="campus-title">Campus life, <span>your way.</span></h1>
+<div class="strip" aria-hidden="true">
+  <div>
+    <span>Induction</span><span>Festivals</span><span>Field visits</span><span>Yoga day</span><span>Exhibitions</span><span>Cultural nights</span><span>Sports day</span>
+    <span>Induction</span><span>Festivals</span><span>Field visits</span><span>Yoga day</span><span>Exhibitions</span><span>Cultural nights</span><span>Sports day</span>
+  </div>
+</div>
 
-                <p class="campus-intro">
-                    A welcoming place to learn, meet new people, and make the most
-                    of every opportunity. Find your space and make your college
-                    experience your own.
-                </p>
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>First year induction</h2>
+      <p>The First Year Induction Program helps students adapt to college life by familiarizing them with the campus, faculty, academic culture, and student support systems in a friendly and engaging environment.</p>
+    </div>
+    <div class="grid-3">
+      <div class="ph" style="--n:0"><img src="image/aarambh-01.webp" alt="Aarambh Induction Photo 1"></div>
+      <div class="ph" style="--n:1"><img src="image/aarambh-05.webp" alt="Aarambh Photo 2"></div>
+      <div class="ph" style="--n:2"><img src="image/aarambh-06.webp" alt="Aarambh Photo 3"></div>
+    </div>
+  </div>
+</section>
 
-                <div class="campus-grid">
-                    <article class="campus-card">
-                        <span class="icon-box" aria-hidden="true">01</span>
-                        <h2>Spaces to focus</h2>
-                        <p>Settle into a supportive learning environment where ideas and ambition can grow.</p>
-                    </article>
+<section class="section alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Co-curricular activities</h2>
+      <p>Co-Curricular Activities enrich student life by promoting creativity, teamwork, leadership, and cultural values through celebrations, competitions, and campus events throughout the year.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="ph" style="--n:0"><img src="image/co-curricular-01.webp" alt="Festival celebration"></div>
+        <h3>Festival celebration</h3>
+      </article>
+      
+      <article class="card">
+        <div class="ph" style="--n:1"><img src="image/co-curricular-02.webp" alt="Field visit"></div>
+        <h3>Field visit</h3>
+      </article>
+      
+      <article class="card">
+        <div class="ph" style="--n:2"><img src="image/co-curricular-03.webp" alt="Teachers' day"></div>
+        <h3>Teachers' day</h3>
+      </article>
+      
+      <article class="card">
+        <div class="ph" style="--n:3"><img src="image/co-curricular-09.webp" alt="Women's Day"></div>
+        <h3>Women's Day</h3>
+      </article>
+    </div>
+  </div>
+</section>
 
-                    <article class="campus-card">
-                        <span class="icon-box" aria-hidden="true">02</span>
-                        <h2>A community to belong to</h2>
-                        <p>Meet people, share perspectives, and build friendships along the way.</p>
-                    </article>
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="logo" href="#" style="color:var(--white)"><i style="background:var(--bright-blue)"></i>ASM Group of Institutes</a>
+        <p style="margin-top:16px">ASM Group of Institutes is a leading educational institution dedicated to nurturing future-ready professionals through innovation, industry-focused learning, and academic excellence.</p>
+      </div>
+      <div>
+        <h4>Contact us</h4>
+        <ul>
+          <li>Survey No.401/1, Jain Mandir, Old Mumbai - Pune Hwy, adjacent to Parshwa Prandyalay Jain Temple Road, Talegaon Dabhade, Pune, Maharashtra 410506.</li>
+          <li><a href="tel:+917789542378">+91 7789542378</a></li>
+          <li><a href="mailto:info@asm.edu">info@asm.edu</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Location Map</h4>
+        <a href="https://www.google.com/maps/search/?api=1&query=18.716145,73.664016" target="_blank">
+          <div class="map" role="img" aria-label="Map placeholder"></div>
+        </a>
+      </div>
+    </div>
+    <div class="copy">
+      <span>&copy; 2026 ASM</span>
+      <div><a href="#">Privacy policy</a><a href="#">Terms and conditions</a></div>
+    </div>
+  </div>
+</footer>
 
-                    <article class="campus-card">
-                        <span class="icon-box" aria-hidden="true">03</span>
-                        <h2>Room to discover</h2>
-                        <p>Explore new interests and find opportunities to grow beyond the classroom.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="student-life section" id="student-life"
-                 aria-labelledby="student-life-title">
-
-            <div class="section-heading">
-                <p class="eyebrow">Make every day count</p>
-                <h2 id="student-life-title">Student life is what you make it</h2>
-                <p>
-                    Bring your interests, meet your people, and create memories
-                    in a community where there is always something new to try.
-                </p>
-            </div>
-
-            <!-- Search Feature -->
-            <div class="life-search">
-                <label for="life-search-input">Search Student Life</label>
-                <input
-                    type="search"
-                    id="life-search-input"
-                    placeholder="Search clubs, arts, sports, events..."
-                    autocomplete="off"
-                >
-                <p id="search-message" role="status" aria-live="polite"></p>
-            </div>
-
-            <div class="life-grid">
-
-                <article class="life-card">
-                    <span class="life-icon" aria-hidden="true">CLUBS</span>
-                    <h3>Clubs &amp; communities</h3>
-                    <p>Connect with people who share your interests and discover new ones together.</p>
-
-                    <div class="card-details" hidden>
-                        <p>Explore student groups, shared interests, teamwork, and opportunities to connect with your college community.</p>
-                    </div>
-
-                    <button class="card-toggle" type="button" aria-expanded="false">
-                        Learn more
-                    </button>
-                </article>
-
-                <article class="life-card">
-                    <span class="life-icon" aria-hidden="true">ARTS</span>
-                    <h3>Arts &amp; culture</h3>
-                    <p>Express yourself, celebrate creativity, and experience fresh perspectives.</p>
-
-                    <div class="card-details" hidden>
-                        <p>Discover creative activities, cultural celebrations, artistic expression, and opportunities to share your talents.</p>
-                    </div>
-
-                    <button class="card-toggle" type="button" aria-expanded="false">
-                        Learn more
-                    </button>
-                </article>
-
-                <article class="life-card">
-                    <span class="life-icon" aria-hidden="true">MOVE</span>
-                    <h3>Sports &amp; wellbeing</h3>
-                    <p>Make time for movement, teamwork, and a healthy balance in college life.</p>
-
-                    <div class="card-details" hidden>
-                        <p>Explore physical activities, teamwork, sports participation, and ways to maintain a healthy college-life balance.</p>
-                    </div>
-
-                    <button class="card-toggle" type="button" aria-expanded="false">
-                        Learn more
-                    </button>
-                </article>
-
-                <article class="life-card">
-                    <span class="life-icon" aria-hidden="true">LIVE</span>
-                    <h3>Events &amp; celebrations</h3>
-                    <p>Come together, get involved, and make moments worth remembering.</p>
-
-                    <div class="card-details" hidden>
-                        <p>Discover college celebrations, student gatherings, campus activities, and opportunities to participate in events.</p>
-                    </div>
-
-                    <button class="card-toggle" type="button" aria-expanded="false">
-                        Learn more
-                    </button>
-                </article>
-
-            </div>
-
-            <div class="life-note">
-                Bring your curiosity. Find your community. Make this chapter yours.
-            </div>
-        </section>
-    </main>
-
-   
 </body>
 </html>
-

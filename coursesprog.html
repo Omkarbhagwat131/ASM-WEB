@@ -6,7 +6,10 @@
     <title>Courses & Programs | ASM College</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <script src="js/coursesprog.js" defer></script>
+    <!-- Correct CSS Link -->
+    <link rel="stylesheet" href="css/style.css">
+
+    
     <style>
         :root {
             color-scheme: light;
@@ -26,20 +29,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font-body); }
         body { background-color: var(--paper); color: var(--ink); line-height: 1.6; scroll-behavior: smooth; }
         h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
-
-        header { background-color: var(--navy); color: var(--white); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        header .logo { font-size: 1.5rem; font-weight: bold; color: var(--white); text-decoration: none; }
-        nav ul { display: flex; list-style: none; gap: 1.2rem; align-items: center; }
-        nav a { color: var(--white); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
-        nav a:hover, nav a.active { color: #99ccff; border-bottom: 2px solid #99ccff; }
-
-        .dropdown { position: relative; display: inline-block; }
-        .dropbtn { background-color: transparent; color: white; padding: 6px 10px; font-size: 1.1rem; border: 1px solid rgba(255,255,255,0.4); border-radius: 4px; cursor: pointer; display: flex; flex-direction: column; gap: 3px; align-items: center; justify-content: center; }
-        .dropbtn span { display: block; width: 18px; height: 2px; background-color: white; }
-        .dropdown-content { display: none; position: absolute; right: 0; background-color: var(--white); min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); border-radius: 6px; z-index: 1000; overflow: hidden; }
-        .dropdown-content a { color: var(--ink); padding: 10px 15px; text-decoration: none; display: block; font-size: 0.9rem; border-bottom: 1px solid var(--paper); transition: background 0.2s; }
-        .dropdown-content a:hover { background-color: var(--pale-blue); color: var(--navy); }
-        .dropdown:hover .dropdown-content { display: block; }
 
         .hero { background: linear-gradient(135deg, var(--navy), var(--blue)); color: var(--white); text-align: center; padding: 3rem 1rem; }
         .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
@@ -73,41 +62,13 @@
 
         footer { background-color: var(--navy); color: var(--white); text-align: center; padding: 1.5rem; margin-top: 3rem; }
         #back-to-top { display: none; position: fixed; bottom: 25px; right: 25px; background-color: var(--bright-blue); color: var(--white); border: none; border-radius: 50%; width: 45px; height: 45px; font-size: 20px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; }
-
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 1rem; }
-            nav ul { flex-wrap: wrap; justify-content: center; }
-        }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="home.html" class="logo">
-            <img src="image/asm-logo.png" alt="ASM College Logo" style="height: 40px; width: auto; border-radius: 50%; background: white; padding: 2px;">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="coursesprog.html" class="active">Courses & Programs</a></li>
-                <li><a href="admission.html">Admissions</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li class="dropdown">
-                    <button class="dropbtn" aria-label="Menu">
-                        <span><span></span><span></span><span></span></span>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="campus.html">Campus Life</a>
-                        <a href="department.html">Departments</a>
-                        <a href="faculty.html">Faculty Directory</a>
-                        <a href="placement.html">Placements</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
+    <div id="header"></div>
+    <script src="js/header.js"></script>
+    <script src="js/coursesprog.js" defer></script>
     <section class="hero">
         <h1>Courses & Academic Programs</h1>
         <p>Empowering minds with industry-oriented undergraduate, postgraduate programs and vibrant student clubs.</p>
@@ -175,5 +136,8 @@
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
     </script>
+
+    <!-- Header Script Link at the bottom -->
+    <script src="header.js"></script>
 </body>
 </html>

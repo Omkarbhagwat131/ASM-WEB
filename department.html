@@ -1,86 +1,270 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Departments | ASM College</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <style>
+        :root {
+            color-scheme: light;
+            --navy: #082847;
+            --blue: #103f68;
+            --bright-blue: #1b5d91;
+            --pale-blue: #e8f1f8;
+            --ink: #172b3f;
+            --muted: #617386;
+            --white: #fff;
+            --paper: #f5f8fb;
+            --font-body: "Roboto", sans-serif;
+            --font-heading: "Raleway", sans-serif;
+        }
+
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
+        body {
+            font-family: var(--font-body);
+            color: var(--ink);
+            background: var(--paper);
+            line-height: 1.65;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+        }
+
+        /* Header Navbar */
         .navbar {
-            background: #0b3d91;
-            color: white;
-            padding: 20px;
+            background: var(--navy);
+            color: var(--white);
+            padding: 16px 40px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
-            gap: 18px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(8, 40, 71, 0.15);
         }
 
-        .logo {
-            font-size: 32px;
-            font-weight: bold;
-            text-align: center;
+        .logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 50%;
+            background: var(--white);
+            padding: 2px;
+            object-fit: contain;
         }
 
         .navbar nav {
-            width: 100%;
             display: flex;
-            justify-content: center;
             align-items: center;
+            gap: 12px;
             flex-wrap: wrap;
-            gap: 25px;
         }
 
         .navbar nav a {
-            color: white;
+            color: #c5d6e6;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
             white-space: nowrap;
         }
 
-        .navbar nav a:hover {
-            text-decoration: underline;
-            color: #dbeafe;
+        .navbar nav a:hover, 
+        .navbar nav a.active {
+            background: var(--bright-blue);
+            color: var(--white);
         }
 
-        @media (max-width: 600px) {
-            .logo {
-                font-size: 27px;
-            }
+        /* Hero Section */
+        .hero {
+            background: var(--navy);
+            color: var(--white);
+            padding: 70px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-            .navbar nav {
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+            animation: rise 0.9s cubic-bezier(.2, .8, .2, 1) both;
+        }
+
+        .hero p {
+            color: #d0e1f0;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            animation: rise 0.9s 0.15s cubic-bezier(.2, .8, .2, 1) both;
+        }
+
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: none; }
+        }
+
+        /* Departments Section */
+        .departments-section {
+            max-width: 1180px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .departments-section h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            color: var(--navy);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .underline {
+            width: 70px;
+            height: 4px;
+            background: var(--bright-blue);
+            border-radius: 2px;
+            margin-bottom: 40px;
+            transform-origin: left;
+            animation: grow-line 1.2s ease-out both;
+        }
+
+        @keyframes grow-line {
+            from { transform: scaleX(0); }
+        }
+
+        .department-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        .department-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(8, 40, 71, .06);
+            transition: transform 0.3s cubic-bezier(.2, .8, .2, 1), box-shadow 0.3s;
+            position: relative;
+            border-top: 4px solid var(--bright-blue);
+        }
+
+        .department-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 42px rgba(8, 40, 71, .15);
+        }
+
+        .department-code {
+            display: inline-block;
+            background: var(--pale-blue);
+            color: var(--bright-blue);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 5px 12px;
+            border-radius: 6px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+        }
+
+        .department-card h3 {
+            color: var(--navy);
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+        }
+
+        .department-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* View Details Button & Dropdown Animation */
+        .view-details-btn {
+            background: var(--bright-blue);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            font-size: 0.9rem;
+        }
+
+        .view-details-btn:hover {
+            background: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        .course-details {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--pale-blue);
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .course-details h3 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-top: 14px;
+            margin-bottom: 6px;
+        }
+
+        .course-details p, .course-details li {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .course-details ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: none; }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: #c5d6e6;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .navbar {
+                flex-direction: column;
                 gap: 14px;
+                padding: 16px 20px;
             }
-
-            .navbar nav a {
-                font-size: 14px;
+            .navbar nav {
+                justify-content: center;
+                gap: 8px;
             }
         }
     </style>
 </head>
 
 <body>
-
-<header class="navbar">
-    <div class="logo">ASM College</div>
-    <nav class="main-nav">
-            <a href="home.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="campus.html">Campus</a>
-            <a href="coursesprog.html">Courses & Programs</a>
-            <a href="contacts.html">Contact Us</a>
-            <a href="placements.html">Placements</a>
-            <a href="department.html">Department</a>
-            <a href="Faculty.html" class="active">Faculty</a>
-        </nav>
-</header>
+    <div id="header"></div>
+    <script src="js/header.js"></script>
 
 <section class="hero">
     <h1>Our Departments</h1>
@@ -123,60 +307,55 @@
             <p>Build skills in finance, marketing, human resources and management.</p>
         </div>
 
-    
-<div class="department-card">
-    <span class="department-code">MCA</span>
+        <div class="department-card">
+            <span class="department-code">MCA</span>
+            <h3>Master of Computer Applications</h3>
+            <p>
+                Learn programming, software engineering, cloud computing,
+                database management and application development.
+            </p>
 
-    <h3>Master of Computer Applications</h3>
+            <button type="button"
+                    class="view-details-btn"
+                    aria-expanded="false">
+                View Details
+            </button>
 
-    <p>
-        Learn programming, software engineering, cloud computing,
-        database management and application development.
-    </p>
+            <div id="mca-details" class="course-details" hidden>
+                <h3>About MCA</h3>
+                <p>
+                    MCA is a postgraduate course focused on computer
+                    applications, programming and software development.
+                </p>
 
-    <button type="button"
-            class="view-details-btn"
-            aria-expanded="false">
-        View Details
-    </button>
+                <h3>Subjects and Skills</h3>
+                <ul>
+                    <li>Python and Java Programming</li>
+                    <li>Database Management Systems</li>
+                    <li>Software Engineering</li>
+                    <li>Web Development</li>
+                    <li>Cloud Computing</li>
+                    <li>Artificial Intelligence and Data Science</li>
+                </ul>
 
-    <div id="mca-details" class="course-details" hidden>
+                <h3>Career Opportunities</h3>
+                <ul>
+                    <li>Software Developer</li>
+                    <li>Web Developer</li>
+                    <li>Cloud Engineer</li>
+                    <li>Data Analyst</li>
+                    <li>System Analyst</li>
+                </ul>
 
-        <h3>About MCA</h3>
-        <p>
-            MCA is a postgraduate course focused on computer
-            applications, programming and software development.
-        </p>
-
-        <h3>Subjects and Skills</h3>
-        <ul>
-            <li>Python and Java Programming</li>
-            <li>Database Management Systems</li>
-            <li>Software Engineering</li>
-            <li>Web Development</li>
-            <li>Cloud Computing</li>
-            <li>Artificial Intelligence and Data Science</li>
-        </ul>
-
-        <h3>Career Opportunities</h3>
-        <ul>
-            <li>Software Developer</li>
-            <li>Web Developer</li>
-            <li>Cloud Engineer</li>
-            <li>Data Analyst</li>
-            <li>System Analyst</li>
-        </ul>
-
-        <p><strong>Course Duration:</strong> Generally 2 years, subject to university rules.</p>
-
-    </div>
-</div>
-
+                <p><strong>Course Duration:</strong> Generally 2 years, subject to university rules.</p>
+            </div>
+        </div>
 
     </div>
 </section>
+
 <footer>
-    <p>2026 ASM College.</p>
+    <p>&copy; 2026 ASM College. All Rights Reserved.</p>
 </footer>
 
 <script src="js/asm.js"></script>
