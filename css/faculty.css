@@ -1,4 +1,3 @@
-
 :root {
     color-scheme: light;
     --navy: #082847;
@@ -8,10 +7,14 @@
     --ink: #172b3f;
     --muted: #617386;
     --white: #ffffff;
-    --paper: #f5f8fb;
+    --border: #dfe7f0;
     --font-body: "Roboto", sans-serif;
     --font-heading: "Raleway", sans-serif;
 }
+
+/* =========================
+   GLOBAL
+========================= */
 
 * {
     margin: 0;
@@ -21,7 +24,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 88px;
+    scroll-padding-top: 25px;
 }
 
 body {
@@ -29,7 +32,10 @@ body {
     background: var(--white);
     color: var(--ink);
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 a {
@@ -39,8 +45,17 @@ a {
 
 button,
 input,
+select,
 textarea {
     font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
 }
 
 /* =========================
@@ -48,9 +63,12 @@ textarea {
 ========================= */
 
 .site-header {
+    position: relative;
+    z-index: 10;
     background: var(--white);
-    padding: 22px 35px 0;
+    padding: 20px 35px 0;
     border-bottom: 1px solid #d8e8f6;
+    animation: fadeInDown 0.7s ease both;
 }
 
 .college-brand {
@@ -58,46 +76,55 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 125px;
     width: 100%;
+    min-height: 125px;
 }
 
 .college-logo {
     position: absolute;
-    left: 5px;
     top: 50%;
+    left: 5px;
     transform: translateY(-50%);
-    width: 105px;
-    height: 105px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
+}
+
+.anniversary-logo {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    transform: translateY(-50%);
 }
 
 .college-name {
     width: 100%;
-    text-align: center;
     padding: 0 120px;
+    text-align: center;
 }
 
 .college-name h1 {
-    font-family: var(--font-heading);
-    color: var(--navy);
-    font-size: 34px;
-    line-height: 1.3;
     margin-bottom: 5px;
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: clamp(24px, 3vw, 34px);
     font-weight: 800;
+    line-height: 1.3;
 }
 
 .college-name > p:first-of-type {
+    margin-bottom: 5px;
     color: var(--blue);
     font-size: 17px;
     font-weight: 700;
-    margin-bottom: 5px;
 }
 
 .college-info {
     color: #345675;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 13px;
 }
 
 /* =========================
@@ -109,7 +136,7 @@ textarea {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
     width: 100%;
     margin-top: 15px;
     padding: 15px 0;
@@ -119,23 +146,25 @@ textarea {
 
 .main-nav a {
     display: inline-block;
-    color: #174f7c;
-    background: transparent;
-    padding: 9px 14px;
+    padding: 9px 12px;
     border-radius: 5px;
-    font-size: 13px;
+    color: #174f7c;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     white-space: nowrap;
-    transition: color 0.2s ease, background 0.2s ease;
+    transition: color 0.25s ease, background 0.25s ease,
+                transform 0.25s ease;
 }
 
 .main-nav a:hover,
 .main-nav a.active {
-    color: #075e9c;
     background: #d9edff;
-    transform: none;
-    box-shadow: none;
+    color: #075e9c;
+}
+
+.main-nav a:hover {
+    transform: translateY(-2px);
 }
 
 .main-nav a:focus-visible {
@@ -145,91 +174,136 @@ textarea {
 
 /* =========================
    PAGE TITLE
-   LIGHT IMAGE & DARK BLUE TEXT
 ========================= */
 
 .page-title {
-    background:
-        linear-gradient(
-            rgba(255, 255, 255, 0.55),
-            rgba(232, 241, 248, 0.65)
-        ),
-        url("../image/asm-campus-building.png");
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 65px 20px;
+    background: var(--pale-blue);
+    color: var(--navy);
+    text-align: center;
+}
 
-    background-color: #e8f1f8;
-    background-size: cover;
+.page-title::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url("../image/asm-campus-building.png");
     background-position: center;
     background-repeat: no-repeat;
-
-    text-align: center;
-    padding: 65px 20px;
-    color: #082847;
+    background-size: cover;
+    content: "";
+    opacity: 0.2;
 }
 
 .title-label {
     display: inline-block;
-    padding: 6px 18px;
     margin-bottom: 16px;
-    border: 1px solid #103f68;
+    padding: 6px 18px;
+    border: 1px solid var(--blue);
     border-radius: 25px;
-    color: #103f68;
-    font-size: 13px;
+    color: var(--blue);
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 1.5px;
+    animation: fadeInUp 0.7s ease both;
 }
 
 .page-title h2 {
-    font-family: var(--font-heading);
-    color: #082847;
-    font-size: clamp(34px, 5vw, 48px);
     margin-bottom: 12px;
-    line-height: 1.2;
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: clamp(34px, 5vw, 48px);
     font-weight: 800;
-    text-shadow: none;
+    line-height: 1.2;
+    animation: fadeInUp 0.7s ease 0.15s both;
 }
 
 .page-title p {
     max-width: 750px;
     margin: auto;
-    font-size: 18px;
-    color: #103f68;
+    color: var(--blue);
+    font-size: 17px;
     font-weight: 600;
     line-height: 1.8;
+    animation: fadeInUp 0.7s ease 0.3s both;
 }
 
 /* =========================
-   SEARCH BAR
+   SEARCH + DEPARTMENT FILTER
+   BOTH ON THE SAME LINE
 ========================= */
 
 .faculty-search {
-    text-align: center;
-    padding: 35px 20px 15px;
+    padding: 32px 20px 20px;
     background: var(--white);
+    text-align: center;
 }
 
-.faculty-search input {
+/* Main horizontal container */
+.search-filter-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 15px;
     width: 100%;
-    max-width: 500px;
-    padding: 14px 20px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* Search input on the left */
+.search-filter-container #searchInput {
+    display: block;
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    height: 48px;
+    margin: 0;
+    padding: 12px 20px;
     border: 1px solid #d6deeb;
     border-radius: 30px;
-    font-size: 15px;
     outline: none;
     background: #f8faff;
     color: var(--ink);
+    font-size: 15px;
     box-shadow: 0 4px 15px rgba(8, 40, 71, 0.06);
-    transition: border-color 0.3s ease,
-                box-shadow 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.faculty-search input:focus {
-    border-color: var(--blue);
+/* Department dropdown on the right */
+.search-filter-container #departmentFilter {
+    display: block;
+    flex: 0 0 250px;
+    width: 250px;
+    max-width: 250px;
+    min-width: 0;
+    height: 48px;
+    margin: 0;
+    padding: 10px 15px;
+    border: 1px solid #d6deeb;
+    border-radius: 30px;
+    outline: none;
+    background: #f8faff;
+    color: var(--navy);
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(8, 40, 71, 0.06);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-filter-container #searchInput:focus,
+.search-filter-container #departmentFilter:focus {
+    border-color: var(--bright-blue);
     background: var(--white);
     box-shadow: 0 0 0 3px rgb(16 63 104 / 10%);
 }
 
 #searchMessage {
-    margin-top: 10px;
+    margin-top: 12px;
     color: var(--muted);
     font-size: 14px;
 }
@@ -240,38 +314,58 @@ textarea {
 
 .faculty-section {
     padding: 40px 25px 60px;
-    background: var(--paper);
+    background: #f2f8fd;
+    text-align: center;
 }
 
 .section-heading {
-    text-align: center;
-    font-family: var(--font-heading);
+    margin-bottom: 30px;
     color: var(--navy);
+    font-family: var(--font-heading);
     font-size: 32px;
     font-weight: 800;
-    margin-bottom: 35px;
+    text-align: center;
 }
 
 .section-heading::after {
-    content: "";
     display: block;
     width: 65px;
     height: 4px;
     margin: 12px auto 0;
     border-radius: 5px;
     background: var(--bright-blue);
+    content: "";
+    animation: underlineGrow 0.8s ease both;
 }
+
+#loadingMessage,
+#noResults {
+    padding: 20px;
+    color: var(--muted);
+    text-align: center;
+}
+
+#loadingMessage[hidden],
+#noResults[hidden] {
+    display: none !important;
+}
+
+/* =========================
+   FACULTY GRID
+========================= */
 
 .faculty-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
     gap: 25px;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 /* =========================
-   FACULTY CARD
+   FACULTY CARDS
 ========================= */
 
 .faculty-card {
@@ -279,14 +373,14 @@ textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    min-width: 0;
     padding: 30px 22px;
-    background: var(--white);
-    border: 1px solid #dfe7f0;
+    border: 1px solid var(--border);
     border-radius: 12px;
+    background: var(--white);
+    text-align: center;
     box-shadow: 0 6px 22px rgba(8, 40, 71, 0.07);
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease,
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
                 border-color 0.3s ease;
 }
 
@@ -297,250 +391,251 @@ textarea {
 }
 
 .faculty-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
     width: 125px;
     height: 125px;
     margin-bottom: 18px;
-    border-radius: 50%;
     overflow: hidden;
-    background: var(--pale-blue);
     border: 4px solid #d8e8f6;
-    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--pale-blue);
+    color: var(--navy);
+    font-size: 36px;
 }
 
 .faculty-photo img {
+    display: block;
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     object-fit: cover;
     object-position: center;
-    display: block;
 }
 
-.faculty-card h3 {
-    font-family: var(--font-heading);
-    color: var(--navy);
-    font-size: 19px;
-    line-height: 1.4;
+.photo-fallback {
+    font-size: 36px;
+}
+
+.faculty-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.faculty-info h3 {
     margin-bottom: 8px;
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: 19px;
     font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
 }
 
-.designation {
+.faculty-designation {
+    margin-bottom: 12px;
     color: var(--bright-blue);
     font-size: 14px;
     font-weight: 700;
-    margin-bottom: 12px;
 }
 
-.department,
-.qualification,
-.experience,
-.subjects {
+.faculty-department,
+.faculty-qualification,
+.faculty-experience {
+    margin-bottom: 6px;
     color: var(--muted);
     font-size: 14px;
-    margin-bottom: 6px;
+    overflow-wrap: anywhere;
 }
 
 /* =========================
-   THREE-DOT MENU
+   CARD BUTTONS + THREE-DOT MENU
 ========================= */
 
-.faculty-card-menu {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    z-index: 20;
+.faculty-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 18px;
+}
+
+.view-details-btn,
+.submit-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 20px;
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.2s ease, transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.view-details-btn:hover,
+.submit-button:hover {
+    transform: translateY(-2px);
+    border-color: var(--navy);
+    background: var(--navy);
+    box-shadow: 0 6px 14px rgba(8, 40, 71, 0.2);
 }
 
 .three-dots-btn {
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    align-items: center;
+    width: 38px;
+    height: 38px;
     padding: 0;
     border: none;
     border-radius: 50%;
     background: var(--pale-blue);
     color: var(--navy);
-    font-size: 26px;
+    font-size: 25px;
     font-weight: 700;
     line-height: 1;
-    cursor: pointer;
-    transition: background 0.2s ease,
-                color 0.2s ease;
 }
 
-.three-dots-btn:hover {
-    background: #cbdff0;
-    color: var(--bright-blue);
-}
-
+.three-dots-btn:hover,
 .three-dots-btn:focus-visible {
     outline: 2px solid var(--bright-blue);
-    outline-offset: 3px;
+    background: #cbdff0;
 }
 
-/* Dropdown menu */
-
-.faculty-dropdown {
-    display: none;
+.faculty-menu-wrapper {
     position: absolute;
-    top: 42px;
+    top: 14px;
+    right: 14px;
+    z-index: 30;
+}
+
+.faculty-menu {
+    position: absolute;
+    top: 44px;
     right: 0;
-    min-width: 175px;
+    z-index: 30;
+    min-width: 170px;
     padding: 6px;
-    background: var(--white);
     border: 1px solid #d7e2ec;
     border-radius: 8px;
-    box-shadow: 0 6px 20px rgba(8, 40, 71, 0.16);
+    background: var(--white);
     text-align: left;
+    box-shadow: 0 6px 20px rgba(8, 40, 71, 0.16);
 }
 
-.faculty-card-menu.open .faculty-dropdown {
-    display: block;
+.faculty-menu[hidden] {
+    display: none !important;
 }
 
-.faculty-dropdown a {
+.faculty-menu button {
     display: block;
+    width: 100%;
     padding: 10px 12px;
+    border: none;
     border-radius: 5px;
+    background: transparent;
     color: var(--navy);
+    text-align: left;
     font-size: 14px;
     font-weight: 600;
-    text-decoration: none;
-    white-space: nowrap;
 }
 
-.faculty-dropdown a:hover,
-.faculty-dropdown a:focus-visible {
+.faculty-menu button:hover {
     background: var(--pale-blue);
     color: var(--bright-blue);
-    outline: none;
 }
 
 /* =========================
-   DARK BLUE BUTTONS
+   FACULTY DETAILS MODAL
 ========================= */
 
-.view-details,
-.submit-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 18px;
-    padding: 11px 22px;
-    background: var(--blue);
-    color: var(--white);
-    border: 1px solid var(--blue);
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.2s ease,
-                transform 0.2s ease;
+.faculty-modal[hidden] {
+    display: none !important;
 }
 
-.view-details:hover,
-.submit-button:hover {
-    background: var(--navy);
-    color: var(--white);
-    border-color: var(--navy);
-    transform: translateY(-1px);
-}
-
-.view-details:focus-visible,
-.submit-button:focus-visible {
-    outline: 2px solid var(--bright-blue);
-    outline-offset: 3px;
-}
-
-/* =========================
-   NO SEARCH RESULTS
-========================= */
-
-#noResults {
-    display: none;
-    text-align: center;
-    color: var(--muted);
-    padding: 30px;
-    grid-column: 1 / -1;
-}
-
-/* =========================
-   FACULTY DETAILS POPUP
-========================= */
-
-.modal {
-    display: none;
+.faculty-modal {
     position: fixed;
-    z-index: 1000;
     inset: 0;
-    background: rgba(8, 40, 71, 0.72);
+    z-index: 2000;
+    display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    background: rgba(8, 40, 71, 0.75);
 }
 
-.modal-content {
+.faculty-modal-content {
     position: relative;
-    background: var(--white);
-    color: var(--ink);
     width: 100%;
     max-width: 500px;
     max-height: 90vh;
     overflow-y: auto;
     padding: 32px;
     border-radius: 14px;
+    background: var(--white);
+    color: var(--ink);
     text-align: center;
-    border: 1px solid #dfe7f0;
     box-shadow: 0 18px 50px rgba(8, 40, 71, 0.2);
+    animation: popupZoomIn 0.3s ease;
 }
 
-#modalPhoto {
+.faculty-modal-content img {
+    display: block;
     width: 135px;
     height: 135px;
+    margin: 0 auto 18px;
+    border: 5px solid var(--pale-blue);
     border-radius: 50%;
     object-fit: cover;
-    object-position: center;
-    margin: 0 auto 18px;
-    display: block;
-    border: 5px solid var(--pale-blue);
 }
 
-.modal-content h2 {
-    font-family: var(--font-heading);
-    color: var(--navy);
+.faculty-modal-content img[hidden] {
+    display: none !important;
+}
+
+.faculty-modal-content h2 {
     margin-bottom: 18px;
     padding: 0 20px;
+    color: var(--navy);
+    font-family: var(--font-heading);
     font-size: 26px;
-    font-weight: 800;
+    overflow-wrap: anywhere;
 }
 
-.modal-content p {
+.faculty-modal-content p {
     margin-bottom: 10px;
     color: var(--muted);
     overflow-wrap: anywhere;
 }
 
-.close-modal {
+.faculty-modal-close {
     position: absolute;
     top: 8px;
     right: 15px;
-    font-size: 30px;
     border: none;
     background: transparent;
     color: var(--muted);
-    cursor: pointer;
+    font-size: 30px;
     line-height: 1;
-    transition: color 0.2s ease;
 }
 
-.close-modal:hover {
+.faculty-modal-close:hover {
     color: var(--bright-blue);
 }
 
 /* =========================
-   ENQUIRY SECTION
+   ENQUIRY FORM
 ========================= */
 
 .enquiry-section {
@@ -552,9 +647,9 @@ textarea {
     max-width: 760px;
     margin: auto;
     padding: 35px;
-    background: var(--white);
-    border: 1px solid #dfe7f0;
+    border: 1px solid var(--border);
     border-radius: 12px;
+    background: var(--white);
     box-shadow: 0 8px 25px rgba(8, 40, 71, 0.08);
 }
 
@@ -563,14 +658,14 @@ textarea {
 }
 
 .enquiry-intro {
-    text-align: center;
-    color: var(--muted);
     margin-bottom: 25px;
+    color: var(--muted);
+    text-align: center;
 }
 
 .enquiry-form {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
 }
 
@@ -578,6 +673,7 @@ textarea {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    min-width: 0;
 }
 
 .form-field.full-width {
@@ -586,21 +682,19 @@ textarea {
 
 .form-field label {
     color: var(--ink);
-    font-weight: 600;
     font-size: 14px;
+    font-weight: 600;
 }
 
 .form-field input,
 .form-field textarea {
     width: 100%;
+    min-width: 0;
     padding: 12px 14px;
     border: 1px solid #d6deeb;
     border-radius: 6px;
     background: #f8faff;
     color: var(--ink);
-    font: inherit;
-    transition: border-color 0.3s ease,
-                box-shadow 0.3s ease;
 }
 
 .form-field textarea {
@@ -623,8 +717,8 @@ textarea {
 }
 
 .form-status {
-    grid-column: 1 / -1;
     display: none;
+    grid-column: 1 / -1;
     padding: 10px;
     border-radius: 6px;
     font-size: 14px;
@@ -651,57 +745,99 @@ textarea {
 ========================= */
 
 footer {
-    background: #e8f1f8;
-    color: #172b3f;
     padding: 42px 8% 20px;
-    margin-top: 0;
     border-top: 1px solid #d8e8f6;
+    background: #e8f1f8;
+    color: var(--ink);
 }
 
 .footer-content {
-    max-width: 1200px;
-    margin: auto;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 40px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .footer-column h3 {
-    font-family: var(--font-heading);
-    color: #082847;
-    font-size: 18px;
     margin-bottom: 13px;
-    font-weight: 700;
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: 18px;
 }
 
 .footer-column p {
+    margin-bottom: 8px;
     color: #345675;
     font-size: 14px;
-    margin-bottom: 8px;
     overflow-wrap: anywhere;
 }
 
-.footer-column a {
-    color: #174f7c;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.footer-column a:hover {
-    color: #075e9c;
-    text-decoration: underline;
-}
-
 .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
     max-width: 1200px;
     margin: 30px auto 0;
     padding-top: 18px;
     border-top: 1px solid #c5d9eb;
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
     color: #345675;
     font-size: 13px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popupZoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.94) translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes underlineGrow {
+    from { width: 0; }
+    to { width: 65px; }
+}
+
+/* Scroll reveal: matches faculty.js */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* =========================
@@ -714,16 +850,38 @@ footer {
     }
 
     .main-nav {
-        gap: 7px;
+        gap: 6px;
     }
 
     .main-nav a {
-        padding: 8px 10px;
-        font-size: 12px;
+        padding: 8px 9px;
+        font-size: 11px;
+    }
+
+    .college-logo {
+        width: 85px;
+        height: 85px;
+    }
+
+    .anniversary-logo {
+        width: 85px;
+        height: 85px;
+    }
+
+    .college-name {
+        padding: 0 100px;
     }
 
     .faculty-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-content {
+        gap: 25px;
+    }
+
+    .search-filter-container {
+        max-width: 750px;
     }
 }
 
@@ -744,10 +902,18 @@ footer {
 
     .college-logo {
         position: static;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 4px;
         transform: none;
-        width: 85px;
-        height: 85px;
-        margin-bottom: 5px;
+    }
+
+    .anniversary-logo {
+        position: static;
+        width: 64px;
+        height: 64px;
+        margin-bottom: 4px;
+        transform: none;
     }
 
     .college-name {
@@ -755,7 +921,7 @@ footer {
     }
 
     .college-name h1 {
-        font-size: 27px;
+        font-size: 26px;
     }
 
     .college-name > p:first-of-type {
@@ -768,14 +934,14 @@ footer {
 
     .main-nav {
         justify-content: center;
-        gap: 7px;
-        margin-top: 16px;
-        padding: 13px 0;
+        gap: 6px;
+        margin-top: 15px;
+        padding: 12px 0;
     }
 
     .main-nav a {
-        font-size: 11px;
-        padding: 8px 9px;
+        padding: 8px;
+        font-size: 10px;
     }
 
     .page-title {
@@ -791,7 +957,23 @@ footer {
     }
 
     .faculty-search {
-        padding: 28px 18px 12px;
+        padding: 25px 18px 12px;
+    }
+
+    /* On mobile, stack the controls vertically */
+    .search-filter-container {
+        flex-direction: column;
+        align-items: stretch;
+        flex-wrap: nowrap;
+        gap: 12px;
+    }
+
+    .search-filter-container #searchInput,
+    .search-filter-container #departmentFilter {
+        flex: 0 0 48px;
+        width: 100%;
+        max-width: 100%;
+        height: 48px;
     }
 
     .faculty-section {
@@ -813,8 +995,8 @@ footer {
 
     .footer-content {
         grid-template-columns: 1fr;
-        text-align: center;
         gap: 25px;
+        text-align: center;
     }
 
     .footer-bottom {
@@ -836,22 +1018,20 @@ footer {
     }
 
     .enquiry-form .submit-button {
-        width: 100%;
         justify-self: stretch;
+        width: 100%;
     }
 
-    .modal-content {
+    .faculty-modal-content {
         padding: 28px 20px;
     }
 
-    .modal-content h2 {
+    .faculty-modal-content h2 {
         font-size: 22px;
     }
 }
 
-/* =========================
-   SMALL MOBILE
-========================= */
+/* SMALL MOBILE */
 
 @media (max-width: 380px) {
     .college-name h1 {
@@ -859,12 +1039,12 @@ footer {
     }
 
     .main-nav {
-        gap: 5px;
+        gap: 4px;
     }
 
     .main-nav a {
-        font-size: 10px;
         padding: 7px;
+        font-size: 9px;
     }
 
     .faculty-card {
@@ -876,16 +1056,23 @@ footer {
     }
 }
 
-/* =========================
-   ACCESSIBILITY
-========================= */
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
     *,
     *::before,
     *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
     }
 }

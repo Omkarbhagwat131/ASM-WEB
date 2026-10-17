@@ -1,0 +1,557 @@
+
+:root {
+  color-scheme: light;
+  --navy: #082847;
+  --blue: #103f68;
+  --bright-blue: #1b5d91;
+  --pale-blue: #e8f1f8;
+  --ink: #172b3f;
+  --muted: #617386;
+  --white: #ffffff;
+  --border: #dfe7f0;
+  --font-body: "Roboto", Arial, sans-serif;
+  --font-heading: "Raleway", Arial, sans-serif;
+}
+
+/* GLOBAL */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 25px;
+}
+
+body.campus-page {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* HEADER - FACULTY PAGE STYLE */
+
+.college-header {
+  position: relative;
+  z-index: 10;
+  padding: 20px 35px 0;
+  background: var(--white);
+  border-bottom: 1px solid #d8e8f6;
+}
+
+.college-brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 125px;
+  color: var(--navy);
+}
+
+.college-brand img {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 100px;
+  height: 100px;
+  transform: translateY(-50%);
+  object-fit: contain;
+}
+
+.college-brand span {
+  width: 100%;
+  padding: 0 120px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+/* NAVIGATION */
+
+.main-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  margin-top: 15px;
+  padding: 15px 0;
+  border-top: 1px solid #d8e8f6;
+  background: #f2f8fd;
+}
+
+.main-navigation a {
+  display: inline-block;
+  padding: 9px 12px;
+  border-radius: 5px;
+  color: #174f7c;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.25s, background 0.25s;
+}
+
+.main-navigation a:hover,
+.main-navigation a.active {
+  background: #d9edff;
+  color: #075e9c;
+}
+
+.main-navigation a:focus-visible {
+  outline: 2px solid var(--bright-blue);
+  outline-offset: 3px;
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: var(--navy);
+  font-size: 25px;
+}
+
+/* CAMPUS HERO */
+
+.campus-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 390px;
+  overflow: hidden;
+  padding: 65px 7%;
+  background: var(--pale-blue);
+  color: var(--white);
+  text-align: center;
+}
+
+.campus-hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      rgba(8, 40, 71, 0.78),
+      rgba(16, 63, 104, 0.78)
+    ),
+    url("../image/asm-campus-building.png") center / cover no-repeat;
+  content: "";
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 6px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 25px;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.campus-hero h1 {
+  margin-bottom: 12px;
+  font-family: var(--font-heading);
+  font-size: clamp(34px, 5vw, 48px);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.campus-hero .hero-content > p:not(.hero-label) {
+  max-width: 750px;
+  margin: 0 auto 25px;
+  color: var(--white);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+/* BUTTON */
+
+.hero-button {
+  display: inline-block;
+  padding: 12px 25px;
+  border: 1px solid var(--white);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.25s, color 0.25s;
+}
+
+.hero-button:hover {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* INTRODUCTION */
+
+.campus-intro {
+  padding: 55px 6% 20px;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.section-heading span {
+  color: var(--bright-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  margin: 8px 0 12px;
+  color: var(--navy);
+  font-family: var(--font-heading);
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.section-heading h2::after {
+  display: block;
+  width: 65px;
+  height: 4px;
+  margin: 12px auto 0;
+  border-radius: 5px;
+  background: var(--bright-blue);
+  content: "";
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* FACILITIES */
+
+.facilities-section {
+  padding: 35px 6% 75px;
+  background: #f2f8fd;
+  scroll-margin-top: 25px;
+}
+
+.campus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.campus-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: 0 6px 22px rgba(8, 40, 71, 0.07);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.campus-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--bright-blue);
+  box-shadow: 0 12px 30px rgba(8, 40, 71, 0.12);
+}
+
+.campus-card img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  background: var(--pale-blue);
+}
+
+.campus-card-content {
+  flex: 1;
+  padding: 22px;
+}
+
+.campus-card-content h3 {
+  margin-bottom: 10px;
+  color: var(--navy);
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.campus-card-content p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* LOADING MESSAGE */
+
+.campus-status {
+  max-width: 1200px;
+  margin: 0 auto 20px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 14px;
+}
+
+.campus-status.error {
+  color: #b42318;
+}
+
+/* CALL TO ACTION */
+
+.campus-cta {
+  padding: 55px 6%;
+  background: var(--pale-blue);
+  text-align: center;
+}
+
+.campus-cta h2 {
+  margin-bottom: 10px;
+  color: var(--navy);
+  font-family: var(--font-heading);
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 800;
+}
+
+.campus-cta p {
+  margin-bottom: 22px;
+  color: var(--muted);
+}
+
+.campus-cta .hero-button {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--white);
+}
+
+.campus-cta .hero-button:hover {
+  border-color: var(--bright-blue);
+  background: var(--bright-blue);
+}
+
+/* FOOTER WITH CAMPUS PHOTO */
+
+.college-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 55px 7% 22px;
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+}
+
+.college-footer::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      rgba(8, 40, 71, 0.90),
+      rgba(8, 40, 71, 0.94)
+    ),
+    url("../image/asm-campus-building.png") center 60% / cover no-repeat;
+  content: "";
+}
+
+.college-footer p {
+  position: relative;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .college-header {
+    padding: 18px 22px 0;
+  }
+
+  .main-navigation {
+    gap: 6px;
+  }
+
+  .main-navigation a {
+    padding: 8px 9px;
+    font-size: 11px;
+  }
+
+  .college-brand img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .college-brand span {
+    padding: 0 100px;
+  }
+
+  .campus-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+  .college-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 18px 0;
+  }
+
+  .college-brand {
+    justify-content: flex-start;
+    width: calc(100% - 48px);
+    min-height: 75px;
+  }
+
+  .college-brand img {
+    position: static;
+    flex-shrink: 0;
+    width: 65px;
+    height: 65px;
+    transform: none;
+  }
+
+  .college-brand span {
+    padding: 0 0 0 12px;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-navigation {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    margin-top: 12px;
+    padding: 8px 0;
+  }
+
+  .main-navigation.open {
+    display: flex;
+  }
+
+  .main-navigation a {
+    padding: 11px 10px;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+  }
+
+  .campus-hero {
+    min-height: 310px;
+    padding: 45px 6%;
+  }
+
+  .campus-hero h1 {
+    font-size: 36px;
+  }
+
+  .campus-hero .hero-content > p:not(.hero-label) {
+    font-size: 15px;
+  }
+
+  .campus-intro {
+    padding: 40px 5% 10px;
+  }
+
+  .facilities-section {
+    padding: 30px 5% 50px;
+  }
+
+  .campus-card img {
+    height: 200px;
+  }
+
+  .college-footer {
+    padding: 40px 6% 20px;
+  }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 520px) {
+  .campus-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .campus-card img {
+    height: 220px;
+  }
+
+  .campus-card-content {
+    padding: 18px;
+  }
+
+  .section-heading {
+    margin-bottom: 25px;
+  }
+
+  .college-brand span {
+    font-size: 16px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

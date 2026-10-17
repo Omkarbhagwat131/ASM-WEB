@@ -1,0 +1,34 @@
+﻿{
+  "email": "admission.asmnextgen@asmedu.org",
+  "phone": "+91 90280 76028",
+  "address": "Talegaon Dabhade, Pune, Maharashtra, India",
+  "directionsUrl": "https://maps.google.com/?q=ASM+NextGen+Technical+Campus+Talegaon+Dabhade",
+  "content": {
+    "heroEyebrow": "WE'RE HERE TO HELP",
+    "heroTitle": "Get in Touch",
+    "heroDescription": "Have a question about ASM NextGen Technical Campus? Send us a message or contact the college directly.",
+    "sectionEyebrow": "LET'S TALK",
+    "sectionTitle": "How can we help?",
+    "sectionDescription": "Our team can help with admissions, programs, campus facilities and general enquiries.",
+    "formTitle": "Send an enquiry",
+    "formDescription": "Complete the fields below. All fields are required.",
+    "nameLabel": "Full name",
+    "namePlaceholder": "Your full name",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "messageLabel": "Your message",
+    "messagePlaceholder": "Tell us what you'd like to know...",
+    "messageHint": "At least 10 characters.",
+    "submitLabel": "Validate enquiry",
+    "detailsEyebrow": "CONTACT INFORMATION",
+    "detailsTitle": "Reach ASM",
+    "detailsDescription": "Contact the college using the details below.",
+    "directionsLabel": "Find the campus",
+    "footer": "ASM NextGen Technical Campus. All rights reserved."
+  },
+  "validation": {
+    "invalid": "Please enter a name (at least 2 characters) and a message (at least 10 characters).",
+    "successPrefix": "Thanks, ",
+    "successSuffix": ". Your enquiry is valid. This demo form cannot send messages yet; please email the college directly."
+  }
+}

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Faculty | ASM's NextGen Technical Campus</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/faculty.css">
+    <script src="../js/faculty.js" defer></script>
+
+    <link rel="stylesheet" href="../css/motion.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="college-brand">
+            <img src="../image/asm-logo.png" alt="ASM College Logo" class="college-logo">
+            <img src="../image/42-years.png" alt="42 years of excellence" class="anniversary-logo">
+
+            <div class="college-name">
+                <h1>ASM NextGen Technical Campus</h1>
+                <p>Institute of Management &amp; Engineering</p>
+                <p class="college-info">
+                    A learning-focused institution committed to academic excellence,
+                    professional development and student growth.
+                </p>
+            </div>
+        </div>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="campus.html">Campus</a>
+            <a href="coursesprog.html">Courses &amp; Programs</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="placement.html">Placements</a>
+            <a href="department.html">Department</a>
+            <a href="Faculty.html" class="active" aria-current="page">Faculty</a>
+            <a href="addmission.html">Admissions</a>
+        </nav>
+    </header>
+
+    <section class="page-title">
+        <span class="title-label">EXCELLENCE IN EDUCATION</span>
+        <h2>Our Faculty</h2>
+        <p>
+            Meet our experienced and dedicated faculty members, committed to
+            guiding students towards academic and professional success.
+        </p>
+    </section>
+
+    <!-- SEARCH AND DEPARTMENT FILTER -->
+    <section class="faculty-search" aria-label="Search faculty">
+        <div class="search-filter-container">
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search faculty by name..."
+                aria-label="Search faculty"
+            >
+
+            <select id="departmentFilter" aria-label="Filter by department">
+                <option value="all">All Departments</option>
+            </select>
+        </div>
+
+        <p id="searchMessage" aria-live="polite">Know our faculty members!</p>
+    </section>
+
+    <main>
+        <section class="faculty-section">
+            <h2 class="section-heading">Meet Our Faculty Members</h2>
+
+            <p id="loadingMessage" aria-live="polite">
+                Loading faculty information...
+            </p>
+
+            <div class="faculty-grid" id="facultyGrid"></div>
+
+            <p id="noResults" hidden>
+                No faculty members found. Try another search.
+            </p>
+        </section>
+
+        <!-- FACULTY ENQUIRY FORM -->
+        <section class="enquiry-section" id="enquiry">
+            <div class="enquiry-container">
+                <h2 class="section-heading">Faculty Enquiry Form</h2>
+
+                <p class="enquiry-intro">
+                    Have a question about our faculty or academic departments?
+                    Send us your enquiry.
+                </p>
+
+                <form id="enquiryForm" class="enquiry-form" novalidate>
+                    <div class="form-field">
+                        <label for="enquiryName">Full Name *</label>
+                        <input id="enquiryName" name="name" type="text"
+                               required minlength="2" maxlength="60">
+                        <small class="field-error" id="nameError"></small>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="enquiryEmail">Email Address *</label>
+                        <input id="enquiryEmail" name="email" type="email"
+                               required maxlength="100">
+                        <small class="field-error" id="emailError"></small>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="enquiryPhone">Phone Number *</label>
+                        <input id="enquiryPhone" name="phone" type="tel"
+                               inputmode="numeric" pattern="[6-9][0-9]{9}"
+                               maxlength="10" required
+                               placeholder="10-digit mobile number">
+                        <small class="field-error" id="phoneError"></small>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="enquirySubject">Enquiry Subject *</label>
+                        <input id="enquirySubject" name="subject" type="text"
+                               required minlength="3" maxlength="100">
+                        <small class="field-error" id="subjectError"></small>
+                    </div>
+
+                    <div class="form-field full-width">
+                        <label for="enquiryMessage">Message *</label>
+                        <textarea id="enquiryMessage" name="message"
+                                  required minlength="10" maxlength="1000"></textarea>
+                        <small class="field-error" id="messageError"></small>
+                    </div>
+
+                    <p id="formStatus" class="form-status"
+                       role="status" aria-live="polite"></p>
+
+                    <button type="submit" class="submit-button">
+                        Validate Enquiry
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Audyogik Shikshan Mandal's NextGen Technical Campus</h3>
+                <p>Institute of Management &amp; Engineering</p>
+                <p>Committed to quality education, skill development and overall student growth.</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Academic Information</h3>
+                <p>Computer Applications</p>
+                <p>Management Studies</p>
+                <p>Engineering &amp; Technology</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact Information</h3>
+                <p>Talegaon Dabhade, Pune, Maharashtra</p>
+                <p>Email: admission.asmnextgen@asmedu.org</p>
+                <p>Phone: +91 90280 76028</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 ASM's NextGen Technical Campus. All Rights Reserved.</p>
+            <p>Faculty Department | ASM</p>
+        </div>
+    </footer>
+
+    <!-- FACULTY DETAILS MODAL -->
+    <div class="faculty-modal" id="facultyModal" hidden>
+        <div class="faculty-modal-content"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="modalFacultyName">
+
+            <button type="button" class="faculty-modal-close"
+                    aria-label="Close faculty details">&times;</button>
+
+            <img id="modalFacultyPhoto" src="" alt="">
+            <h2 id="modalFacultyName">Faculty Details</h2>
+            <p id="modalFacultyDesignation"></p>
+            <p id="modalFacultyDepartment"></p>
+            <p id="modalFacultyQualification"></p>
+            <p id="modalFacultyExperience"></p>
+        </div>
+    </div>
+    <script src="../js/motion.js" defer></script>
+</body>
+</html>

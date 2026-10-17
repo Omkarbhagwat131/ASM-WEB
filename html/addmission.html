@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <title>Admissions | ASM's NextGen Technical Campus</title>
 
-    <link rel="stylesheet" href="css/asm.css">
+    <link rel="stylesheet" href="../css/addmission.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -408,6 +411,10 @@
             }
         }
     </style>
+
+    <link rel="stylesheet" href="../css/site-shell.css">
+    <script src="../js/site-shell.js" defer></script>
+    <link rel="stylesheet" href="../css/motion.css">
 </head>
 
 <body>
@@ -417,7 +424,7 @@
         <div class="nav-container">
 
             <a href="home.html" class="college-brand">
-                <img src="image/asm-logo.png"
+                <img src="../image/asm-logo.png"
                      alt="ASM College Logo"
                      class="college-logo">
             </a>
@@ -432,11 +439,11 @@
                 <a href="about.html">About</a>
                 <a href="campus.html">Campus</a>
                 <a href="coursesprog.html">Courses &amp; Programs</a>
-                <a href="contacts.html">Contact Us</a>
-                <a href="placements.html">Placements</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="placement.html">Placements</a>
                 <a href="department.html">Department</a>
                 <a href="Faculty.html">Faculty</a>
-                <a href="admissions.html" class="active"
+                <a href="addmission.html" class="active"
                    aria-current="page">Admissions</a>
             </nav>
 
@@ -482,7 +489,7 @@
             <h2>Choose Your Career Path</h2>
             <div class="section-underline"></div>
 
-            <div class="admission-grid">
+            <div class="admission-grid" id="admission-programs">
 
                 <article class="admission-card">
                     <div class="admission-icon">
@@ -542,7 +549,7 @@
                 for their chosen programme.
             </p>
 
-            <div class="eligibility-grid">
+            <div class="eligibility-grid" id="admission-eligibility">
 
                 <article class="admission-card">
                     <div class="admission-icon">
@@ -616,7 +623,7 @@
             <h2>Admission Process</h2>
             <div class="section-underline"></div>
 
-            <div class="process-grid">
+            <div class="process-grid" id="admission-process-steps">
 
                 <article class="admission-card">
                     <div class="process-number">1</div>
@@ -660,7 +667,7 @@
                 availability, eligibility and admission procedures.
             </p>
 
-            <a href="contacts.html" class="contact-btn">
+            <a href="contact.html" class="contact-btn">
                 Contact Us
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
@@ -669,7 +676,9 @@
     </main>
 
     <!-- Scripts -->
-    <script src="js/admission.js"></script>
+    <script src="../js/admission.js"></script>
 
+
+    <script src="../js/motion.js" defer></script>
 </body>
 </html>

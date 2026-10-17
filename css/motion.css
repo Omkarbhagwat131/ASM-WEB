@@ -1,0 +1,261 @@
+/* Shared motion styles based on the Faculty page's entrance animations. */
+body {
+  font-family: "Roboto", Arial, sans-serif !important;
+}
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-family: "Raleway", Arial, sans-serif !important;
+}
+
+.main-navigation,
+.main-nav {
+  width: 100% !important;
+  background: #e8f1f8 !important;
+  border-top: 1px solid #d8e8f6 !important;
+  border-bottom: 1px solid #d8e8f6 !important;
+}
+
+.main-navigation a,
+.main-nav a,
+.shell-navigation a {
+  color: #174f7c !important;
+}
+
+.main-navigation a:hover,
+.main-navigation a.active,
+.main-nav a:hover,
+.main-nav a.active,
+.shell-navigation a:hover,
+.shell-navigation a.active {
+  background: #d9edff !important;
+  color: #075e9c !important;
+}
+
+.main-navigation .dropdown-menu {
+  background: #f2f8fd !important;
+}
+
+body > .site-header > .shell-navigation {
+  width: calc(100% + 8vw) !important;
+  max-width: none !important;
+  margin: 12px -4vw 0 !important;
+  padding: 12px 4vw !important;
+  border-top: 1px solid #d8e8f6 !important;
+  border-bottom: 1px solid #d8e8f6 !important;
+  background: #e8f1f8 !important;
+}
+
+.site-header > .main-nav {
+  width: calc(100% + 70px) !important;
+  margin: 15px -35px 0 !important;
+  padding-right: 14px;
+  padding-left: 14px;
+  background: #e8f1f8 !important;
+}
+
+@media (max-width: 900px) {
+  .site-header > .main-nav {
+    width: calc(100% + 44px) !important;
+    margin-right: -22px !important;
+    margin-left: -22px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body > .site-header > .shell-navigation {
+    width: calc(100% + 32px) !important;
+    margin-right: -16px !important;
+    margin-left: -16px !important;
+    padding-right: 16px !important;
+    padding-left: 16px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header > .main-nav {
+    width: calc(100% + 30px) !important;
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .testimonials-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.motion-header,
+body.motion-enabled .site-header { animation: fadeInDown .7s ease both; }
+
+body.motion-enabled .college-logo,
+body.motion-enabled .shell-logo {
+  animation: asmLogoEnter .75s cubic-bezier(.2, .7, .25, 1) .12s both;
+}
+
+body.motion-enabled .anniversary-logo,
+body.motion-enabled .shell-anniversary {
+  animation: asmLogoEnter .75s cubic-bezier(.2, .7, .25, 1) .24s both;
+}
+
+.motion-title-label,
+.motion-title,
+.motion-title-copy {
+  animation: fadeInUp .7s ease both;
+}
+
+.motion-title { animation-delay: .15s; }
+.motion-title-copy { animation-delay: .3s; }
+
+.motion-form {
+  animation: formEnter .65s cubic-bezier(.2, .7, .25, 1) var(--form-motion-delay, 0ms) both;
+  transform-origin: center top;
+}
+
+@keyframes formEnter {
+  from { opacity: 0; transform: translateY(18px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.motion-reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s ease var(--motion-delay, 0ms), transform .7s ease var(--motion-delay, 0ms);
+}
+
+.motion-reveal.motion-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+main article,
+main [class*="card"] {
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+main article:hover,
+main [class*="card"]:hover {
+  transform: translateY(-5px);
+}
+
+button,
+a {
+  transition: color .25s ease, background-color .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+button:hover,
+a.button:hover,
+a.btn:hover {
+  transform: translateY(-2px);
+}
+
+dialog[open],
+.modal-content,
+.modal-dialog,
+[role="dialog"] {
+  animation: popupZoomIn .3s ease both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popupZoomIn {
+  from { opacity: 0; transform: scale(.94) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes underlineGrow {
+  from { width: 0; }
+  to { width: 65px; }
+}
+
+@keyframes asmLogoEnter {
+  from { opacity: 0; scale: .84; }
+  to { opacity: 1; scale: 1; }
+}
+
+.standard-footer {
+  padding: 42px 8% 20px;
+  border-top: 1px solid #d8e8f6;
+  background: #e8f1f8;
+  color: #173b5c;
+}
+
+.standard-footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.standard-footer-column { min-width: 0; }
+
+.standard-footer-column h3 {
+  margin: 0 0 13px;
+  color: #082847;
+  font-family: inherit;
+  font-size: 18px;
+}
+
+.standard-footer-column p {
+  margin: 0 0 8px;
+  color: #345675;
+  font-size: 14px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+.standard-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 1200px;
+  margin: 30px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid #c5d9eb;
+  color: #345675;
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .standard-footer-content { grid-template-columns: 1fr; gap: 22px; }
+  .standard-footer-bottom { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-header,
+  .motion-title-label,
+  .motion-title,
+  .motion-title-copy,
+  .motion-form,
+  body.motion-enabled .college-logo,
+  body.motion-enabled .shell-logo,
+  body.motion-enabled .anniversary-logo,
+  body.motion-enabled .shell-anniversary,
+  dialog[open],
+  .modal-content,
+  .modal-dialog,
+  [role="dialog"] { animation: none !important; }
+
+  .motion-reveal { opacity: 1; transform: none; transition: none; }
+  main article,
+  main [class*="card"],
+  button,
+  a { transition: none !important; }
+  main article:hover,
+  main [class*="card"]:hover,
+  button:hover,
+  a.button:hover,
+  a.btn:hover { transform: none; }
+}

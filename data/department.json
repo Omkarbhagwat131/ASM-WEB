@@ -1,0 +1,8 @@
+﻿[
+  {"code":"MCA","name":"Computer Applications","program":"Master of Computer Applications","level":"Postgraduate","description":"Explore software development, programming, databases and modern computing through the MCA program."},
+  {"code":"MBA","name":"Management Studies","program":"Master of Business Administration","level":"Postgraduate","description":"Build knowledge in management, leadership, finance, marketing and business decision making."},
+  {"code":"BCA","name":"Computer Applications","program":"Bachelor of Computer Applications","level":"Undergraduate","description":"Develop a foundation in computer systems, programming, web technologies and application development."},
+  {"code":"BBA","name":"Business Administration","program":"Bachelor of Business Administration","level":"Undergraduate","description":"Study business fundamentals, marketing, finance, human resources and management."},
+  {"code":"B.Com","name":"Commerce","program":"Bachelor of Commerce","level":"Undergraduate","description":"Build understanding of commerce, accounting, finance and business practices."},
+  {"code":"M.Com","name":"Commerce","program":"Master of Commerce","level":"Postgraduate","description":"Advance your knowledge of accounting, finance, commerce and business."}
+]

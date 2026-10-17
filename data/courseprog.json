@@ -1,0 +1,57 @@
+
+[
+    {
+        "id": 1,
+        "name": "Master of Computer Applications (MCA)",
+        "category": "postgraduate",
+        "level": "Postgraduate",
+        "duration": "2 Years",
+        "description": "Develop advanced knowledge of computer applications, software development, databases and modern IT technologies.",
+        "link": "addmission.html"
+    },
+    {
+        "id": 2,
+        "name": "Master of Business Administration (MBA)",
+        "category": "postgraduate",
+        "level": "Postgraduate",
+        "duration": "2 Years",
+        "description": "Build management, leadership, business strategy and decision-making skills for professional careers.",
+        "link": "addmission.html"
+    },
+    {
+        "id": 3,
+        "name": "Bachelor of Computer Applications (BCA)",
+        "category": "undergraduate",
+        "level": "Undergraduate",
+        "duration": "3 Years",
+        "description": "Learn programming, computer systems, web technologies and application development fundamentals.",
+        "link": "addmission.html"
+    },
+    {
+        "id": 4,
+        "name": "Bachelor of Business Administration (BBA)",
+        "category": "undergraduate",
+        "level": "Undergraduate",
+        "duration": "3 Years",
+        "description": "Explore marketing, finance, human resources and the fundamentals of business management.",
+        "link": "addmission.html"
+    },
+    {
+        "id": 5,
+        "name": "Bachelor of Commerce (B.Com)",
+        "category": "undergraduate",
+        "level": "Undergraduate",
+        "duration": "3 Years",
+        "description": "Study accounting, commerce, finance and business-related subjects.",
+        "link": "addmission.html"
+    },
+    {
+        "id": 6,
+        "name": "Master of Commerce (M.Com)",
+        "category": "postgraduate",
+        "level": "Postgraduate",
+        "duration": "2 Years",
+        "description": "Develop deeper understanding of accounting, finance, commerce and business practices.",
+        "link": "addmission.html"
+    }
+]

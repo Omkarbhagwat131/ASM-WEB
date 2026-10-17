@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Explore the campus facilities, learning environment and infrastructure at ASM's NextGen Technical Campus.">
+
+    <title>Campus | ASM's NextGen Technical Campus</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Roboto:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Campus CSS -->
+    <link rel="stylesheet" href="../css/campus.css">
+
+    <link rel="stylesheet" href="../css/site-shell.css">
+    <script src="../js/site-shell.js" defer></script>
+    <link rel="stylesheet" href="../css/motion.css">
+</head>
+
+<body class="campus-page">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="college-header">
+
+        <a href="home.html" class="college-brand" aria-label="ASM College Home">
+
+            <img src="../image/asm-logo.png"
+                alt="ASM College Logo">
+
+            <span>ASM's NextGen Technical Campus</span>
+
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button class="menu-toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="false">
+
+            <i class="fas fa-bars" aria-hidden="true"></i>
+
+        </button>
+
+        <!-- Navigation -->
+        <nav class="main-navigation" aria-label="Main navigation">
+
+            <a href="home.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="campus.html" class="active" aria-current="page">
+                Campus
+            </a>
+
+            <a href="coursesprog.html">Courses</a>
+
+            <a href="department.html">Departments</a>
+
+            <a href="Faculty.html">Faculty</a>
+
+            <a href="placement.html">Placements</a>
+
+            <a href="contact.html">Contact</a>
+            <a href="addmission.html">Admissions</a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             CAMPUS HERO
+        ========================== -->
+
+        <section class="campus-hero">
+
+            <div class="hero-content">
+
+                <p class="hero-label">WELCOME TO ASM</p>
+
+                <h1>Our Campus</h1>
+
+                <p>
+                    Discover a learning environment that encourages
+                    academic excellence, practical knowledge,
+                    innovation and student development.
+                </p>
+
+                <a href="#campus-facilities" class="hero-button">
+                    Explore Campus
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CAMPUS INTRODUCTION
+        ========================== -->
+
+        <section class="campus-intro">
+
+            <div class="section-heading">
+
+                <span>ABOUT OUR CAMPUS</span>
+
+                <h2>A Place to Learn and Grow</h2>
+
+                <p>
+                    A supportive academic environment helps students
+                    develop their knowledge, technical abilities
+                    and confidence for the future.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CAMPUS FACILITIES
+        ========================== -->
+
+        <section class="facilities-section" id="campus-facilities">
+
+            <div class="section-heading">
+
+                <span>EXPLORE OUR INFRASTRUCTURE</span>
+
+                <h2>Campus Facilities</h2>
+
+                <p>
+                    Explore the facilities and learning spaces
+                    available to support student life and education.
+                </p>
+
+            </div>
+
+            <!-- Loading and error messages -->
+            <p id="campus-status"
+                class="campus-status"
+                role="status"
+                aria-live="polite">
+
+                Loading campus facilities...
+
+            </p>
+
+            <!-- Cards are generated from campus.json -->
+            <div id="campus-container" class="campus-grid">
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CALL TO ACTION
+        ========================== -->
+
+        <section class="campus-cta">
+
+            <div class="cta-content">
+
+                <h2>Start Your Academic Journey</h2>
+
+                <p>
+                    Explore our programmes and take the next step
+                    towards your educational goals.
+                </p>
+
+                <a href="coursesprog.html" class="hero-button">
+                    Explore Courses
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER WITH CAMPUS IMAGE
+    ========================== -->
+
+    <footer class="college-footer">
+
+        <p>
+            &copy; <span id="current-year"></span>
+            ASM's NextGen Technical Campus.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- Campus JavaScript -->
+    <script src="../js/campus.js" defer></script>
+    <script src="../js/motion.js" defer></script>
+</body>
+
+</html> 

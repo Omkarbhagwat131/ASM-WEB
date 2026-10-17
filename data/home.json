@@ -1,0 +1,189 @@
+
+{
+  "collegeName": "ASM NextGen Technical Campus",
+  "tagline": "Institute of Management & Engineering",
+  "logo": "../image/asm-logo.png",
+  "anniversaryLogo": "../image/42-years.png",
+  "campusImage": "../image/asm-campus-building.png",
+
+  "navigation": [
+    {
+      "label": "Home",
+      "url": "home.html"
+    },
+    {
+      "label": "About",
+      "url": "about.html"
+    },
+    {
+      "label": "Campus",
+      "url": "campus.html"
+    },
+    {
+      "label": "Courses & Programs",
+      "url": "coursesprog.html"
+    },
+    {
+      "label": "Contact Us",
+      "url": "contact.html"
+    },
+    {
+      "label": "Placements",
+      "url": "placement.html"
+    },
+    {
+      "label": "Department",
+      "url": "department.html"
+    },
+    {
+      "label": "Faculty",
+      "url": "Faculty.html"
+    },
+    {
+      "label": "Admissions",
+      "url": "admission.html"
+    }
+  ],
+
+  "hero": {
+    "heading": "Welcome to ASM NextGen Technical Campus",
+    "subheading": "Learn, Innovate and Build Your Future",
+    "description": "Explore academic programs, campus facilities and opportunities for professional growth.",
+    "buttonText": "Explore Our Campus",
+    "buttonLink": "#popular-courses",
+    "backgroundImage": "../image/asm-campus-building.png"
+  },
+
+  "courses": [
+    {
+      "id": 1,
+      "title": "Master of Computer Applications",
+      "shortName": "MCA",
+      "description": "Learn software development, programming, databases and modern computing technologies.",
+      "category": "postgraduate"
+    },
+    {
+      "id": 2,
+      "title": "Master of Business Administration",
+      "shortName": "MBA",
+      "description": "Develop management, leadership, communication and business skills.",
+      "category": "postgraduate"
+    },
+    {
+      "id": 3,
+      "title": "Engineering Programs",
+      "shortName": "Engineering",
+      "description": "Explore engineering education, technical concepts and practical projects.",
+      "category": "undergraduate"
+    },
+    {
+      "id": 4,
+      "title": "Bachelor of Computer Applications",
+      "shortName": "BCA",
+      "description": "Learn programming, computer systems, web technologies and application development.",
+      "category": "undergraduate"
+    },
+    {
+      "id": 5,
+      "title": "Bachelor of Business Administration",
+      "shortName": "BBA",
+      "description": "Explore marketing, finance, human resources and business management.",
+      "category": "undergraduate"
+    },
+    {
+      "id": 6,
+      "title": "Bachelor of Commerce",
+      "shortName": "B.Com",
+      "description": "Study accounting, commerce, finance and business-related subjects.",
+      "category": "undergraduate"
+    }
+  ],
+
+  "highlights": [
+    {
+      "number": "42+",
+      "title": "Years of Excellence",
+      "description": "A legacy of education and learning."
+    },
+    {
+      "number": "Career",
+      "title": "Development",
+      "description": "Build professional skills through learning and projects."
+    },
+    {
+      "number": "Industry",
+      "title": "Focused Learning",
+      "description": "Explore technical knowledge and industry-oriented skills."
+    }
+  ],
+
+  "whyChooseASM": [
+    {
+      "title": "Academic Learning",
+      "description": "Build a strong foundation through structured academic learning."
+    },
+    {
+      "title": "Practical Projects",
+      "description": "Apply concepts through projects and hands-on activities."
+    },
+    {
+      "title": "Career Preparation",
+      "description": "Improve technical skills, communication and interview readiness."
+    }
+  ],
+
+  "events": [
+    {
+      "id": 1,
+      "title": "Technical Activities",
+      "description": "Participate in technical learning and project activities."
+    },
+    {
+      "id": 2,
+      "title": "Seminars and Workshops",
+      "description": "Explore learning opportunities through seminars and workshops."
+    },
+    {
+      "id": 3,
+      "title": "Campus Events",
+      "description": "Discover student activities and campus events."
+    }
+  ],
+
+  "testimonials": [
+    {
+      "name": "ASM Student",
+      "course": "Student",
+      "message": "Practical learning and project activities help students develop their skills."
+    },
+    {
+      "name": "ASM Alumni",
+      "course": "Alumni",
+      "message": "Continuous learning and skill development are important for career growth."
+    },
+    {
+      "name": "ASM Graduate",
+      "course": "Alumni",
+      "message": "Supportive mentors and hands-on learning helped me prepare for my next career step."
+    }
+  ],
+
+  "placementHighlights": [
+    {
+      "title": "Career Guidance",
+      "description": "Prepare for interviews and professional opportunities."
+    },
+    {
+      "title": "Skill Development",
+      "description": "Develop technical and communication skills."
+    }
+  ],
+
+  "footer": {
+    "collegeName": "ASM NextGen Technical Campus",
+    "address": "Talegaon, Pune, Maharashtra, India",
+    "email": "",
+    "phone": "",
+    "copyright": "All rights reserved."
+  }
+}

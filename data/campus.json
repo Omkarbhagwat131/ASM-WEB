@@ -1,0 +1,53 @@
+
+{
+  "facilities": [
+    {
+      "id": "classrooms",
+      "name": "Modern Classrooms",
+      "category": "academic",
+      "description": "Learning spaces for classroom teaching, discussions and academic activities.",
+      "image": "../image/asm-campus-building.png",
+      "icon": "fa-solid fa-chalkboard"
+    },
+    {
+      "id": "computer-labs",
+      "name": "Computer Labs",
+      "category": "technology",
+      "description": "Explore computer-based learning and practical technical education.",
+      "image": "../image/asm-campus-building.png",
+      "icon": "fa-solid fa-computer"
+    },
+    {
+      "id": "library",
+      "name": "Library",
+      "category": "academic",
+      "description": "Library-related information and academic resources. Contact the college to confirm available facilities.",
+      "image": "../image/asm-campus-building.png",
+      "icon": "fa-solid fa-book-open"
+    },
+    {
+      "id": "boys-hostel",
+      "name": "Boys Hostel",
+      "category": "student",
+      "description": "Contact the college administration to confirm boys hostel availability, fees, accommodation and admission details.",
+      "image": "../image/hostel.png",
+      "icon": "fa-solid fa-bed"
+    },
+    {
+      "id": "girls-hostel",
+      "name": "Girls Hostel",
+      "category": "student",
+      "description": "Contact the college administration to confirm girls hostel availability, fees, accommodation and admission details.",
+      "image": "../image/hostel.png",
+      "icon": "fa-solid fa-person-dress"
+    },
+    {
+      "id": "sports",
+      "name": "Sports and Recreation",
+      "category": "sports",
+      "description": "Contact the college to learn about sports facilities and recreational activities available to students.",
+      "image": "../image/asm-campus-building.png",
+      "icon": "fa-solid fa-volleyball"
+    }
+  ]
+}

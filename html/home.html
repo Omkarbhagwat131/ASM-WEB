@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Welcome to ASM NextGen Technical Campus, Institute of Management and Engineering.">
+
+    <title>ASM NextGen Technical Campus | Home</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Home CSS -->
+    <link rel="stylesheet" href="../css/home.css">
+
+    <link rel="stylesheet" href="../css/motion.css">
+</head>
+
+<body>
+
+    <!-- COLLEGE HEADER -->
+    <header class="college-header">
+        <div class="header-inner">
+
+            <a href="home.html" class="logo-area" aria-label="ASM Home">
+                <img src="../image/asm-logo.png"
+                     alt="ASM Logo"
+                     class="college-logo">
+            </a>
+
+            <div class="college-title">
+                <h1>ASM NextGen Technical Campus</h1>
+                <p>Institute of Management &amp; Engineering</p>
+            </div>
+
+            <img src="../image/42-years.png"
+                 alt="42 Years of Excellence"
+                 class="anniversary-logo">
+        </div>
+    </header>
+
+
+    <!-- NAVIGATION -->
+    <nav class="main-navigation" aria-label="Main navigation">
+
+        <button class="menu-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="navigation-list"
+                aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-list" id="navigation-list">
+
+            <li><a class="nav-link active" href="home.html">Home</a></li>
+            <li><a class="nav-link" href="about.html">About</a></li>
+            <li><a class="nav-link" href="campus.html">Campus</a></li>
+
+            <li class="dropdown">
+                <a class="nav-link" href="coursesprog.html">
+                    Courses
+                    <span aria-hidden="true">⌄</span>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a href="coursesprog.html">All Courses</a></li>
+                    <li><a href="department.html">Departments</a></li>
+                    <li><a href="admission.html">Admissions</a></li>
+                </ul>
+            </li>
+
+            <li><a class="nav-link" href="contact.html">Contact Us</a></li>
+            <li><a class="nav-link" href="placement.html">Placements</a></li>
+            <li><a class="nav-link" href="department.html">Department</a></li>
+            <li><a class="nav-link" href="Faculty.html">Faculty</a></li>
+            <li><a class="nav-link" href="admission.html">Admissions</a></li>
+
+        </ul>
+    </nav>
+
+
+    <main>
+
+        <!-- HERO AND LOGIN -->
+        <section class="hero-section hero" id="home">
+
+            <!-- Building background: animated through CSS -->
+            <div class="hero-background"
+                 id="campus-background"
+                 aria-hidden="true"></div>
+
+            <div class="hero-overlay" aria-hidden="true"></div>
+
+            <!-- Welcome content -->
+            <div class="hero-intro" id="hero-intro">
+                <p class="hero-eyebrow">WELCOME TO ASM</p>
+
+                <h2>
+                    Building Knowledge.
+                    <span>Creating Futures.</span>
+                </h2>
+
+                <p>
+                    Discover learning opportunities at
+                    ASM NextGen Technical Campus.
+                </p>
+
+                <a href="#popular-courses" class="explore-button">
+                    Explore Our Campus
+                    <span aria-hidden="true">→</span>
+                </a>
+            </div>
+
+
+            <!-- LOGIN CARD -->
+            <section class="login-card"
+                     id="login-card"
+                     aria-labelledby="login-title"
+                     aria-hidden="true">
+
+                <div class="login-heading">
+                    <h2 id="login-title">Welcome Back</h2>
+                    <p>Login to access your campus portal</p>
+                </div>
+
+                <form id="login-form">
+
+                    <div class="form-group">
+                        <label for="login-role">Login as</label>
+
+                        <select id="login-role" name="role" required>
+                            <option value="">Select your role</option>
+                            <option value="student">Student</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+
+                        <input type="email"
+                               id="login-email"
+                               name="email"
+                               placeholder="Enter your email"
+                               autocomplete="username"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+
+                        <div class="password-wrapper">
+                            <input type="password"
+                                   id="login-password"
+                                   name="password"
+                                   placeholder="Enter your password"
+                                   autocomplete="current-password"
+                                   required>
+
+                            <button type="button"
+                                    id="password-toggle"
+                                    class="password-toggle"
+                                    aria-label="Show password"
+                                    aria-pressed="false">
+                                Show
+                            </button>
+                        </div>
+                    </div>
+
+                    <label class="remember-option">
+                        <input type="checkbox" id="remember-email">
+                        <span>Remember my email</span>
+                    </label>
+
+                    <button type="submit" class="login-button">
+                        Login
+                    </button>
+
+                    <p id="login-message"
+                       class="login-message"
+                       role="status"
+                       aria-live="polite"></p>
+
+                    <p class="demo-note">
+                        Authorised campus portal access
+                    </p>
+
+                </form>
+            </section>
+
+            <a href="#popular-courses"
+               class="scroll-indicator"
+               aria-label="Scroll to courses">
+                <span></span>
+            </a>
+        </section>
+
+
+        <!-- HIGHLIGHTS -->
+        <section class="highlights-section section-padding">
+            <div class="section-heading">
+                <p class="section-eyebrow">DISCOVER ASM</p>
+                <h2>Learn. Grow. Achieve.</h2>
+                <p>
+                    Build knowledge, develop practical skills and
+                    prepare for future opportunities.
+                </p>
+            </div>
+
+            <div class="highlights-grid" id="highlights-grid">
+                <p class="loading-message">Loading highlights...</p>
+            </div>
+        </section>
+
+
+        <!-- COURSES -->
+        <section class="courses-section section-padding"
+                 id="popular-courses">
+
+            <div class="section-heading">
+                <p class="section-eyebrow">ACADEMIC PROGRAMS</p>
+                <h2>Explore Our Courses</h2>
+                <p>Find a program that matches your interests.</p>
+            </div>
+
+            <!-- Search and category filter -->
+            <div class="course-tools">
+
+                <label class="visually-hidden" for="course-search">
+                    Search courses
+                </label>
+
+                <input type="search"
+                       id="course-search"
+                       placeholder="Search courses..."
+                       autocomplete="off">
+
+                <label class="visually-hidden" for="course-category">
+                    Filter courses by category
+                </label>
+
+                <select id="course-category">
+                    <option value="all">All Programs</option>
+                    <option value="postgraduate">Postgraduate</option>
+                    <option value="undergraduate">Undergraduate</option>
+                    <option value="management">Management</option>
+                    <option value="technology">Technology</option>
+                </select>
+            </div>
+
+            <!-- Courses are rendered from home.json -->
+            <div class="courses-grid"
+                 id="courses-container"
+                 aria-live="polite">
+                <p class="loading-message">Loading courses...</p>
+            </div>
+
+            <p id="course-status"
+               class="section-status"
+               role="status"
+               aria-live="polite"></p>
+
+            <div class="section-action">
+                <a href="coursesprog.html" class="outline-button">
+                    View All Courses →
+                </a>
+            </div>
+        </section>
+
+
+        <!-- WHY CHOOSE ASM -->
+        <section class="why-asm-section section-padding">
+
+            <div class="why-asm-content">
+                <p class="section-eyebrow">WHY CHOOSE ASM?</p>
+
+                <h2>Learning Beyond the Classroom</h2>
+
+                <p>
+                    Explore academic learning, practical skills,
+                    collaborative activities and career preparation
+                    at ASM NextGen Technical Campus.
+                </p>
+
+                <ul class="benefits-list">
+                    <li>Student-focused learning</li>
+                    <li>Practical skills and project development</li>
+                    <li>Career guidance and interview preparation</li>
+                    <li>Academic and professional development</li>
+                </ul>
+
+                <a href="about.html" class="primary-button">
+                    Know More About ASM →
+                </a>
+            </div>
+
+            <div class="why-asm-image">
+                <img src="../image/asm-campus-building.png"
+                     alt="ASM NextGen Technical Campus building"
+                     loading="lazy">
+            </div>
+
+        </section>
+
+
+        <!-- PLACEMENTS -->
+        <section class="placements-section section-padding">
+
+            <div class="section-heading">
+                <p class="section-eyebrow">CAREER OPPORTUNITIES</p>
+                <h2>Placement Highlights</h2>
+                <p>
+                    Explore career preparation and placement-related
+                    activities.
+                </p>
+            </div>
+
+            <div id="placement-stats"
+                 class="placement-stats"
+                 aria-live="polite">
+                <p class="loading-message">Loading highlights...</p>
+            </div>
+
+            <div class="section-action">
+                <a href="placement.html" class="outline-button">
+                    Explore Placements →
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- CAMPUS GALLERY -->
+        <section class="gallery-section section-padding">
+
+            <div class="section-heading">
+                <p class="section-eyebrow">LIFE AT ASM</p>
+                <h2>Explore Our Campus</h2>
+            </div>
+
+            <div class="gallery-grid">
+
+                <a href="campus.html" class="gallery-item gallery-large">
+                    <img src="../image/asm-campus-building.png"
+                         alt="ASM campus building"
+                         loading="lazy">
+                    <span>Our Campus</span>
+                </a>
+
+                <a href="Faculty.html" class="gallery-item gallery-small">
+                    <div class="gallery-placeholder">
+                        <span aria-hidden="true">👩‍🏫</span>
+                        <h3>Our Faculty</h3>
+                        <p>Meet our faculty members</p>
+                    </div>
+                </a>
+
+                <a href="department.html" class="gallery-item gallery-small">
+                    <div class="gallery-placeholder">
+                        <span aria-hidden="true">📚</span>
+                        <h3>Departments</h3>
+                        <p>Discover academic departments</p>
+                    </div>
+                </a>
+
+            </div>
+            <div class="gallery-actions" aria-label="Explore ASM">
+                <a href="Faculty.html" class="primary-button">Meet Our Faculty</a>
+                <a href="department.html" class="outline-button">Explore Departments</a>
+            </div>
+        </section>
+
+
+        <!-- EVENTS -->
+        <section class="events-section section-padding">
+
+            <div class="section-heading">
+                <p class="section-eyebrow">CAMPUS UPDATES</p>
+                <h2>News &amp; Upcoming Events</h2>
+            </div>
+
+            <div class="events-grid"
+                 id="events-container"
+                 aria-live="polite">
+                <p class="loading-message">Loading events...</p>
+            </div>
+
+        </section>
+
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials-section section-padding">
+
+            <div class="section-heading">
+                <p class="section-eyebrow">STUDENT EXPERIENCE</p>
+                <h2>Student &amp; Alumni Testimonials</h2>
+            </div>
+
+            <div id="testimonials-container"
+                 class="testimonials-grid"
+                 aria-live="polite">
+                <p class="loading-message">Loading testimonials...</p>
+            </div>
+
+        </section>
+
+
+        <!-- ADMISSIONS CTA -->
+        <section class="admission-cta">
+
+            <div class="cta-content">
+                <p class="section-eyebrow">YOUR FUTURE STARTS HERE</p>
+                <h2>Ready to Explore Your Opportunities?</h2>
+
+                <p>
+                    Discover academic programs and learn about admissions.
+                </p>
+
+                <a href="admission.html" class="cta-button">
+                    Explore Admissions →
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="college-footer">
+
+        <div class="footer-grid">
+
+            <div class="footer-about">
+                <h3>ASM NextGen Technical Campus</h3>
+                <p>Institute of Management &amp; Engineering</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="about.html">About Us</a>
+                <a href="coursesprog.html">Courses</a>
+                <a href="admission.html">Admissions</a>
+                <a href="Faculty.html">Faculty</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Explore</h3>
+                <a href="campus.html">Campus</a>
+                <a href="department.html">Departments</a>
+                <a href="placement.html">Placements</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>ASM NextGen Technical Campus</p>
+                <p>Talegaon, Pune, Maharashtra, India</p>
+                <p>Please verify official contact details before publishing.</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                &copy; <span id="current-year"></span>
+                ASM NextGen Technical Campus. All rights reserved.
+            </p>
+        </div>
+
+    </footer>
+
+
+    <!-- Home JavaScript -->
+    <script src="../js/home.js" defer></script>
+
+
+    <script src="../js/motion.js" defer></script>
+</body>
+</html>

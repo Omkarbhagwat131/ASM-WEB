@@ -1,0 +1,31 @@
+﻿{
+  "programmes": [
+    {
+      "level": "Undergraduate",
+      "title": "Engineering",
+      "icon": "fa-solid fa-gears",
+      "description": "Build a foundation in engineering, technology and practical problem-solving through laboratory work and project-based learning.",
+      "highlights": ["Engineering fundamentals", "Practical laboratory experience", "Project-based learning", "Technical skill development"]
+    },
+    {
+      "level": "Postgraduate",
+      "title": "Master of Computer Applications (MCA)",
+      "icon": "fa-solid fa-laptop-code",
+      "description": "Strengthen your knowledge of computer applications, software development and modern computing technologies.",
+      "highlights": ["Programming and software development", "Database and web technologies", "Practical software projects", "Professional skill development"]
+    }
+  ],
+  "eligibilityIntro": "Applicants should verify the current eligibility, entrance examination and admission requirements for their chosen programme.",
+  "eligibility": [
+    {"icon":"fa-solid fa-graduation-cap","title":"Engineering Qualification","description":"Applicants generally need to meet the prescribed educational qualifications, subjects and minimum marks for the selected undergraduate engineering programme."},
+    {"icon":"fa-solid fa-file-signature","title":"Engineering Entrance","description":"Applicants must meet the applicable entrance examination and merit requirements, as specified by the current admission rules."},
+    {"icon":"fa-solid fa-user-graduate","title":"MCA Graduation Requirement","description":"Applicants need a recognised bachelor's degree and must satisfy the current subject and eligibility requirements for MCA admission."},
+    {"icon":"fa-solid fa-award","title":"MCA Entrance Requirements","description":"Applicants must fulfil the applicable entrance examination, merit and counselling requirements prescribed for the admission year."}
+  ],
+  "eligibilityNote": "Eligibility rules may vary by programme and admission year. Confirm the latest official requirements before applying.",
+  "process": [
+    {"title":"Application","description":"Review the programme requirements and complete the applicable admission application."},
+    {"title":"Document Verification","description":"Prepare and submit the required academic and supporting documents for verification."},
+    {"title":"Admission Confirmation","description":"Complete the prescribed counselling, fee payment and admission formalities."}
+  ]
+}

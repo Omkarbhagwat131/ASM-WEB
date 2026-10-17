@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Placements | ASM Technical Campus</title>
 
     <!-- Main Centralized Stylesheet -->
-    <link rel="stylesheet" href="css/asm.css">
+    <link rel="stylesheet" href="../css/placement.css">
 
     <!-- FontAwesome Icons for Visuals -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/site-shell.css">
+    <script src="../js/site-shell.js" defer></script>
+    <link rel="stylesheet" href="../css/motion.css">
 </head>
 <body>
 
@@ -103,7 +110,7 @@
 
         <!-- Placement Statistics Section -->
         <section id="stats" class="stats-section">
-          <div class="stats-container">
+          <div class="stats-container" id="placement-stats">
             <div class="stat-box">
               <i class="fa-solid fa-trophy stat-icon"></i> 
               <h2 class="counter" data-target="18">18+</h2>
@@ -127,7 +134,7 @@
             <h2>Placement Highlights</h2>
             <div class="underline"></div>
 
-            <div class="department-container">
+            <div class="department-container" id="placement-highlights">
                 <div class="department-card">
                     <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
                     <span class="department-code">Success Rate</span>
@@ -149,12 +156,6 @@
                     <p>Active corporate recruiting partners conducting annual campus drives.</p>
                 </div>
 
-                <div class="department-card">
-                    <div class="card-icon"><i class="fa-solid fa-user-check"></i></div>
-                    <span class="department-code">Average Package</span>
-                    <h3>4.5 LPA</h3>
-                    <p>Average salary package offered to fresh graduates.</p>
-                </div>
             </div>
         </section>
 
@@ -163,7 +164,7 @@
             <h2>Placement Preparation & Training</h2>
             <div class="underline"></div>
 
-            <div class="steps-grid">
+            <div class="steps-grid" id="placement-training">
                 <div class="step-card">
                     <span class="step-number">01</span>
                     <h3>Technical Aptitude</h3>
@@ -201,7 +202,7 @@
             <h2>Our Key Recruiters</h2>
             <div class="underline"></div>
 
-            <div class="document-list">
+            <div class="document-list" id="placement-recruiters">
                 <div class="document-item">
                     <span class="document-icon"><i class="fa-solid fa-building"></i></span>
                     <div>
@@ -237,9 +238,11 @@
         </section>
     </main>
 
-    <footer style="background-color: #0f172a; color: #fff; text-align: center; padding: 20px; margin-top: 40px;">
+    <footer class="college-footer">
         <p>&copy; 2026 ASM's Nextgen Technical Campus. All Rights Reserved.</p>
     </footer>
-<script src="js/placement.js" defer></script>
+<script src="../js/placement.js" defer></script>
+
+    <script src="../js/motion.js" defer></script>
 </body>
 </html>

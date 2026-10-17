@@ -1,0 +1,79 @@
+
+{
+  "introduction": {
+    "heading": "Learning Beyond Classrooms",
+    "paragraphs": [
+      "ASM's NextGen Technical Campus aims to provide a learning environment that encourages academic development, practical understanding and professional growth.",
+      "The institution focuses on helping students strengthen their knowledge, develop problem-solving abilities and prepare for changing industry expectations.",
+      "Through academic activities, collaborative learning and skill development, students are encouraged to become responsible professionals and lifelong learners."
+    ]
+  },
+  "vision": {
+    "icon": "◎",
+    "title": "Our Vision",
+    "description": "To support the development of knowledgeable, skilled, ethical and responsible professionals who can contribute positively to society and the professional world."
+  },
+  "mission": {
+    "icon": "✦",
+    "title": "Our Mission",
+    "description": "To encourage quality learning, practical knowledge, critical thinking, professional skills and continuous improvement through a supportive educational environment."
+  },
+  "values": [
+    {
+      "icon": "◆",
+      "title": "Excellence",
+      "description": "Encouraging continuous learning, high standards and improvement in academic and professional development."
+    },
+    {
+      "icon": "🤝",
+      "title": "Integrity",
+      "description": "Promoting honesty, responsibility, fairness and ethical conduct in learning and professional life."
+    },
+    {
+      "icon": "◇",
+      "title": "Innovation",
+      "description": "Encouraging creativity, curiosity, problem-solving and openness to new ideas and technologies."
+    },
+    {
+      "icon": "◎",
+      "title": "Collaboration",
+      "description": "Supporting teamwork, communication, mutual respect and shared learning experiences."
+    },
+    {
+      "icon": "↗",
+      "title": "Growth",
+      "description": "Helping learners build confidence, develop new skills and pursue continuous personal improvement."
+    },
+    {
+      "icon": "♡",
+      "title": "Social Responsibility",
+      "description": "Encouraging responsible decisions, respect for others and positive contributions to society."
+    }
+  ],
+  "objectives": [
+    {
+      "title": "Academic Development",
+      "description": "Build strong subject knowledge and encourage understanding through structured learning."
+    },
+    {
+      "title": "Practical Skills",
+      "description": "Promote the application of concepts through practical activities, projects and problem-solving."
+    },
+    {
+      "title": "Industry Readiness",
+      "description": "Encourage professional communication, teamwork and awareness of evolving workplace expectations."
+    },
+    {
+      "title": "Critical Thinking",
+      "description": "Develop analytical thinking, creativity and the ability to evaluate problems and possible solutions."
+    },
+    {
+      "title": "Ethics and Responsibility",
+      "description": "Promote integrity, discipline, accountability and respect for others."
+    },
+    {
+      "title": "Lifelong Learning",
+      "description": "Encourage students to keep learning, adapt to change and improve their knowledge and skills."
+    }
+  ]
+}

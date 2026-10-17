@@ -1,96 +1,34 @@
-
-
-"use strict";
-
-// 1. Automatically update the footer year
-function updateFooterYear() {
-    const yearElement = document.getElementById("current-year");
-
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-    }
-}
-
-// 2. Search Student Life cards
-function setupStudentLifeSearch() {
-    const searchInput = document.getElementById("life-search-input");
-    const searchMessage = document.getElementById("search-message");
-    const lifeCards = document.querySelectorAll(".life-card");
-
-    if (!searchInput || !searchMessage || lifeCards.length === 0) {
-        return;
-    }
-
-    function filterCards() {
-        const searchText = searchInput.value.trim().toLowerCase();
-        let visibleCount = 0;
-
-        lifeCards.forEach(function (card) {
-            const cardText = card.textContent.toLowerCase();
-            const matches = cardText.includes(searchText);
-
-            card.hidden = !matches;
-
-            if (matches) {
-                visibleCount++;
-            }
-        });
-
-        if (searchText === "") {
-            searchMessage.textContent = "";
-        } else if (visibleCount === 0) {
-            searchMessage.textContent =
-                "No results found. Try another keyword.";
-        } else {
-            searchMessage.textContent =
-                visibleCount +
-                (visibleCount === 1
-                    ? " result found."
-                    : " results found.");
-        }
-    }
-
-    searchInput.addEventListener("input", filterCards);
-}
-
-// 3. Interactive cards
-function setupInteractiveCards() {
-    const cardButtons = document.querySelectorAll(".card-toggle");
-
-    cardButtons.forEach(function (button) {
-        button.addEventListener("click", function () {
-            const card = button.closest(".life-card");
-
-            if (!card) {
-                return;
-            }
-
-            const details = card.querySelector(".card-details");
-
-            if (!details) {
-                return;
-            }
-
-            const isExpanded =
-                button.getAttribute("aria-expanded") === "true";
-
-            details.hidden = isExpanded;
-
-            button.setAttribute(
-                "aria-expanded",
-                String(!isExpanded)
-            );
-
-            button.textContent = isExpanded
-                ? "Learn more"
-                : "Show less";
-        });
+document.addEventListener("DOMContentLoaded", async () => {
+  const grid = document.querySelector("#campus-container");
+  const status = document.querySelector("#campus-status");
+  if (!grid) return;
+  try {
+    const response = await fetch("../data/campus.json");
+    if (!response.ok) throw new Error("Campus data unavailable.");
+    const data = await response.json();
+    const facilities = Array.isArray(data.facilities) ? data.facilities : [];
+    grid.replaceChildren();
+    facilities.forEach((facility) => {
+      const card = document.createElement("article");
+      card.className = "campus-card";
+      const image = document.createElement("img");
+      image.src = facility.image || "../image/asm-campus-building.png";
+      image.alt = facility.name || "Campus facility";
+      image.loading = "lazy";
+      image.addEventListener("error", () => { image.src = "../image/asm-campus-building.png"; }, { once: true });
+      const content = document.createElement("div");
+      content.className = "campus-card-content";
+      const title = document.createElement("h3");
+      title.textContent = facility.name || "Campus facility";
+      const desc = document.createElement("p");
+      desc.textContent = facility.description || "";
+      content.append(title, desc);
+      card.append(image, content);
+      grid.append(card);
     });
-}
-
-// 4. Initialize all features after the HTML loads
-document.addEventListener("DOMContentLoaded", function () {
-    updateFooterYear();
-    setupStudentLifeSearch();
-    setupInteractiveCards();
+    if (status) status.textContent = facilities.length ? "" : "Campus information will be updated soon.";
+  } catch (error) {
+    console.error(error);
+    if (status) status.textContent = "Campus facilities could not be loaded. Please run the site using Live Server.";
+  }
 });

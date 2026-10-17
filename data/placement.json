@@ -1,0 +1,25 @@
+﻿{
+  "stats": [
+    {"icon":"fa-solid fa-trophy","value":"18+","label":"Highest Package (LPA)"},
+    {"icon":"fa-solid fa-building","value":"200+","label":"Top Recruiters"},
+    {"icon":"fa-solid fa-user-graduate","value":"60000+","label":"Alumni Placed"}
+  ],
+  "highlights": [
+    {"icon":"fa-solid fa-chart-line","label":"Success Rate","value":"85%+","description":"Consistent annual placement rate across Engineering and MCA streams."},
+    {"icon":"fa-solid fa-sack-dollar","label":"Highest Package","value":"12 LPA","description":"Highest offer bagged by our students in software engineering roles."},
+    {"icon":"fa-solid fa-handshake","label":"Hiring Partners","value":"50+","description":"Active corporate recruiting partners conducting annual campus drives."}
+  ],
+  "training": [
+    {"title":"Technical Aptitude","description":"Rigorous coding sessions in Java, Python, Web Dev, & Data Structures."},
+    {"title":"Soft Skills & Communication","description":"Personality development, public speaking, and business etiquettes."},
+    {"title":"Mock Interviews","description":"1-on-1 technical and HR mock interviews with industry experts."},
+    {"title":"Resume & Portfolio","description":"Professional resume building and GitHub portfolio development."},
+    {"title":"Campus Drives","description":"On-campus and pool recruitment drives with partner companies."}
+  ],
+  "recruiters": [
+    {"icon":"fa-solid fa-building","title":"Software & IT Services","description":"TCS, Infosys, Wipro, Capgemini, Cognizant, Tech Mahindra."},
+    {"icon":"fa-solid fa-laptop-code","title":"Product & Web Startups","description":"FinTech solutions, cloud platforms, and software product firms."},
+    {"icon":"fa-solid fa-gears","title":"Core Engineering Companies","description":"Automation, Embedded Systems, and Manufacturing firms."},
+    {"icon":"fa-solid fa-network-wired","title":"Data & Cloud Solutions","description":"Data analytics, cloud infrastructure, and database administration."}
+  ]
+}

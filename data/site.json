@@ -1,0 +1,22 @@
+﻿{
+  "brand": {
+    "name": "ASM NextGen Technical Campus",
+    "institute": "Institute of Management & Engineering",
+    "location": "Talegaon Dabhade, Pune, Maharashtra",
+    "logo": "../image/asm-logo.png",
+    "logoAlt": "ASM College logo",
+    "anniversaryLogo": "../image/42-years.png",
+    "anniversaryAlt": "42 years of excellence"
+  },
+  "navigation": [
+    {"label":"Home","href":"home.html"},
+    {"label":"About","href":"about.html"},
+    {"label":"Campus","href":"campus.html"},
+    {"label":"Courses & Programs","href":"coursesprog.html"},
+    {"label":"Contact Us","href":"contact.html"},
+    {"label":"Placements","href":"placement.html"},
+    {"label":"Department","href":"department.html"},
+    {"label":"Faculty","href":"Faculty.html"},
+    {"label":"Admissions","href":"addmission.html"}
+  ]
+}

@@ -1,0 +1,87 @@
+﻿:root{--asm-navy:#082847;--asm-blue:#103f68;--asm-bright:#1b5d91;--asm-pale:#e8f1f8;--asm-ink:#172b3f;--asm-muted:#617386}
+body{margin:0;color:var(--asm-ink);font-family:Roboto,Arial,sans-serif}
+.site-header{position:relative;z-index:20;background:#fff;border-bottom:1px solid #d8e8f6;padding:18px 4% 0;box-shadow:0 4px 18px #0828470a}
+.shell-brand{max-width:1240px;min-height:112px;margin:auto;display:grid;grid-template-columns:100px 1fr 100px;align-items:center;gap:18px}
+.shell-brand>a{display:flex;align-items:center;justify-content:center}
+.shell-logo,.shell-anniversary{width:86px;height:86px;object-fit:contain}
+.shell-title{text-align:center}
+.shell-title h1{margin:0;color:var(--asm-navy);font:800 clamp(22px,3vw,34px)/1.2 Raleway,Arial,sans-serif}
+.shell-title p{margin:5px 0 0;color:var(--asm-blue);font-size:15px;font-weight:600}
+.shell-title .shell-location{font-size:12px;color:var(--asm-muted);font-weight:400}
+.shell-menu-toggle{display:none}
+.shell-navigation{max-width:1300px;margin:12px auto 0;padding:12px 0;border-top:1px solid #d8e8f6;background:#f2f8fd;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:6px}
+.shell-navigation a{padding:9px 11px;border-radius:5px;color:#174f7c;text-decoration:none;font:700 12px Roboto,Arial,sans-serif;text-transform:uppercase;transition:background .2s,color .2s,transform .2s}
+.shell-navigation a:hover,.shell-navigation a.active{background:#d9edff;color:#075e9c}
+.shell-navigation a:hover{transform:translateY(-2px)}
+.shell-navigation a:focus-visible{outline:2px solid var(--asm-bright);outline-offset:3px}
+body>footer{background:var(--asm-navy);color:white;padding:24px max(20px,calc((100% - 1160px)/2));text-align:center}
+.shell-reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.shell-reveal.shell-visible{opacity:1;transform:none}
+@media(max-width:760px){.site-header{padding:12px 16px}.shell-brand{grid-template-columns:60px 1fr 60px;min-height:76px;gap:8px}.shell-logo,.shell-anniversary{width:56px;height:56px}.shell-title h1{font-size:clamp(17px,4vw,23px)}.shell-title p{font-size:12px}.shell-title .shell-location{display:none}.shell-menu-toggle{display:block;margin:10px auto;padding:8px 16px;border:1px solid #c9d9e6;border-radius:5px;background:#fff;color:var(--asm-navy);font:700 13px Roboto,Arial,sans-serif}.shell-navigation{display:none;flex-direction:column;align-items:stretch;margin:0;padding:8px 0}.shell-navigation.is-open{display:flex}.shell-navigation a{text-align:center}}
+@media(prefers-reduced-motion:reduce){.shell-reveal{opacity:1;transform:none;transition:none}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+/* About / Faculty visual system for the remaining pages */
+:root{
+  --navy:#082847;--blue:#103f68;--bright-blue:#3979a8;--pale-blue:#e8f1f8;
+  --ink:#34495e;--muted:#617386;--white:#fff;--paper:#f5f8fb;--border:#dfe7f0;
+  --radius:12px;--shadow:0 8px 25px rgba(57,121,168,.08);--shadow-hover:0 12px 30px rgba(57,121,168,.12);
+}
+body{font-family:Roboto,Arial,sans-serif!important;color:var(--ink)!important;background:#fff!important;line-height:1.7}
+h1,h2,h3,h4{font-family:Raleway,Arial,sans-serif}
+main section{scroll-margin-top:24px}
+.section-heading h2,.contact-section-heading h2{color:var(--navy)}
+/* Match the calm pale hero treatment used by About and Faculty. */
+.campus-hero,.courses-hero,.contact-hero,.placement-hero,.dept-hero,.admissions-hero{
+  min-height:340px;padding:64px 22px;background:var(--pale-blue)!important;color:var(--navy)!important;text-align:center
+}
+.campus-hero::before{background:url("../image/asm-campus-building.png") center/cover no-repeat!important;opacity:.2}
+.campus-hero .hero-label{color:var(--blue)!important;border-color:#3979a8!important;background:#ffffffbb}
+.campus-hero h1,.campus-hero .hero-content>p:not(.hero-label){color:var(--navy)!important}
+.courses-hero-background{opacity:.2}
+.courses-hero-overlay{display:none}
+.courses-hero-content h1,.courses-hero-content h2,.courses-hero-content p,.courses-hero-content .hero-eyebrow{color:var(--navy)!important;text-shadow:none!important}
+.contact-hero h1,.contact-hero p{color:var(--navy)!important}
+.placement-hero .hero-content,.placement-hero .hero-content h1,.placement-hero .hero-content p,.placement-hero .badge{color:var(--navy)!important}
+.dept-hero{background:var(--pale-blue)!important}
+.dept-hero h1,.dept-hero h2,.dept-hero p{color:var(--navy)!important}
+.admissions-hero{background:var(--pale-blue)!important}
+.admissions-hero h1,.admissions-hero p{color:var(--navy)!important}
+.admissions-hero .hero-subtitle{border:1px solid var(--border)!important;box-shadow:var(--shadow)}
+.admission-btn,.hero-button,.explore-button,.contact-form button,.view-details-btn,.dept-cta a,.cta-button,.btn-primary{
+  background:var(--bright-blue)!important;color:#fff!important;border:0!important;border-radius:7px!important;
+  box-shadow:0 6px 16px rgba(57,121,168,.17);transition:transform .2s,box-shadow .2s,background .2s
+}
+.admission-btn:hover,.hero-button:hover,.explore-button:hover,.contact-form button:hover,.view-details-btn:hover,.dept-cta a:hover,.cta-button:hover,.btn-primary:hover{background:var(--navy)!important;transform:translateY(-2px)}
+.campus-card,.course-card,.department-card,.admission-card,.contact-event-card,.contact-form,.contact-details,.stat-box,.step-card,.document-item{
+  border:1px solid var(--border)!important;border-radius:var(--radius)!important;background:#fff!important;
+  box-shadow:var(--shadow)!important;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease
+}
+.campus-card:hover,.course-card:hover,.department-card:hover,.admission-card:hover,.contact-event-card:hover,.stat-box:hover,.step-card:hover{
+  transform:translateY(-4px);border-color:#b8d0e3!important;box-shadow:var(--shadow-hover)!important
+}
+.admission-section h2,.admission-card h3,.course-card h3,.department-card h3{color:var(--navy)!important}
+.admission-section{max-width:1160px}
+.admission-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.eligibility-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.process-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.admission-icon,.process-number{background:var(--pale-blue)!important;color:var(--bright-blue)!important}
+.admission-note,.admission-cta{background:var(--pale-blue)!important;border-color:#b8d0e3!important}
+.contact-main,.contact-events,.dept-section,.facilities-section,.courses-section{background:#fff}
+.contact-form input,.contact-form textarea,.dept-controls input,.dept-controls select,.course-tools input,.course-tools select{
+  border:1px solid var(--border);border-radius:8px;background:#f8fafc;color:var(--ink)
+}
+.contact-form input:focus,.contact-form textarea:focus,.dept-controls input:focus,.dept-controls select:focus,.course-tools input:focus,.course-tools select:focus{
+  outline:2px solid #a8c9e1;outline-offset:1px
+}
+.campus-cta,.dept-cta,.admission-cta{border-radius:var(--radius)}
+@media(max-width:760px){
+ .admission-grid,.eligibility-grid,.process-grid{grid-template-columns:1fr}
+ .campus-hero,.courses-hero,.contact-hero,.placement-hero,.dept-hero,.admissions-hero{min-height:280px;padding:48px 18px}
+}
+.contact-hero{background:var(--pale-blue)!important;color:var(--navy)!important}
+.contact-hero .contact-eyebrow,.contact-hero h1,.contact-hero>p:last-child{color:var(--navy)!important}
+.admissions-hero{background:linear-gradient(rgba(232,241,248,.86),rgba(232,241,248,.92)),url("../image/asm-campus-building.png") center/cover no-repeat!important}
+.placement-hero{background:linear-gradient(rgba(232,241,248,.86),rgba(232,241,248,.92)),url("../image/asm-campus-building.png") center/cover no-repeat!important}
+.courses-hero-content h2 span{color:var(--bright-blue)!important}
+.section-heading p,.section-eyebrow,.eyebrow{color:var(--bright-blue)}
+.dept-hero{position:relative;isolation:isolate;overflow:hidden;background:var(--pale-blue)!important}
+.dept-hero::before{position:absolute;inset:0;z-index:-1;content:"";background:url("../image/asm-campus-building.png") center/cover no-repeat;opacity:.2}
