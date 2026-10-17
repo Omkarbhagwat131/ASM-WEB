@@ -11,15 +11,16 @@
 
     <style>
         :root {
-            --navy: #0b2d52;
-            --blue: #1769aa;
-            --bright-blue: #2f8fe5;
-            --pale-blue: #eaf4fd;
+            --navy: #102a43;
+            --blue: #176b87;
+            --bright-blue: #176b87;
+            --cyan: #25b8c4;
+            --pale-blue: #e5f5f7;
             --white: #fff;
-            --ink: #172b42;
-            --muted: #61748a;
-            --line: #dce8f3;
-            --shadow: 0 16px 42px rgba(11, 45, 82, .09);
+            --ink: #243746;
+            --muted: #587080;
+            --line: #d7e7eb;
+            --shadow: 0 16px 42px rgb(16 42 67 / 10%);
         }
 
         * { box-sizing: border-box; }
@@ -27,7 +28,7 @@
 
         body {
             margin: 0;
-            background: #f7faff;
+            background: #f4f8fa;
             color: var(--ink);
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.65;
@@ -110,7 +111,7 @@
             overflow: hidden;
             width: 100%;
             padding: 82px max(6vw, 22px) 78px;
-            background: linear-gradient(135deg, #0b2d52, #145b96);
+            background: linear-gradient(135deg, #102a43, #176b87);
             color: var(--white);
         }
 
@@ -444,6 +445,82 @@
             *, *::before, *::after {
                 transition-duration: .01ms !important;
             }
+        }
+
+        .site-header { background: linear-gradient(110deg, var(--navy), var(--blue)); }
+        .brand-mark { color: #baf5f5; border-color: rgb(37 184 196 / 45%); }
+        .site-nav a:hover, .site-nav a:focus-visible { color: #8de6e9; }
+        .site-nav a {
+            position: relative;
+            transition: color .2s ease;
+        }
+        .site-nav a::after {
+            position: absolute;
+            right: 0;
+            bottom: -4px;
+            left: 0;
+            height: 2px;
+            content: "";
+            background: var(--cyan);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .22s ease;
+        }
+        .site-nav a:hover::after,
+        .site-nav a:focus-visible::after { transform: scaleX(1); }
+        .campus :is(a, button, input, select, textarea):focus-visible,
+        .student-life :is(a, button, input, select, textarea):focus-visible {
+            outline: 3px solid var(--cyan);
+            outline-offset: 3px;
+        }
+        .campus h1 { animation: campus-heading-enter .5s cubic-bezier(.2, .7, .2, 1) both; }
+        .campus-card, .life-card, .card-toggle {
+            transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease, background-color .24s ease;
+        }
+        .campus-card:focus-within, .life-card:focus-within { transform: translateY(-3px); }
+        .card-toggle:active { transform: translateY(1px); }
+        .life-card img { transition: transform .35s ease; }
+        .life-card:hover img, .life-card:focus-within img { transform: scale(1.025); }
+        .campus h1 span, .eyebrow { color: #8de6e9; }
+        .campus-card {
+            border-color: rgb(255 255 255 / 18%);
+            box-shadow: 0 12px 30px rgb(3 20 35 / 14%);
+        }
+        .life-card { border-color: var(--line); box-shadow: var(--shadow); }
+        .card-toggle { border-color: var(--line); }
+        .card-toggle:hover { border-color: var(--cyan); }
+
+        @supports (animation-timeline: view()) and (animation-range: entry 0% entry 30%) {
+            .campus-card, .life-card {
+                animation: campus-card-reveal linear both;
+                animation-timeline: view();
+                animation-range: entry 0% entry 30%;
+            }
+            .campus h2, .student-life h2 {
+                animation: campus-card-reveal linear both;
+                animation-timeline: view();
+                animation-range: entry 0% entry 30%;
+            }
+            .campus-grid > .campus-card:nth-child(2),
+            .life-grid > .life-card:nth-child(2) { animation-delay: 60ms; }
+            .campus-grid > .campus-card:nth-child(3),
+            .life-grid > .life-card:nth-child(3) { animation-delay: 120ms; }
+
+            @keyframes campus-card-reveal {
+                from { opacity: 0.85; translate: 0 12px; }
+                to { opacity: 1; translate: 0 0; }
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .campus-card, .life-card { animation: none !important; }
+            .campus h1, .campus h2, .student-life h2 { animation: none !important; }
+            .life-card:hover img, .life-card:focus-within img { transform: none; }
+        }
+
+        @keyframes campus-heading-enter {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>

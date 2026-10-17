@@ -22,7 +22,7 @@
 
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: "Segoe UI", Arial, sans-serif;
             color: #263445;
             background: #f5f8fc;
             line-height: 1.6;
@@ -461,6 +461,124 @@
             .admission-cta {
                 margin: 0 18px 40px;
             }
+        }
+
+        :root {
+            --future-navy: #102a43;
+            --future-blue: #176b87;
+            --future-cyan: #25b8c4;
+        }
+
+        .admissions-navbar {
+            background: linear-gradient(110deg, var(--future-navy), var(--future-blue));
+        }
+
+        .admissions-page .page-hero.hero {
+            background: linear-gradient(120deg, var(--future-navy), var(--future-blue));
+            border-bottom-color: var(--future-cyan);
+        }
+
+        .admissions-page .hero-subtitle {
+            color: var(--future-navy) !important;
+            border-color: var(--future-cyan) !important;
+            box-shadow: 0 5px 16px rgb(16 42 67 / 14%);
+        }
+
+        .admissions-page .hero-btn,
+        .admissions-page .btn,
+        body:has(#admission-process) .hero-btn,
+        body:has(#admission-process) .btn {
+            background: linear-gradient(120deg, var(--future-blue), var(--future-navy)) !important;
+            border-color: var(--future-cyan) !important;
+            box-shadow: 0 8px 22px rgb(16 42 67 / 18%);
+        }
+
+        .admissions-page .hero-btn:hover,
+        .admissions-page .btn:hover,
+        body:has(#admission-process) .hero-btn:hover,
+        body:has(#admission-process) .btn:hover {
+            color: var(--future-navy) !important;
+            background: var(--future-cyan) !important;
+            border-color: var(--future-cyan) !important;
+        }
+
+        .admissions-page .admission-section h2,
+        .admissions-page .admission-cta h2 { color: var(--future-navy); }
+        .admissions-page .section-underline,
+        .admissions-page .process-number { background: var(--future-cyan); }
+        .admissions-page .admission-icon,
+        .admissions-page .card-label { color: var(--future-blue); }
+        .admissions-page .admission-card {
+            border-color: #d7e7eb;
+            box-shadow: 0 8px 24px rgb(16 42 67 / 8%);
+        }
+        .admissions-page .admission-note,
+        .admissions-page .admission-cta { background: #e5f5f7; }
+        .admissions-page .contact-btn {
+            background: linear-gradient(120deg, var(--future-blue), var(--future-navy));
+        }
+        .admissions-page .contact-btn:hover { background: var(--future-navy); }
+
+        .admissions-page .page-hero h1 { animation: admission-heading-enter .5s cubic-bezier(.2, .7, .2, 1) both; }
+        .admissions-navbar .main-nav a {
+            position: relative;
+            transition: color .2s ease, background-color .2s ease;
+        }
+        .admissions-navbar .main-nav a::after {
+            position: absolute;
+            right: 8px;
+            bottom: 3px;
+            left: 8px;
+            height: 2px;
+            content: "";
+            background: var(--future-cyan);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .22s ease;
+        }
+        .admissions-navbar .main-nav a:hover::after,
+        .admissions-navbar .main-nav a:focus-visible::after { transform: scaleX(1); }
+        .admissions-page :is(a, button, input, select, textarea):focus-visible {
+            outline: 3px solid var(--future-cyan);
+            outline-offset: 3px;
+        }
+        .admissions-page .btn,
+        .admissions-page button { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+        .admissions-page .btn:active,
+        .admissions-page button:active { transform: translateY(1px); }
+
+        @supports (animation-timeline: view()) and (animation-range: entry 0% entry 30%) {
+            .admissions-page .admission-card,
+            .admissions-page .department-card,
+            .admissions-page .departments-section > h2 {
+                animation: admission-card-reveal linear both;
+                animation-timeline: view();
+                animation-range: entry 0% entry 30%;
+            }
+            .admissions-page .department-container > .department-card:nth-child(2) { animation-delay: 60ms; }
+            .admissions-page .department-container > .department-card:nth-child(3) { animation-delay: 120ms; }
+
+            @keyframes admission-card-reveal {
+                from { opacity: 0.85; translate: 0 12px; }
+                to { opacity: 1; translate: 0 0; }
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto !important; }
+            .admissions-page .admission-card,
+            .admissions-page .department-card,
+            .admissions-page .departments-section > h2,
+            .admissions-page .page-hero h1 { animation: none !important; }
+            .admissions-navbar .main-nav a,
+            .admissions-navbar .main-nav a::after { transition-duration: .01ms !important; }
+            .admissions-page .btn,
+            .admissions-page button { transition-duration: .01ms !important; }
+        }
+
+        @keyframes admission-heading-enter {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>

@@ -458,6 +458,83 @@
                 font-size: 22px;
             }
         }
+
+        :root {
+            --faculty-navy: #102a43;
+            --faculty-blue: #176b87;
+            --faculty-cyan: #25b8c4;
+            --faculty-paper: #f4f8fa;
+        }
+
+        body { font-family: "Segoe UI", Arial, sans-serif; background: var(--faculty-paper); color: #243746; }
+        .site-header { background: linear-gradient(110deg, var(--faculty-navy), var(--faculty-blue)); }
+        .main-nav a:hover, .main-nav a.active { color: #8de6e9; }
+        .main-nav a {
+            position: relative;
+            transition: color .2s ease;
+        }
+        .main-nav a::after {
+            position: absolute;
+            right: 0;
+            bottom: -4px;
+            left: 0;
+            height: 2px;
+            content: "";
+            background: var(--faculty-cyan);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .22s ease;
+        }
+        .main-nav a:hover::after,
+        .main-nav a:focus-visible::after { transform: scaleX(1); }
+        .page-title { background: linear-gradient(120deg, var(--faculty-navy), var(--faculty-blue)); }
+        .page-title h2 { animation: faculty-heading-enter .5s cubic-bezier(.2, .7, .2, 1) both; }
+        :is(a, button, input, select, textarea):focus-visible {
+            outline: 3px solid var(--faculty-cyan);
+            outline-offset: 3px;
+        }
+        .faculty-search input:focus { border-color: var(--faculty-cyan); }
+        .faculty-card {
+            border-color: #d7e7eb;
+            box-shadow: 0 8px 24px rgb(16 42 67 / 8%);
+            transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+        }
+        .faculty-card:hover, .faculty-card:focus-within { transform: translateY(-4px); }
+        .faculty-photo img { transition: transform .35s ease; }
+        .faculty-card:hover .faculty-photo img,
+        .faculty-card:focus-within .faculty-photo img { transform: scale(1.035); }
+        .faculty-card h3, .faculty-card .faculty-title { color: var(--faculty-blue); }
+        .view-details, .close-modal {
+            background: linear-gradient(120deg, var(--faculty-blue), var(--faculty-navy));
+            transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+        }
+        .view-details:hover, .close-modal:hover { background: var(--faculty-navy); }
+        .view-details:active, .close-modal:active { transform: translateY(1px); }
+
+        @supports (animation-timeline: view()) and (animation-range: entry 0% entry 30%) {
+            .faculty-card,
+            .faculty-section > h2 { animation: faculty-card-reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 30%; }
+            .faculty-grid > .faculty-card:nth-child(2) { animation-delay: 60ms; }
+            .faculty-grid > .faculty-card:nth-child(3) { animation-delay: 120ms; }
+            @keyframes faculty-card-reveal {
+                from { opacity: 0.85; translate: 0 12px; }
+                to { opacity: 1; translate: 0 0; }
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .faculty-card, .faculty-section > h2, .page-title h2 { animation: none !important; }
+            .faculty-photo img,
+            .faculty-card:hover .faculty-photo img,
+            .faculty-card:focus-within .faculty-photo img { transform: none; transition-duration: .01ms !important; }
+            .faculty-card, .view-details, .close-modal { transition-duration: .01ms !important; }
+            .main-nav a, .main-nav a::after { transition-duration: .01ms !important; }
+        }
+
+        @keyframes faculty-heading-enter {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 

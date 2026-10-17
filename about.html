@@ -123,6 +123,96 @@ html
         margin: 10px 0;
     }
 }
+
+.about-page {
+    --future-navy: #102a43;
+    --future-blue: #176b87;
+    --future-cyan: #25b8c4;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.about-page .hero-btn {
+    background: linear-gradient(120deg, var(--future-blue), var(--future-navy));
+    border-color: var(--future-cyan);
+    box-shadow: 0 8px 22px rgb(16 42 67 / 20%);
+}
+
+.about-page .hero-btn:hover {
+    color: var(--future-navy);
+    background: var(--future-cyan);
+    border-color: var(--future-cyan);
+}
+
+.about-page main p[style*="color: #555"],
+.about-page main p[style*="color:#555"] { color: #587080 !important; }
+.about-page main span[style*="color: #1e3a8a"] { color: var(--future-cyan) !important; }
+.about-page main i[style*="color: #1e3a8a"] { color: var(--future-blue) !important; }
+.about-page main section[style*="background-color: #f8fafc"] { background: #f4f8fa !important; }
+.about-page > footer[style] { background: var(--future-navy) !important; }
+
+.about-page .page-hero h1 { animation: asm-about-heading .5s cubic-bezier(.2, .7, .2, 1) both; }
+.about-page .nav-links a {
+    position: relative;
+    transition: color .2s ease, background-color .2s ease;
+}
+.about-page .nav-links a::after {
+    position: absolute;
+    right: 8px;
+    bottom: 3px;
+    left: 8px;
+    height: 2px;
+    content: "";
+    background: var(--future-cyan);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .22s ease;
+}
+.about-page .nav-links a:hover::after,
+.about-page .nav-links a:focus-visible::after { transform: scaleX(1); }
+.about-page :is(a, button, input, select, textarea):focus-visible {
+    outline: 3px solid var(--future-cyan);
+    outline-offset: 3px;
+}
+.about-page .btn,
+.about-page button { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.about-page .btn:active,
+.about-page button:active { transform: translateY(1px); }
+
+@supports (animation-timeline: view()) and (animation-range: entry 0% entry 30%) {
+    .about-page .department-card {
+        animation: about-card-reveal linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 30%;
+    }
+    .about-page .departments-section > h2 {
+        animation: about-card-reveal linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 30%;
+    }
+    .about-page .department-container > .department-card:nth-child(2) { animation-delay: 60ms; }
+    .about-page .department-container > .department-card:nth-child(3) { animation-delay: 120ms; }
+
+    @keyframes about-card-reveal {
+        from { opacity: 0.85; translate: 0 12px; }
+        to { opacity: 1; translate: 0 0; }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto !important; }
+    .about-page .department-card,
+    .about-page .departments-section > h2,
+    .about-page .page-hero h1 { animation: none !important; }
+    .about-page .nav-links a,
+    .about-page .nav-links a::after { transition-duration: .01ms !important; }
+    .about-page .btn,
+    .about-page button { transition-duration: .01ms !important; }
+}
+
+@keyframes asm-about-heading {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
     </style>
 </head>
 
@@ -289,4 +379,3 @@ html
 
 </body>
 </html>
-

@@ -146,6 +146,50 @@ footer {
     color: #444;
 }
 
+:root {
+    --department-navy: #102a43;
+    --department-blue: #176b87;
+    --department-cyan: #25b8c4;
+    --department-paper: #f4f8fa;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--department-paper);
+    color: var(--department-navy);
+}
+
+.navbar { background: linear-gradient(110deg, var(--department-navy), var(--department-blue)); }
+.hero { background: linear-gradient(120deg, var(--department-navy), var(--department-blue)); }
+.departments-section h2, .department-card h3, .course-details h3 { color: var(--department-navy); }
+.department-card {
+    border-color: #d7e7eb;
+    border-top-color: var(--department-cyan);
+    box-shadow: 0 8px 24px rgb(16 42 67 / 8%);
+}
+.department-code { background: #e5f5f7; color: var(--department-blue); }
+.view-details-btn {
+    background: linear-gradient(120deg, var(--department-blue), var(--department-cyan));
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.view-details-btn:hover {
+    background: var(--department-navy);
+    box-shadow: 0 6px 16px rgb(16 42 67 / 20%);
+}
+footer { background: var(--department-navy); }
+
+@supports (animation-timeline: view()) and (animation-range: entry 0% entry 30%) {
+    .department-card { animation: department-card-reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 30%; }
+    @keyframes department-card-reveal {
+        from { opacity: 0.45; translate: 0 16px; }
+        to { opacity: 1; translate: 0 0; }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .department-card { animation: none !important; }
+}
+
 .course-details p {
     margin-bottom: 12px;
 }

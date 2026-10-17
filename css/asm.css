@@ -1074,16 +1074,16 @@ footer p {
 
 body:has(#admission-process) .hero-btn,
 body:has(#admission-process) .btn {
-    background: #0d6efd !important;
+    background: linear-gradient(120deg, #176b87, #25b8c4) !important;
     color: #ffffff !important;
-    border: 2px solid #0d6efd !important;
+    border: 2px solid #25b8c4 !important;
 }
 
 body:has(#admission-process) .hero-btn:hover,
 body:has(#admission-process) .btn:hover {
     background: #ffffff !important;
-    color: #0d6efd !important;
-    border-color: #0d6efd !important;
+    color: #102a43 !important;
+    border-color: #25b8c4 !important;
 }
 
 /* Red accent lines and icons */
@@ -1092,5 +1092,33 @@ body:has(#admission-process) .underline {
 }
 
 body:has(#admission-process) .card-icon {
-    color: #0d6efd !important;
+    color: #176b87 !important;
 }
+
+.navbar { background: linear-gradient(110deg, #102a43, #176b87); }
+.page-hero.hero {
+  background: linear-gradient(120deg, #102a43, #176b87);
+}
+.page-hero.hero::before {
+  background: radial-gradient(circle, rgb(37 184 196 / 16%) 0%, transparent 60%);
+}
+.about-page .hero-subtitle,
+.admissions-page .hero-subtitle { border-color: rgb(37 184 196 / 45%); }
+.about-page .hero-btn,
+.admissions-page .hero-btn {
+  background: linear-gradient(120deg, #176b87, #102a43);
+  border-color: #25b8c4;
+  box-shadow: 0 8px 22px rgb(16 42 67 / 20%);
+}
+.about-page .hero-btn:hover,
+.admissions-page .hero-btn:hover {
+  background: #176b87;
+  border-color: #25b8c4;
+  box-shadow: 0 10px 26px rgb(16 42 67 / 28%);
+}
+.department-card { border-color: #d7e7eb; }
+.department-card:hover { border-color: #25b8c4; }
+.department-code { background: #176b87; }
+.card-icon, .stat-icon { color: #176b87; }
+.navbar .nav-links li a:hover,
+.navbar .nav-links li a.active { color: #25b8c4; }

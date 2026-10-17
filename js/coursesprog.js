@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function initializeStaticCourses() {
     const cards = [...document.querySelectorAll(".course-card")];
     if (cards.length === 0) return;
+    const quickFilters = [...document.querySelectorAll("[data-course-filter]")];
 
     const getCategory = (card) => {
       if (card.dataset.category) return card.dataset.category.toLowerCase();
@@ -86,8 +87,19 @@ document.addEventListener("DOMContentLoaded", () => {
       cards.forEach((card) => {
         const matches = card.textContent.toLowerCase().includes(searchTerm)
           && (category === "all" || getCategory(card) === category);
-        card.style.display = matches ? "" : "none";
+        if (card.closest(".home-course-grid")) {
+          card.classList.toggle("is-filtered-out", !matches);
+          card.style.removeProperty("display");
+        } else {
+          card.style.display = matches ? "" : "none";
+        }
         if (matches) matchCount += 1;
+      });
+
+      quickFilters.forEach((button) => {
+        const isActive = button.dataset.courseFilter === category;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
       });
 
       document.querySelectorAll(".home-course-grid").forEach((grid) => {
@@ -136,6 +148,19 @@ document.addEventListener("DOMContentLoaded", () => {
         savePreference(query, category);
       });
     }
+
+    quickFilters.forEach((button) => {
+      const category = button.dataset.courseFilter;
+      const count = cards.filter((card) => category === "all" || getCategory(card) === category).length;
+      const countElement = button.querySelector("[data-course-filter-count]");
+      if (countElement) countElement.textContent = String(count);
+
+      button.addEventListener("click", () => {
+        if (!categoryFilter || !["all", "ug", "pg", "clubs"].includes(category)) return;
+        categoryFilter.value = category;
+        categoryFilter.dispatchEvent(new Event("change", { bubbles: true }));
+      });
+    });
 
     filterCards(preference.query, preference.category);
   }
@@ -413,7 +438,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     window.addEventListener("scroll", updateVisibility);
     backToTopButton.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+      });
     });
     updateVisibility();
   }

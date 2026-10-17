@@ -4,8 +4,12 @@ const initializePlacement = () => {
   const counters = document.querySelectorAll(".counter");
   
   counters.forEach((counter) => {
-    counter.innerText = "0";
     const target = +counter.getAttribute("data-target");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      counter.innerText = `${target}+`;
+      return;
+    }
+    counter.innerText = "0";
 
     const updateCounter = () => {
       const count = +counter.innerText.replace("+", "");
@@ -82,7 +86,10 @@ const initializePlacement = () => {
     window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
     updateBackToTopVisibility();
     backToTopButton.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+      });
     });
   }
 
