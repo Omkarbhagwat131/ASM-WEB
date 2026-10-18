@@ -24,7 +24,7 @@
 
   <main>
     <!-- HERO -->
-    <section class="hero" id="home">
+    <section class="hero home-module-hero" id="home">
       <div class="hero-bg"></div>
       <div class="hero-shade"></div>
       <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
@@ -199,29 +199,14 @@
   <button class="to-top" id="to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
   <script>
-    // Header shrink + scroll progress + back-to-top
-    const header = document.getElementById('site-header');
-    const bar = document.getElementById('scroll-progress');
+    // Back-to-top
     const toTop = document.getElementById('to-top');
     function onScroll() {
-      const y = window.scrollY;
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      bar.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
-      header.classList.toggle('scrolled', y > 80);
-      toTop.classList.toggle('visible', y > 500);
+      toTop.classList.toggle('visible', window.scrollY > 500);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // Mobile menu
-    const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('main-navigation');
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
-    });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
 
     // Scroll reveal
     const io = new IntersectionObserver((entries) => {
