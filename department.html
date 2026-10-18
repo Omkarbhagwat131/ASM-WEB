@@ -15,33 +15,36 @@
         .navbar { 
             background: linear-gradient(110deg, #102a43, #176b87);
             color: white; 
-            padding: 20px; 
+            padding: 18px clamp(18px, 5vw, 64px);
             display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            text-align: center; 
-            gap: 18px; 
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            box-shadow: 0 8px 28px rgb(16 42 67 / 14%);
         } 
  
         .logo { 
-            font-size: 32px; 
+            font-size: clamp(23px, 2.5vw, 32px);
             font-weight: bold; 
-            text-align: center; 
+            text-align: left;
+            letter-spacing: -.03em;
         } 
  
         .navbar nav { 
-            width: 100%; 
+            width: auto;
             display: flex; 
             justify-content: center; 
             align-items: center; 
             flex-wrap: wrap; 
-            gap: 25px; 
+            gap: 10px 22px;
         } 
  
         .navbar nav a { 
             color: white; 
             text-decoration: none; 
-            font-size: 16px; 
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
             white-space: nowrap; 
         } 
  
@@ -82,18 +85,93 @@
         }
         .navbar nav a:hover::after,
         .navbar nav a:focus-visible::after { transform: scaleX(1); }
-        .hero { background: linear-gradient(120deg, #102a43, #176b87); }
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(58px, 8vw, 92px) 24px;
+            background:
+                radial-gradient(ellipse at 80% 15%, rgb(37 184 196 / 24%), transparent 35%),
+                linear-gradient(120deg, #102a43, #176b87);
+        }
+        .hero::after {
+            position: absolute;
+            right: -60px;
+            bottom: -145px;
+            width: 340px;
+            height: 340px;
+            border: 1px solid rgb(255 255 255 / 12%);
+            border-radius: 50%;
+            content: "";
+            box-shadow: 0 0 0 35px rgb(255 255 255 / 4%), 0 0 0 70px rgb(255 255 255 / 3%);
+            pointer-events: none;
+        }
+        .hero .hero-eyebrow {
+            margin-bottom: 12px;
+            color: #9cecf0;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+        .hero p { max-width: 650px; margin: 0 auto; color: #e5f2f5; line-height: 1.75; }
+        .hero .hero-action {
+            display: inline-flex;
+            margin-top: 24px;
+            padding: 11px 19px;
+            border: 1px solid rgb(255 255 255 / 38%);
+            border-radius: 999px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+        }
+        .hero .hero-action:hover { border-color: #25b8c4; background: rgb(37 184 196 / 18%); transform: translateY(-2px); }
+        .hero .hero-action:focus-visible { outline: 3px solid #25b8c4; outline-offset: 3px; }
+        .departments-section { max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6vw, 72px) clamp(18px, 4vw, 48px); }
+        .departments-section > h2 { margin-bottom: 10px; font-size: clamp(25px, 3vw, 34px); letter-spacing: -.03em; }
+        .department-intro { max-width: 650px; margin: 0 auto 22px; color: #5b7182; line-height: 1.7; }
+        .department-shortcuts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 9px;
+            margin: 24px auto 30px;
+        }
+        .department-shortcuts a {
+            padding: 8px 13px;
+            border: 1px solid #d6e5e9;
+            border-radius: 999px;
+            color: #176b87;
+            background: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: border-color .2s ease, color .2s ease, background-color .2s ease, transform .2s ease;
+        }
+        .department-shortcuts a:hover,
+        .department-shortcuts a:focus-visible { border-color: #25b8c4; color: #102a43; background: #eaf8f9; transform: translateY(-2px); }
+        .department-container { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
         .hero h1 { animation: department-heading-enter .5s cubic-bezier(.2, .7, .2, 1) both; }
         :is(a, button, input, select, textarea):focus-visible {
             outline: 3px solid #25b8c4;
             outline-offset: 3px;
         }
         .department-card {
-            border-top-color: #25b8c4;
+            position: relative;
+            min-height: 220px;
+            padding: 28px;
             border-color: #d7e7eb;
+            border-top: 3px solid #25b8c4;
+            border-radius: 14px;
             box-shadow: 0 8px 24px rgb(16 42 67 / 8%);
+            scroll-margin-top: 24px;
             transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
         }
+        .department-card:hover { border-color: #25b8c4; box-shadow: 0 16px 34px rgb(16 42 67 / 13%); transform: translateY(-5px); }
+        .department-card h3 { font-size: 19px; line-height: 1.35; }
+        .department-card p { color: #536b7b; line-height: 1.7; }
+        .department-code { display: inline-block; padding: 7px 12px; border: 1px solid #ccebed; border-radius: 999px; font-size: 12px; letter-spacing: .04em; }
         .department-card:focus-within { transform: translateY(-3px); }
         .view-details-btn {
             background: linear-gradient(120deg, #176b87, #102a43);
@@ -106,13 +184,25 @@
         .view-details-btn:active { transform: translateY(1px); }
         .course-details {
             opacity: 0;
-            transform: translateY(-6px);
+            transform: translateY(-4px);
             transition: opacity .24s ease, transform .24s ease, display .24s;
             transition-behavior: allow-discrete;
         }
         .course-details:not([hidden]) { opacity: 1; transform: translateY(0); }
         @starting-style {
-            .course-details:not([hidden]) { opacity: 0; transform: translateY(-6px); }
+            .course-details:not([hidden]) { opacity: 0; transform: translateY(-4px); }
+        }
+        footer { margin-top: 0; border-top: 1px solid rgb(255 255 255 / 12%); }
+
+        @media (max-width: 900px) {
+            .department-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 700px) {
+            .navbar { flex-direction: column; text-align: center; }
+            .logo { text-align: center; }
+            .navbar nav { justify-content: center; gap: 10px 16px; }
+            .department-container { grid-template-columns: 1fr; }
+            .department-card { min-height: 0; }
         }
 
         @supports (animation-timeline: view()) and (animation-range: entry 0% entry 30%) {
@@ -129,7 +219,7 @@
         @media (prefers-reduced-motion: reduce) {
             .department-card, .departments-section > h2, .hero h1 { animation: none !important; }
             .course-details { transition-duration: .01ms !important; }
-            .department-card, .view-details-btn { transition-duration: .01ms !important; }
+            .department-card, .view-details-btn, .department-shortcuts a, .hero .hero-action { transition-duration: .01ms !important; }
             .navbar nav a,
             .navbar nav a::after { transition-duration: .01ms !important; }
         }
@@ -152,54 +242,64 @@
             <a href="coursesprog.html">Courses &amp; Programs</a> 
             <a href="contact.html">Contact Us</a> 
             <a href="placement.html">Placements</a> 
-            <a href="department.html"class="active">Department</a> 
+            <a href="department.html" class="active" aria-current="page">Department</a>
             <a href="Faculty.html" >Faculty</a> 
         </nav> 
 </header> 
  
 <section class="hero"> 
+    <p class="hero-eyebrow">ASM NextGen Technical Campus</p>
     <h1>Our Departments</h1> 
-    <p>Explore our departments and discover opportunities for academic and professional growth.</p> 
+    <p>Explore our departments and discover opportunities for academic and professional growth.</p>
+    <a class="hero-action" href="#academic-departments">Explore departments <span aria-hidden="true">&nbsp;↓</span></a>
 </section> 
  
-<section class="departments-section"> 
+<section class="departments-section" id="academic-departments">
     <h2>Academic Departments</h2> 
     <div class="underline"></div> 
+    <p class="department-intro">Choose a program to explore the academic areas represented across ASM’s existing departments.</p>
+    <nav class="department-shortcuts" aria-label="Jump to a department">
+        <a href="#department-bca">BCA</a>
+        <a href="#department-bba">BBA</a>
+        <a href="#department-bcom">B.Com</a>
+        <a href="#department-bsc">B.Sc</a>
+        <a href="#department-mba">MBA</a>
+        <a href="#department-mca">MCA</a>
+    </nav>
  
     <div class="department-container"> 
  
-        <div class="department-card"> 
+        <article class="department-card" id="department-bca">
             <span class="department-code">BCA</span> 
             <h3>Computer Applications</h3> 
             <p>Learn programming, software development, web technologies and databases.</p> 
-        </div> 
+        </article>
  
-        <div class="department-card"> 
+        <article class="department-card" id="department-bba">
             <span class="department-code">BBA</span> 
             <h3>Business Administration</h3> 
             <p>Develop leadership, management, business strategy and entrepreneurship skills.</p> 
-        </div> 
+        </article>
  
-        <div class="department-card"> 
+        <article class="department-card" id="department-bcom">
             <span class="department-code">B.Com</span> 
             <h3>Commerce</h3> 
             <p>Study accounting, finance, taxation, economics and commerce.</p> 
-        </div> 
+        </article>
  
-        <div class="department-card"> 
+        <article class="department-card" id="department-bsc">
             <span class="department-code">B.Sc</span> 
             <h3>Information Technology</h3> 
             <p>Learn IT, networking, databases, programming and emerging technologies.</p> 
-        </div> 
+        </article>
  
-        <div class="department-card"> 
+        <article class="department-card" id="department-mba">
             <span class="department-code">MBA</span> 
             <h3>Management Studies</h3> 
             <p>Build skills in finance, marketing, human resources and management.</p> 
-        </div> 
- 
+        </article>
      
-<div class="department-card"> 
+<article class="department-card" id="department-mca">
     <span class="department-code">MCA</span> 
  
     <h3>Master of Computer Applications</h3> 
@@ -245,7 +345,7 @@
  
         <p><strong>Course Duration:</strong> Generally 2 years, subject to university rules.</p> 
  
-    </div> 
+    </article>
 </div> 
  
  

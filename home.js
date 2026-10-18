@@ -86,68 +86,8 @@ const homeDataReady = fetch("Data.home/home-data.json")
 
 window.homeDataReady = homeDataReady;
 
-const homeHeroImage = document.querySelector(".hero-building-image");
-if (homeHeroImage) {
-  homeDataReady.then(() => {
-    const slides = [
-      {
-        src: "image/asm-campus-building.png",
-        alt: window.homeData?.hero.buildingAlt || "ASM's NextGen Technical Campus building",
-        caption: window.homeData?.hero.caption || "ASM'S NEXTGEN TECHNICAL CAMPUS",
-        location: window.homeData?.hero.location || "Talegaon Dabhade, Maval, Pune"
-      },
-      {
-        src: "https://asmnext.edu.in/assets/img/infrastructure/students.webp",
-        alt: "Students learning and interacting at ASM",
-        caption: "STUDENT LIFE AT ASM",
-        location: "Learn, collaborate and grow together"
-      },
-      {
-        src: "https://asmnext.edu.in/assets/img/infrastructure/campus-life.webp",
-        alt: "Campus life and activities at ASM",
-        caption: "CAMPUS LIFE AT ASM",
-        location: "A vibrant campus experience"
-      }
-    ];
-    const caption = document.querySelector(".hero-photo-caption span");
-    const location = document.querySelector(".hero-photo-caption strong");
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let activeSlide = 0;
-
-    const showNextSlide = () => {
-      const nextSlide = slides[(activeSlide + 1) % slides.length];
-      const nextImage = new Image();
-
-      nextImage.onload = () => {
-        homeHeroImage.classList.add("is-transitioning");
-        window.setTimeout(() => {
-          homeHeroImage.src = nextSlide.src;
-          homeHeroImage.alt = nextSlide.alt;
-          if (caption) caption.textContent = nextSlide.caption;
-          if (location) location.textContent = nextSlide.location;
-          activeSlide = (activeSlide + 1) % slides.length;
-          homeHeroImage.classList.remove("is-transitioning");
-        }, 300);
-      };
-
-      nextImage.onerror = () => {
-        console.error(`Homepage slideshow image could not be loaded: ${nextSlide.src}`);
-        activeSlide = (activeSlide + 1) % slides.length;
-      };
-
-      nextImage.src = nextSlide.src;
-    };
-
-    if (!reducedMotion.matches) {
-      window.setInterval(() => {
-        if (!document.hidden) showNextSlide();
-      }, 6000);
-    }
-  });
-}
-
 const navigation = document.querySelector(".main-navigation");
-const navigationLinks = document.querySelectorAll(".nav-link");
+const navigationLinks = document.querySelectorAll(".nav-link, .nav-department-option");
 const currentYear = document.querySelector("#current-year");
 
 if (currentYear) {
@@ -173,6 +113,26 @@ if (menuToggle && navigation) {
   });
 }
 
+const courseMenuItem = document.querySelector(".nav-course-item");
+const courseMenuTrigger = courseMenuItem?.querySelector(":scope > .nav-link");
+if (courseMenuItem && courseMenuTrigger) {
+  const setCourseMenuOpen = (isOpen) => {
+    courseMenuItem.classList.toggle("is-open", isOpen);
+    courseMenuTrigger.setAttribute("aria-expanded", String(isOpen));
+  };
+
+  courseMenuItem.addEventListener("mouseenter", () => setCourseMenuOpen(true));
+  courseMenuItem.addEventListener("mouseleave", () => {
+    setCourseMenuOpen(courseMenuItem.contains(document.activeElement));
+  });
+  courseMenuItem.addEventListener("focusin", () => setCourseMenuOpen(true));
+  courseMenuItem.addEventListener("focusout", (event) => {
+    if (!event.relatedTarget || !courseMenuItem.contains(event.relatedTarget)) {
+      setCourseMenuOpen(courseMenuItem.matches(":hover"));
+    }
+  });
+}
+
 const departmentSearch = document.querySelector("#department-search");
 const departmentMenuToggle = document.querySelector("#department-menu-toggle");
 const departmentMenu = document.querySelector("#department-menu");
@@ -194,6 +154,10 @@ if (departmentSearch && departmentMenuToggle && departmentMenu) {
       const matches = option.textContent.toLowerCase().includes(query);
       option.hidden = !matches;
       if (matches) matchCount++;
+    });
+
+    departmentCards.forEach((card) => {
+      card.hidden = Boolean(query) && !card.textContent.toLowerCase().includes(query);
     });
 
     departmentMenu.hidden = false;
@@ -224,12 +188,18 @@ if (departmentSearch && departmentMenuToggle && departmentMenu) {
       const selectedCard = option.dataset.departmentTarget;
 
       departmentCards.forEach((card) => {
-        card.hidden = card.id !== selectedCard;
+        card.hidden = false;
+        card.classList.toggle("is-selected", card.id === selectedCard);
       });
 
-      departmentSearch.value = option.textContent.trim();
+      departmentSearch.value = "";
+      filterDepartmentOptions();
       if (departmentSearchStatus) departmentSearchStatus.textContent = "";
       closeDepartmentMenu();
+      document.getElementById(selectedCard)?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "center"
+      });
     });
   });
 
@@ -249,6 +219,24 @@ if (departmentSearch && departmentMenuToggle && departmentMenu) {
 
 const observedSections = document.querySelectorAll("main > section[id]");
 if ("IntersectionObserver" in window) {
+  const revealTargets = document.querySelectorAll(
+    ".home-page-section .home-page-hero h1, .home-page-section .home-section-title, .home-page-section .home-info-card, .home-page-section .course-card, .home-page-section .life-card, .home-about .department-card, .home-faculty-grid .faculty-card"
+  );
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+
+  revealTargets.forEach((target) => {
+    target.classList.add("reveal-target");
+    revealObserver.observe(target);
+  });
+
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
@@ -263,6 +251,10 @@ if ("IntersectionObserver" in window) {
   }, { rootMargin: "-30% 0px -60% 0px" });
 
   observedSections.forEach((section) => sectionObserver.observe(section));
+} else {
+  document.querySelectorAll(
+    ".home-page-section .home-page-hero h1, .home-page-section .home-section-title, .home-page-section .home-info-card, .home-page-section .course-card, .home-page-section .life-card, .home-about .department-card, .home-faculty-grid .faculty-card"
+  ).forEach((target) => target.classList.add("reveal-target", "is-visible"));
 }
 
 const loginForm = document.querySelector("#login-form");

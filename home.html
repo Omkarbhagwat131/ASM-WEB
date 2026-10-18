@@ -75,11 +75,33 @@
                 <nav class="main-navigation" id="main-navigation" aria-label="" data-home-attr="aria-label:header.navigationAriaLabel">
           <a href="#home" class="nav-link active" data-home-text="header.navigation.home"></a>
           <a href="#placements" class="nav-link" data-home-text="header.navigation.placements"></a>
-          <a href="#courses" class="nav-link" data-home-text="header.navigation.courses"></a>
+          <div class="nav-department-item nav-course-item">
+            <a href="#courses" class="nav-link" data-home-text="header.navigation.courses" aria-haspopup="true" aria-expanded="false"></a>
+            <div class="nav-department-menu nav-course-menu" aria-label="Courses and programs">
+              <a href="#course-btech" class="nav-department-option">B.Tech <span>Computer Science &amp; Engineering</span></a>
+              <a href="#course-bca" class="nav-department-option">BCA <span>Computer Applications</span></a>
+              <a href="#course-bba" class="nav-department-option">BBA <span>Business Administration</span></a>
+              <a href="#course-bcom" class="nav-department-option">B.Com <span>Commerce</span></a>
+              <a href="#course-bsc" class="nav-department-option">B.Sc <span>Data Science &amp; Analytics</span></a>
+              <a href="#course-mca" class="nav-department-option">MCA <span>Computer Applications</span></a>
+              <a href="#course-mba" class="nav-department-option">MBA <span>Business Administration</span></a>
+              <a href="#course-mtech" class="nav-department-option">M.Tech <span>Cyber Security &amp; Digital Forensics</span></a>
+            </div>
+          </div>
           <a href="#campus" class="nav-link" data-home-text="header.navigation.campus"></a>
           <a href="#contact" class="nav-link" data-home-text="header.navigation.contact"></a>
           <a href="#faculty" class="nav-link" data-home-text="header.navigation.faculty"></a>
-          <a href="#departments" class="nav-link" data-home-text="header.navigation.departments"></a>
+          <div class="nav-department-item">
+            <a href="#departments" class="nav-link" data-home-text="header.navigation.departments" aria-haspopup="true"></a>
+            <div class="nav-department-menu" aria-label="Department programs">
+              <a href="#department-bca" class="nav-department-option">BCA <span>Computer Applications</span></a>
+              <a href="#department-bba" class="nav-department-option">BBA <span>Business Administration</span></a>
+              <a href="#department-bcom" class="nav-department-option">B.Com <span>Commerce</span></a>
+              <a href="#department-bsc" class="nav-department-option">B.Sc <span>Information Technology</span></a>
+              <a href="#department-mba" class="nav-department-option">MBA <span>Management Studies</span></a>
+              <a href="#department-mca" class="nav-department-option">MCA <span>Computer Applications</span></a>
+            </div>
+          </div>
           <a href="#about" class="nav-link" data-home-text="header.navigation.about"></a>
           <a href="#admission" class="nav-link" data-home-text="header.navigation.admission"></a>
 
@@ -102,9 +124,18 @@
 
     <div class="header-utility">
       <div class="container utility-inner">
-        <a href="#courses" data-home-text="header.utility.brochure"></a>
-        <span aria-hidden="true">|</span>
-        <a href="#courses" data-home-text="header.utility.programs"></a>
+        <div class="utility-marquee-track">
+          <div class="utility-marquee-group">
+            <a href="#courses" data-home-text="header.utility.brochure"></a>
+            <span aria-hidden="true">|</span>
+            <a href="#courses" data-home-text="header.utility.programs"></a>
+          </div>
+          <div class="utility-marquee-group" aria-hidden="true">
+            <a href="#courses" tabindex="-1" data-home-text="header.utility.brochure"></a>
+            <span>|</span>
+            <a href="#courses" tabindex="-1" data-home-text="header.utility.programs"></a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -118,14 +149,13 @@
         class="hero-photo"
         data-home-background="assets.building">
 
-        <img class="hero-building-image" src="image/asm-campus-building.png" alt="ASM's NextGen Technical Campus building">
+        <img class="hero-building-image" src="image/asm-campus-building.webp" alt="ASM NextGen Technical Campus building" fetchpriority="high" decoding="async">
         <div class="hero-shade"></div>
 
         <div class="hero-photo-caption">
           <span data-home-text="hero.caption"></span>
           <strong data-home-text="hero.location"></strong>
         </div>
-
         <nav class="social-links" aria-label="" data-home-attr="aria-label:hero.socialNavigationLabel">
 
           <a
@@ -186,71 +216,61 @@
         </nav>
       </div>
 
-      <section class="hero-login-card" aria-labelledby="login-title">
-        <img class="login-logo" src="" alt="" data-home-attr="src:assets.logo,alt:hero.login.logoAlt">
-        <h1 id="login-title" data-home-text="hero.login.title"></h1>
-        <p class="login-subtitle" data-home-text="hero.login.subtitle"></p>
+    </section>
 
-        <form id="login-form">
+    <section class="home-login-section" aria-label="ASM student portal">
+      <div class="home-login-inner">
+        <section class="hero-login-card" aria-labelledby="login-title">
+          <img class="login-logo" src="" alt="" data-home-attr="src:assets.logo,alt:hero.login.logoAlt">
+          <h1 id="login-title" data-home-text="hero.login.title"></h1>
+          <p class="login-subtitle" data-home-text="hero.login.subtitle"></p>
 
-          <label class="login-field">
-            <span data-home-text="hero.login.emailLabel"></span>
-            <input
-              id="login-email"
-              name="email"
-              type="email"
-              autocomplete="username"
-              placeholder=""
-              aria-label=""
-              data-home-attr="placeholder:hero.login.emailPlaceholder,aria-label:hero.login.emailAriaLabel"
-              required>
-          </label>
-
-          <label class="login-field">
-            <span data-home-text="hero.login.passwordLabel"></span>
-
-            <span class="password-input">
+          <form id="login-form">
+            <label class="login-field">
+              <span data-home-text="hero.login.emailLabel"></span>
               <input
-                id="login-password"
-                name="password"
-                type="password"
-                autocomplete="current-password"
+                id="login-email"
+                name="email"
+                type="email"
+                autocomplete="username"
                 placeholder=""
                 aria-label=""
-                data-home-attr="placeholder:hero.login.passwordPlaceholder,aria-label:hero.login.passwordAriaLabel"
-                minlength="6"
+                data-home-attr="placeholder:hero.login.emailPlaceholder,aria-label:hero.login.emailAriaLabel"
                 required>
+            </label>
 
-              <button
-                class="password-toggle"
-                type="button"
-                aria-label=""
-                aria-pressed="false">
-                <span data-home-text="hero.login.showPassword"></span>
-              </button>
-            </span>
-          </label>
+            <label class="login-field">
+              <span data-home-text="hero.login.passwordLabel"></span>
+              <span class="password-input">
+                <input
+                  id="login-password"
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  placeholder=""
+                  aria-label=""
+                  data-home-attr="placeholder:hero.login.passwordPlaceholder,aria-label:hero.login.passwordAriaLabel"
+                  minlength="6"
+                  required>
+                <button class="password-toggle" type="button" aria-label="" aria-pressed="false">
+                  <span data-home-text="hero.login.showPassword"></span>
+                </button>
+              </span>
+            </label>
 
-          <button class="login-submit" type="submit" data-home-text="hero.login.loginButton"></button>
+            <button class="login-submit" type="submit" data-home-text="hero.login.loginButton"></button>
+            <button class="forgot-password" id="forgot-password" type="button" data-home-text="hero.login.forgotPassword"></button>
+            <p class="login-message" id="login-message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
 
-          <button class="forgot-password" id="forgot-password" type="button" data-home-text="hero.login.forgotPassword"></button>
-
-          <p
-            class="login-message"
-            id="login-message"
-            role="status"
-            aria-live="polite"></p>
-
-        </form>
-      </section>
-      <div class="welcome-action">
-        <button id="welcome-button" type="button">
-          Explore ASM
-        </button>
-
-        <p id="welcome-message" aria-live="polite">
-          Welcome to ASM College
-        </p>
+        <aside class="home-login-welcome">
+          <p class="home-eyebrow">WELCOME TO ASM</p>
+          <h2>Your campus journey starts here.</h2>
+          <p>Discover learning, new ideas and opportunities at ASM’s NextGen Technical Campus. Sign in to get started, or explore our programs, campus life and student community.</p>
+          <button id="welcome-button" class="home-button" type="button">Explore ASM</button>
+          <p id="welcome-message" class="home-login-welcome-message" aria-live="polite">Welcome to ASM College</p>
+        </aside>
       </div>
     </section>
 
@@ -438,29 +458,29 @@
       <section class="home-section-inner home-content-block">
         <h2 class="home-section-title">Undergraduate Programs (UG)</h2>
         <div class="home-card-grid home-course-grid">
-          <article class="course-card" data-category="ug"><span class="home-course-badge">B.Tech</span><h3>Computer Science &amp; Engineering</h3><p>Learn software development, artificial intelligence, web technologies, and data structures.</p><ul><li><strong>Duration:</strong> 4 Years</li><li><strong>Seats:</strong> 120</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-          <article class="course-card" data-category="ug"><span class="home-course-badge">BCA</span><h3>Bachelor of Computer Applications</h3><p>Designed for students aspiring to excel in software engineering, programming, and IT applications.</p><ul><li><strong>Duration:</strong> 3 Years</li><li><strong>Seats:</strong> 60</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-          <article class="course-card" data-category="ug"><span class="home-course-badge">BBA</span><h3>Bachelor of Business Administration</h3><p>Develop leadership, managerial skills, business strategy, and entrepreneurial acumen.</p><ul><li><strong>Duration:</strong> 3 Years</li><li><strong>Seats:</strong> 90</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-          <article class="course-card" data-category="ug"><span class="home-course-badge">B.Com</span><h3>Bachelor of Commerce</h3><p>Covers financial accounting, corporate tax, economics, business law, and modern auditing practices.</p><ul><li><strong>Duration:</strong> 3 Years</li><li><strong>Seats:</strong> 120</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-          <article class="course-card" data-category="ug"><span class="home-course-badge">B.Sc</span><h3>Data Science &amp; Analytics</h3><p>Focuses on statistical modeling, big data visualization, Python programming, and machine learning.</p><ul><li><strong>Duration:</strong> 3 Years</li><li><strong>Seats:</strong> 60</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
+          <article id="course-btech" class="course-card" data-category="ug"><img class="course-card-image" src="image/courses/course-computing.jpg" alt="Student working on a laptop" loading="lazy"><span class="home-course-badge">B.Tech</span><h3>Computer Science &amp; Engineering</h3><p>Learn software development, artificial intelligence, web technologies, and data structures.</p><ul><li><strong>Duration:</strong> 4 Years</li><li><strong>Seats:</strong> 120</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
+          <article id="course-bca" class="course-card" data-category="ug"><img class="course-card-image" src="image/courses/course-computing.jpg" alt="Student working on a laptop" loading="lazy"><span class="home-course-badge">BCA</span><h3>Bachelor of Computer Applications</h3><p>Designed for students aspiring to excel in software engineering, programming, and IT applications.</p><ul><li><strong>Duration:</strong> 3 Years</li><li><strong>Seats:</strong> 60</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
+          <article id="course-bba" class="course-card" data-category="ug"><img class="course-card-image" src="image/courses/course-business.jpg" alt="Team collaborating on a business project" loading="lazy"><span class="home-course-badge">BBA</span><h3>Bachelor of Business Administration</h3><p>Develop leadership, managerial skills, business strategy, and entrepreneurial acumen.</p><ul><li><strong>Duration:</strong> 3 Years</li><li><strong>Seats:</strong> 90</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
+          <article id="course-bcom" class="course-card" data-category="ug"><img class="course-card-image" src="image/courses/course-commerce.jpg" alt="Calculator and financial documents" loading="lazy"><span class="home-course-badge">B.Com</span><h3>Bachelor of Commerce</h3><p>Covers financial accounting, corporate tax, economics, business law, and modern auditing practices.</p><ul><li><strong>Duration:</strong> 3 Years</li><li><strong>Seats:</strong> 120</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
+          <article id="course-bsc" class="course-card" data-category="ug"><img class="course-card-image" src="image/courses/course-data.jpg" alt="Data analytics charts on a computer screen" loading="lazy"><span class="home-course-badge">B.Sc</span><h3>Data Science &amp; Analytics</h3><p>Focuses on statistical modeling, big data visualization, Python programming, and machine learning.</p><ul><li><strong>Duration:</strong> 3 Years</li><li><strong>Seats:</strong> 60</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
         </div>
       </section>
       <section class="home-section-inner home-content-block">
         <h2 class="home-section-title">Postgraduate Programs (PG)</h2>
         <div class="home-card-grid home-course-grid">
-          <article class="course-card" data-category="pg"><span class="home-course-badge">MCA</span><h3>Master of Computer Applications</h3><p>Advanced study in computing systems, modern framework architecture, and software management.</p><ul><li><strong>Duration:</strong> 2 Years</li><li><strong>Seats:</strong> 60</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-          <article class="course-card" data-category="pg"><span class="home-course-badge">MBA</span><h3>Master of Business Administration</h3><p>Specialization in Finance, Marketing, Human Resource Management, and Business Analytics.</p><ul><li><strong>Duration:</strong> 2 Years</li><li><strong>Seats:</strong> 120</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
-          <article class="course-card" data-category="pg"><span class="home-course-badge">M.Tech</span><h3>Cyber Security &amp; Digital Forensics</h3><p>Advanced training in network security, ethical hacking, cryptography, and cyber threat mitigation.</p><ul><li><strong>Duration:</strong> 2 Years</li><li><strong>Seats:</strong> 40</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
+          <article id="course-mca" class="course-card" data-category="pg"><img class="course-card-image" src="image/courses/course-computing.jpg" alt="Student working on a laptop" loading="lazy"><span class="home-course-badge">MCA</span><h3>Master of Computer Applications</h3><p>Advanced study in computing systems, modern framework architecture, and software management.</p><ul><li><strong>Duration:</strong> 2 Years</li><li><strong>Seats:</strong> 60</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
+          <article id="course-mba" class="course-card" data-category="pg"><img class="course-card-image" src="image/courses/course-business.jpg" alt="Team collaborating on a business project" loading="lazy"><span class="home-course-badge">MBA</span><h3>Master of Business Administration</h3><p>Specialization in Finance, Marketing, Human Resource Management, and Business Analytics.</p><ul><li><strong>Duration:</strong> 2 Years</li><li><strong>Seats:</strong> 120</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
+          <article id="course-mtech" class="course-card" data-category="pg"><img class="course-card-image" src="image/courses/course-security.jpg" alt="Close-up of an electronic circuit board" loading="lazy"><span class="home-course-badge">M.Tech</span><h3>Cyber Security &amp; Digital Forensics</h3><p>Advanced training in network security, ethical hacking, cryptography, and cyber threat mitigation.</p><ul><li><strong>Duration:</strong> 2 Years</li><li><strong>Seats:</strong> 40</li></ul><a class="home-text-button" href="#admission">Apply Now</a></article>
         </div>
       </section>
       <section class="home-section-inner home-content-block">
         <h2 class="home-section-title">Student &amp; Campus Clubs</h2>
         <div class="home-card-grid home-course-grid">
-          <article class="course-card" data-category="clubs"><span class="home-course-badge">Tech Club</span><h3>CodeCrafters - Coding Club</h3><p>Organizes hackathons, competitive programming contests, and open-source project workshops.</p><ul><li><strong>Activities:</strong> Hackathons &amp; Coding</li><li><strong>Eligibility:</strong> Open to All</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
-          <article class="course-card" data-category="clubs"><span class="home-course-badge">Business Club</span><h3>E-Cell &amp; Management Club</h3><p>Promotes entrepreneurship, startup pitch competitions, and leadership networking sessions.</p><ul><li><strong>Activities:</strong> Pitching &amp; Seminars</li><li><strong>Eligibility:</strong> Open to All</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
-          <article class="course-card" data-category="clubs"><span class="home-course-badge">Robotics Club</span><h3>RoboTech &amp; AI Society</h3><p>Hands-on work with IoT, robotics hardware, automation, and AI innovation projects.</p><ul><li><strong>Activities:</strong> Hardware &amp; AI Bots</li><li><strong>Eligibility:</strong> Tech Enthusiasts</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
-          <article class="course-card" data-category="clubs"><span class="home-course-badge">Cultural Club</span><h3>Aura - Cultural &amp; Arts Club</h3><p>Encourages student talent in music, drama, dance, photography, and annual college fests.</p><ul><li><strong>Activities:</strong> Performing Arts &amp; Fests</li><li><strong>Eligibility:</strong> Open to All</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
-          <article class="course-card" data-category="clubs"><span class="home-course-badge">Literary Club</span><h3>Chronicles - Debate &amp; Lit Society</h3><p>Hosts Model United Nations (MUN), creative writing workshops, public speaking, and annual quizzes.</p><ul><li><strong>Activities:</strong> Debates &amp; Writing</li><li><strong>Eligibility:</strong> Open to All</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
+          <article class="course-card" data-category="clubs"><img class="course-card-image" src="image/courses/course-computing.jpg" alt="Student working on a laptop" loading="lazy"><span class="home-course-badge">Tech Club</span><h3>CodeCrafters - Coding Club</h3><p>Organizes hackathons, competitive programming contests, and open-source project workshops.</p><ul><li><strong>Activities:</strong> Hackathons &amp; Coding</li><li><strong>Eligibility:</strong> Open to All</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
+          <article class="course-card" data-category="clubs"><img class="course-card-image" src="image/courses/course-business.jpg" alt="Team collaborating on a business project" loading="lazy"><span class="home-course-badge">Business Club</span><h3>E-Cell &amp; Management Club</h3><p>Promotes entrepreneurship, startup pitch competitions, and leadership networking sessions.</p><ul><li><strong>Activities:</strong> Pitching &amp; Seminars</li><li><strong>Eligibility:</strong> Open to All</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
+          <article class="course-card" data-category="clubs"><img class="course-card-image" src="image/courses/course-robotics.jpg" alt="Robotics workshop equipment" loading="lazy"><span class="home-course-badge">Robotics Club</span><h3>RoboTech &amp; AI Society</h3><p>Hands-on work with IoT, robotics hardware, automation, and AI innovation projects.</p><ul><li><strong>Activities:</strong> Hardware &amp; AI Bots</li><li><strong>Eligibility:</strong> Tech Enthusiasts</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
+          <article class="course-card" data-category="clubs"><img class="course-card-image" src="image/courses/course-arts.jpg" alt="Artist painting on a canvas" loading="lazy"><span class="home-course-badge">Cultural Club</span><h3>Aura - Cultural &amp; Arts Club</h3><p>Encourages student talent in music, drama, dance, photography, and annual college fests.</p><ul><li><strong>Activities:</strong> Performing Arts &amp; Fests</li><li><strong>Eligibility:</strong> Open to All</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
+          <article class="course-card" data-category="clubs"><img class="course-card-image" src="image/courses/course-writing.jpg" alt="Pen writing on a notebook" loading="lazy"><span class="home-course-badge">Literary Club</span><h3>Chronicles - Debate &amp; Lit Society</h3><p>Hosts Model United Nations (MUN), creative writing workshops, public speaking, and annual quizzes.</p><ul><li><strong>Activities:</strong> Debates &amp; Writing</li><li><strong>Eligibility:</strong> Open to All</li></ul><a class="home-text-button" href="#campus">Join Club</a></article>
         </div>
       </section>
     </section>
@@ -504,7 +524,31 @@
         <div class="home-section-heading"><p class="home-eyebrow">Let’s talk</p><h2 class="home-section-title">Contact Us</h2></div>
         <div class="home-contact-grid">
           <form class="home-form" id="contact-form"><h3>Send us a message</h3><p>Fill in the form and we’ll be glad to help.</p><label for="name">Your name</label><input type="text" id="name" name="name" autocomplete="name" placeholder="e.g. Priya Sharma" required><label for="email">Email address</label><input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required><label for="message">How can we help?</label><textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea><button class="home-button" type="submit">Send Message</button><p class="home-form-status" id="form-status" role="status" aria-live="polite"></p></form>
-          <aside class="home-info-card home-contact-details"><h3 data-home-text="contact.detailsHeading">Contact information</h3><p data-home-text="contact.detailsIntro">Reach out to us directly. We look forward to hearing from you.</p><h4 data-home-text="contact.emailHeading">Email</h4><a href="mailto:admission.asmnext@asmedu.org" data-home-attr="href:contact.emailHref" data-home-text="contact.email">admission.asmnext@asmedu.org</a><h4 data-home-text="contact.phoneHeading">Phone</h4><a href="tel:+919028076028" data-home-attr="href:contact.phoneHref" data-home-text="contact.phone">+91 90280 76028</a><h4 data-home-text="contact.addressHeading">Address</h4><p data-home-text="contact.address">ASM's NextGen Technical Campus, Talegaon Dabhade, Maval, Pune</p></aside>
+          <aside class="home-info-card home-contact-details">
+            <h3 data-home-text="contact.detailsHeading">Contact information</h3>
+            <p data-home-text="contact.detailsIntro">Reach out to us directly. We look forward to hearing from you.</p>
+            <h4 data-home-text="contact.emailHeading">Email</h4>
+            <a href="mailto:admission.asmnext@asmedu.org" data-home-attr="href:contact.emailHref" data-home-text="contact.email">admission.asmnext@asmedu.org</a>
+            <a href="mailto:admission.asmnextgen@asmedu.org">admission.asmnextgen@asmedu.org</a>
+            <h4 data-home-text="contact.phoneHeading">Phone</h4>
+            <a href="tel:+919028076028">+91 90280 76028 / 29 / 30 / 37</a>
+            <a href="tel:+917588642742">+91 75886 42742</a>
+            <a href="tel:+919028022871">+91 90280 22871</a>
+            <h4 data-home-text="contact.addressHeading">Address</h4>
+            <p data-home-text="contact.address">Survey No. 401/1, Jain Mandir, Old Mumbai–Pune Highway, Talegaon Dabhade, Pune, Maharashtra 410506.</p>
+          </aside>
+          <aside class="home-contact-map">
+            <div class="home-contact-map-heading">
+              <h3>Campus Location</h3>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=ASM+NextGen+Technical+Campus%2C+Talegaon+Dabhade%2C+Pune" target="_blank" rel="noopener noreferrer">Open in Maps <span aria-hidden="true">&#8599;</span></a>
+            </div>
+            <iframe
+              title="Map showing ASM NextGen Technical Campus in Talegaon Dabhade"
+              src="https://maps.google.com/maps?q=ASM%20NextGen%20Technical%20Campus%2C%20Talegaon%20Dabhade%2C%20Pune&t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </aside>
         </div>
       </section>
     </section>
@@ -538,12 +582,12 @@
         </div></div></div>
         <p id="department-search-status" class="home-department-status" role="status" aria-live="polite"></p>
         <div class="home-card-grid home-department-results">
-          <article id="department-bca" class="home-info-card" hidden><span class="home-course-badge">BCA</span><h3>Computer Applications</h3><p>Learn programming, software development, web technologies and databases.</p></article>
-          <article id="department-bba" class="home-info-card" hidden><span class="home-course-badge">BBA</span><h3>Business Administration</h3><p>Develop leadership, management, business strategy and entrepreneurship skills.</p></article>
-          <article id="department-bcom" class="home-info-card" hidden><span class="home-course-badge">B.Com</span><h3>Commerce</h3><p>Study accounting, finance, taxation, economics and commerce.</p></article>
-          <article id="department-bsc" class="home-info-card" hidden><span class="home-course-badge">B.Sc</span><h3>Information Technology</h3><p>Learn IT, networking, databases, programming and emerging technologies.</p></article>
-          <article id="department-mba" class="home-info-card" hidden><span class="home-course-badge">MBA</span><h3>Management Studies</h3><p>Build skills in finance, marketing, human resources and management.</p></article>
-          <article id="department-mca" class="home-info-card home-mca-card" hidden><span class="home-course-badge">MCA</span><h3>Master of Computer Applications</h3><p>Learn programming, software engineering, cloud computing, database management and application development.</p><button type="button" class="home-small-button view-details-btn" aria-expanded="false" aria-controls="mca-details">View Details</button><div id="mca-details" class="home-mca-details" hidden><h3>About MCA</h3><p>MCA is a postgraduate course focused on computer applications, programming and software development.</p><h3>Subjects and Skills</h3><ul><li>Python and Java Programming</li><li>Database Management Systems</li><li>Software Engineering</li><li>Web Development</li><li>Cloud Computing</li><li>Artificial Intelligence and Data Science</li></ul><h3>Career Opportunities</h3><ul><li>Software Developer</li><li>Web Developer</li><li>Cloud Engineer</li><li>Data Analyst</li><li>System Analyst</li></ul><p><strong>Course Duration:</strong> Generally 2 years, subject to university rules.</p></div></article>
+          <article id="department-bca" class="home-info-card"><span class="home-course-badge">BCA</span><h3>Computer Applications</h3><p>Learn programming, software development, web technologies and databases.</p></article>
+          <article id="department-bba" class="home-info-card"><span class="home-course-badge">BBA</span><h3>Business Administration</h3><p>Develop leadership, management, business strategy and entrepreneurship skills.</p></article>
+          <article id="department-bcom" class="home-info-card"><span class="home-course-badge">B.Com</span><h3>Commerce</h3><p>Study accounting, finance, taxation, economics and commerce.</p></article>
+          <article id="department-bsc" class="home-info-card"><span class="home-course-badge">B.Sc</span><h3>Information Technology</h3><p>Learn IT, networking, databases, programming and emerging technologies.</p></article>
+          <article id="department-mba" class="home-info-card"><span class="home-course-badge">MBA</span><h3>Management Studies</h3><p>Build skills in finance, marketing, human resources and management.</p></article>
+          <article id="department-mca" class="home-info-card home-mca-card"><span class="home-course-badge">MCA</span><h3>Master of Computer Applications</h3><p>Learn programming, software engineering, cloud computing, database management and application development.</p><button type="button" class="home-small-button view-details-btn" aria-expanded="false" aria-controls="mca-details">View Details</button><div id="mca-details" class="home-mca-details" hidden><h3>About MCA</h3><p>MCA is a postgraduate course focused on computer applications, programming and software development.</p><h3>Subjects and Skills</h3><ul><li>Python and Java Programming</li><li>Database Management Systems</li><li>Software Engineering</li><li>Web Development</li><li>Cloud Computing</li><li>Artificial Intelligence and Data Science</li></ul><h3>Career Opportunities</h3><ul><li>Software Developer</li><li>Web Developer</li><li>Cloud Engineer</li><li>Data Analyst</li><li>System Analyst</li></ul><p><strong>Course Duration:</strong> Generally 2 years, subject to university rules.</p></div></article>
         </div>
       </section>
     </section>

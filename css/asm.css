@@ -1122,3 +1122,10 @@ body:has(#admission-process) .card-icon {
 .card-icon, .stat-icon { color: #176b87; }
 .navbar .nav-links li a:hover,
 .navbar .nav-links li a.active { color: #25b8c4; }
+.about-page .page-hero.hero {
+  background-image:
+    linear-gradient(110deg, rgb(8 40 71 / 70%), rgb(16 63 104 / 54%)),
+    url("../image/asm-campus-building.webp");
+  background-position: center;
+  background-size: cover;
+}

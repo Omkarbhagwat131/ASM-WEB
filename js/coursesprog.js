@@ -232,6 +232,13 @@ document.addEventListener("DOMContentLoaded", () => {
       card.dataset.desc = course.description.toLowerCase();
       card.dataset.badge = course.badge.toLowerCase();
 
+      const image = document.createElement("img");
+      image.className = "course-card-image";
+      image.src = course.image;
+      image.alt = course.imageAlt;
+      image.loading = "lazy";
+      image.decoding = "async";
+
       const overview = document.createElement("div");
       const metadata = document.createElement("div");
       metadata.className = "course-card-meta";
@@ -282,7 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
       applyLink.href = course.actionUrl || "addmission.html";
       applyLink.textContent = course.category === "clubs" ? "Join Club" : "Apply Now";
 
-      card.append(overview, details, actions, applyLink);
+      card.append(image, overview, details, actions, applyLink);
       return card;
     };
 

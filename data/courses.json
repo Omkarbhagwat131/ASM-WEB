@@ -14,7 +14,9 @@
       "reviewsCount": "320",
       "brochureUrl": "#",
       "highlights": ["AI & Machine Learning", "Cloud Computing", "Full Stack Development"],
-      "actionUrl": "addmission.html"
+      "actionUrl": "addmission.html",
+      "image": "image/courses/course-computing.jpg",
+      "imageAlt": "Student working on a laptop"
     },
     {
       "id": "bca-ug",
@@ -30,7 +32,9 @@
       "reviewsCount": "245",
       "brochureUrl": "#",
       "highlights": ["Software Engineering", "Database Management", "Web Design"],
-      "actionUrl": "addmission.html"
+      "actionUrl": "addmission.html",
+      "image": "image/courses/course-computing.jpg",
+      "imageAlt": "Student working on a laptop"
     },
     {
       "id": "bba-ug",
@@ -46,7 +50,9 @@
       "reviewsCount": "190",
       "brochureUrl": "#",
       "highlights": ["Business Strategy", "Marketing Management", "Leadership"],
-      "actionUrl": "addmission.html"
+      "actionUrl": "addmission.html",
+      "image": "image/courses/course-business.jpg",
+      "imageAlt": "Team collaborating on a business project"
     },
     {
       "id": "bcom-ug",
@@ -62,7 +68,9 @@
       "reviewsCount": "210",
       "brochureUrl": "#",
       "highlights": ["Financial Accounting", "Corporate Tax", "Auditing"],
-      "actionUrl": "addmission.html"
+      "actionUrl": "addmission.html",
+      "image": "image/courses/course-commerce.jpg",
+      "imageAlt": "Calculator and financial documents"
     },
     {
       "id": "bsc-ds-ug",
@@ -78,7 +86,9 @@
       "reviewsCount": "180",
       "brochureUrl": "#",
       "highlights": ["Python & R", "Big Data", "Statistical Modeling"],
-      "actionUrl": "addmission.html"
+      "actionUrl": "addmission.html",
+      "image": "image/courses/course-data.jpg",
+      "imageAlt": "Data analytics charts on a computer screen"
     },
     {
       "id": "mca-pg",
@@ -94,7 +104,9 @@
       "reviewsCount": "290",
       "brochureUrl": "#",
       "highlights": ["Advanced Python & Java", "Database Administration", "System Design"],
-      "actionUrl": "addmission.html"
+      "actionUrl": "addmission.html",
+      "image": "image/courses/course-computing.jpg",
+      "imageAlt": "Student working on a laptop"
     },
     {
       "id": "mba-pg",
@@ -110,7 +122,9 @@
       "reviewsCount": "310",
       "brochureUrl": "#",
       "highlights": ["Finance & Marketing", "Business Analytics", "HR Management"],
-      "actionUrl": "addmission.html"
+      "actionUrl": "addmission.html",
+      "image": "image/courses/course-business.jpg",
+      "imageAlt": "Team collaborating on a business project"
     },
     {
       "id": "mtech-pg",
@@ -126,7 +140,9 @@
       "reviewsCount": "150",
       "brochureUrl": "#",
       "highlights": ["Ethical Hacking", "Cryptography", "Network Security"],
-      "actionUrl": "addmission.html"
+      "actionUrl": "addmission.html",
+      "image": "image/courses/course-security.jpg",
+      "imageAlt": "Close-up of an electronic circuit board"
     },
     {
       "id": "code-club",
@@ -142,7 +158,9 @@
       "reviewsCount": "420",
       "brochureUrl": "#",
       "highlights": ["Coding Hackathons", "GitHub Workshops", "Peer Mentorship"],
-      "actionUrl": "#"
+      "actionUrl": "#",
+      "image": "image/courses/course-computing.jpg",
+      "imageAlt": "Student working on a laptop"
     },
     {
       "id": "ecell-club",
@@ -158,7 +176,9 @@
       "reviewsCount": "250",
       "brochureUrl": "#",
       "highlights": ["Startup Pitching", "Business Seminars", "Networking"],
-      "actionUrl": "#"
+      "actionUrl": "#",
+      "image": "image/courses/course-business.jpg",
+      "imageAlt": "Team collaborating on a business project"
     },
     {
       "id": "robo-club",
@@ -174,7 +194,9 @@
       "reviewsCount": "280",
       "brochureUrl": "#",
       "highlights": ["IoT & Arduino", "AI Bots", "Hardware Workshops"],
-      "actionUrl": "#"
+      "actionUrl": "#",
+      "image": "image/courses/course-robotics.jpg",
+      "imageAlt": "Robotics workshop equipment"
     },
     {
       "id": "aura-club",
@@ -190,7 +212,9 @@
       "reviewsCount": "390",
       "brochureUrl": "#",
       "highlights": ["Annual Fests", "Dance & Drama", "Photography"],
-      "actionUrl": "#"
+      "actionUrl": "#",
+      "image": "image/courses/course-arts.jpg",
+      "imageAlt": "Artist painting on a canvas"
     },
     {
       "id": "lit-club",
@@ -206,7 +230,9 @@
       "reviewsCount": "170",
       "brochureUrl": "#",
       "highlights": ["Model United Nations", "Debates", "Creative Writing"],
-      "actionUrl": "#"
+      "actionUrl": "#",
+      "image": "image/courses/course-writing.jpg",
+      "imageAlt": "Pen writing on a notebook"
     }
   ]
 }

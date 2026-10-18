@@ -7,7 +7,7 @@
 	"assets": {
 		"logo": "image/asm-logo.png",
 		"anniversaryLogo": "image/42-years.png",
-		"building": "image/asm-campus-building.png",
+		"building": "image/asm-campus-building.webp",
 		"socialLinks": {
 			"facebook": "https://www.facebook.com/NextGenTechnicalCampus/",
 			"instagram": "https://www.instagram.com/asm_next/",
@@ -231,7 +231,7 @@
 		"phone": "+91 90280 76028",
 		"phoneHref": "tel:+919028076028",
 		"addressHeading": "Address",
-		"address": "ASM's NextGen Technical Campus, Talegaon Dabhade, Maval, Pune"
+		"address": "Survey No. 401/1, Jain Mandir, Old Mumbai–Pune Highway, Talegaon Dabhade, Pune, Maharashtra 410506."
 	},
 	"faculty": {
 		"eyebrow": "EXCELLENCE IN EDUCATION",
