@@ -18,6 +18,26 @@ body {
   color: #102a43;
 }
 
+.card-icon i,
+.document-icon i,
+.step-number i,
+.stat-icon i {
+  font-style: normal;
+  font-family: "Segoe UI Symbol", "Segoe UI Emoji", "Arial Unicode MS", sans-serif;
+}
+
+.fa-gears::before { content: "⚙"; }
+.fa-laptop-code::before { content: "💻"; }
+.fa-graduation-cap::before { content: "🎓"; }
+.fa-user-graduate::before { content: "👨‍🎓"; }
+.fa-file-lines::before { content: "📝"; }
+.fa-file-circle-check::before { content: "✅"; }
+.fa-list-check::before { content: "✔"; }
+.fa-chart-line::before { content: "📈"; }
+.fa-sack-dollar::before { content: "💰"; }
+.fa-handshake::before { content: "🤝"; }
+.fa-user-check::before { content: "✅"; }
+
 /* HERO */
 
 .hero {
@@ -584,37 +604,6 @@ footer p {
   box-shadow: 0 4px 10px rgba(13, 59, 102, 0.3);
 }
 
-/* Document List Styling */
-.document-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.document-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  border-left: 4px solid #e63946;
-}
-
-.document-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: #fdf0f0;
-  color: #e63946;
-  border-radius: 50%;
-  font-weight: bold;
-  flex-shrink: 0;
-}
 /* ==========================================
    ADMISSIONS & CARDS FULL STYLING
    ========================================== */
@@ -1260,3 +1249,4 @@ textarea:focus-visible {
         transition: none !important;
     }
 }
+
