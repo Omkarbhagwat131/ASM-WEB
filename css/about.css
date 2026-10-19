@@ -134,6 +134,16 @@ body {
   }
 }
 
+@media (max-width: 420px) {
+  .info-section {
+    padding: 2rem 1.25rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .stat-card {
   background: var(--white);
   border: 1px solid rgba(27, 93, 145, 0.15);

@@ -196,6 +196,9 @@ if (mount) {
       frame.appendChild(document.body.firstChild);
     }
     document.body.appendChild(frame);
+    frame.querySelectorAll("footer").forEach(footer => {
+      footer.classList.add("shared-footer");
+    });
 
     if (currentPage === "home.html") {
       const homeHero = document.querySelector(page.legacyHero);

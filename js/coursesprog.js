@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Render course cards with Rating and Download Syllabus button
+    // Render course cards with Rating and syllabus links
     const renderCourses = (courses) => {
         ugSection.innerHTML = "";
         pgSection.innerHTML = "";
@@ -57,8 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
             card.setAttribute("data-badge", course.badge.toLowerCase());
 
             // Clubs sathi syllabus button dakhavu naye mhanun condition
-            const syllabusBtnHTML = course.category !== 'clubs' 
-                ? `<button class="btn btn-outline download-pdf-btn" data-title="${course.title}" style="flex: 1; padding: 0.5rem; font-size: 0.85rem;">📥 Syllabus</button>` 
+            const syllabusBtnHTML = course.category !== 'clubs'
+                ? course.syllabusUrl
+                    ? `<a class="btn btn-outline" href="${course.syllabusUrl}" target="_blank" rel="noopener noreferrer" aria-label="Open ${course.title} syllabus on the SPPU website" style="flex: 1; padding: 0.5rem; font-size: 0.85rem;">Syllabus</a>`
+                    : `<button class="btn btn-outline" type="button" disabled title="No matching SPPU syllabus document is currently listed." style="flex: 1; padding: 0.5rem; font-size: 0.85rem;">Syllabus unavailable</button>`
                 : '';
 
             const quickViewWidth = course.category === 'clubs' ? 'width: 100%;' : 'flex: 1;';
@@ -135,14 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     modalOverlay.style.display = "flex";
                 }
-            });
-        });
-
-        // Download Syllabus Simulation Feature
-        document.querySelectorAll(".download-pdf-btn").forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                const title = e.target.getAttribute("data-title");
-                alert(`📥 Demo Notice: Curriculum brochure for "${title}" downloaded successfully!`);
             });
         });
     };

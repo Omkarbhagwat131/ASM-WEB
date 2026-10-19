@@ -1,19 +1,19 @@
 :root {
   color-scheme: light;
-  --navy: #082847;
-  --blue: #103f68;
-  --bright-blue: #1b5d91;
-  --pale-blue: #e8f1f8;
-  --ink: #172b3f;
-  --muted: #617386;
+  --navy: #315875;
+  --blue: #477493;
+  --bright-blue: #638eaa;
+  --pale-blue: #eaf1f5;
+  --ink: #293c49;
+  --muted: #61727c;
   --white: #fff;
-  --paper: #f5f8fb;
+  --paper: #f5f7f8;
   --font-body: "Roboto", sans-serif;
   --font-heading: "Raleway", sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 body.contact-page {
   font-family: var(--font-body);
   color: var(--ink);
@@ -307,7 +307,7 @@ main {
 }
 /* --- Header General Styling --- */
 #header {
-  background-color: #031534; /* Dark Navy Blue */
+  background-color: #315875;
   color: #ffffff;
   font-family: Arial, sans-serif;
   width: 100%;
@@ -315,7 +315,7 @@ main {
 
 /* Top Bar Styles */
 #header .top-bar {
-  background-color: #020d24;
+  background-color: #294c66;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -336,7 +336,7 @@ main {
 
 /* Main Header Styles */
 #header .main-header {
-  background-color: #031534;
+  background-color: #315875;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -388,7 +388,7 @@ main {
 
 /* --- Main Navigation (All in One Line & Normal Links) --- */
 #header .main-nav {
-  background-color: #031534;
+  background-color: #3a6888;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -444,7 +444,7 @@ main {
 
 #header .main-nav a.admission-btn:hover {
   background-color: #ffffff;
-  color: #031534;
+  color: #294c66;
 }
 
 /* Shared home-page theme used by every module. */
@@ -464,6 +464,7 @@ body {
   padding: 0;
   background: #ffffff !important;
   font-family: "Poppins", "Inter", sans-serif;
+  overflow-x: clip;
 }
 
 .site-frame {
@@ -471,7 +472,7 @@ body {
   padding: 18px;
   border: 14px solid #ffffff;
   border-radius: 18px;
-  background: #0A1931;
+  background: #edf2f5;
   font-family: "Poppins", "Inter", sans-serif;
 }
 
@@ -480,7 +481,7 @@ body {
   z-index: 5;
   width: 100%;
   color: #ffffff;
-  background: #000000;
+  background: #315875;
   font-family: "Poppins", "Inter", sans-serif;
 }
 
@@ -488,11 +489,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background: #000000;
+  background: #315875;
 }
 
 #header .site-identity {
-  background: #0A1931;
+  background: #315875;
 }
 
 #header .top-bar {
@@ -503,7 +504,7 @@ body {
   gap: 14px;
   padding: 6px 3%;
   color: #ffffff;
-  background: #000000;
+  background: #294c66;
   border-bottom: 1px solid rgba(255, 255, 255, .12);
   font-size: 11px;
 }
@@ -1200,5 +1201,229 @@ body .module-hero::after {
   .module-hero::before,
   .module-hero::after {
     animation: none !important;
+  }
+}
+
+/* Shared mid-tone campus blue palette and consistent module components. */
+.site-frame {
+  --navy: #315875;
+  --blue: #477493;
+  --bright-blue: #638eaa;
+  --pale-blue: #eaf1f5;
+  --ink: #293c49;
+  --muted: #61727c;
+  --paper: #f5f7f8;
+  --deep: #294c66;
+  --royal: #477493;
+  --bright: #638eaa;
+  --sky: #a8c9db;
+  --gold: #d4a44c;
+  color: #293c49;
+  background: #edf2f5;
+}
+
+.site-frame #header,
+.site-frame #header .site-header,
+.site-frame #header .site-identity,
+.site-frame #header .brand-row {
+  color: #ffffff;
+  background-color: #315875;
+}
+
+.site-frame #header .top-bar {
+  color: #f5f7f8;
+  background-color: #294c66;
+  border-bottom-color: rgba(255, 255, 255, .18);
+}
+
+.site-frame #header .site-nav {
+  background-color: #3a6888;
+  border-top: 1px solid rgba(255, 255, 255, .18);
+}
+
+.site-frame #header .org-name,
+.site-frame #header .brand-approvals a:hover,
+.site-frame #header .top-bar a:hover,
+.site-frame #header .site-nav a:hover,
+.site-frame #header .site-nav a.active,
+.site-frame #header .site-nav a.admission-btn:hover,
+.site-frame #header .site-nav a.admission-btn.active {
+  color: #f0cf8b;
+}
+
+.site-frame #header .site-nav a,
+.site-frame #header .site-nav a.admission-btn {
+  background-color: transparent;
+}
+
+.site-frame #header .site-nav a:hover,
+.site-frame #header .site-nav a.active,
+.site-frame #header .site-nav a.admission-btn:hover,
+.site-frame #header .site-nav a.admission-btn.active {
+  background-color: rgba(255, 255, 255, .1);
+}
+
+.site-frame .module-hero {
+  background: linear-gradient(120deg, #315875 0%, #477493 100%);
+}
+
+.site-frame .module-hero::before,
+.site-frame .module-hero::after {
+  background: rgba(168, 201, 219, .35);
+}
+
+.site-frame .module-eyebrow {
+  color: #c3dbe7;
+}
+
+.site-frame .module-eyebrow span {
+  background: #d4a44c;
+}
+
+.site-frame .module-hero-card,
+.site-frame .home-module-hero .hero-login-card {
+  width: 380px;
+  height: 390px;
+  min-height: 390px;
+  max-height: 390px;
+  flex: 0 0 380px;
+  padding: 24px;
+  overflow: auto;
+  color: #293c49;
+  background: #fffefa;
+  border: 1px solid #e0e8ed;
+  border-radius: 12px;
+  box-shadow: 0 18px 42px rgba(41, 76, 102, .2);
+  box-sizing: border-box;
+}
+
+.site-frame .module-hero-card h2,
+.site-frame .module-card-kicker,
+.site-frame .module-highlight,
+.site-frame .department-list li span,
+.site-frame .faculty-count strong,
+.site-frame .about-stats strong,
+.site-frame .module-map-link,
+.site-frame .module-map-preview strong {
+  color: #315875;
+}
+
+.site-frame .module-card-copy,
+.site-frame .faculty-count,
+.site-frame .about-stats span,
+.site-frame .module-location {
+  color: #566b79;
+}
+
+.site-frame .module-field,
+.site-frame .department-list li {
+  color: #293c49;
+}
+
+.site-frame .module-card-button {
+  color: #ffffff;
+  background: #477493;
+}
+
+.site-frame .module-card-button:hover {
+  color: #294c66;
+  background: #f0cf8b;
+}
+
+.site-frame .recruiter-logos span,
+.site-frame .department-list li span,
+.site-frame .about-stats div {
+  color: #315875;
+  background: #eaf1f5;
+}
+
+.site-frame .module-map-preview {
+  color: #293c49;
+  background-color: #eaf1f5;
+  background-image: linear-gradient(rgba(71, 116, 147, .1) 1px, transparent 1px), linear-gradient(90deg, rgba(71, 116, 147, .1) 1px, transparent 1px);
+}
+
+.site-frame .social-links a {
+  color: #ffffff;
+  background: #477493;
+  border-color: #a8c9db;
+}
+
+.site-frame .social-links a:hover {
+  color: #294c66;
+  background: #f0cf8b;
+}
+
+.site-frame > main,
+.site-frame > section:not(.module-hero),
+.site-frame > .search-container {
+  color: #293c49;
+  background-color: #f5f7f8;
+}
+
+.site-frame .shared-footer {
+  width: 100%;
+  margin: 36px 0 0;
+  padding: 34px clamp(20px, 4vw, 56px);
+  color: #f5f7f8;
+  background: linear-gradient(120deg, #294c66, #3a6888);
+  border: 0;
+  border-top: 4px solid #d4a44c;
+  border-radius: 12px;
+  box-shadow: 0 14px 30px rgba(41, 76, 102, .16);
+  font-family: "Poppins", "Inter", sans-serif;
+  text-align: left;
+}
+
+.site-frame .shared-footer {
+  background-color: #315875;
+}
+
+.site-frame .shared-footer > * {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.site-frame .shared-footer h1,
+.site-frame .shared-footer h2,
+.site-frame .shared-footer h3,
+.site-frame .shared-footer h4,
+.site-frame .shared-footer strong {
+  color: #ffffff;
+}
+
+.site-frame .shared-footer p,
+.site-frame .shared-footer li,
+.site-frame .shared-footer span {
+  color: #dce8ef;
+}
+
+.site-frame .shared-footer a {
+  color: #f0cf8b;
+  text-decoration: none;
+}
+
+.site-frame .shared-footer a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.site-frame .shared-footer .footer-bottom,
+.site-frame .shared-footer .copy {
+  border-color: rgba(220, 232, 239, .28);
+}
+
+.site-frame .module-reveal.shared-footer {
+  transition: opacity .7s ease-out, transform .7s ease-out;
+}
+
+@media (max-width: 760px) {
+  .site-frame .module-hero-card,
+  .site-frame .home-module-hero .hero-login-card {
+    width: 100%;
+    max-width: 380px;
+    min-width: 0;
+    flex-basis: auto;
   }
 }

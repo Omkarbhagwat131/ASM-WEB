@@ -2,16 +2,16 @@
 
 :root {
   color-scheme: light;
-  --deep: #04122b;          /* darkest blue (header, footer) */
-  --navy: #071d44;          /* header main */
-  --royal: #0b3380;         /* header gradient end / nav row */
-  --bright: #1f6fd1;        /* buttons / links */
-  --sky: #4cb2ff;           /* glow / highlights */
-  --gold: #ffc53d;          /* admission accent */
-  --pale: #e9f2fc;
-  --paper: #f4f8fd;
-  --ink: #14263d;
-  --muted: #5d6f84;
+  --deep: #294c66;
+  --navy: #315875;
+  --royal: #477493;
+  --bright: #638eaa;
+  --sky: #a8c9db;
+  --gold: #d4a44c;
+  --pale: #eaf1f5;
+  --paper: #f5f7f8;
+  --ink: #293c49;
+  --muted: #61727c;
   --white: #fff;
   --font-body: "Roboto", sans-serif;
   --font-heading: "Raleway", sans-serif;
