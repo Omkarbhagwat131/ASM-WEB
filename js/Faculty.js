@@ -293,6 +293,7 @@ function createFacultyCard(faculty) {
     const image = document.createElement("img");
     image.alt = faculty.imageAlt || faculty.name || "Faculty member";
     image.loading = "lazy";
+    image.decoding = "async";
 
     if (faculty.image) {
         const cleanPath = faculty.image.replace(/^\/+/, "");
@@ -434,6 +435,8 @@ function openFacultyModal(id) {
 
     if (elements.modalPhoto) {
         elements.modalPhoto.alt = faculty.imageAlt || faculty.name || "Faculty member";
+        elements.modalPhoto.loading = "lazy";
+        elements.modalPhoto.decoding = "async";
 
         if (faculty.image) {
             const cleanPath = faculty.image.replace(/^\/+/, "");

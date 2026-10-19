@@ -12,9 +12,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       const card = document.createElement("article");
       card.className = "campus-card";
       const image = document.createElement("img");
+      image.loading = "lazy";
+      image.decoding = "async";
       image.src = facility.image || "../image/asm-campus-building.png";
       image.alt = facility.name || "Campus facility";
-      image.loading = "lazy";
       image.addEventListener("error", () => { image.src = "../image/asm-campus-building.png"; }, { once: true });
       const content = document.createElement("div");
       content.className = "campus-card-content";

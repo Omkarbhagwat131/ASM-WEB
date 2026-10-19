@@ -30,7 +30,7 @@
       "name": "Boys Hostel",
       "category": "student",
       "description": "Contact the college administration to confirm boys hostel availability, fees, accommodation and admission details.",
-      "image": "../image/hostel.png",
+      "image": "../image/asm-campus-building.png",
       "icon": "fa-solid fa-bed"
     },
     {
@@ -38,7 +38,7 @@
       "name": "Girls Hostel",
       "category": "student",
       "description": "Contact the college administration to confirm girls hostel availability, fees, accommodation and admission details.",
-      "image": "../image/hostel.png",
+      "image": "../image/asm-campus-building.png",
       "icon": "fa-solid fa-person-dress"
     },
     {

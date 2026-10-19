@@ -1,3 +1,5 @@
+@import url("design-tokens.css");
+
 /* Shared mobile layout for the existing page-specific headers. */
 .faculty-menu-toggle {
     display: none;
@@ -17,20 +19,20 @@
 
     /* Pages using the reusable site shell. */
     .site-header {
-        padding: 10px 12px 0;
+        padding: 10px var(--asm-mobile-header-gutter) 0;
     }
 
     .shell-brand {
         width: 100%;
-        min-height: 70px;
-        grid-template-columns: 48px minmax(0, 1fr) 48px;
-        gap: 7px;
+        min-height: var(--asm-mobile-header-height);
+        grid-template-columns: var(--asm-mobile-header-logo) minmax(0, 1fr) var(--asm-mobile-header-logo);
+        gap: var(--asm-mobile-header-gap);
     }
 
     .shell-logo,
     .shell-anniversary {
-        width: 46px;
-        height: 46px;
+        width: var(--asm-mobile-header-logo);
+        height: var(--asm-mobile-header-logo);
         max-width: 100%;
     }
 
@@ -58,12 +60,12 @@
     .site-header .college-brand {
         width: 100%;
         min-width: 0;
-        min-height: 70px;
-        grid-template-columns: 48px minmax(0, 1fr) 48px;
+        min-height: var(--asm-mobile-header-height);
+        grid-template-columns: var(--asm-mobile-header-logo) minmax(0, 1fr) var(--asm-mobile-header-logo);
         display: grid;
         align-items: center;
-        gap: 7px;
-        padding: 9px 12px;
+        gap: var(--asm-mobile-header-gap);
+        padding: 9px var(--asm-mobile-header-gutter);
     }
 
     .college-header .logo-area,
@@ -72,15 +74,15 @@
         grid-row: 1;
         position: static;
         justify-self: start;
-        width: 46px;
-        height: 46px;
+        width: var(--asm-mobile-header-logo);
+        height: var(--asm-mobile-header-logo);
         max-width: 100%;
         transform: none;
     }
 
     .college-header .college-logo {
-        width: 46px;
-        height: 46px;
+        width: var(--asm-mobile-header-logo);
+        height: var(--asm-mobile-header-logo);
     }
 
     .college-header .anniversary-logo,
@@ -199,6 +201,22 @@
     background-repeat: no-repeat;
     background-size: cover !important;
     opacity: 0.2;
+}
+
+/* Avoid cropping the facade on mobile; Home keeps its own background framing. */
+@media (max-width: 760px) {
+    .about-hero::before,
+    .campus-hero::before,
+    .page-title::before,
+    .contact-hero::before,
+    .placement-hero::before,
+    .dept-hero::before,
+    .admissions-hero::before,
+    .courses-hero-background {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain !important;
+    }
 }
 
 .admissions-hero,
@@ -525,8 +543,8 @@
     .campus-page .college-header .college-brand,
     .admissions-navbar .nav-container {
         grid-template-columns: 40px minmax(0, 1fr) 40px;
-        gap: 5px;
-        padding-inline: 10px;
+        gap: var(--asm-mobile-header-gap-compact);
+        padding-inline: var(--asm-mobile-header-gutter-compact);
     }
 
     .college-header .logo-area,
@@ -542,7 +560,7 @@
     .shell-anniversary,
     .campus-page .college-brand > .anniversary-logo,
     .admissions-navbar .nav-container > .anniversary-logo {
-        width: 40px;
-        height: 40px;
+        width: var(--asm-mobile-header-logo-compact);
+        height: var(--asm-mobile-header-logo-compact);
     }
 }

@@ -1,0 +1,18 @@
+/* Shared design tokens used by the reusable site layout. */
+:root {
+    --asm-color-navy: #0b2b4c;
+    --asm-color-blue: #2f7db5;
+    --asm-color-sky: #e8f3fb;
+    --asm-color-white: #fff;
+    --asm-space-1: 4px;
+    --asm-space-2: 8px;
+    --asm-space-3: 12px;
+    --asm-space-4: 16px;
+    --asm-mobile-header-logo: 46px;
+    --asm-mobile-header-gap: 7px;
+    --asm-mobile-header-gutter: 12px;
+    --asm-mobile-header-height: 70px;
+    --asm-mobile-header-logo-compact: 40px;
+    --asm-mobile-header-gap-compact: 5px;
+    --asm-mobile-header-gutter-compact: 10px;
+}
