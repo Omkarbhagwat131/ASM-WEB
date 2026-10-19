@@ -462,6 +462,102 @@
             color: #64748b;
         }
 
+        .placement-page .placement-poster-carousel {
+            width: min(520px, 100%);
+            margin: 0 auto 34px;
+        }
+
+        .placement-page .placement-poster-slide {
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid var(--placement-border);
+            border-radius: 14px;
+            box-shadow: 0 10px 28px rgba(16, 42, 67, 0.08);
+            text-align: left;
+        }
+
+        .placement-page .placement-poster-slide[hidden] {
+            display: none;
+        }
+
+        .placement-page .placement-poster-slide img {
+            display: block;
+            width: 100%;
+            height: clamp(210px, 30vw, 290px);
+            object-fit: contain;
+            background: var(--placement-navy);
+        }
+
+        .placement-page .placement-poster-copy {
+            padding: 16px 20px 20px;
+        }
+
+        .placement-page .placement-poster-copy h3 {
+            margin: 0 0 7px;
+            color: var(--placement-navy);
+            font-size: 18px;
+        }
+
+        .placement-page .placement-poster-copy p {
+            margin: 0;
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        .placement-page .placement-carousel-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 16px;
+        }
+
+        .placement-page .placement-carousel-arrow {
+            display: grid;
+            width: 38px;
+            height: 38px;
+            place-items: center;
+            color: var(--placement-blue);
+            background: #ffffff;
+            border: 1px solid #9ccbed;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .placement-page .placement-carousel-arrow:hover {
+            color: #ffffff;
+            background: var(--placement-blue);
+        }
+
+        .placement-page .placement-carousel-dots {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .placement-page .placement-carousel-dots button {
+            width: 10px;
+            height: 10px;
+            padding: 0;
+            background: #b7cbdc;
+            border: 0;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .placement-page .placement-carousel-dots button[aria-current="true"] {
+            width: 24px;
+            background: var(--placement-blue);
+            border-radius: 8px;
+        }
+
+        .placement-page .placement-carousel-status {
+            margin: 7px 0 0;
+            color: #64748b;
+            font-size: 12px;
+        }
+
         .placement-page .filter-container {
             display: flex;
             justify-content: center;
@@ -1021,6 +1117,8 @@
             <a href="department.html" class="nav-item">Departments</a>
             <a href="addmission.html" class="nav-item">Admissions</a>
             <a href="placement.html" class="nav-item active-link">Placements</a>
+            <a href="library.html" class="nav-item">Library</a>
+            <a href="events.html" class="nav-item">Events</a>
             <a href="contact.html" class="nav-item">Contact Us</a>
         </div>
     </nav>
@@ -1082,6 +1180,30 @@
 <section class="placed-students-section" aria-labelledby="placed-students-heading">
 <h2 id="placed-students-heading">Our Placed Students</h2>
 <p>Celebrating the people and achievements behind every placement.</p>
+<div class="placement-poster-carousel" data-placement-carousel aria-label="Placement achievement posters">
+  <article class="placement-poster-slide" data-placement-slide>
+    <img src="image/placement-cravita-technologies.png" alt="ASM students selected for internships at Cravita Technologies India Private Limited: Komal Patil, Prachi Utane, Devika Pardeshi and Abhinay More" loading="lazy">
+    <div class="placement-poster-copy"><h3>Cravita Technologies India Pvt. Ltd.</h3><p>Selected students: Komal Patil, Prachi Utane, Devika Pardeshi and Abhinay More.</p></div>
+  </article>
+  <article class="placement-poster-slide" data-placement-slide hidden>
+    <img src="image/placement-qloax-llp.png" alt="ASM students selected for opportunities at QLOAX LLP, including Om Patil, Anushka Zine, Kalyani Patil, Pratiksha Jadhav, Dhiraj Kale, Mrunal Waghulde, Sakshi Shinde, Sayali Thite and Omkar Bhagwat" loading="lazy">
+    <div class="placement-poster-copy"><h3>QLOAX LLP</h3><p>Selected students: Om Patil, Anushka Zine, Kalyani Patil, Pratiksha Jadhav, Dhiraj Kale, Mrunal Waghulde, Sakshi Shinde, Sayali Thite and Omkar Bhagwat.</p></div>
+  </article>
+  <article class="placement-poster-slide" data-placement-slide hidden>
+    <img src="image/placement-ohana-technologies.png" alt="ASM students selected for opportunities at Ohana Technologies Private Limited: Saniya Harak, Ashwini Jagtap, Rahul Bhawa and Riya Kale" loading="lazy">
+    <div class="placement-poster-copy"><h3>Ohana Technologies Pvt. Ltd.</h3><p>Selected students: Saniya Harak, Ashwini Jagtap, Rahul Bhawa and Riya Kale.</p></div>
+  </article>
+  <div class="placement-carousel-controls">
+    <button class="placement-carousel-arrow" type="button" data-placement-previous aria-label="Previous placement poster"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+    <div class="placement-carousel-dots" role="group" aria-label="Choose placement poster">
+      <button type="button" data-placement-dot="0" aria-label="Show Cravita Technologies poster" aria-current="true"></button>
+      <button type="button" data-placement-dot="1" aria-label="Show QLOAX LLP poster" aria-current="false"></button>
+      <button type="button" data-placement-dot="2" aria-label="Show Ohana Technologies poster" aria-current="false"></button>
+    </div>
+    <button class="placement-carousel-arrow" type="button" data-placement-next aria-label="Next placement poster"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+  </div>
+  <p class="placement-carousel-status" aria-live="polite" aria-atomic="true">Poster 1 of 3</p>
+</div>
 <div class="filter-container" role="group" aria-label="Filter placed students">
   <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
   <button class="filter-btn" data-filter="mca" aria-pressed="false">MCA</button>

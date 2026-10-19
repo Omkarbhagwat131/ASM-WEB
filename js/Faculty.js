@@ -79,6 +79,49 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
+    function createLinkedInLink(faculty, className) {
+        const linkedInLink = document.createElement("a");
+        linkedInLink.className = className;
+        linkedInLink.setAttribute(
+            "aria-label",
+            "Open LinkedIn profile for " + (faculty.name || "faculty member")
+        );
+
+        const icon = document.createElement("i");
+        icon.className = "fa-brands fa-linkedin";
+        icon.setAttribute("aria-hidden", "true");
+
+        const label = document.createElement("span");
+        label.textContent = "LinkedIn Profile";
+        linkedInLink.append(icon, label);
+
+        const linkedinUrl = (faculty.linkedin || "").trim();
+        try {
+            const parsedUrl = new URL(linkedinUrl);
+            if (
+                ["https:", "http:"].includes(parsedUrl.protocol) &&
+                (
+                    parsedUrl.hostname === "linkedin.com" ||
+                    parsedUrl.hostname.endsWith(".linkedin.com")
+                )
+            ) {
+                linkedInLink.href = parsedUrl.href;
+                linkedInLink.target = "_blank";
+                linkedInLink.rel = "noopener noreferrer";
+                return linkedInLink;
+            }
+        } catch (error) {
+            // Use the existing unavailable-profile message below.
+        }
+
+        linkedInLink.href = "#";
+        linkedInLink.addEventListener("click", event => {
+            event.preventDefault();
+            alert("LinkedIn profile URL is not available for this faculty member.");
+        });
+        return linkedInLink;
+    }
+
     // 2. Create faculty cards and clickable three-dots menu.
     function renderFaculty(list) {
         facultyGrid.querySelectorAll(".faculty-card").forEach(card => {
@@ -105,69 +148,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             photoWrapper.appendChild(image);
 
-            // Three-dots menu.
-            const menu = document.createElement("div");
-            menu.className = "faculty-card-menu";
-
-            const dotsButton = document.createElement("button");
-            dotsButton.type = "button";
-            dotsButton.className = "three-dots-btn";
-            dotsButton.textContent = "\u22EE";
-            dotsButton.setAttribute(
-                "aria-label",
-                "More options for " + (faculty.name || "faculty member")
-            );
-            dotsButton.setAttribute("aria-haspopup", "true");
-            dotsButton.setAttribute("aria-expanded", "false");
-
-            // Dropdown.
-            const dropdown = document.createElement("div");
-            dropdown.className = "faculty-dropdown";
-
-            const linkedInLink = document.createElement("a");
-            linkedInLink.textContent = "LinkedIn Profile";
-
-            const linkedinUrl = (faculty.linkedin || "").trim();
-            let validLinkedInUrl = "";
-
-            try {
-                const parsedUrl = new URL(linkedinUrl);
-
-                if (
-                    ["https:", "http:"].includes(parsedUrl.protocol) &&
-                    (
-                        parsedUrl.hostname === "linkedin.com" ||
-                        parsedUrl.hostname.endsWith(".linkedin.com")
-                    )
-                ) {
-                    validLinkedInUrl = parsedUrl.href;
-                }
-            } catch (error) {
-                // No valid URL is available.
-            }
-
-            if (validLinkedInUrl) {
-                linkedInLink.href = validLinkedInUrl;
-                linkedInLink.target = "_blank";
-                linkedInLink.rel = "noopener noreferrer";
-            } else {
-                linkedInLink.href = "#";
-                linkedInLink.addEventListener("click", event => {
-                    event.preventDefault();
-                    alert("LinkedIn profile URL is not available for this faculty member.");
-                });
-            }
-
-            dropdown.appendChild(linkedInLink);
-            menu.append(dotsButton, dropdown);
-
             // Faculty details.
             const name = document.createElement("h3");
             name.textContent = faculty.name || "Name not available";
 
             card.append(
                 photoWrapper,
-                menu,
                 name,
                 createParagraph("designation", faculty.designation),
                 createParagraph("department", faculty.department),
@@ -176,7 +162,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 createParagraph(
                     "subjects",
                     "Subjects Taught: " + (faculty.subjects || []).join(", ")
-                )
+                ),
+                createLinkedInLink(faculty, "faculty-linkedin")
             );
 
             // View Details button.
@@ -247,64 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
     searchInput.addEventListener("input", searchFaculty);
     departmentFilter?.addEventListener("change", searchFaculty);
 
-    // 4. Three-dots click handler.
-    facultyGrid.addEventListener("click", event => {
-        const dotsButton = event.target.closest(".three-dots-btn");
-
-        if (dotsButton) {
-            event.preventDefault();
-            event.stopPropagation();
-
-            const currentMenu = dotsButton.closest(".faculty-card-menu");
-
-            if (!currentMenu) return;
-
-            const wasOpen = currentMenu.classList.contains("open");
-
-            // Close every open menu first.
-            document.querySelectorAll(".faculty-card-menu.open").forEach(menu => {
-                menu.classList.remove("open");
-
-                const button = menu.querySelector(".three-dots-btn");
-                if (button) {
-                    button.setAttribute("aria-expanded", "false");
-                }
-            });
-
-            // Open the clicked menu if it was previously closed.
-            if (!wasOpen) {
-                currentMenu.classList.add("open");
-                dotsButton.setAttribute("aria-expanded", "true");
-            }
-
-            return;
-        }
-
-        // Close menu when clicking another area inside the faculty grid.
-        if (!event.target.closest(".faculty-card-menu")) {
-            closeAllMenus();
-        }
-    });
-
-    // Close menu when clicking outside the faculty grid/menu.
-    document.addEventListener("click", event => {
-        if (!event.target.closest(".faculty-card-menu")) {
-            closeAllMenus();
-        }
-    });
-
-    function closeAllMenus() {
-        document.querySelectorAll(".faculty-card-menu.open").forEach(menu => {
-            menu.classList.remove("open");
-
-            const button = menu.querySelector(".three-dots-btn");
-            if (button) {
-                button.setAttribute("aria-expanded", "false");
-            }
-        });
-    }
-
-    // 5. View Details popup.
+    // 4. View Details popup.
     function openFacultyModal(faculty) {
         if (!faculty) {
             console.warn("Faculty details not found.");
@@ -330,6 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
             modalDetails.appendChild(paragraph);
         });
 
+        modalDetails.appendChild(createLinkedInLink(faculty, "faculty-modal-linkedin"));
         facultyModal.hidden = false;
         facultyModal.style.display = "flex";
         document.body.style.overflow = "hidden";
@@ -366,13 +297,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Escape closes the popup and dropdown menu.
+    // Escape closes the popup.
     document.addEventListener("keydown", event => {
         if (event.key === "Escape") {
             if (facultyModal.style.display === "flex") {
                 closeFacultyModal();
             }
-            closeAllMenus();
         }
     });
 

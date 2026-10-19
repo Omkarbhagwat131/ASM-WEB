@@ -50,25 +50,17 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 2. MCA View Details
-    const button = document.querySelector(".view-details-btn");
-    const details = document.getElementById("mca-details");
-
-    if (button && details) {
+    // 2. Department View Details
+    document.querySelectorAll(".view-details-btn").forEach(function (button) {
         button.addEventListener("click", function () {
+            const detailsId = button.getAttribute("aria-controls");
+            const details = detailsId ? document.getElementById(detailsId) : null;
+            if (!details) return;
 
             details.hidden = !details.hidden;
-
-            button.textContent = details.hidden
-                ? "View Details"
-                : "Hide Details";
-
-            button.setAttribute(
-                "aria-expanded",
-                String(!details.hidden)
-            );
-
+            button.textContent = details.hidden ? "View Details" : "Hide Details";
+            button.setAttribute("aria-expanded", String(!details.hidden));
         });
-    }
+    });
 
 });

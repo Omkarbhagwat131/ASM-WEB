@@ -1,5 +1,35 @@
 const initializePlacement = () => {
-  
+  document.querySelectorAll("[data-placement-carousel]").forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll("[data-placement-slide]"));
+    const previous = carousel.querySelector("[data-placement-previous]");
+    const next = carousel.querySelector("[data-placement-next]");
+    const dots = Array.from(carousel.querySelectorAll("[data-placement-dot]"));
+    const status = carousel.querySelector(".placement-carousel-status");
+
+    if (slides.length < 2 || !previous || !next) return;
+
+    let activeIndex = slides.findIndex((slide) => !slide.hidden);
+    if (activeIndex < 0) activeIndex = 0;
+
+    const showSlide = (index) => {
+      activeIndex = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        slide.hidden = slideIndex !== activeIndex;
+      });
+      dots.forEach((dot, dotIndex) => {
+        dot.setAttribute("aria-current", String(dotIndex === activeIndex));
+      });
+      if (status) status.textContent = `Poster ${activeIndex + 1} of ${slides.length}`;
+    };
+
+    previous.addEventListener("click", () => showSlide(activeIndex - 1));
+    next.addEventListener("click", () => showSlide(activeIndex + 1));
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => showSlide(index));
+    });
+    showSlide(activeIndex);
+  });
+
   // 1. COUNTER ANIMATION LOGIC
   const counters = document.querySelectorAll(".counter");
   
