@@ -1,0 +1,548 @@
+/* Shared mobile layout for the existing page-specific headers. */
+.faculty-menu-toggle {
+    display: none;
+}
+
+@media (max-width: 760px) {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        max-width: 100%;
+    }
+
+    /* Pages using the reusable site shell. */
+    .site-header {
+        padding: 10px 12px 0;
+    }
+
+    .shell-brand {
+        width: 100%;
+        min-height: 70px;
+        grid-template-columns: 48px minmax(0, 1fr) 48px;
+        gap: 7px;
+    }
+
+    .shell-logo,
+    .shell-anniversary {
+        width: 46px;
+        height: 46px;
+        max-width: 100%;
+    }
+
+    .shell-title {
+        min-width: 0;
+        text-align: center;
+    }
+
+    .shell-title h1 {
+        font-size: clamp(14px, 4.2vw, 20px);
+        line-height: 1.18;
+        overflow-wrap: anywhere;
+        text-wrap: balance;
+    }
+
+    .shell-title p {
+        margin-top: 3px;
+        font-size: clamp(9px, 2.8vw, 12px);
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+    }
+
+    /* Pages with their own three-column brand header. */
+    .college-header .header-inner,
+    .site-header .college-brand {
+        width: 100%;
+        min-width: 0;
+        min-height: 70px;
+        grid-template-columns: 48px minmax(0, 1fr) 48px;
+        display: grid;
+        align-items: center;
+        gap: 7px;
+        padding: 9px 12px;
+    }
+
+    .college-header .logo-area,
+    .site-header .college-logo {
+        grid-column: 1;
+        grid-row: 1;
+        position: static;
+        justify-self: start;
+        width: 46px;
+        height: 46px;
+        max-width: 100%;
+        transform: none;
+    }
+
+    .college-header .college-logo {
+        width: 46px;
+        height: 46px;
+    }
+
+    .college-header .anniversary-logo,
+    .site-header .anniversary-logo {
+        grid-column: 3;
+        grid-row: 1;
+        position: static;
+        justify-self: end;
+        width: 46px;
+        height: 46px;
+        max-width: 100%;
+        transform: none;
+        object-fit: contain;
+    }
+
+    .college-header .college-title,
+    .site-header .college-name {
+        grid-column: 2;
+        grid-row: 1;
+        width: auto;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    .college-header .college-title h1,
+    .site-header .college-name h1 {
+        margin: 0;
+        font-size: clamp(14px, 4.2vw, 20px);
+        line-height: 1.18;
+        overflow-wrap: anywhere;
+        text-wrap: balance;
+    }
+
+    .college-header .college-title p,
+    .site-header .college-name > p:first-of-type {
+        margin: 3px 0 0;
+        font-size: clamp(9px, 2.8vw, 12px);
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+    }
+
+    .main-navigation,
+    .main-nav {
+        max-width: 100%;
+    }
+
+    /* Faculty search controls remain side by side while each can still fit. */
+    .faculty-search {
+        padding: 24px 16px 16px;
+    }
+
+    .search-filter-container {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        max-width: 100%;
+        margin-inline: auto;
+    }
+
+    .search-filter-container #searchInput,
+    .search-filter-container #departmentFilter {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        height: 44px;
+        padding: 9px 8px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .shell-brand,
+    .college-header .header-inner,
+    .site-header .college-brand,
+    .campus-page .college-header .college-brand {
+        grid-template-columns: 44px minmax(0, 1fr) 44px;
+        gap: 5px;
+    }
+
+    .shell-logo,
+    .shell-anniversary,
+    .college-header .college-logo,
+    .college-header .anniversary-logo,
+    .site-header .college-logo,
+    .site-header .anniversary-logo,
+    .campus-page .college-header .college-brand img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .search-filter-container {
+        gap: 6px;
+    }
+
+    .search-filter-container #searchInput,
+    .search-filter-container #departmentFilter {
+        padding-inline: 6px;
+        font-size: 11px;
+    }
+}
+
+/* Use the same full-width building backdrop as Courses & Programs. */
+.about-hero::before,
+.campus-hero::before,
+.page-title::before,
+.contact-hero::before,
+.placement-hero::before,
+.dept-hero::before,
+.admissions-hero::before {
+    background-image: url("../image/asm-campus-building.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    opacity: 0.2;
+}
+
+.admissions-hero,
+.placement-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--pale-blue) !important;
+}
+
+.admissions-hero::before,
+.placement-hero::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    content: "";
+    pointer-events: none;
+}
+
+/* Give every page hero the Home hero's desktop canvas dimensions. */
+@media (min-width: 761px) {
+    .hero-section,
+    .courses-hero,
+    .about-hero,
+    .campus-hero,
+    .page-title,
+    .contact-hero,
+    .placement-hero,
+    .dept-hero,
+    .admissions-hero {
+        width: 100%;
+        min-height: 590px !important;
+    }
+}
+
+/* Keep every mobile page hero the same height; Home keeps its own hero. */
+@media (max-width: 760px) {
+    .about-hero,
+    .courses-hero,
+    .campus-hero,
+    .page-title,
+    .contact-hero,
+    .placement-hero,
+    .dept-hero,
+    .admissions-hero {
+        width: 100%;
+        height: 540px !important;
+        min-height: 540px !important;
+    }
+}
+
+/* Match the Home and About hamburger pattern across dynamically built menus. */
+@media (max-width: 768px) {
+    /* Keep the blue strip behind the button only, not across the viewport. */
+    .main-navigation,
+    .main-nav {
+        background: transparent !important;
+        border-top-color: transparent !important;
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .menu-toggle,
+    .shell-menu-toggle {
+        width: 44px;
+        height: 42px;
+        padding: 9px;
+        border: 1px solid #b8d2e8 !important;
+        border-radius: 6px;
+        background: #e8f1f8 !important;
+        color: #103f68;
+    }
+
+    .menu-toggle span,
+    .shell-menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        margin: 5px 0;
+        border-radius: 2px;
+        background: currentColor;
+    }
+
+    .shell-menu-toggle {
+        display: block;
+        margin: 8px 0 8px auto;
+        cursor: pointer;
+    }
+
+    .shell-navigation {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 0;
+    }
+
+    .shell-navigation.is-open {
+        display: flex;
+    }
+
+    .site-header > .main-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+
+    .site-header > .main-nav > .faculty-menu-toggle {
+        display: block;
+        align-self: flex-end;
+        margin: 0 4px 0 0;
+        cursor: pointer;
+    }
+
+    .site-header > .main-nav > a {
+        display: none;
+        width: 100%;
+        padding: 11px 12px;
+        white-space: normal;
+    }
+
+    .site-header > .main-nav.is-open > a {
+        display: block;
+    }
+}
+
+/* One three-column college header across static and shell-based pages. */
+.college-header {
+    position: relative;
+    z-index: 20;
+    background: #ffffff;
+    border-bottom: 1px solid #d8e8f6;
+}
+
+.college-header .header-inner,
+.site-header .college-brand,
+.shell-brand,
+.campus-page .college-header .college-brand,
+.admissions-navbar .nav-container {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr) 96px;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    max-width: 1440px;
+    min-width: 0;
+    min-height: 140px;
+    margin-inline: auto;
+    padding: 16px 35px;
+}
+
+.college-header .logo-area,
+.college-header .logo-area .college-logo,
+.college-header .header-inner > .college-logo,
+.site-header .college-brand > .college-logo,
+.shell-logo,
+.shell-brand > a,
+.campus-page .college-brand > .logo-area,
+.admissions-navbar .college-brand {
+    grid-column: 1;
+    grid-row: 1;
+    position: static;
+    justify-self: start;
+    width: 88px;
+    height: 88px;
+    margin: 0;
+    padding: 0;
+    transform: none;
+}
+
+.admissions-navbar .college-brand .college-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.college-header .anniversary-logo,
+.site-header .college-brand > .anniversary-logo,
+.shell-anniversary,
+.campus-page .college-brand > .anniversary-logo,
+.admissions-navbar .nav-container > .anniversary-logo {
+    grid-column: 3;
+    grid-row: 1;
+    position: static;
+    justify-self: end;
+    width: 88px;
+    height: 88px;
+    margin: 0;
+    transform: none;
+    object-fit: contain;
+}
+
+.college-header .college-title,
+.site-header .college-name,
+.shell-title,
+.campus-page .college-brand > .college-title,
+.admissions-navbar .college-name {
+    grid-column: 2;
+    grid-row: 1;
+    width: auto;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.college-header .college-title h1,
+.site-header .college-name h1,
+.site-header .college-name h2,
+.shell-title h1,
+.campus-page .college-title h1,
+.admissions-navbar .college-name h2 {
+    margin: 0;
+    color: #082847 !important;
+    font: 800 clamp(21px, 2.4vw, 32px)/1.2 Raleway, Arial, sans-serif;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+}
+
+.college-header .college-title p,
+.site-header .college-name p,
+.shell-title p,
+.campus-page .college-title p,
+.admissions-navbar .college-name p {
+    margin: 5px 0 0;
+    color: #103f68 !important;
+    font: 600 13px/1.4 Roboto, Arial, sans-serif;
+    overflow-wrap: anywhere;
+}
+
+.admissions-navbar .college-name h2,
+.admissions-navbar .college-name p {
+    color: #ffffff !important;
+}
+
+.college-header .college-title .header-location,
+.site-header .college-name .college-location,
+.shell-title .shell-location,
+.campus-page .college-title .header-location,
+.admissions-navbar .college-name .college-location {
+    color: #617386 !important;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.admissions-navbar .nav-container > .main-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+}
+
+@media (max-width: 760px) {
+    .college-header .header-inner,
+    .site-header .college-brand,
+    .shell-brand,
+    .campus-page .college-header .college-brand,
+    .admissions-navbar .nav-container {
+        grid-template-columns: 46px minmax(0, 1fr) 46px;
+        gap: 7px;
+        min-height: 0;
+        padding: 10px 12px;
+    }
+
+    .college-header .logo-area,
+    .college-header .logo-area .college-logo,
+    .college-header .header-inner > .college-logo,
+    .site-header .college-brand > .college-logo,
+    .shell-logo,
+    .shell-brand > a,
+    .campus-page .college-brand > .logo-area,
+    .admissions-navbar .college-brand,
+    .college-header .anniversary-logo,
+    .site-header .college-brand > .anniversary-logo,
+    .shell-anniversary,
+    .campus-page .college-brand > .anniversary-logo,
+    .admissions-navbar .nav-container > .anniversary-logo {
+        width: 44px;
+        height: 44px;
+        max-width: 100%;
+    }
+
+    .college-header .college-title h1,
+    .site-header .college-name h1,
+    .site-header .college-name h2,
+    .shell-title h1,
+    .campus-page .college-title h1,
+    .admissions-navbar .college-name h2 {
+        font-size: clamp(13px, 4vw, 19px);
+        line-height: 1.15;
+    }
+
+    .college-header .college-title p,
+    .site-header .college-name p,
+    .shell-title p,
+    .campus-page .college-title p,
+    .admissions-navbar .college-name p {
+        margin-top: 3px;
+        font-size: clamp(9px, 2.7vw, 12px);
+        line-height: 1.25;
+    }
+
+    .college-header .college-title .header-location,
+    .site-header .college-name .college-location,
+    .shell-title .shell-location,
+    .campus-page .college-title .header-location,
+    .admissions-navbar .college-name .college-location {
+        display: block;
+        font-size: 10px;
+    }
+
+    .admissions-navbar .nav-container > .main-nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+}
+
+@media (max-width: 380px) {
+    .college-header .header-inner,
+    .site-header .college-brand,
+    .shell-brand,
+    .campus-page .college-header .college-brand,
+    .admissions-navbar .nav-container {
+        grid-template-columns: 40px minmax(0, 1fr) 40px;
+        gap: 5px;
+        padding-inline: 10px;
+    }
+
+    .college-header .logo-area,
+    .college-header .logo-area .college-logo,
+    .college-header .header-inner > .college-logo,
+    .site-header .college-brand > .college-logo,
+    .shell-logo,
+    .shell-brand > a,
+    .campus-page .college-brand > .logo-area,
+    .admissions-navbar .college-brand,
+    .college-header .anniversary-logo,
+    .site-header .college-brand > .anniversary-logo,
+    .shell-anniversary,
+    .campus-page .college-brand > .anniversary-logo,
+    .admissions-navbar .nav-container > .anniversary-logo {
+        width: 40px;
+        height: 40px;
+    }
+}

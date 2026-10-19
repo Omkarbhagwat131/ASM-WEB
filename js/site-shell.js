@@ -46,9 +46,14 @@
   const toggle = document.createElement("button");
   toggle.className = "shell-menu-toggle";
   toggle.type = "button";
-  toggle.textContent = "Menu";
+  toggle.setAttribute("aria-label", "Open navigation menu");
   toggle.setAttribute("aria-expanded", "false");
   toggle.setAttribute("aria-controls", "site-navigation");
+  for (let index = 0; index < 3; index += 1) {
+    const line = document.createElement("span");
+    line.setAttribute("aria-hidden", "true");
+    toggle.append(line);
+  }
 
   const nav = document.createElement("nav");
   nav.className = "shell-navigation";
@@ -72,12 +77,21 @@
   toggle.addEventListener("click", () => {
     const open = toggle.getAttribute("aria-expanded") !== "true";
     toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
     nav.classList.toggle("is-open", open);
   });
   nav.addEventListener("click", (event) => {
     if (event.target.closest("a")) {
       nav.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open navigation menu");
+    }
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open navigation menu");
     }
   });
 

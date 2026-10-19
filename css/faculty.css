@@ -1076,3 +1076,144 @@ footer {
         transform: none;
     }
 }
+
+/* =========================================
+   MOBILE RESPONSIVE LAYOUT
+   Desktop layout remains unchanged
+========================================= */
+
+@media (max-width: 600px) {
+
+    /* Header: ASM logo | College text | 42 Years logo */
+    .college-brand {
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr) 58px;
+        align-items: start;
+        gap: 8px;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    /* ASM logo on the left */
+    .college-logo {
+        grid-column: 1;
+        grid-row: 1;
+        width: 54px;
+        max-width: 100%;
+        height: auto;
+        justify-self: start;
+        align-self: start;
+        object-fit: contain;
+    }
+
+    /* College name and text centered between both logos */
+    .college-name {
+        grid-column: 2;
+        grid-row: 1;
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    .college-name h1 {
+        margin-top: 0;
+        font-size: clamp(14px, 3.8vw, 20px);
+        line-height: 1.25;
+    }
+
+    .college-name p {
+        font-size: 10px;
+        line-height: 1.4;
+        margin: 5px 0;
+    }
+
+    .college-name .college-info {
+        font-size: 9px;
+        line-height: 1.4;
+        margin: 5px 0;
+    }
+
+    /* 42 Years logo on the right */
+    .anniversary-logo {
+        grid-column: 3;
+        grid-row: 1;
+        width: 54px;
+        max-width: 100%;
+        height: auto;
+        justify-self: end;
+        align-self: start;
+        object-fit: contain;
+    }
+
+    /* Search and department filter in one row */
+    .search-filter-container {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .search-filter-container input,
+    .search-filter-container select {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+
+    /* Prevent horizontal overflow */
+    .site-header,
+    .college-brand,
+    .faculty-search,
+    .search-filter-container {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* =========================================
+   EXTRA-SMALL MOBILE SCREENS
+========================================= */
+
+@media (max-width: 380px) {
+
+    .college-brand {
+        grid-template-columns: 46px minmax(0, 1fr) 46px;
+        gap: 5px;
+    }
+
+    .college-logo,
+    .anniversary-logo {
+        width: 44px;
+    }
+
+    .college-name h1 {
+        font-size: 13px;
+    }
+
+    .college-name p {
+        font-size: 9px;
+    }
+
+    .college-name .college-info {
+        font-size: 8px;
+    }
+
+    .search-filter-container {
+        gap: 6px;
+    }
+
+    .search-filter-container input,
+    .search-filter-container select {
+        padding: 9px 5px;
+        font-size: 11px;
+    }
+}

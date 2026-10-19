@@ -10,10 +10,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/faculty.css">
-    <script src="../js/faculty.js" defer></script>
+    <link rel="stylesheet" href="../css/Faculty.css">
+    <script src="../js/Faculty.js" defer></script>
+    <script src="../js/mobile-navigation.js" defer></script>
 
     <link rel="stylesheet" href="../css/motion.css">
+    <link rel="stylesheet" href="../css/mobile-layout.css">
 </head>
 
 <body>
@@ -24,16 +26,20 @@
             <img src="../image/42-years.png" alt="42 years of excellence" class="anniversary-logo">
 
             <div class="college-name">
-                <h1>ASM NextGen Technical Campus</h1>
-                <p>Institute of Management &amp; Engineering</p>
-                <p class="college-info">
-                    A learning-focused institution committed to academic excellence,
-                    professional development and student growth.
-                </p>
+                <h1>ASM's NextGen Technical Campus</h1>
+                <p>Approved by AICTE, New Delhi | Affiliated to Savitribai Phule Pune University</p>
+                <p class="college-location">Talegaon Dabhade, Pune, Maharashtra</p>
             </div>
         </div>
 
-        <nav class="main-nav" aria-label="Main navigation">
+        <nav class="main-nav" id="faculty-navigation" aria-label="Main navigation">
+            <button class="menu-toggle faculty-menu-toggle" type="button"
+                    aria-label="Open navigation menu" aria-expanded="false"
+                    aria-controls="faculty-navigation">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
             <a href="home.html">Home</a>
             <a href="about.html">About</a>
             <a href="campus.html">Campus</a>
