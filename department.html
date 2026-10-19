@@ -64,21 +64,29 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="css/module-ui.css">
 </head>
 
-<body>
+<body class="module-theme-department">
 
-<header class="navbar">
-    <div class="logo">ASM College</div>
-    <nav class="main-nav">
+<header class="module-header">
+    <a class="module-brand" href="home.html" aria-label="ASM NextGen Technical Campus home">
+        <img src="image/asm-logo.png" alt="" class="module-logo">
+        <span class="module-brand-copy">
+            <span>ASM NextGen Technical Campus</span>
+            <small>Institute of Management &amp; Engineering</small>
+        </span>
+    </a>
+    <nav class="module-nav" aria-label="Main navigation">
             <a href="home.html">Home</a>
             <a href="about.html">About</a>
             <a href="campus.html">Campus</a>
-            <a href="coursesprog.html">Courses & Programs</a>
-            <a href="contacts.html">Contact Us</a>
-            <a href="placements.html">Placements</a>
-            <a href="department.html">Department</a>
-            <a href="Faculty.html" class="active">Faculty</a>
+            <a href="coursesprog.html">Courses &amp; Programs</a>
+            <a href="Faculty.html">Faculty</a>
+            <a href="department.html" aria-current="page">Departments</a>
+            <a href="addmission.html">Admissions</a>
+            <a href="placement.html">Placements</a>
+            <a href="contact.html">Contact Us</a>
         </nav>
 </header>
 
@@ -97,80 +105,105 @@
             <span class="department-code">BCA</span>
             <h3>Computer Applications</h3>
             <p>Learn programming, software development, web technologies and databases.</p>
+            <button type="button" class="view-details-btn" data-course-target="course-info-bca" aria-haspopup="dialog" aria-controls="course-dialog">View Course</button>
         </div>
 
         <div class="department-card">
             <span class="department-code">BBA</span>
             <h3>Business Administration</h3>
             <p>Develop leadership, management, business strategy and entrepreneurship skills.</p>
+            <button type="button" class="view-details-btn" data-course-target="course-info-bba" aria-haspopup="dialog" aria-controls="course-dialog">View Course</button>
         </div>
 
         <div class="department-card">
             <span class="department-code">B.Com</span>
             <h3>Commerce</h3>
             <p>Study accounting, finance, taxation, economics and commerce.</p>
+            <button type="button" class="view-details-btn" data-course-target="course-info-bcom" aria-haspopup="dialog" aria-controls="course-dialog">View Course</button>
         </div>
 
         <div class="department-card">
             <span class="department-code">B.Sc</span>
             <h3>Information Technology</h3>
             <p>Learn IT, networking, databases, programming and emerging technologies.</p>
+            <button type="button" class="view-details-btn" data-course-target="course-info-bsc" aria-haspopup="dialog" aria-controls="course-dialog">View Course</button>
         </div>
 
         <div class="department-card">
             <span class="department-code">MBA</span>
             <h3>Management Studies</h3>
             <p>Build skills in finance, marketing, human resources and management.</p>
+            <button type="button" class="view-details-btn" data-course-target="course-info-mba" aria-haspopup="dialog" aria-controls="course-dialog">View Course</button>
         </div>
 
-    
-<div class="department-card">
-    <span class="department-code">MCA</span>
-
-    <h3>Master of Computer Applications</h3>
-
-    <p>
-        Learn programming, software engineering, cloud computing,
-        database management and application development.
-    </p>
-
-    <button type="button"
-            class="view-details-btn"
-            aria-expanded="false">
-        View Details
-    </button>
-
-    <div id="mca-details" class="course-details" hidden>
-
-        <h3>About MCA</h3>
-        <p>
-            MCA is a postgraduate course focused on computer
-            applications, programming and software development.
-        </p>
-
-        <h3>Subjects and Skills</h3>
-        <ul>
-            <li>Python and Java Programming</li>
-            <li>Database Management Systems</li>
-            <li>Software Engineering</li>
-            <li>Web Development</li>
-            <li>Cloud Computing</li>
-            <li>Artificial Intelligence and Data Science</li>
-        </ul>
-
-        <h3>Career Opportunities</h3>
-        <ul>
-            <li>Software Developer</li>
-            <li>Web Developer</li>
-            <li>Cloud Engineer</li>
-            <li>Data Analyst</li>
-            <li>System Analyst</li>
-        </ul>
-
-        <p><strong>Course Duration:</strong> Generally 2 years, subject to university rules.</p>
+        <div class="department-card">
+            <span class="department-code">MCA</span>
+            <h3>Master of Computer Applications</h3>
+            <p>Learn programming, software engineering, cloud computing, database management and application development.</p>
+            <button type="button" class="view-details-btn" data-course-target="course-info-mca" aria-haspopup="dialog" aria-controls="course-dialog">View Course</button>
+        </div>
 
     </div>
-</div>
+
+    <dialog class="course-dialog" id="course-dialog" aria-labelledby="course-dialog-title">
+        <button class="course-dialog-close" type="button" aria-label="Close course details">Close</button>
+        <p class="course-dialog-code" id="course-dialog-code"></p>
+        <h2 id="course-dialog-title">Course Details</h2>
+        <div id="course-info-bca" class="course-info" hidden>
+            <h3>About BCA</h3>
+            <p>The Bachelor of Computer Applications introduces students to computing and the development of software and digital applications.</p>
+            <p><strong>Typical duration:</strong> 3 years, subject to current university regulations.</p>
+            <h3>Areas of study</h3>
+            <ul><li>Programming and data structures</li><li>Web development and databases</li><li>Software engineering and computer networks</li><li>Emerging technologies and project work</li></ul>
+            <h3>Possible career paths</h3>
+            <p>Application or web developer, software tester, IT support specialist, or further study in computer applications.</p>
+        </div>
+        <div id="course-info-bba" class="course-info" hidden>
+            <h3>About BBA</h3>
+            <p>The Bachelor of Business Administration builds a foundation in how organizations operate, make decisions and grow.</p>
+            <p><strong>Typical duration:</strong> 3 years, subject to current university regulations.</p>
+            <h3>Areas of study</h3>
+            <ul><li>Management and business communication</li><li>Marketing, finance and human resources</li><li>Operations and business strategy</li><li>Entrepreneurship, case studies and projects</li></ul>
+            <h3>Possible career paths</h3>
+            <p>Business development associate, marketing coordinator, operations assistant, or further study in management.</p>
+        </div>
+        <div id="course-info-bcom" class="course-info" hidden>
+            <h3>About B.Com</h3>
+            <p>The Bachelor of Commerce develops knowledge of accounting, financial systems and the business environment.</p>
+            <p><strong>Typical duration:</strong> 3 years, subject to current university regulations.</p>
+            <h3>Areas of study</h3>
+            <ul><li>Financial and corporate accounting</li><li>Finance, economics and business law</li><li>Taxation and auditing fundamentals</li><li>Business communication and analysis</li></ul>
+            <h3>Possible career paths</h3>
+            <p>Accounts assistant, banking or finance associate, tax support professional, or further study in commerce and finance.</p>
+        </div>
+        <div id="course-info-bsc" class="course-info" hidden>
+            <h3>About B.Sc Information Technology</h3>
+            <p>This undergraduate programme introduces core information technology concepts and the systems used to build and support digital services.</p>
+            <p><strong>Typical duration:</strong> 3 years, subject to current university regulations.</p>
+            <h3>Areas of study</h3>
+            <ul><li>Programming and software development</li><li>Computer networks and operating systems</li><li>Databases and web technologies</li><li>Cloud, cybersecurity and practical projects</li></ul>
+            <h3>Possible career paths</h3>
+            <p>IT support or network technician, junior software developer, systems assistant, or further study in information technology.</p>
+        </div>
+        <div id="course-info-mba" class="course-info" hidden>
+            <h3>About MBA</h3>
+            <p>The Master of Business Administration focuses on management practice, organizational decision-making and business leadership.</p>
+            <p><strong>Typical duration:</strong> 2 years, subject to current university regulations.</p>
+            <h3>Areas of study</h3>
+            <ul><li>Finance and marketing</li><li>Human resources and operations</li><li>Strategy, analytics and leadership</li><li>Case studies, presentations and projects</li></ul>
+            <h3>Possible career paths</h3>
+            <p>Business or operations analyst, marketing or HR professional, project coordinator, or management roles aligned with prior experience.</p>
+        </div>
+        <div id="course-info-mca" class="course-info" hidden>
+            <h3>About MCA</h3>
+            <p>The Master of Computer Applications is a postgraduate programme focused on computer applications, programming and software development.</p>
+            <p><strong>Typical duration:</strong> 2 years, subject to current university regulations.</p>
+            <h3>Areas of study</h3>
+            <ul><li>Python and Java programming</li><li>Database management and web development</li><li>Software engineering and cloud computing</li><li>Artificial intelligence, data science and project work</li></ul>
+            <h3>Possible career paths</h3>
+            <p>Software or web developer, cloud engineer, data analyst, systems analyst, or other roles in application development.</p>
+        </div>
+    </dialog>
 
 
     </div>

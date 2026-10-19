@@ -1,0 +1,61 @@
+{
+  "programs": [
+    {
+      "id": 1,
+      "title": "Engineering",
+      "type": "ug",
+      "label": "Undergraduate",
+      "icon": "fa-solid fa-gears",
+      "description": "Build a strong foundation in engineering, technology, and problem-solving through practical and industry-oriented education.",
+      "features": [
+        "Technical & engineering fundamentals",
+        "Practical laboratory experience",
+        "Project-based learning",
+        "Technical skill development"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Master of Computer Applications (MCA)",
+      "type": "pg",
+      "label": "Postgraduate",
+      "icon": "fa-solid fa-laptop-code",
+      "description": "Develop advanced knowledge in computer applications, software development, programming, and modern technologies.",
+      "features": [
+        "Programming & software development",
+        "Database & web technologies",
+        "Practical full-stack projects",
+        "Professional career development"
+      ]
+    }
+  ],
+  "eligibility": [
+    {
+      "title": "Engineering Qualification",
+      "icon": "fa-solid fa-graduation-cap",
+      "description": "Successfully completed higher secondary education (12th/HSC) or diploma with required marks and subjects as per admission rules."
+    },
+    {
+      "title": "MCA Graduation",
+      "icon": "fa-solid fa-user-graduate",
+      "description": "Completed recognized Bachelor's degree (BCA/B.Sc/B.Com/B.A) with Mathematics/Statistics at 10+2 level or Graduation level."
+    }
+  ],
+  "admissionProcess": [
+    {
+      "title": "Step 1: Application",
+      "icon": "fa-solid fa-file-lines",
+      "description": "Complete the admission application form and provide the required details."
+    },
+    {
+      "title": "Step 2: Document Verification",
+      "icon": "fa-solid fa-file-circle-check",
+      "description": "Submit the necessary academic documents for verification."
+    },
+    {
+      "title": "Step 3: Admission Confirmation",
+      "icon": "fa-solid fa-list-check",
+      "description": "Complete the applicable admission formalities as instructed by the college."
+    }
+  ]
+}

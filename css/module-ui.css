@@ -1,0 +1,1357 @@
+:root {
+  --module-navy: #203f83;
+  --module-blue: #0879c9;
+  --module-blue-dark: #063b7a;
+  --module-blue-soft: #eaf3fb;
+  --module-blue-pale: #f4f8fc;
+  --module-blue-border: #d7e6f4;
+  --module-blue-muted: #55718d;
+}
+
+body.module-theme-home,
+body.module-theme-admission,
+body.module-theme-about,
+body.module-theme-campus,
+body.module-theme-courses,
+body.module-theme-faculty,
+body.module-theme-department,
+body.module-theme-placement,
+body.module-theme-contact {
+  --module-primary: var(--module-navy);
+  --module-accent: var(--module-blue);
+  --module-paper: var(--module-blue-pale);
+  --module-ink: #263b52;
+  background-color: var(--module-paper);
+  color: var(--module-ink);
+}
+
+.module-theme-about {
+  --primary: var(--module-navy);
+  --accent: var(--module-blue);
+  --glow: #8ecbff;
+  --bg-gradient: linear-gradient(135deg, var(--module-blue-dark), var(--module-blue));
+  --card-glass: #fff;
+  --border-glass: #d8e8f6;
+  background-color: var(--module-paper);
+  color: var(--module-ink);
+}
+
+.module-theme-courses {
+  --navy: var(--module-navy);
+  --blue: var(--module-blue-dark);
+  --bright-blue: var(--module-blue);
+  --pale-blue: var(--module-blue-soft);
+  --ink: var(--module-ink);
+  --paper: var(--module-paper);
+}
+
+.module-theme-faculty {
+  --navy: var(--module-navy);
+  --blue: var(--module-blue-dark);
+  --bright-blue: var(--module-blue);
+  --pale-blue: var(--module-blue-soft);
+  --paper: var(--module-paper);
+}
+
+.module-theme-about .hero,
+.module-theme-campus .campus,
+.module-theme-courses .hero,
+.module-theme-department .hero,
+.module-theme-faculty .page-title,
+.module-theme-placement .placement-hero,
+.module-theme-contact .contact-hero,
+.module-theme-admission .page-hero.hero,
+.module-theme-legacy .hero {
+  background:
+    radial-gradient(ellipse at 78% 18%, rgb(116 195 255 / 23%), transparent 30%),
+    radial-gradient(ellipse at 12% 100%, rgb(8 121 201 / 34%), transparent 36%),
+    linear-gradient(118deg, #102f68 0%, #203f83 48%, #0879c9 100%);
+}
+
+.module-theme-about .hero,
+.module-theme-contact .contact-hero,
+.module-theme-admission .page-hero.hero {
+  color: #fff;
+}
+
+.module-theme-about .glass-card {
+  border-color: var(--border-glass);
+  background: #fff;
+  box-shadow: 0 12px 30px rgb(32 63 131 / 8%);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.module-theme-about .glass-card:hover {
+  transform: translateY(-8px);
+  border-color: rgb(8 121 201 / 40%);
+  box-shadow: 0 20px 38px rgb(32 63 131 / 16%);
+}
+
+.module-theme-about .glass-card h3,
+.module-theme-about .section-title {
+  color: var(--module-navy);
+}
+
+.module-theme-about .glass-card p {
+  color: #5b6878;
+}
+
+.module-theme-about footer {
+  border-color: rgb(255 255 255 / 12%);
+  background: var(--module-navy);
+  color: rgb(255 255 255 / 78%);
+}
+
+.module-theme-placement .badge {
+  border-color: rgb(255 255 255 / 48%);
+  background: rgb(255 255 255 / 14%);
+  color: #fff;
+}
+
+.module-theme-placement .placement-gallery {
+  width: min(100%, 980px);
+  margin: 42px auto 0;
+  padding: 28px;
+  border: 1px solid var(--module-blue-border);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 16px 38px rgb(32 63 131 / 8%);
+  text-align: center;
+}
+
+.module-theme-placement .placement-gallery h3 {
+  margin: 0 0 22px;
+  color: var(--module-navy);
+  font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+}
+
+.module-theme-placement .placement-carousel-frame {
+  position: relative;
+  width: min(100%, 520px);
+  height: min(68vh, 620px);
+  min-height: 320px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid var(--module-blue-border);
+  border-radius: 14px;
+  background: var(--module-blue-pale);
+}
+
+.module-theme-placement .placement-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  animation: placementSlideIn 350ms ease both;
+}
+
+.module-theme-placement .placement-slide[hidden] {
+  display: none;
+}
+
+.module-theme-placement .placement-slide img {
+  display: block;
+  width: 100%;
+  height: 0;
+  min-height: 0;
+  flex: 1 1 auto;
+  object-fit: contain;
+}
+
+.module-theme-placement .placement-slide figcaption {
+  flex: 0 0 auto;
+  padding: 13px 16px;
+  border-top: 1px solid var(--module-blue-border);
+  background: #fff;
+  color: var(--module-navy);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.module-theme-placement .placement-carousel-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.module-theme-placement .placement-carousel-button {
+  min-height: 42px;
+  padding: 9px 16px;
+  border: 1px solid var(--module-blue-border);
+  border-radius: 999px;
+  background: var(--module-blue-pale);
+  color: var(--module-navy);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.module-theme-placement .placement-carousel-button:hover {
+  border-color: var(--module-blue);
+  background: var(--module-blue-soft);
+}
+
+.module-theme-placement .placement-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.module-theme-placement .placement-carousel-indicator {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 1px solid var(--module-blue);
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+
+.module-theme-placement .placement-carousel-indicator[aria-current="true"] {
+  background: var(--module-blue);
+  box-shadow: 0 0 0 3px rgb(8 121 201 / 15%);
+}
+
+@keyframes placementSlideIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.module-theme-placement .btn-primary,
+.module-theme-placement .btn-primary:hover {
+  background: #fff;
+  color: var(--module-blue-dark);
+  box-shadow: 0 4px 15px rgb(0 0 0 / 16%);
+}
+
+.module-theme-placement .btn-secondary {
+  border-color: rgb(255 255 255 / 62%);
+}
+
+.module-theme-placement .btn-secondary:hover {
+  background: rgb(255 255 255 / 14%);
+}
+
+.module-theme-placement .stat-icon {
+  color: var(--module-blue);
+}
+
+.module-theme-placement .counter {
+  color: var(--module-navy) !important;
+}
+
+.module-theme-placement .underline,
+.module-theme-department .underline,
+.module-theme-admission .underline {
+  background: var(--module-blue);
+}
+
+.module-theme-placement .department-card,
+.module-theme-department .department-card {
+  border: 1px solid var(--module-blue-border);
+  border-top: 3px solid #82b6df;
+  background: #fff;
+}
+
+.module-theme-placement .department-container > .department-card {
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  animation-name: moduleFadeIn;
+}
+
+.module-theme-placement .department-card:hover,
+.module-theme-department .department-card:hover {
+  border-color: var(--module-blue);
+  box-shadow: 0 10px 25px rgb(32 63 131 / 12%);
+}
+
+.module-theme-department .department-container {
+  align-items: stretch;
+}
+
+.module-theme-department .department-container > .department-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.module-theme-department .department-card .view-details-btn {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--module-blue);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.module-theme-department .department-card .view-details-btn:hover {
+  background: var(--module-blue-dark);
+  transform: translateY(-2px);
+}
+
+.module-theme-department .department-card .view-details-btn:focus-visible,
+.module-theme-department .course-dialog-close:focus-visible {
+  outline: 3px solid #85c8ff;
+  outline-offset: 3px;
+}
+
+.module-theme-department .course-dialog {
+  margin: auto;
+  width: min(620px, calc(100% - 32px));
+  max-width: none;
+  max-height: min(760px, calc(100% - 32px));
+  padding: 24px;
+  overflow-y: auto;
+  border: 1px solid var(--module-blue-border);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--module-ink);
+  box-shadow: 0 24px 80px rgb(7 31 57 / 30%);
+}
+
+.module-theme-department .course-dialog::backdrop {
+  background: rgb(7 31 57 / 72%);
+  backdrop-filter: blur(3px);
+}
+
+.module-theme-department .course-dialog[open] {
+  animation: course-dialog-in 180ms ease-out;
+}
+
+.module-theme-department .course-dialog-close {
+  display: block;
+  margin: 0 0 16px auto;
+  padding: 8px 13px;
+  border: 1px solid var(--module-blue-border);
+  border-radius: 8px;
+  background: var(--module-blue-soft);
+  color: var(--module-navy);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.module-theme-department .course-dialog-close:hover {
+  border-color: var(--module-blue);
+}
+
+.module-theme-department .course-dialog-code {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  background: var(--module-blue-soft);
+  color: var(--module-blue-dark);
+  font-weight: 700;
+}
+
+.module-theme-department .course-dialog h2 {
+  margin: 0 0 18px;
+  color: var(--module-navy);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1.25;
+}
+
+.module-theme-department .course-info h3 {
+  margin: 18px 0 8px;
+  color: var(--module-navy);
+  font-size: 1.08rem;
+}
+
+.module-theme-department .course-info p,
+.module-theme-department .course-info li {
+  color: #526579;
+  line-height: 1.65;
+}
+
+.module-theme-department .course-info ul {
+  padding-left: 22px;
+}
+
+.module-theme-department .course-info li + li {
+  margin-top: 4px;
+}
+
+@keyframes course-dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.module-theme-placement .department-container > .department-card:hover {
+  transform: translateY(-7px);
+  border-top-color: var(--module-blue);
+  box-shadow: 0 18px 36px rgb(32 63 131 / 18%);
+}
+
+.module-theme-placement .steps-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.module-theme-placement .steps-grid > .step-card {
+  grid-column: span 2;
+  width: 100%;
+}
+
+.module-theme-placement .steps-grid > .step-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.module-theme-placement .steps-grid > .step-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+.module-theme-placement .document-item {
+  border-left-color: var(--module-blue);
+  background: #fff;
+}
+
+.module-theme-placement .document-icon {
+  color: var(--module-blue);
+}
+
+.module-theme-placement .stat-box {
+  border-color: var(--module-blue-border);
+  box-shadow: 0 10px 25px rgb(32 63 131 / 7%);
+}
+
+.module-theme-faculty .page-title {
+  color: #fff;
+}
+
+.module-theme-faculty .page-title h2,
+.module-theme-faculty .page-title p {
+  color: #fff;
+}
+
+.module-theme-faculty .title-label {
+  border-color: rgb(255 255 255 / 62%);
+  color: #fff;
+}
+
+.module-theme-admission .page-hero {
+  border-bottom-color: var(--module-blue);
+}
+
+.module-theme-admission .page-hero.hero > .container {
+  position: relative;
+  z-index: 2;
+}
+
+.module-theme-admission .page-hero .hero-subtitle {
+  border-color: rgb(255 255 255 / 38%);
+  background: rgb(255 255 255 / 14%);
+  color: #fff;
+}
+
+.module-theme-admission .page-hero .btn,
+.module-theme-admission .page-hero .btn:hover {
+  background: #fff;
+  color: var(--module-blue-dark);
+  box-shadow: 0 8px 22px rgb(6 59 122 / 22%);
+}
+
+.module-theme-admission .departments-section:nth-of-type(odd) {
+  background-color: #fff;
+}
+
+.module-theme-admission .departments-section:nth-of-type(even) {
+  background-color: #edf4fa;
+}
+
+.module-theme-admission .page-hero.hero {
+  min-height: 490px;
+  padding: 72px 20px;
+}
+
+.module-theme-admission .department-card {
+  border-color: var(--module-blue-border);
+  border-top: 3px solid #82b6df;
+  background: #fff;
+  box-shadow: 0 6px 20px rgb(32 63 131 / 7%);
+}
+
+.module-theme-admission .department-card:hover {
+  border-color: #8cbce2;
+  box-shadow: 0 12px 28px rgb(32 63 131 / 12%);
+}
+
+.module-theme-admission .department-code,
+.module-theme-admission .step-number {
+  background: var(--module-blue);
+}
+
+.module-theme-admission .card-icon,
+.module-theme-admission .eligibility-card .card-icon,
+.module-theme-admission .program-filter-status {
+  color: var(--module-blue);
+}
+
+.module-theme-admission .program-filter input:focus,
+.module-theme-admission .program-filter select:focus {
+  outline-color: var(--module-blue);
+}
+
+.module-theme-contact .contact-events,
+.module-theme-contact .contact-main {
+  border-color: var(--module-blue-border);
+}
+
+.module-theme-contact .contact-event-card,
+.module-theme-contact .contact-form,
+.module-theme-contact .contact-details {
+  border-color: var(--module-blue-border);
+  box-shadow: 0 6px 20px rgb(32 63 131 / 7%);
+}
+
+.module-theme-contact .contact-event-date,
+.module-theme-contact .contact-detail-icon {
+  color: var(--module-blue);
+}
+
+.module-theme-contact .contact-form button {
+  background: var(--module-blue);
+}
+
+.module-theme-contact .contact-form button:hover {
+  background: var(--module-blue-dark);
+}
+
+.module-header {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  width: 100%;
+  min-height: 104px;
+  padding: 14px clamp(20px, 4vw, 56px);
+  border: 0;
+  border-bottom: 3px solid var(--module-blue);
+  background: linear-gradient(110deg, var(--module-navy), var(--module-blue));
+  color: #fff;
+  box-shadow: 0 4px 18px rgb(13 63 117 / 18%);
+}
+
+.module-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  color: #fff !important;
+  font-family: inherit;
+  font-size: 1.06rem;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  -webkit-text-fill-color: #fff;
+}
+
+.module-logo {
+  display: block;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  padding: 5px;
+  border: 2px solid rgb(255 255 255 / 76%);
+  border-radius: 12px;
+  background: #fff;
+  object-fit: contain;
+}
+
+.module-brand-copy {
+  display: grid;
+  gap: 4px;
+  color: #fff;
+}
+
+.module-brand-copy > span,
+.module-brand-copy > strong {
+  color: #fff;
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: 0.015em;
+}
+
+.module-brand-copy small {
+  color: rgb(255 255 255 / 83%);
+  font-size: 0.76rem;
+  font-weight: 500;
+}
+
+.module-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.module-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  margin: 0;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: rgb(255 255 255 / 92%) !important;
+  font-family: inherit;
+  font-size: 0.77rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: background-color 180ms ease, color 180ms ease;
+  -webkit-text-fill-color: currentColor;
+}
+
+.module-nav a:hover,
+.module-nav a:focus-visible,
+.module-nav a[aria-current="page"],
+.module-nav a.active,
+.module-nav a.active-link {
+  background: rgb(255 255 255 / 18%);
+  color: #fff !important;
+}
+
+.module-header :focus-visible,
+.module-nav :focus-visible {
+  outline: 3px solid #d8edff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .module-theme-admission .program-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .module-header {
+    justify-content: center;
+    padding: 15px 20px;
+  }
+
+  .module-brand {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .module-nav {
+    justify-content: center;
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .module-header {
+    gap: 12px;
+    padding: 13px 14px;
+  }
+
+  .module-logo {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+  }
+
+  .module-brand-copy > span,
+  .module-brand-copy > strong {
+    font-size: 0.9rem;
+  }
+
+  .module-brand-copy small {
+    font-size: 0.7rem;
+  }
+
+  .module-nav {
+    gap: 3px;
+  }
+
+  .module-nav a {
+    min-height: 34px;
+    padding: 7px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .module-theme-placement .placement-slide,
+  .module-theme-placement .placement-carousel-button,
+  .module-theme-placement .department-container > .department-card {
+    animation: none;
+    transition: none;
+  }
+
+  .module-nav a {
+    transition: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .module-theme-placement .steps-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .module-theme-placement .steps-grid > .step-card {
+    grid-column: auto;
+  }
+
+  .module-theme-placement .steps-grid > .step-card:nth-child(4) {
+    grid-column: auto;
+  }
+
+  .module-theme-placement .steps-grid > .step-card:nth-child(5) {
+    grid-column: 1 / -1;
+    width: min(100%, 320px);
+    justify-self: center;
+  }
+
+  .module-theme-placement .steps-grid > .step-card {
+    min-width: 0;
+    padding: 18px 12px;
+  }
+
+  .module-theme-placement .placement-gallery {
+    padding: 20px 14px;
+  }
+
+  .module-theme-placement .placement-carousel-frame {
+    height: min(68vh, 560px);
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 380px) {
+  .module-theme-placement .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .module-theme-placement .steps-grid > .step-card:nth-child(5) {
+    grid-column: auto;
+    width: 100%;
+  }
+}
+
+.module-theme-home #home .hero-photo-caption,
+.module-theme-home .home-page-hero .home-eyebrow,
+.module-theme-home .home-page-hero h1,
+.module-theme-home .home-page-hero p,
+.module-theme-home .home-page-hero .home-button,
+.module-theme-about .hero .badge,
+.module-theme-about .hero h1,
+.module-theme-about .hero p,
+.module-theme-campus .campus .eyebrow,
+.module-theme-campus .campus h1,
+.module-theme-campus .campus .campus-intro,
+.module-theme-courses .hero h1,
+.module-theme-courses .hero p,
+.module-theme-department .hero h1,
+.module-theme-department .hero p,
+.module-theme-placement .placement-hero .badge,
+.module-theme-placement .placement-hero h1,
+.module-theme-placement .placement-hero p,
+.module-theme-placement .placement-hero .hero-buttons,
+.module-theme-contact .contact-hero .contact-eyebrow,
+.module-theme-contact .contact-hero h1,
+.module-theme-contact .contact-hero > p:not(.contact-eyebrow) {
+  animation: moduleFadeUp 0.7s ease both;
+}
+
+.module-theme-home #home .hero-photo-caption,
+.module-theme-about .hero .badge,
+.module-theme-campus .campus .eyebrow,
+.module-theme-placement .placement-hero .badge,
+.module-theme-contact .contact-hero .contact-eyebrow {
+  animation-name: moduleFadeDown;
+}
+
+.module-theme-home .home-card-grid > .home-info-card,
+.module-theme-home .department-card,
+.module-theme-home .course-card,
+.module-theme-home .faculty-card,
+.module-theme-home .stat-box,
+.module-theme-home .step-card,
+.module-theme-home .document-item,
+.module-theme-home .life-card,
+.module-theme-home .contact-event-card,
+.module-theme-about .grid > .glass-card,
+.module-theme-about .vm-grid > .glass-card,
+.module-theme-campus .campus-grid > .campus-card,
+.module-theme-campus .life-grid > .life-card,
+.module-theme-courses .courses-grid > .course-card,
+.module-theme-department .department-container > .department-card,
+.module-theme-placement .stats-container > .stat-box,
+.module-theme-placement .department-container > .department-card,
+.module-theme-placement .steps-grid > .step-card,
+.module-theme-placement .document-list > .document-item,
+.module-theme-contact .contact-event-grid > .contact-event-card,
+.module-theme-contact .contact-layout > .contact-form,
+.module-theme-contact .contact-layout > .contact-details {
+  animation: moduleFadeUp 0.6s ease both;
+}
+
+:is(
+  .module-theme-home .home-card-grid > .home-info-card,
+  .module-theme-home .department-card,
+  .module-theme-home .course-card,
+  .module-theme-home .faculty-card,
+  .module-theme-home .stat-box,
+  .module-theme-home .step-card,
+  .module-theme-home .document-item,
+  .module-theme-home .life-card,
+  .module-theme-home .contact-event-card,
+  .module-theme-about .grid > .glass-card,
+  .module-theme-about .vm-grid > .glass-card,
+  .module-theme-campus .campus-grid > .campus-card,
+  .module-theme-campus .life-grid > .life-card,
+  .module-theme-courses .courses-grid > .course-card,
+  .module-theme-department .department-container > .department-card,
+  .module-theme-placement .stats-container > .stat-box,
+  .module-theme-placement .department-container > .department-card,
+  .module-theme-placement .steps-grid > .step-card,
+  .module-theme-placement .document-list > .document-item,
+  .module-theme-contact .contact-event-grid > .contact-event-card,
+  .module-theme-contact .contact-layout > .contact-form,
+  .module-theme-contact .contact-layout > .contact-details
+):nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+:is(
+  .module-theme-home .home-card-grid > .home-info-card,
+  .module-theme-home .department-card,
+  .module-theme-home .course-card,
+  .module-theme-home .faculty-card,
+  .module-theme-home .stat-box,
+  .module-theme-home .step-card,
+  .module-theme-home .document-item,
+  .module-theme-home .life-card,
+  .module-theme-home .contact-event-card,
+  .module-theme-about .grid > .glass-card,
+  .module-theme-about .vm-grid > .glass-card,
+  .module-theme-campus .campus-grid > .campus-card,
+  .module-theme-campus .life-grid > .life-card,
+  .module-theme-courses .courses-grid > .course-card,
+  .module-theme-department .department-container > .department-card,
+  .module-theme-placement .stats-container > .stat-box,
+  .module-theme-placement .department-container > .department-card,
+  .module-theme-placement .steps-grid > .step-card,
+  .module-theme-placement .document-list > .document-item,
+  .module-theme-contact .contact-event-grid > .contact-event-card,
+  .module-theme-contact .contact-layout > .contact-form,
+  .module-theme-contact .contact-layout > .contact-details
+):nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+:is(
+  .module-theme-home .home-card-grid > .home-info-card,
+  .module-theme-home .department-card,
+  .module-theme-home .course-card,
+  .module-theme-home .faculty-card,
+  .module-theme-home .stat-box,
+  .module-theme-home .step-card,
+  .module-theme-home .document-item,
+  .module-theme-home .life-card,
+  .module-theme-home .contact-event-card,
+  .module-theme-about .grid > .glass-card,
+  .module-theme-about .vm-grid > .glass-card,
+  .module-theme-campus .campus-grid > .campus-card,
+  .module-theme-campus .life-grid > .life-card,
+  .module-theme-courses .courses-grid > .course-card,
+  .module-theme-department .department-container > .department-card,
+  .module-theme-placement .stats-container > .stat-box,
+  .module-theme-placement .department-container > .department-card,
+  .module-theme-placement .steps-grid > .step-card,
+  .module-theme-placement .document-list > .document-item,
+  .module-theme-contact .contact-event-grid > .contact-event-card,
+  .module-theme-contact .contact-layout > .contact-form,
+  .module-theme-contact .contact-layout > .contact-details
+):nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+:is(
+  .module-theme-home .home-card-grid > .home-info-card,
+  .module-theme-home .department-card,
+  .module-theme-home .course-card,
+  .module-theme-home .faculty-card,
+  .module-theme-home .stat-box,
+  .module-theme-home .step-card,
+  .module-theme-home .document-item,
+  .module-theme-home .life-card,
+  .module-theme-home .contact-event-card,
+  .module-theme-about .grid > .glass-card,
+  .module-theme-about .vm-grid > .glass-card,
+  .module-theme-campus .campus-grid > .campus-card,
+  .module-theme-campus .life-grid > .life-card,
+  .module-theme-courses .courses-grid > .course-card,
+  .module-theme-department .department-container > .department-card,
+  .module-theme-placement .stats-container > .stat-box,
+  .module-theme-placement .department-container > .department-card,
+  .module-theme-placement .steps-grid > .step-card,
+  .module-theme-placement .document-list > .document-item,
+  .module-theme-contact .contact-event-grid > .contact-event-card,
+  .module-theme-contact .contact-layout > .contact-form,
+  .module-theme-contact .contact-layout > .contact-details
+):nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+:is(
+  .module-theme-home .home-card-grid > .home-info-card,
+  .module-theme-home .department-card,
+  .module-theme-home .course-card,
+  .module-theme-home .faculty-card,
+  .module-theme-home .stat-box,
+  .module-theme-home .step-card,
+  .module-theme-home .document-item,
+  .module-theme-home .life-card,
+  .module-theme-home .contact-event-card,
+  .module-theme-about .grid > .glass-card,
+  .module-theme-about .vm-grid > .glass-card,
+  .module-theme-campus .campus-grid > .campus-card,
+  .module-theme-campus .life-grid > .life-card,
+  .module-theme-courses .courses-grid > .course-card,
+  .module-theme-department .department-container > .department-card,
+  .module-theme-placement .stats-container > .stat-box,
+  .module-theme-placement .department-container > .department-card,
+  .module-theme-placement .steps-grid > .step-card,
+  .module-theme-placement .document-list > .document-item,
+  .module-theme-contact .contact-event-grid > .contact-event-card,
+  .module-theme-contact .contact-layout > .contact-form,
+  .module-theme-contact .contact-layout > .contact-details
+):nth-child(n + 6) {
+  animation-delay: 0.5s;
+}
+
+.module-theme-placement .department-container > .department-card {
+  animation-name: moduleFadeIn;
+}
+
+@keyframes moduleFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moduleFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moduleFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.module-theme-about .grid > .glass-card,
+.module-theme-about .vm-grid > .glass-card {
+  animation-name: moduleCardFadeIn;
+}
+
+@keyframes moduleCardFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .module-theme-home #home .hero-photo-caption,
+  .module-theme-home .home-page-hero .home-eyebrow,
+  .module-theme-home .home-page-hero h1,
+  .module-theme-home .home-page-hero p,
+  .module-theme-home .home-page-hero .home-button,
+  .module-theme-about .hero .badge,
+  .module-theme-about .hero h1,
+  .module-theme-about .hero p,
+  .module-theme-campus .campus .eyebrow,
+  .module-theme-campus .campus h1,
+  .module-theme-campus .campus .campus-intro,
+  .module-theme-courses .hero h1,
+  .module-theme-courses .hero p,
+  .module-theme-department .hero h1,
+  .module-theme-department .hero p,
+  .module-theme-placement .placement-hero .badge,
+  .module-theme-placement .placement-hero h1,
+  .module-theme-placement .placement-hero p,
+  .module-theme-placement .placement-hero .hero-buttons,
+  .module-theme-contact .contact-hero .contact-eyebrow,
+  .module-theme-contact .contact-hero h1,
+  .module-theme-contact .contact-hero > p:not(.contact-eyebrow),
+  .module-theme-home .home-card-grid > .home-info-card,
+  .module-theme-home .department-card,
+  .module-theme-home .course-card,
+  .module-theme-home .faculty-card,
+  .module-theme-home .stat-box,
+  .module-theme-home .step-card,
+  .module-theme-home .document-item,
+  .module-theme-home .life-card,
+  .module-theme-home .contact-event-card,
+  .module-theme-about .grid > .glass-card,
+  .module-theme-about .vm-grid > .glass-card,
+  .module-theme-campus .campus-grid > .campus-card,
+  .module-theme-campus .life-grid > .life-card,
+  .module-theme-courses .courses-grid > .course-card,
+  .module-theme-department .department-container > .department-card,
+  .module-theme-placement .stats-container > .stat-box,
+  .module-theme-placement .department-container > .department-card,
+  .module-theme-placement .steps-grid > .step-card,
+  .module-theme-placement .document-list > .document-item,
+  .module-theme-contact .contact-event-grid > .contact-event-card,
+  .module-theme-contact .contact-layout > .contact-form,
+  .module-theme-contact .contact-layout > .contact-details {
+    animation: none;
+  }
+
+  .module-theme-department .department-card .view-details-btn {
+    transition: none;
+  }
+
+  .module-theme-department .course-dialog[open] {
+    animation: none;
+  }
+
+  .module-theme-about .glass-card {
+    transition: none;
+  }
+}
+
+body.module-theme-home,
+body.module-theme-about,
+body.module-theme-campus,
+body.module-theme-courses,
+body.module-theme-department,
+body.module-theme-faculty,
+body.module-theme-placement,
+body.module-theme-contact,
+body.module-theme-admission,
+body.module-theme-legacy {
+  background:
+    radial-gradient(ellipse at 12% 8%, rgb(211 232 250 / 55%), transparent 34%),
+    linear-gradient(135deg, #f8fbff 0%, #edf4fa 100%);
+}
+
+:is(
+  .module-theme-about .hero,
+  .module-theme-campus .campus,
+  .module-theme-courses .hero,
+  .module-theme-department .hero,
+  .module-theme-faculty .page-title,
+  .module-theme-placement .placement-hero,
+  .module-theme-contact .contact-hero,
+  .module-theme-admission .page-hero.hero,
+  .module-theme-legacy .hero
+) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+:is(
+  .module-theme-about .hero,
+  .module-theme-campus .campus,
+  .module-theme-courses .hero,
+  .module-theme-department .hero,
+  .module-theme-faculty .page-title,
+  .module-theme-placement .placement-hero,
+  .module-theme-contact .contact-hero,
+  .module-theme-admission .page-hero.hero,
+  .module-theme-legacy .hero
+)::before,
+:is(
+  .module-theme-about .hero,
+  .module-theme-campus .campus,
+  .module-theme-courses .hero,
+  .module-theme-department .hero,
+  .module-theme-faculty .page-title,
+  .module-theme-placement .placement-hero,
+  .module-theme-contact .contact-hero,
+  .module-theme-admission .page-hero.hero,
+  .module-theme-legacy .hero
+)::after {
+  position: absolute;
+  z-index: 0;
+  border: 1px solid rgb(218 239 255 / 24%);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+:is(
+  .module-theme-about .hero,
+  .module-theme-campus .campus,
+  .module-theme-courses .hero,
+  .module-theme-department .hero,
+  .module-theme-faculty .page-title,
+  .module-theme-placement .placement-hero,
+  .module-theme-contact .contact-hero,
+  .module-theme-admission .page-hero.hero,
+  .module-theme-legacy .hero
+)::before {
+  top: -190px;
+  right: -90px;
+  width: 500px;
+  height: 500px;
+  box-shadow:
+    0 0 0 36px rgb(218 239 255 / 8%),
+    0 0 0 72px rgb(218 239 255 / 6%),
+    0 0 0 108px rgb(218 239 255 / 4%);
+}
+
+:is(
+  .module-theme-about .hero,
+  .module-theme-campus .campus,
+  .module-theme-courses .hero,
+  .module-theme-department .hero,
+  .module-theme-faculty .page-title,
+  .module-theme-placement .placement-hero,
+  .module-theme-contact .contact-hero,
+  .module-theme-admission .page-hero.hero,
+  .module-theme-legacy .hero
+)::after {
+  bottom: -285px;
+  left: 8%;
+  width: 330px;
+  height: 330px;
+  border-color: rgb(218 239 255 / 14%);
+  box-shadow: 0 0 0 32px rgb(218 239 255 / 5%);
+}
+
+:is(
+  .module-theme-about .hero,
+  .module-theme-campus .campus,
+  .module-theme-courses .hero,
+  .module-theme-department .hero,
+  .module-theme-faculty .page-title,
+  .module-theme-placement .placement-hero,
+  .module-theme-contact .contact-hero,
+  .module-theme-admission .page-hero.hero,
+  .module-theme-legacy .hero
+) > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Shared visual system for every site module. */
+body.module-theme-home,
+body.module-theme-admission,
+body.module-theme-about,
+body.module-theme-campus,
+body.module-theme-courses,
+body.module-theme-faculty,
+body.module-theme-department,
+body.module-theme-placement,
+body.module-theme-contact {
+  --module-font: Arial, Helvetica, sans-serif;
+  --module-radius: 10px;
+  --module-space-1: 8px;
+  --module-space-2: 16px;
+  --module-space-3: 24px;
+  --module-space-4: 32px;
+  --module-section-space: clamp(40px, 5vw, 64px);
+  font-family: var(--module-font);
+  line-height: 1.6;
+}
+
+body.module-theme-home *:not([class*="fa-"]),
+body.module-theme-admission *:not([class*="fa-"]),
+body.module-theme-about *:not([class*="fa-"]),
+body.module-theme-campus *:not([class*="fa-"]),
+body.module-theme-courses *:not([class*="fa-"]),
+body.module-theme-faculty *:not([class*="fa-"]),
+body.module-theme-department *:not([class*="fa-"]),
+body.module-theme-placement *:not([class*="fa-"]),
+body.module-theme-contact *:not([class*="fa-"]) {
+  font-family: var(--module-font);
+}
+
+body.module-theme-home :is(h1, h2, h3, h4, h5, h6),
+body.module-theme-admission :is(h1, h2, h3, h4, h5, h6),
+body.module-theme-about :is(h1, h2, h3, h4, h5, h6),
+body.module-theme-campus :is(h1, h2, h3, h4, h5, h6),
+body.module-theme-courses :is(h1, h2, h3, h4, h5, h6),
+body.module-theme-faculty :is(h1, h2, h3, h4, h5, h6),
+body.module-theme-department :is(h1, h2, h3, h4, h5, h6),
+body.module-theme-placement :is(h1, h2, h3, h4, h5, h6),
+body.module-theme-contact :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--module-font);
+  line-height: 1.25;
+}
+
+body.module-theme-home :is(button, input, select, textarea),
+body.module-theme-admission :is(button, input, select, textarea),
+body.module-theme-about :is(button, input, select, textarea),
+body.module-theme-campus :is(button, input, select, textarea),
+body.module-theme-courses :is(button, input, select, textarea),
+body.module-theme-faculty :is(button, input, select, textarea),
+body.module-theme-department :is(button, input, select, textarea),
+body.module-theme-placement :is(button, input, select, textarea),
+body.module-theme-contact :is(button, input, select, textarea) {
+  font: inherit;
+}
+
+body.module-theme-home :is(button, input[type="button"], input[type="submit"], input[type="reset"], a.btn, .btn, .button, .btn-primary, .btn-secondary, [class^="btn-"], [class*=" btn-"], [class*="-button"], [class$="-btn"]),
+body.module-theme-admission :is(button, input[type="button"], input[type="submit"], input[type="reset"], a.btn, .btn, .button, .btn-primary, .btn-secondary, [class^="btn-"], [class*=" btn-"], [class*="-button"], [class$="-btn"]),
+body.module-theme-about :is(button, input[type="button"], input[type="submit"], input[type="reset"], a.btn, .btn, .button, .btn-primary, .btn-secondary, [class^="btn-"], [class*=" btn-"], [class*="-button"], [class$="-btn"]),
+body.module-theme-campus :is(button, input[type="button"], input[type="submit"], input[type="reset"], a.btn, .btn, .button, .btn-primary, .btn-secondary, [class^="btn-"], [class*=" btn-"], [class*="-button"], [class$="-btn"]),
+body.module-theme-courses :is(button, input[type="button"], input[type="submit"], input[type="reset"], a.btn, .btn, .button, .btn-primary, .btn-secondary, [class^="btn-"], [class*=" btn-"], [class*="-button"], [class$="-btn"]),
+body.module-theme-faculty :is(button, input[type="button"], input[type="submit"], input[type="reset"], a.btn, .btn, .button, .btn-primary, .btn-secondary, [class^="btn-"], [class*=" btn-"], [class*="-button"], [class$="-btn"]),
+body.module-theme-department :is(button, input[type="button"], input[type="submit"], input[type="reset"], a.btn, .btn, .button, .btn-primary, .btn-secondary, [class^="btn-"], [class*=" btn-"], [class*="-button"], [class$="-btn"]),
+body.module-theme-placement :is(button, input[type="button"], input[type="submit"], input[type="reset"], a.btn, .btn, .button, .btn-primary, .btn-secondary, [class^="btn-"], [class*=" btn-"], [class*="-button"], [class$="-btn"]),
+body.module-theme-contact :is(button, input[type="button"], input[type="submit"], input[type="reset"], a.btn, .btn, .button, .btn-primary, .btn-secondary, [class^="btn-"], [class*=" btn-"], [class*="-button"], [class$="-btn"]) {
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: var(--module-radius) !important;
+  font-family: var(--module-font);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+body.module-theme-home :is([class*="card"], [class$="-card"], .stat-box, .document-item, .contact-form, .contact-details, .placement-gallery, .placement-carousel-frame, .life-gallery-item, .course-dialog, .home-modal-content),
+body.module-theme-admission :is([class*="card"], [class$="-card"], .stat-box, .document-item, .contact-form, .contact-details, .placement-gallery, .placement-carousel-frame, .life-gallery-item, .course-dialog, .home-modal-content),
+body.module-theme-about :is([class*="card"], [class$="-card"], .stat-box, .document-item, .contact-form, .contact-details, .placement-gallery, .placement-carousel-frame, .life-gallery-item, .course-dialog, .home-modal-content),
+body.module-theme-campus :is([class*="card"], [class$="-card"], .stat-box, .document-item, .contact-form, .contact-details, .placement-gallery, .placement-carousel-frame, .life-gallery-item, .course-dialog, .home-modal-content),
+body.module-theme-courses :is([class*="card"], [class$="-card"], .stat-box, .document-item, .contact-form, .contact-details, .placement-gallery, .placement-carousel-frame, .life-gallery-item, .course-dialog, .home-modal-content),
+body.module-theme-faculty :is([class*="card"], [class$="-card"], .stat-box, .document-item, .contact-form, .contact-details, .placement-gallery, .placement-carousel-frame, .life-gallery-item, .course-dialog, .home-modal-content),
+body.module-theme-department :is([class*="card"], [class$="-card"], .stat-box, .document-item, .contact-form, .contact-details, .placement-gallery, .placement-carousel-frame, .life-gallery-item, .course-dialog, .home-modal-content),
+body.module-theme-placement :is([class*="card"], [class$="-card"], .stat-box, .document-item, .contact-form, .contact-details, .placement-gallery, .placement-carousel-frame, .life-gallery-item, .course-dialog, .home-modal-content),
+body.module-theme-contact :is([class*="card"], [class$="-card"], .stat-box, .document-item, .contact-form, .contact-details, .placement-gallery, .placement-carousel-frame, .life-gallery-item, .course-dialog, .home-modal-content) {
+  border-radius: var(--module-radius) !important;
+}
+
+body.module-theme-home :is(.department-container, .home-card-grid, .courses-grid, .faculty-grid, .contact-event-grid, .life-gallery-grid, .campus-grid, .life-grid, .steps-grid, .document-list, .stats-container, .grid, .vm-grid, .contact-layout),
+body.module-theme-admission :is(.department-container, .home-card-grid, .courses-grid, .faculty-grid, .contact-event-grid, .life-gallery-grid, .campus-grid, .life-grid, .steps-grid, .document-list, .stats-container, .grid, .vm-grid, .contact-layout),
+body.module-theme-about :is(.department-container, .home-card-grid, .courses-grid, .faculty-grid, .contact-event-grid, .life-gallery-grid, .campus-grid, .life-grid, .steps-grid, .document-list, .stats-container, .grid, .vm-grid, .contact-layout),
+body.module-theme-campus :is(.department-container, .home-card-grid, .courses-grid, .faculty-grid, .contact-event-grid, .life-gallery-grid, .campus-grid, .life-grid, .steps-grid, .document-list, .stats-container, .grid, .vm-grid, .contact-layout),
+body.module-theme-courses :is(.department-container, .home-card-grid, .courses-grid, .faculty-grid, .contact-event-grid, .life-gallery-grid, .campus-grid, .life-grid, .steps-grid, .document-list, .stats-container, .grid, .vm-grid, .contact-layout),
+body.module-theme-faculty :is(.department-container, .home-card-grid, .courses-grid, .faculty-grid, .contact-event-grid, .life-gallery-grid, .campus-grid, .life-grid, .steps-grid, .document-list, .stats-container, .grid, .vm-grid, .contact-layout),
+body.module-theme-department :is(.department-container, .home-card-grid, .courses-grid, .faculty-grid, .contact-event-grid, .life-gallery-grid, .campus-grid, .life-grid, .steps-grid, .document-list, .stats-container, .grid, .vm-grid, .contact-layout),
+body.module-theme-placement :is(.department-container, .home-card-grid, .courses-grid, .faculty-grid, .contact-event-grid, .life-gallery-grid, .campus-grid, .life-grid, .steps-grid, .document-list, .stats-container, .grid, .vm-grid, .contact-layout),
+body.module-theme-contact :is(.department-container, .home-card-grid, .courses-grid, .faculty-grid, .contact-event-grid, .life-gallery-grid, .campus-grid, .life-grid, .steps-grid, .document-list, .stats-container, .grid, .vm-grid, .contact-layout) {
+  gap: var(--module-space-3);
+}
+
+body.module-theme-home :is(.departments-section, .faculty-section, .enquiry-section, .student-life.section, .life-gallery, .vision-mission-section, .contact-events, .contact-main, .home-content-block),
+body.module-theme-admission :is(.departments-section, .faculty-section, .enquiry-section, .student-life.section, .life-gallery, .vision-mission-section, .contact-events, .contact-main, .home-content-block),
+body.module-theme-about :is(.departments-section, .faculty-section, .enquiry-section, .student-life.section, .life-gallery, .vision-mission-section, .contact-events, .contact-main, .home-content-block),
+body.module-theme-campus :is(.departments-section, .faculty-section, .enquiry-section, .student-life.section, .life-gallery, .vision-mission-section, .contact-events, .contact-main, .home-content-block),
+body.module-theme-courses :is(.departments-section, .faculty-section, .enquiry-section, .student-life.section, .life-gallery, .vision-mission-section, .contact-events, .contact-main, .home-content-block),
+body.module-theme-faculty :is(.departments-section, .faculty-section, .enquiry-section, .student-life.section, .life-gallery, .vision-mission-section, .contact-events, .contact-main, .home-content-block),
+body.module-theme-department :is(.departments-section, .faculty-section, .enquiry-section, .student-life.section, .life-gallery, .vision-mission-section, .contact-events, .contact-main, .home-content-block),
+body.module-theme-placement :is(.departments-section, .faculty-section, .enquiry-section, .student-life.section, .life-gallery, .vision-mission-section, .contact-events, .contact-main, .home-content-block),
+body.module-theme-contact :is(.departments-section, .faculty-section, .enquiry-section, .student-life.section, .life-gallery, .vision-mission-section, .contact-events, .contact-main, .home-content-block) {
+  padding-block: var(--module-section-space);
+}
+
+body.module-theme-home :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea),
+body.module-theme-admission :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea),
+body.module-theme-about :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea),
+body.module-theme-campus :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea),
+body.module-theme-courses :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea),
+body.module-theme-faculty :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea),
+body.module-theme-department :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea),
+body.module-theme-placement :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea),
+body.module-theme-contact :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  border-radius: var(--module-radius);
+}
+
+body.module-theme-campus .life-gallery-open {
+  min-height: 0 !important;
+  padding: 0 !important;
+}
+
+body.module-theme-placement .placement-carousel-indicators .placement-carousel-indicator {
+  width: 12px;
+  height: 12px;
+  min-height: 12px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+}
+
+body.module-theme-home .menu-toggle {
+  padding: 9px !important;
+}
+
+body.module-theme-home .three-dots-btn,
+body.module-theme-faculty .three-dots-btn {
+  width: 36px;
+  height: 36px;
+  min-height: 36px !important;
+  padding: 0 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.module-theme-home *,
+  body.module-theme-admission *,
+  body.module-theme-about *,
+  body.module-theme-campus *,
+  body.module-theme-courses *,
+  body.module-theme-faculty *,
+  body.module-theme-department *,
+  body.module-theme-placement *,
+  body.module-theme-contact * {
+    scroll-behavior: auto;
+  }
+}

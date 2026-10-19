@@ -38,3 +38,59 @@ if ("IntersectionObserver" in window) {
 
   observedSections.forEach((section) => sectionObserver.observe(section));
 }
+
+const courseDialog = document.querySelector(".course-dialog");
+const courseCloseButton = courseDialog?.querySelector(".course-dialog-close");
+const courseDialogTitle = courseDialog?.querySelector("#course-dialog-title");
+const courseDialogCode = courseDialog?.querySelector("#course-dialog-code");
+
+if (
+  courseDialog instanceof HTMLDialogElement &&
+  courseCloseButton instanceof HTMLButtonElement &&
+  courseDialogTitle instanceof HTMLElement &&
+  courseDialogCode instanceof HTMLElement
+) {
+  let lastCourseTrigger = null;
+
+  document.querySelectorAll(".department-card .view-details-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      const card = button.closest(".department-card");
+      const courseCode = card?.querySelector(".department-code");
+      const courseName = card?.querySelector("h3");
+      const details = button.dataset.courseTarget
+        ? document.getElementById(button.dataset.courseTarget)
+        : null;
+
+      if (!courseCode || !courseName || !details || !courseDialog.contains(details)) {
+        console.error("Course details could not be opened because the course card is incomplete.");
+        return;
+      }
+
+      courseDialog.querySelectorAll(".course-info").forEach((panel) => {
+        panel.hidden = true;
+      });
+      details.hidden = false;
+      courseDialogCode.textContent = courseCode.textContent.trim();
+      courseDialogTitle.textContent = courseName.textContent.trim();
+      lastCourseTrigger = button;
+      courseDialog.showModal();
+      courseCloseButton.focus();
+    });
+  });
+
+  courseCloseButton.addEventListener("click", () => {
+    courseDialog.close();
+  });
+
+  courseDialog.addEventListener("click", (event) => {
+    if (event.target === courseDialog) {
+      courseDialog.close();
+    }
+  });
+
+  courseDialog.addEventListener("close", () => {
+    if (lastCourseTrigger?.isConnected) {
+      lastCourseTrigger.focus();
+    }
+  });
+}

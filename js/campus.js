@@ -88,9 +88,67 @@ function setupInteractiveCards() {
     });
 }
 
-// 4. Initialize all features after the HTML loads
+// 4. Open campus-life photos in a full-image preview
+function setupLifeImagePreview() {
+    const gallery = document.querySelector(".life-gallery-grid");
+    const dialog = document.querySelector(".life-image-dialog");
+    const previewImage = dialog?.querySelector("img");
+    const previewCaption = dialog?.querySelector("figcaption");
+    const closeButton = dialog?.querySelector(".life-image-dialog-close");
+
+    if (!gallery || !(dialog instanceof HTMLDialogElement) ||
+        !previewImage || !previewCaption || !closeButton) {
+        return;
+    }
+
+    let lastTrigger = null;
+
+    gallery.addEventListener("click", function (event) {
+        const trigger = event.target.closest(".life-gallery-open");
+
+        if (!trigger || !gallery.contains(trigger)) {
+            return;
+        }
+
+        const thumbnail = trigger.querySelector("img");
+        const caption = trigger.closest("figure")?.querySelector("figcaption");
+
+        if (!thumbnail || !caption) {
+            return;
+        }
+
+        lastTrigger = trigger;
+        previewImage.src = thumbnail.currentSrc || thumbnail.src;
+        previewImage.alt = thumbnail.alt;
+        previewCaption.textContent = caption.textContent.trim();
+        dialog.showModal();
+        closeButton.focus();
+    });
+
+    closeButton.addEventListener("click", function () {
+        dialog.close();
+    });
+
+    dialog.addEventListener("click", function (event) {
+        if (event.target === dialog) {
+            dialog.close();
+        }
+    });
+
+    dialog.addEventListener("close", function () {
+        previewImage.removeAttribute("src");
+        previewImage.alt = "";
+
+        if (lastTrigger?.isConnected) {
+            lastTrigger.focus();
+        }
+    });
+}
+
+// 5. Initialize all features after the HTML loads
 document.addEventListener("DOMContentLoaded", function () {
     updateFooterYear();
     setupStudentLifeSearch();
     setupInteractiveCards();
+    setupLifeImagePreview();
 });

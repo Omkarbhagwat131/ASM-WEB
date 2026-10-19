@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#0b2d52">
     <meta name="description" content="Explore the campus and student life at ASM College.">
     <title>Campus &amp; Student Life | ASM College</title>
-    <script src="campus.js" defer></script>
+    <script src="js/campus.js" defer></script>
 
     <style>
         :root {
@@ -341,6 +341,152 @@
             font-size: .9rem;
         }
 
+        .life-gallery {
+            margin-top: 46px;
+        }
+
+        .life-gallery h3 {
+            margin: 0 0 18px;
+            color: var(--navy);
+            font-size: 1.35rem;
+        }
+
+        .life-gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .life-gallery-item {
+            flex: 0 1 calc((100% - 54px) / 4);
+            min-width: 0;
+            margin: 0;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            background: var(--white);
+            box-shadow: 0 8px 25px rgba(15,58,99,.045);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .life-gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .life-gallery-item img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+        }
+
+        .life-gallery-open {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            cursor: zoom-in;
+        }
+
+        .life-gallery-open:focus-visible {
+            outline: 3px solid var(--bright-blue);
+            outline-offset: -3px;
+        }
+
+        .life-gallery-item .life-gallery-poster {
+            object-fit: contain;
+            background: var(--pale-blue);
+        }
+
+        .life-gallery-item figcaption {
+            min-height: 3.2em;
+            padding: 11px 13px;
+            color: var(--navy);
+            font-size: .88rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .life-image-dialog {
+            width: min(900px, calc(100% - 32px));
+            max-width: none;
+            max-height: calc(100% - 32px);
+            padding: 18px;
+            overflow: auto;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: var(--white);
+            color: var(--navy);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, .3);
+        }
+
+        .life-image-dialog::backdrop {
+            background: rgba(7, 31, 57, .78);
+            backdrop-filter: blur(4px);
+        }
+
+        .life-image-dialog[open] {
+            animation: life-image-dialog-in .18s ease-out;
+        }
+
+        @keyframes life-image-dialog-in {
+            from {
+                opacity: 0;
+                transform: scale(.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .life-image-dialog figure {
+            display: grid;
+            justify-items: center;
+            gap: 12px;
+            margin: 0;
+        }
+
+        .life-image-dialog img {
+            display: block;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: calc(100vh - 130px);
+            border-radius: 9px;
+            object-fit: contain;
+        }
+
+        .life-image-dialog figcaption {
+            color: var(--navy);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .life-image-dialog-close {
+            position: sticky;
+            z-index: 1;
+            top: 0;
+            display: block;
+            margin: 0 0 10px auto;
+            padding: 8px 13px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--pale-blue);
+            color: var(--navy);
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .life-image-dialog-close:hover {
+            border-color: var(--bright-blue);
+        }
+
         /* Interactive card details */
         .card-details {
             margin-top: 14px;
@@ -413,6 +559,10 @@
             .life-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
+
+            .life-gallery-item {
+                flex-basis: calc((100% - 18px) / 2);
+            }
         }
 
         @media (max-width: 520px) {
@@ -436,6 +586,10 @@
             .student-life { padding: 62px 0 68px; }
             .section { width: calc(100% - 36px); }
             .life-card { min-height: auto; }
+
+            .life-gallery-item {
+                flex-basis: 100%;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -443,6 +597,7 @@
 
             *, *::before, *::after {
                 transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
             }
         }
         
@@ -527,27 +682,30 @@
 }
 
     </style>
+    <link rel="stylesheet" href="css/module-ui.css">
 </head>
-
-<body>
+<body class="module-theme-campus">
     
-<header class="site-header">
+<header class="module-header">
 
-    <a class="brand" href="home.html" aria-label="ASM College home">
-        <img src="image/asm-logo.png"
-             alt="ASM College Logo"
-             class="college-logo">
+    <a class="module-brand" href="home.html" aria-label="ASM NextGen Technical Campus home">
+        <img src="image/asm-logo.png" alt="" class="module-logo">
+        <span class="module-brand-copy">
+            <span>ASM NextGen Technical Campus</span>
+            <small>Institute of Management &amp; Engineering</small>
+        </span>
     </a>
 
-    <nav class="main-nav" aria-label="Main navigation">
+    <nav class="module-nav" aria-label="Main navigation">
         <a href="home.html">Home</a>
         <a href="about.html">About</a>
-        <a href="campus.html" class="active">Campus</a>
+        <a href="campus.html" aria-current="page">Campus</a>
         <a href="coursesprog.html">Courses &amp; Programs</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="placement.html">Placements</a>
-        <a href="department.html">Department</a>
         <a href="Faculty.html">Faculty</a>
+        <a href="department.html">Departments</a>
+        <a href="addmission.html">Admissions</a>
+        <a href="placement.html">Placements</a>
+        <a href="contact.html">Contact Us</a>
     </nav>
 
 </header>
@@ -672,13 +830,68 @@
 
             </div>
 
+            <section class="life-gallery" aria-labelledby="life-gallery-title">
+                <h3 id="life-gallery-title">Arts, clubs &amp; campus events</h3>
+                <div class="life-gallery-grid">
+                    <figure class="life-gallery-item">
+                        <button class="life-gallery-open" type="button" aria-label="View Freshers Party and Dandiya Night 2026 event highlights">
+                            <img class="life-gallery-poster" src="image/campus-life-01.jpg" alt="Freshers Party and Dandiya Night 2026 event highlights" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption>Freshers Party &amp; Dandiya Night 2026</figcaption>
+                    </figure>
+                    <figure class="life-gallery-item">
+                        <button class="life-gallery-open" type="button" aria-label="View students and faculty celebrating Dandiya Night 2026">
+                            <img class="life-gallery-poster" src="image/campus-life-02.jpg" alt="Students and faculty celebrating Dandiya Night 2026" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption>Dandiya Night 2026</figcaption>
+                    </figure>
+                    <figure class="life-gallery-item">
+                        <button class="life-gallery-open" type="button" aria-label="View student performances at Freshers Party 2026">
+                            <img class="life-gallery-poster" src="image/campus-life-03.jpg" alt="Student performances at Freshers Party 2026" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption>Freshers Party 2026</figcaption>
+                    </figure>
+                    <figure class="life-gallery-item">
+                        <button class="life-gallery-open" type="button" aria-label="View students celebrating Holi together on campus">
+                            <img src="image/campus-life-04.jpg" alt="Students celebrating Holi together on campus" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption>Campus celebrations</figcaption>
+                    </figure>
+                    <figure class="life-gallery-item">
+                        <button class="life-gallery-open" type="button" aria-label="View ASM students with cricket equipment on the sports field">
+                            <img src="image/campus-life-05.jpg" alt="ASM students with cricket equipment on the sports field" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption>Cricket &amp; sports teams</figcaption>
+                    </figure>
+                    <figure class="life-gallery-item">
+                        <button class="life-gallery-open" type="button" aria-label="View students sharing colorful hands during a Holi celebration">
+                            <img src="image/campus-life-06.jpg" alt="Students sharing colorful hands during a Holi celebration" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption>Holi colors &amp; community</figcaption>
+                    </figure>
+                    <figure class="life-gallery-item">
+                        <button class="life-gallery-open" type="button" aria-label="View students posing together with cricket bats on the field">
+                            <img src="image/campus-life-07.jpg" alt="Students posing together with cricket bats on the field" loading="lazy" decoding="async">
+                        </button>
+                        <figcaption>Friends on the field</figcaption>
+                    </figure>
+                </div>
+            </section>
+
             <div class="life-note">
                 Bring your curiosity. Find your community. Make this chapter yours.
             </div>
         </section>
+
+        <dialog class="life-image-dialog" aria-labelledby="life-image-caption">
+            <button class="life-image-dialog-close" type="button">Close</button>
+            <figure>
+                <img src="" alt="">
+                <figcaption id="life-image-caption"></figcaption>
+            </figure>
+        </dialog>
     </main>
 
    
 </body>
 </html>
-

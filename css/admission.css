@@ -401,48 +401,80 @@ footer p {
 
 /* Hero Section Graphics */
 .page-hero {
-  background: linear-gradient(135deg, #0d3b66 0%, #1d3557 100%);
+  background: linear-gradient(135deg, #0f2345 0%, #1a4d80 35%, #275f9d 100%);
   color: #ffffff;
   padding: 70px 20px;
   text-align: center;
-  border-bottom: 5px solid #e63946;
+  border-bottom: 5px solid #f15a5a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 18px 40px rgba(12, 34, 63, 0.2);
+}
+
+.page-hero .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .hero-subtitle {
   display: inline-block;
-  background: rgba(230, 57, 70, 0.2);
-  color: #ff4d5a;
-  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #f7d9d9;
+  padding: 8px 18px;
   border-radius: 20px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
-  margin-bottom: 15px;
-  border: 1px solid rgba(230, 57, 70, 0.4);
+  letter-spacing: 1.5px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
 }
 
 .page-hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  margin-bottom: 18px;
   color: #ffffff;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+.hero-description {
+  max-width: 850px;
+  margin: 0 auto 26px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  line-height: 1.7;
 }
 
 .page-hero .btn {
   display: inline-block;
-  margin-top: 25px;
-  padding: 12px 30px;
-  background: #e63946;
+  margin-top: 10px;
+  padding: 16px 34px;
+  background: linear-gradient(135deg, #ff5f6d, #ee3f57);
   color: #ffffff;
   text-decoration: none;
-  font-weight: 600;
-  border-radius: 30px;
-  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
-  transition: all 0.3s ease;
+  font-weight: 700;
+  border-radius: 32px;
+  box-shadow: 0 14px 28px rgba(239, 78, 96, 0.35);
+  transition: all 0.25s ease;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.page-hero h1,
+.page-hero p,
+.page-hero .hero-subtitle {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .page-hero .btn:hover {
-  background: #c52a36;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(230, 57, 70, 0.6);
+  background: linear-gradient(135deg, #f64a63, #e3354d);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 16px 32px rgba(239, 78, 96, 0.45);
 }
 
 /* Content Grid & Graphics Cards */
@@ -611,12 +643,41 @@ footer p {
 .eligibility-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  max-width: 665px;
-  margin: 0 auto;
+  max-width: 980px;
+  margin: 30px auto 0;
+  align-items: stretch;
 }
 
 .eligibility-grid .department-card {
   width: 100%;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 26px 22px;
+}
+
+.eligibility-card .card-icon {
+  display: block;
+  margin: 0 0 18px;
+  font-size: 44px;
+  color: #0d3b66;
+}
+
+.eligibility-card h3 {
+  margin: 0 0 12px;
+  color: #123d68;
+  font-size: clamp(1.6rem, 2vw, 2.3rem);
+  line-height: 1.3;
+}
+
+.eligibility-card p {
+  margin: 0;
+  color: #5b6878;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .admission-intro p {
@@ -640,14 +701,15 @@ footer p {
 .program-filters {
   display: flex;
   justify-content: center;
+  align-items: end;
   gap: 16px;
-  max-width: 700px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
 .program-filter {
   flex: 1;
-  max-width: 320px;
+  max-width: 340px;
   text-align: left;
 }
 
@@ -677,11 +739,34 @@ footer p {
 }
 
 .program-filter-status {
-  min-height: 20px;
+  min-height: 22px;
   display: flex;
   justify-content: center;
-  margin: 12px 0 0;
+  align-items: center;
+  margin: 12px auto 0;
   color: #1976d2;
+  font-weight: 600;
+}
+
+.career-path-section {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 22px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: stretch;
+}
+
+.program-grid .department-card {
+  width: 100%;
+  margin: 0 auto;
 }
 
 .program-grid .department-card[hidden] {
@@ -1068,4 +1153,110 @@ footer p {
 .nav-links li a:hover,
 .nav-links li a.active {
   color: #ff4d4d;
+}
+/* =================================
+   ADMISSION PAGE ANIMATIONS
+   ================================= */
+
+/* Hero entrance */
+.page-hero.hero .hero-subtitle {
+  animation: fadeDown 0.7s ease both;
+}
+
+.page-hero.hero h1 {
+  animation: fadeUp 0.8s ease 0.1s both;
+}
+
+.page-hero.hero .hero-description {
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+
+.page-hero.hero .hero-btn,
+.page-hero.hero .btn {
+  animation: fadeUp 0.8s ease 0.35s both;
+}
+
+/* Admission cards entrance */
+.program-grid .department-card {
+  animation: fadeUp 0.6s ease both;
+}
+
+.program-grid .department-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.program-grid .department-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.program-grid .department-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+/* Animation definitions */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .page-hero.hero .hero-subtitle,
+  .page-hero.hero h1,
+  .page-hero.hero .hero-description,
+  .page-hero.hero .hero-btn,
+  .page-hero.hero .btn,
+  .program-grid .department-card {
+    animation: none;
+  }
+}
+/* Day 7: Keyboard accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #1976d2;
+    outline-offset: 3px;
+}
+
+/* Smooth interactive controls */
+.program-filter input,
+.program-filter select,
+.program-grid .department-card,
+.program-grid .department-card a {
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        color 0.3s ease;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
 }

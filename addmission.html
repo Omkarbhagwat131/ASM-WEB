@@ -7,7 +7,7 @@
 
     <title>Admissions | ASM's NextGen Technical Campus</title>
 
-    <link rel="stylesheet" href="css/asm.css">
+    <link rel="stylesheet" href="css/admission.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -26,6 +26,78 @@
             color: #263445;
             background: #f5f8fc;
             line-height: 1.6;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #dfeeff 0%, #cfe7ff 100%);
+            border-bottom: 2px solid rgba(19, 81, 141, 0.18);
+            box-shadow: 0 4px 18px rgba(37, 96, 152, 0.08);
+        }
+
+        .navbar .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #0c4d8a;
+            font-weight: 800;
+            font-size: 1.45rem;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            line-height: 1;
+        }
+
+        .header-logo {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+            display: block;
+            border-radius: 12px;
+            background: #ffffff;
+            padding: 6px;
+            box-shadow: 0 6px 16px rgba(13, 63, 117, 0.12);
+            border: 2px solid rgba(12, 77, 138, 0.12);
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a,
+        .nav-links a:visited {
+            display: inline-block;
+            padding: 9px 12px;
+            border-radius: 8px;
+            color: #0d3f75 !important;
+            text-decoration: none !important;
+            font-size: 14px;
+            font-weight: 700;
+            transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus,
+        .nav-links a.active {
+            background: rgba(13, 63, 117, 0.12);
+            color: #062d55 !important;
+            transform: translateY(-1px);
         }
 
         /* HEADER AND NAVIGATION */
@@ -408,27 +480,30 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="css/module-ui.css">
 </head>
 
-<body>
+<body class="module-theme-admission">
 
-    <!-- Centralized Dynamic Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="home.html" class="logo">ASM Technical Campus</a>
-            <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="coursesprog.html">Programs</a></li>
-                <li><a href="department.html">Departments</a></li>
-                <li><a href="addmission.html" class="active">Admissions</a></li>
-                <li><a href="placement.html">Placements</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </div>
-    </nav>
-
-        </div>
+    <header class="module-header">
+        <a class="module-brand" href="home.html" aria-label="ASM NextGen Technical Campus home">
+            <img src="image/asm-logo.png" alt="" class="module-logo">
+            <span class="module-brand-copy">
+                <span>ASM NextGen Technical Campus</span>
+                <small>Institute of Management &amp; Engineering</small>
+            </span>
+        </a>
+        <nav class="module-nav" aria-label="Main navigation">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="campus.html">Campus</a>
+            <a href="coursesprog.html">Courses &amp; Programs</a>
+            <a href="Faculty.html">Faculty</a>
+            <a href="department.html">Departments</a>
+            <a href="addmission.html" aria-current="page">Admissions</a>
+            <a href="placement.html">Placements</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
     </header>
 
     <main>
@@ -486,43 +561,8 @@
             </div>
             <p class="program-filter-status" id="program-filter-status" role="status" aria-live="polite"></p>
 
-            <div class="department-container program-grid">
-                <!-- Engineering Card -->
-                <div class="department-card" data-program-type="ug">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-gears"></i>
-                    </div>
-
-                    <span class="card-label">Undergraduate</span>
-                    <h3>Engineering</h3>
-                    <p>Build a strong foundation in engineering, technology, and problem-solving through practical and
-                        industry-oriented education.</p>
-                    <ul class="department-feature-list">
-                        <li>Technical & engineering fundamentals</li>
-                        <li>Practical laboratory experience</li>
-                        <li>Project-based learning</li>
-                        <li>Technical skill development</li>
-                    </ul>
-                </article>
-
-                <!-- MCA Card -->
-                <div class="department-card" data-program-type="pg">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-laptop-code"></i>
-                    </div>
-
-                    <span class="card-label">Postgraduate</span>
-                    <h3>Master of Computer Applications (MCA)</h3>
-                    <p>Develop advanced knowledge in computer applications, software development, programming, and
-                        modern technologies.</p>
-                    <ul class="department-feature-list">
-                        <li>Programming & software development</li>
-                        <li>Database & web technologies</li>
-                        <li>Practical full-stack projects</li>
-                        <li>Professional career development</li>
-                    </ul>
-                </article>
-
+            <div class="department-container program-grid" id="program-grid">
+                <!-- Program cards are loaded from admission.json. -->
             </div>
         </section>
 
@@ -531,30 +571,8 @@
             <h2>Eligibility Criteria</h2>
             <div class="section-underline"></div>
 
-            <div class="department-container eligibility-grid">
-                <div class="department-card">
-                    <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <h3>Engineering Qualification</h3>
-                    <p>Successfully completed higher secondary education (12th/HSC) or diploma with required marks
-                        and subjects as per admission rules.</p>
-                </div>
-
-                    <h3>Engineering Entrance</h3>
-                    <p>Fulfill applicable entrance examination requirements (MH-CET / JEE) and merit guidelines
-                        prescribed for admission.</p>
-                </div>
-
-                <div class="department-card">
-                    <div class="card-icon"><i class="fa-solid fa-user-graduate"></i></div>
-                    <h3>MCA Graduation</h3>
-                    <p>Completed recognized Bachelor's degree (BCA/B.Sc/B.Com/B.A) with Mathematics/Statistics at
-                        10+2 level or Graduation level.</p>
-                </div>
-
-                    <h3>MCA Entrance Requirements</h3>
-                    <p>Must qualify the applicable entrance examination as per university and government admission
-                        guidelines.</p>
-                </div>
+            <div class="department-container eligibility-grid" id="eligibility-grid">
+                <!-- Eligibility cards are loaded from admission.json. -->
             </div>
         </section>
         <!-- ================= ADMISSION PROCESS ================= -->
@@ -562,29 +580,8 @@
             <h2>Admission Process</h2>
             <div class="underline"></div>
 
-            <div class="department-container">
-                <div class="department-card">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-file-lines"></i>
-                    </div>
-                    <h3>Step 1: Application</h3>
-                    <p>Complete the admission application form and provide the required details.</p>
-                </div>
-
-                <div class="department-card">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-file-circle-check"></i>
-                    </div>
-                    <h3>Step 2: Document Verification</h3>
-                    <p>Submit the necessary academic documents for verification.</p>
-                </div>
-
-                <div class="department-card">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-list-check"></i>
-                    </div>
-                    <h3>Step 3: Admission Confirmation</h3>
-                    <p>Complete the applicable admission formalities as instructed by the college.</p>
+                <div class="department-container" id="admission-process-grid">
+                    <!-- Admission process cards are loaded from admission.json. -->
                 </div>
             </div>
         </section>
