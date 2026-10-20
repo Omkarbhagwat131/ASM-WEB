@@ -1,0 +1,236 @@
+:root {
+  --ink: #30291f;
+  --navy: #294b36;
+  --navy-dark: #183225;
+  --blue: #58734a;
+  --orange: #bd6344;
+  --yellow: #e2b653;
+  --paper: #e9dfc8;
+  --white: #f3ebd6;
+  --muted: #706958;
+  --line: #d4c9ae;
+  --surface: #f6efdD;
+  --surface-raised: #fbf4e3;
+}
+
+body {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.masthead {
+  background: var(--paper);
+}
+
+.masthead-copy p {
+  color: #9d5536;
+}
+
+.masthead-copy h1 {
+  color: var(--navy-dark);
+}
+
+.nav-wrap {
+  color: #f5ead2;
+  background: var(--navy-dark);
+}
+
+.nav-dropdown {
+  background: var(--surface-raised);
+}
+
+.nav-dropdown a {
+  color: var(--navy-dark);
+}
+
+.nav-dropdown a:hover,
+.nav-dropdown a[aria-current="page"] {
+  color: #913f2b;
+  background: #ead9b8;
+}
+
+.breadcrumbs {
+  background: #e4d8bd;
+}
+
+.section-paper {
+  background: var(--paper);
+}
+
+.page-hero::before {
+  background-image: linear-gradient(90deg, rgb(18 41 27 / 91%), rgb(32 65 42 / 73%) 56%, rgb(44 67 44 / 27%)), var(--hero-image, url("../images/asm-campus-building.png"));
+}
+
+.home-hero {
+  background-color: var(--navy-dark);
+}
+
+.home-hero-overlay {
+  background: linear-gradient(90deg, rgb(18 41 27 / 89%) 0%, rgb(30 58 37 / 70%) 48%, rgb(46 59 39 / 12%) 100%), linear-gradient(0deg, rgb(24 37 24 / 43%), transparent 34%);
+}
+
+.home-module:not(.home-module-feature):not(.home-module-dark),
+.hero-photo-note {
+  background-color: var(--surface-raised);
+}
+
+.hero-photo-note:hover {
+  background-color: #fff7e5;
+}
+
+.home-module-feature {
+  background-color: #9e4f35;
+  border-color: #9e4f35;
+}
+
+.home-module-feature:hover {
+  background-color: #7f3d2b;
+}
+
+.home-module-dark {
+  background-color: #294b36;
+  border-color: #294b36;
+}
+
+.home-module-dark:hover {
+  background-color: #48663e;
+}
+
+.home-module:hover {
+  background-color: #294b36;
+}
+
+.home-cta {
+  background: #31523b;
+}
+
+.home-feature-image {
+  background: var(--navy);
+}
+
+.button {
+  color: #f8efda;
+}
+
+.button-gold {
+  color: #34291a;
+}
+
+.button-outline {
+  color: var(--navy-dark);
+  border-color: #b9aa8d;
+}
+
+.button-outline:hover {
+  color: #f7efd9;
+  background: var(--navy-dark);
+}
+
+.eyebrow-ink,
+.text-link {
+  color: #925136;
+}
+
+.home-approval span {
+  background: #52724f;
+}
+
+.life-tab:hover,
+.life-tab.active {
+  background: #466541;
+  border-color: #466541;
+}
+
+.faculty-subject {
+  color: #365138;
+  background: #e4ddc2;
+}
+
+.club-card button.joined,
+.event-card button.saved {
+  background: #486748;
+  border-color: #486748;
+}
+
+.syllabus-card[data-stage="core"] {
+  border-top-color: #61794a;
+}
+
+.skill-card:has(input:checked) {
+  background: #e2e8d3;
+  border-color: #82936a;
+}
+
+.department-note {
+  background: #e7e3ce;
+}
+
+.portal-safety {
+  background: #f5e4c6;
+}
+
+.syllabus-disclaimer {
+  background: #f3e5c4;
+}
+
+.nav-dropdown,
+.info-card,
+.search-row input,
+.search-row select,
+.form-control,
+.form-card,
+.form-card input,
+.form-card select,
+.form-card textarea,
+.event-card,
+.event-source-note,
+.faculty-card,
+.faculty-note,
+.program-card,
+.syllabus-card,
+.study-plan-card,
+.portal-box,
+.portal-form input,
+.portal-form select,
+.club-card,
+.department-card:hover,
+.skill-card:hover,
+.home-module:not(.home-module-feature):not(.home-module-dark) {
+  background-color: var(--surface-raised) !important;
+}
+
+.home-module:not(.home-module-feature):not(.home-module-dark):hover {
+  background-color: #cac119 !important;
+}
+
+.portal-tab.active {
+  background: #fff4dd;
+}
+
+.portal-tabs {
+  background: #e7dec8;
+}
+
+.form-card,
+.portal-box,
+.study-plan-card {
+  box-shadow: 0 14px 32px rgb(34 49 30 / 11%);
+}
+
+.site-footer {
+  color: #eae0c8;
+  background: #142b20;
+}
+
+.footer-bottom {
+  color: #d0c5aa;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,19 @@
+@import url("../palette.css");
+
+.page-hero::before {
+    background-position: center 42%;
+}
+
+.split-copy>p:not(.eyebrow) {
+    max-width: 530px;
+}
+
+.split-copy .button {
+    margin-top: 10px;
+}
+
+.about-visits {
+    margin-top: 18px;
+    color: #72818a;
+    font-size: 10px;
+}

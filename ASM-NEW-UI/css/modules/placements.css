@@ -1,0 +1,98 @@
+@import url("../palette.css");
+
+.placements-lead { display: grid; grid-template-columns: 1fr 300px; gap: 9%; align-items: center; }
+.readiness-card { padding: 21px; background: var(--paper); border-top: 3px solid #bd6841; }
+.readiness-card > p { margin: 0; color: #a45838; font-size: 8px; font-weight: 850; letter-spacing: .13em; }
+.readiness-card > strong { display: block; margin: 9px 0; color: var(--navy); font: 400 49px/1 var(--display); }
+.progress-track { height: 6px; overflow: hidden; background: #dce4e1; }
+.progress-track span { display: block; width: 0; height: 100%; background: #bd6841; transition: width .4s cubic-bezier(.2,.75,.25,1); }
+.readiness-card > span { display: block; margin-top: 8px; color: var(--muted); font-size: 9px; }
+.readiness-card button { margin-top: 12px; padding: 0; border: 0; color: #a45838; background: transparent; font-size: 9px; font-weight: 800; cursor: pointer; }
+.skill-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-top: 26px; }
+.skill-card { display: flex; min-height: 170px; flex-direction: column; align-items: flex-start; padding: 16px; background: #f8f8f5; border: 1px solid #e3e8e4; cursor: pointer; transition: background .2s,border .2s,transform .2s; }
+.skill-card:hover { background: white; border-color: #b9c9ca; transform: translateY(-3px); }
+.skill-card input { width: 16px; height: 16px; accent-color: #176c75; }
+.skill-card > span { margin-top: 13px; color: #ac633f; font-size: 8px; font-weight: 850; letter-spacing: .1em; }
+.skill-card strong { margin-top: 7px; color: var(--navy); font-size: 13px; }
+.skill-card small { margin-top: 5px; color: var(--muted); font-size: 9px; }
+.skill-card:has(input:checked) { background: #e6f1ec; border-color: #60917b; }
+.placement-stories .section-heading { margin-bottom: 28px; }
+.placement-student-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+.placement-student-card { overflow: hidden; background: var(--surface-raised); border: 1px solid var(--line); border-top: 4px solid var(--blue); border-radius: 16px; box-shadow: 0 10px 28px rgb(16 44 63 / 7%); transition: transform .25s ease,box-shadow .25s ease; }
+.placement-student-card:hover { transform: translateY(-5px); box-shadow: 0 16px 32px rgb(16 44 63 / 14%); }
+.placement-student-info { display: flex; min-height: 130px; align-items: center; gap: 18px; padding: 18px; }
+.placement-student-info > img { width: 88px; height: 88px; flex: 0 0 88px; object-fit: cover; object-position: center top; border: 2px solid var(--blue); border-radius: 50%; background: white; transition: transform .3s ease,box-shadow .3s ease; }
+.placement-student-card:hover .placement-student-info > img { transform: scale(1.06); box-shadow: 0 0 0 5px rgb(23 108 152 / 12%); }
+.placement-status { display: inline-block; padding: 5px 10px; color: #176a47; background: #e3f7eb; border-radius: 999px; font-size: 9px; font-weight: 850; letter-spacing: .08em; }
+.placement-student-info h3 { margin: 9px 0 0; color: var(--navy); font-size: 16px; line-height: 1.3; }
+.placement-employer { display: flex; min-height: 88px; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; background: color-mix(in srgb,var(--blue) 4%,var(--surface-raised)); border-top: 1px solid var(--line); }
+.placement-employer > span { color: var(--muted); font-size: 8px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.employer-brand { display: flex; min-height: 42px; align-items: center; justify-content: center; gap: 8px; transition: transform .25s ease; }
+.placement-student-card:hover .employer-brand { transform: scale(1.04); }
+.employer-brand img { display: block; width: 38px; height: 38px; object-fit: contain; }
+.employer-brand strong { color: var(--navy); font-size: 13px; line-height: 1.25; }
+.employer-brand-qloax img { width: 44px; height: 44px; }
+.employer-brand-icici img { width: 34px; height: 34px; }
+.employer-brand-flexcoders { min-width: 112px; padding: 5px 10px; color: white; background: #171a3b; }
+.employer-brand-flexcoders strong { color: white; }
+.employer-brand-flexcoders .employer-symbol { color: #fff; font-size: 22px; font-weight: 900; }
+.employer-brand-codnow .employer-symbol { display: grid; width: 32px; height: 32px; place-items: center; color: white; background: #294b36; border-radius: 50%; font-size: 10px; font-weight: 900; }
+.employer-brand-codnow strong { font-size: 11px; }
+.employer-brand-xde { gap: 5px; color: #232323; }
+.employer-brand-xde .employer-symbol { font-size: 29px; line-height: 1; }
+.employer-brand-xde strong { color: #232323; font-size: 17px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+.placement-companies { margin-top: 40px; padding: 24px; background: var(--surface-raised); border: 1px solid var(--line); text-align: center; }
+.placement-companies > .eyebrow { margin: 0 0 8px; }
+.placement-company-intro { max-width: 650px; margin: 0 auto 20px; color: var(--muted); font-size: 11px; }
+.placement-marquee { overflow: hidden; padding: 8px 0 16px; }
+.placement-marquee:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.placement-logo-track { display: flex; width: max-content; }
+.placement-company-list { display: flex; flex: 0 0 auto; gap: 12px; padding-right: 12px; }
+.company-logo-card { display: flex; width: 170px; min-width: 170px; min-height: 105px; flex-direction: column; align-items: center; justify-content: center; gap: 9px; padding: 12px; background: white; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 5px 14px rgb(16 44 63 / 5%); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.placement-companies.reveal.visible .company-logo-card { animation: partner-logo-enter .55s cubic-bezier(.2,.75,.25,1) both; }
+.placement-companies.reveal.visible .company-logo-card:nth-child(4n + 2) { animation-delay: 70ms; }
+.placement-companies.reveal.visible .company-logo-card:nth-child(4n + 3) { animation-delay: 140ms; }
+.placement-companies.reveal.visible .company-logo-card:nth-child(4n + 4) { animation-delay: 210ms; }
+.placement-companies.reveal.visible .placement-logo-track { animation: partner-logos-scroll 65s linear infinite; }
+.placement-marquee:hover .placement-logo-track,
+.placement-marquee:focus-within .placement-logo-track { animation-play-state: paused; }
+.company-logo-card:hover { transform: translateY(-6px); border-color: var(--blue); box-shadow: 0 14px 28px rgb(16 44 63 / 15%); }
+.company-logo-card img { display: block; width: auto; max-width: 130px; height: 48px; object-fit: contain; transition: transform .25s ease; }
+.company-logo-card:hover img { transform: scale(1.12) rotate(-3deg); }
+.company-logo-card:not(.company-text-logo) > span:last-child { color: var(--ink); font-size: 10px; font-weight: 800; line-height: 1.25; }
+.company-text-logo > span { font-size: 15px; font-weight: 850; line-height: 1.2; }
+.tech-mahindra-logo { color: #0866a5; }
+.dmart-logo { color: #d91d35; }
+.qloax-logo { color: #52614a; }
+.flexcoders-logo { color: #182044; }
+.codnow-logo { color: #294b36; }
+.placement-marquee-hint { margin: 0; color: var(--muted); font-size: 9px; }
+.placement-company-note { margin: 14px 0 0; color: var(--muted); font-size: 9px; }
+@keyframes partner-logo-enter {
+  from { opacity: 0; translate: 0 14px; scale: .96; }
+  to { opacity: 1; translate: 0 0; scale: 1; }
+}
+@keyframes partner-logos-scroll {
+  to { translate: -50% 0; }
+}
+.career-path { border-top: 1px solid rgb(255 255 255 / 20%); }
+.career-path article { display: grid; grid-template-columns: 42px 1fr; gap: 12px; padding: 17px 0; border-bottom: 1px solid rgb(255 255 255 / 20%); }
+.career-path article > span { color: var(--yellow); font: 400 20px var(--display); }
+.career-path h3 { margin: 0; font-size: 14px; }
+.career-path p { margin: 3px 0 0; color: #c1d1d8; font-size: 10px; }
+.placement-highlight h2 { color: white; }
+.placement-highlight > p:not(.eyebrow) { color: #c1d1d8; }
+@media(max-width:900px) { .placement-student-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:720px) { .placements-lead { grid-template-columns: 1fr; gap: 18px; }.skill-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:540px) { .placement-student-grid { grid-template-columns: 1fr; }.placement-student-info { min-height: 112px; } }
+@media(max-width:460px) { .skill-grid { grid-template-columns: 1fr; } }
+@media(prefers-reduced-motion: reduce) {
+  .placement-companies.reveal.visible .company-logo-card { animation: none; }
+  .placement-marquee { overflow-x: auto; }
+  .placement-companies.reveal.visible .placement-logo-track { animation: none; }
+  .company-logo-card,
+  .company-logo-card img,
+  .placement-student-card,
+  .placement-student-info > img,
+  .employer-brand { transition: none; }
+}

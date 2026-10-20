@@ -1,0 +1,28 @@
+@import url("../palette.css");
+
+.portal-section { background: #f4f2eb; }
+.portal-layout { display: grid; grid-template-columns: .85fr .85fr; justify-content: center; gap: 9%; align-items: center; }
+.portal-side h2 { margin: 0; color: var(--navy); font: 400 clamp(35px,4.4vw,48px)/1.08 var(--display); }
+.portal-side h2 em { color: #ba6740; font-style: normal; }
+.portal-side > p:not(.eyebrow) { max-width: 400px; color: var(--muted); font-size: 12px; }
+.portal-safety { max-width: 410px; margin: 22px 0; padding: 15px; background: #fff2df; border-left: 3px solid #d48b3b; }
+.portal-safety span { color: #a45630; font-size: 8px; font-weight: 850; letter-spacing: .14em; }
+.portal-safety p { margin: 5px 0 0; color: #64594d; font-size: 10px; }
+.portal-box { padding: 26px; background: white; border-top: 4px solid #d48443; box-shadow: 0 15px 40px rgb(16 44 63 / 9%); }
+.portal-box h2 { margin: 0 0 17px; color: var(--navy); font: 400 31px/1.15 var(--display); }
+.portal-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 14px; padding: 4px; background: #eff2ef; }
+.portal-tab { min-height: 37px; border: 0; color: var(--muted); background: transparent; font-size: 10px; font-weight: 800; cursor: pointer; }
+.portal-tab.active { color: var(--navy); background: white; box-shadow: 0 1px 5px rgb(10 41 67 / 11%); }
+.portal-form label { display: block; margin: 11px 0 4px; color: #395466; font-size: 10px; font-weight: 800; }
+.portal-form input,.portal-form select { width: 100%; min-height: 43px; padding: 9px 11px; border: 1px solid #d6dfdd; outline: 0; background: white; font-size: 11px; }
+.portal-form input:focus,.portal-form select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgb(23 108 152 / 12%); }
+.portal-form .button { margin-top: 14px; }
+.portal-profile { text-align: center; }
+.portal-profile h2 { margin-bottom: 7px; }
+.portal-profile p:not(.eyebrow) { color: var(--muted); font-size: 11px; }
+.portal-profile > strong { color: var(--navy); font-size: 13px; }
+.profile-icon { display: inline-grid; width: 46px; height: 46px; place-items: center; color: white; background: #2c795b; border-radius: 50%; font-size: 22px; }
+.profile-shortcuts { display: grid; gap: 9px; margin: 21px 0; padding-block: 15px; border-block: 1px solid var(--line); text-align: left; }
+.profile-shortcuts a { color: #a25838; font-size: 10px; font-weight: 800; }
+.portal-disclaimer { grid-column: 1/-1; margin: -5px 0 0; color: #778891; font-size: 9px; text-align: center; }
+@media(max-width:720px) { .portal-layout { grid-template-columns: 1fr; gap: 25px; } .portal-disclaimer { grid-column: auto; } }

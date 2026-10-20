@@ -1,0 +1,122 @@
+@import url("../palette.css");
+
+.admissions-hero::before {
+    background-position: center 39%;
+}
+
+.admissions-grid {
+    display: grid;
+    grid-template-columns: 1.05fr .8fr;
+    align-items: start;
+    gap: 10%;
+}
+
+.admission-timeline {
+    display: grid;
+    margin-top: 28px;
+}
+
+.admission-timeline article {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 13px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+}
+
+.admission-timeline article:last-child {
+    border-bottom: 1px solid var(--line);
+}
+
+.admission-timeline article>span {
+    color: #b6633d;
+    font: 400 21px var(--display);
+}
+
+.admission-timeline h3 {
+    margin: 0;
+    color: var(--navy);
+    font-size: 13px;
+}
+
+.admission-timeline p {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.form-card .button {
+    margin-top: 16px;
+}
+
+.fee-pdf-dialog {
+    width: min(1100px, calc(100% - 32px));
+    height: min(820px, calc(100% - 32px));
+    max-width: none;
+    max-height: none;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    background: var(--surface-raised);
+    box-shadow: 0 25px 90px rgb(0 0 0 / 32%);
+}
+
+.fee-pdf-dialog[open] {
+    display: flex;
+    flex-direction: column;
+}
+
+.fee-pdf-dialog::backdrop {
+    background: rgb(6 27 44 / 65%);
+    backdrop-filter: blur(3px);
+}
+
+.fee-pdf-header {
+    display: flex;
+    flex: 0 0 auto;
+    min-height: 64px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--line);
+}
+
+.fee-pdf-header h2 {
+    margin: 0;
+    color: var(--navy);
+    font: 400 22px/1.2 var(--display);
+}
+
+.fee-pdf-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fee-pdf-actions .button {
+    min-height: 38px;
+}
+
+.fee-pdf-dialog iframe {
+    display: block;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    border: 0;
+    background: white;
+}
+
+@media(max-width:720px) {
+    .admissions-grid {
+        grid-template-columns: 1fr;
+        gap: 27px;
+    }
+
+    .fee-pdf-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+}

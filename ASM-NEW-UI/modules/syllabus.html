@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Syllabus Explorer | ASM NextGen Technical Campus</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/modules/syllabus.css">
+    <script src="../js/script.js" defer></script>
+    <script src="../js/modules/syllabus.js" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main">Skip to content</a>
+    <div class="utility-bar">
+        <div class="container utility-inner"><span>Talegaon Dabhade · Maval · Pune</span>
+            <div class="utility-links"><a href="tel:+919028076028">+91 90280 76028</a><a
+                    href="mailto:admission.asmnextgen@asmedu.org">Admissions email ↗</a></div>
+        </div>
+    </div>
+    <div class="masthead">
+        <div class="container masthead-inner"><img class="masthead-logo" src="../images/asm-logo.png" alt="ASM logo">
+            <div class="masthead-copy">
+                <p>AUDYOGIK SHIKSHAN MANDAL</p>
+                <h1>ASM'S NEXTGEN TECHNICAL CAMPUS</h1><span>Talegaon Dabhade · Maval · Pune</span>
+            </div><img class="legacy-logo" src="../images/42-years.png" alt="42 years of ASM">
+        </div>
+    </div>
+    <header class="nav-wrap">
+        <div class="container nav-inner"><span class="nav-label">PLAN YOUR STUDIES</span><button class="menu-toggle"
+                type="button" aria-label="Open navigation menu"
+                aria-expanded="false"><span></span><span></span><span></span></button>
+            <nav class="main-nav" aria-label="Main navigation"><a href="../index.html">Home</a><a
+                    href="programs.html">Programs</a><a href="syllabus.html" aria-current="page">Syllabus</a><a
+                    href="campus.html">Campus</a>
+                <details class="nav-more">
+                    <summary>Explore ASM ⌄</summary>
+                    <div class="nav-dropdown"><a href="about.html">About ASM</a><a
+                            href="departments.html">Departments</a><a href="faculty.html">Faculty</a><a
+                            href="student-life.html">Student life</a><a href="placements.html">Placements</a><a
+                            href="admissions.html">Admissions</a><a href="events.html">Events</a><a
+                            href="contact.html">Contact</a></div>
+                </details><a class="nav-cta" href="portal.html">Student portal ↗</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main">
+        <section class="page-hero syllabus-hero">
+            <div class="container page-hero-content">
+                <p class="eyebrow">SYLLABUS · STUDY PLANNER</p>
+                <h1>Make a plan.<br>Learn <em>one step at a time.</em></h1>
+                <p>Explore example subject areas and save topics you want to learn about. The current university
+                    syllabus always takes priority.</p>
+            </div>
+        </section>
+        <div class="breadcrumbs">
+            <div class="container"><a href="../index.html">Home</a><span>›</span><a
+                    href="programs.html">Programs</a><span>›</span>Syllabus explorer</div>
+        </div>
+        <section class="section">
+            <div class="container syllabus-intro">
+                <div class="section-heading reveal">
+                    <p class="eyebrow eyebrow-ink">A LEARNING MAP, NOT A RULEBOOK</p>
+                    <h2>See what a study path<br><em>could include.</em></h2>
+                    <p>This student project doesn't include a verified official ASM/SPPU syllabus. Use these topic areas
+                        as a browsing example and ask the campus for official course documents.</p>
+                </div>
+                <aside class="syllabus-disclaimer reveal delay-1"><span>PLEASE NOTE</span>
+                    <p>Course subjects, semester structure and syllabus may change. Confirm the
+                        current approved syllabus with the college or Savitribai Phule Pune University.</p><a
+                        href="contact.html">Ask the campus ↗</a>
+                </aside>
+            </div>
+            <div class="container syllabus-tools reveal"><label class="search-row"><input id="syllabus-search"
+                        class="search-input" type="search" placeholder="Find a topic, e.g. database..."
+                        aria-label="Search syllabus topics"></label><label class="visually-hidden"
+                    for="syllabus-program">Choose study area</label><select class="form-control" id="syllabus-program">
+                    <option value="all">All study areas</option>
+                    <option value="computer">Computing example</option>
+                    <option value="business">Business example</option>
+                    <option value="commerce">Commerce example</option>
+                </select><label class="visually-hidden" for="syllabus-stage">Choose study stage</label><select
+                    class="form-control" id="syllabus-stage">
+                    <option value="all">All stages</option>
+                    <option value="foundation">Foundations</option>
+                    <option value="core">Core study</option>
+                    <option value="advanced">Advanced study</option>
+                </select></div>
+            <div class="container">
+                <div class="syllabus-summary">
+                    <p id="syllabus-status" class="result-status" role="status" aria-live="polite"></p><button
+                        type="button" class="button button-outline" id="show-saved">Show my saved topics <span
+                            id="saved-count">0</span></button>
+                </div>
+                <div class="syllabus-board" id="syllabus-board"></div>
+            </div>
+        </section>
+        <section class="section section-paper">
+            <div class="container split-layout">
+                <div class="split-copy reveal">
+                    <p class="eyebrow eyebrow-ink">STUDY SMARTER</p>
+                    <h2>Make a little<br><em>learning plan.</em></h2>
+                    <p>Save the topics you'd like to explore. Your shortlist stays in local browser storage on this
+                        device, so you can come back to it later.</p>
+                    <p>This planner is only a personal study note; it isn't a college registration or a replacement for
+                        official course guidance.</p><button class="button" type="button" id="clear-saved">Clear saved
+                        topics</button>
+                </div>
+                <div class="study-plan-card reveal delay-1"><span class="plan-stamp">MY<br>PLAN</span>
+                    <p class="eyebrow eyebrow-ink">A SIMPLE WAY TO START</p>
+                    <h3>One useful topic at a time.</h3>
+                    <ol>
+                        <li>Pick an area you want to understand.</li>
+                        <li>Save a topic to your shortlist.</li>
+                        <li>Check the official course syllabus with ASM.</li>
+                    </ol>
+                    <p class="plan-status" id="plan-status" role="status" aria-live="polite"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-main">
+            <p><strong>ASM'S NEXTGEN TECHNICAL CAMPUS</strong><br>Talegaon Dabhade · Pune</p>
+            <div class="footer-links"><a href="programs.html">Programs</a><a href="admissions.html">Admissions</a><a
+                    href="contact.html">Contact</a></div>
+            <nav class='footer-social' aria-label='ASM social media'><span>FOLLOW ASM</span><a
+                    href='https://www.facebook.com/NextGenTechnicalCampus/' target='_blank'
+                    rel='noopener noreferrer'>Facebook ↗</a><a href='https://www.youtube.com/@ASMNextgenTechnicalCampus'
+                    target='_blank' rel='noopener noreferrer'>YouTube ↗</a><a href='https://www.instagram.com/asm_next/'
+                    target='_blank' rel='noopener noreferrer'>Instagram ↗</a><a
+                    href='https://www.linkedin.com/company/asm-nextgen-technical-campus/' target='_blank'
+                    rel='noopener noreferrer'>LinkedIn ↗</a></nav><a href="#main">Back to top ↑</a>
+        </div>
+        <div class="container footer-bottom"><span>© <span id="current-year"></span> ASM NextGen Technical
+                Campus</span><span>Study outline is illustrative, not an official syllabus.</span></div>
+    </footer>
+</body>
+
+</html>

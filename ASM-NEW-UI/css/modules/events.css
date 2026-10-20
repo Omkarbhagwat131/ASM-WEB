@@ -1,0 +1,32 @@
+@import url("../palette.css");
+
+.events-hero::before { background-position: center 34%; }
+.events-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
+.event-card { min-height: 390px; display: flex; flex-direction: column; overflow: hidden; background: white; border: 1px solid var(--line); border-bottom: 3px solid #b96942; transition: transform .25s,box-shadow .25s; }
+.event-card:hover { transform: translateY(-5px); box-shadow: 0 16px 30px rgb(18 52 74 / 10%); }
+.event-card-image { width: 100%; height: 190px; object-fit: contain; background: var(--paper); }
+.event-card-copy { display: flex; flex: 1; flex-direction: column; padding: 18px; }
+.event-card-copy > span { color: #a45a39; font-size: 8px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+.event-card h3 { margin: 13px 0 7px; color: var(--navy); font: 400 22px/1.15 var(--display); }
+.event-card p { flex: 1; margin: 0 0 18px; color: var(--muted); font-size: 10px; }
+.event-card-actions { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.event-card button { padding: 7px 9px; color: var(--navy); background: transparent; border: 1px solid var(--line); font-size: 9px; font-weight: 800; cursor: pointer; }
+.event-card button.saved { color: white; background: #276b63; border-color: #276b63; }
+.event-card-actions a { color: #a55838; font-size: 9px; font-weight: 850; }
+.event-source-note { padding: 24px; background: white; border: 1px solid var(--line); }
+.event-source-note > span { color: #ab5e39; font-size: 8px; font-weight: 850; letter-spacing: .13em; }
+.event-source-note h3 { max-width: 370px; color: var(--navy); font: 400 26px/1.15 var(--display); }
+.event-source-note p { color: var(--muted); font-size: 11px; }
+.event-source-note a { color: #a55838; font-size: 10px; font-weight: 850; }
+@media(max-width:720px) { .events-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:460px) { .events-grid { grid-template-columns: 1fr; } }
+.event-card {
+  animation-name: card-pop;
+  animation-duration: .4s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+}

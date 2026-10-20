@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title id="title">Qloax geometric logo</title>
+  <g fill="none" stroke="#242424" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4">
+    <path d="M60 8 101 31v48L60 103 19 79V31z"/>
+    <path d="M60 8v95M19 31l41 24 41-24M19 79l41-24 41 24M39 20v48l41 24M81 20v48L39 92"/>
+    <path d="m39 20 41 24v48M81 20 39 44v48"/>
+    <path d="M9 50v20m102-20v20M50 9h20m-20 102h20"/>
+    <circle cx="7" cy="60" r="3" fill="#242424"/>
+    <circle cx="113" cy="60" r="3" fill="#242424"/>
+    <circle cx="60" cy="7" r="3" fill="#242424"/>
+    <circle cx="60" cy="113" r="3" fill="#242424"/>
+  </g>
+</svg>

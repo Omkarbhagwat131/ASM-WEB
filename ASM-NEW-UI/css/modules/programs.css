@@ -1,0 +1,137 @@
+@import url("../palette.css");
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.program-card {
+  position: relative;
+  display: flex;
+  min-height: 240px;
+  flex-direction: column;
+  padding: 21px;
+  background: white;
+  border: 1px solid var(--line);
+  border-top: 3px solid #bb6943;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 30px rgb(18 52 74 / 11%);
+}
+
+.program-card>span {
+  color: #a65b37;
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.program-card h3 {
+  margin: 17px 0 8px;
+  color: var(--navy);
+  font: 400 23px/1.15 var(--display);
+}
+
+.program-card p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.program-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.program-card-actions button {
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  color: var(--navy);
+  background: transparent;
+  font-size: 9px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.program-card-actions button:hover,
+.program-card-actions button.saved {
+  color: white;
+  background: #a95e3c;
+  border-color: #a95e3c;
+}
+
+.program-card-actions a {
+  color: var(--blue);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.program-dialog {
+  width: min(480px, calc(100% - 30px));
+  padding: 30px;
+  border: 0;
+  border-top: 4px solid var(--orange);
+  box-shadow: 0 25px 90px rgb(0 0 0 / 32%);
+}
+
+.program-dialog::backdrop {
+  background: rgb(6 27 44 / 70%);
+  backdrop-filter: blur(3px);
+}
+
+.program-dialog h2 {
+  color: var(--navy);
+  font: 400 34px/1.1 var(--display);
+}
+
+.program-dialog p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.program-dialog .program-caveat {
+  margin-block: 19px;
+  padding: 12px;
+  background: var(--paper);
+  font-size: 10px;
+}
+
+.dialog-close {
+  float: right;
+  border: 0;
+  color: var(--navy);
+  background: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media(max-width:720px) {
+  .program-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media(max-width:460px) {
+  .program-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.program-card {
+  animation-name: card-pop;
+  animation-duration: .4s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+}

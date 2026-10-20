@@ -1,0 +1,40 @@
+@import url("../palette.css");
+
+.life-toolbar { display: grid; grid-template-columns: 1fr; gap: 6px; }
+.life-toolbar > label { color: #395466; font-size: 10px; font-weight: 800; }
+.life-toolbar > input { max-width: 100%; }
+.life-tabs { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+.life-tab { padding: 8px 13px; color: var(--navy); background: transparent; border: 1px solid #cbd7d7; font-size: 9px; font-weight: 800; cursor: pointer; transition: color .2s,background .2s; }
+.life-tab:hover,.life-tab.active { color: white; background: #1b6584; border-color: #1b6584; }
+.life-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+.club-card { position: relative; min-height: 210px; padding: 22px; background: white; border: 1px solid var(--line); }
+.club-card > span { color: #a75d3a; font-size: 8px; font-weight: 850; letter-spacing: .14em; }
+.club-card h3 { margin: 14px 0 6px; color: var(--navy); font: 400 24px/1.15 var(--display); }
+.club-card p { max-width: 400px; margin: 0 0 37px; color: var(--muted); font-size: 11px; }
+.club-card button { position: absolute; bottom: 18px; left: 22px; padding: 7px 10px; color: #a65c39; background: transparent; border: 1px solid #d8e0dd; font-size: 9px; font-weight: 800; cursor: pointer; }
+.club-card button:hover,.club-card button.joined { color: white; background: #a65c39; border-color: #a65c39; }
+.life-photo-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+.life-photo-card { min-width: 0; margin: 0; overflow: hidden; background: var(--surface-raised); border: 1px solid var(--line); box-shadow: 0 10px 28px rgb(16 44 63 / 8%); }
+.life-photo-card img { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: transform .4s ease; }
+.life-photo-card:hover img { transform: scale(1.04); }
+.life-photo-card figcaption { display: grid; gap: 6px; padding: 16px 18px 18px; }
+.life-photo-card figcaption span { color: #a45a39; font-size: 8px; font-weight: 850; letter-spacing: .13em; }
+.life-photo-card figcaption strong { color: var(--navy); font-size: 13px; }
+.community-quote { padding: 28px; border: 1px solid rgb(255 255 255 / 22%); }
+.community-quote > span { color: var(--yellow); font-size: 9px; font-weight: 800; letter-spacing: .14em; }
+.community-quote blockquote { margin: 20px 0 14px; color: white; font: 400 30px/1.18 var(--display); }
+.community-quote p { color: #b9cbd2; font-size: 10px; }
+.community-prompt h2 { color: white; }
+.community-prompt > p:not(.eyebrow) { color: #c1d1d8; }
+@media(max-width:720px) { .life-photo-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:460px) { .life-grid,.life-photo-grid { grid-template-columns: 1fr; } }
+.club-card {
+  animation-name: card-pop;
+  animation-duration: .4s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+}

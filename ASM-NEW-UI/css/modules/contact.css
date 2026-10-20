@@ -1,0 +1,15 @@
+@import url("../palette.css");
+
+.contact-grid { display: grid; grid-template-columns: 1fr .85fr; gap: 10%; align-items: start; }
+.contact-information h2 { margin: 0; color: var(--navy); font: 400 clamp(34px,4.6vw,51px)/1.07 var(--display); }
+.contact-information h2 em { color: #bd6841; font-style: normal; }
+.contact-information > p:not(.eyebrow) { max-width: 450px; margin: 16px 0 24px; color: var(--muted); font-size: 12px; }
+.contact-method { display: grid; grid-template-columns: 1fr auto; gap: 3px 12px; padding: 15px 0; border-top: 1px solid var(--line); }
+.contact-method > span,.contact-address > span { grid-column: 1/-1; color: #a45a39; font-size: 8px; font-weight: 850; letter-spacing: .14em; }
+.contact-method strong { color: var(--navy); font-size: 12px; overflow-wrap: anywhere; }
+.contact-method b { color: #a45a39; font-size: 9px; }
+.contact-address { padding: 14px 0; border-block: 1px solid var(--line); }
+.contact-address p { margin: 5px 0 0; color: var(--muted); font-size: 11px; }
+.official-link { display: inline-block; margin-top: 18px; color: #a45a39; font-size: 10px; font-weight: 850; }
+.form-card .button { margin-top: 16px; }
+@media(max-width:720px) { .contact-grid { grid-template-columns: 1fr; gap: 28px; } }

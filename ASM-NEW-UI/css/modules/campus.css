@@ -1,0 +1,71 @@
+@import url("../palette.css");
+
+.campus-hero::before {
+    background-position: center 41%;
+}
+
+.campus-gallery {
+    position: relative;
+    min-height: 390px;
+    overflow: hidden;
+    background: #0b2c45;
+}
+
+.campus-gallery img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity .3s ease;
+}
+
+.campus-gallery.is-changing img {
+    opacity: .4;
+}
+
+.campus-gallery .photo-caption {
+    bottom: 55px;
+}
+
+.gallery-controls {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    min-height: 49px;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 15px;
+    color: white;
+    background: rgb(8 34 54 / 90%);
+}
+
+.gallery-controls button {
+    width: 31px;
+    height: 31px;
+    color: white;
+    background: transparent;
+    border: 1px solid rgb(255 255 255 / 55%);
+    cursor: pointer;
+    transition: color .2s, background .2s;
+}
+
+.gallery-controls button:hover {
+    color: var(--navy);
+    background: var(--yellow);
+}
+
+.gallery-controls span {
+    color: #f1cd80;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .1em;
+}
+
+@media(max-width:720px) {
+    .campus-gallery {
+        min-height: 300px;
+    }
+}

@@ -1,0 +1,228 @@
+@import url("../palette.css");
+
+.syllabus-hero::before {
+  background-image: linear-gradient(90deg, rgb(18 41 27 / 93%), rgb(30 58 37 / 78%) 58%, rgb(46 59 39 / 40%)), url("../../images/asm-campus-building.png");
+}
+
+.syllabus-intro {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  align-items: center;
+  gap: 9%;
+}
+
+.syllabus-disclaimer {
+  padding: 22px;
+  background: #fff6e4;
+  border-left: 4px solid #d58b36;
+}
+
+.syllabus-disclaimer>span {
+  color: #9c5a2d;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .14em;
+}
+
+.syllabus-disclaimer p {
+  margin: 9px 0;
+  color: #594f43;
+  font-size: 11px;
+}
+
+.syllabus-disclaimer a {
+  color: #92512d;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.syllabus-tools {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 220px 180px;
+  gap: 10px;
+  margin-top: 35px;
+}
+
+.syllabus-tools .search-row {
+  margin: 0;
+}
+
+.syllabus-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.syllabus-summary .button {
+  flex: 0 0 auto;
+  font-size: 9px;
+}
+
+.syllabus-summary .button span {
+  display: inline-grid;
+  min-width: 19px;
+  height: 19px;
+  place-items: center;
+  color: #fff;
+  background: #ae5e38;
+  border-radius: 50%;
+}
+
+.syllabus-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.syllabus-card {
+  position: relative;
+  min-height: 215px;
+  padding: 19px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 3px solid #31728e;
+}
+
+.syllabus-card[data-stage="foundation"] {
+  border-top-color: #d5a142;
+}
+
+.syllabus-card[data-stage="advanced"] {
+  border-top-color: #9d5539;
+}
+
+.syllabus-card>span {
+  color: #a85d38;
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.syllabus-card h3 {
+  margin: 14px 0 6px;
+  color: var(--navy);
+  font: 400 21px/1.15 var(--display);
+}
+
+.syllabus-card p {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.syllabus-card button {
+  position: absolute;
+  right: 15px;
+  bottom: 14px;
+  padding: 6px 8px;
+  color: var(--navy);
+  background: transparent;
+  border: 1px solid var(--line);
+  font-size: 9px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.syllabus-card button.saved {
+  color: white;
+  background: #a55a39;
+  border-color: #a55a39;
+}
+
+.study-plan-card {
+  position: relative;
+  min-height: 270px;
+  padding: 29px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 30px rgb(17 46 64 / 7%);
+}
+
+.study-plan-card h3 {
+  margin: 0;
+  color: var(--navy);
+  font: 400 28px var(--display);
+}
+
+.study-plan-card ol {
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.study-plan-card li {
+  padding: 4px 0;
+}
+
+.plan-stamp {
+  position: absolute;
+  top: 19px;
+  right: 18px;
+  display: grid;
+  width: 47px;
+  height: 47px;
+  place-content: center;
+  color: #fff;
+  background: #b25e3a;
+  border-radius: 50%;
+  font-size: 8px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: center;
+  transform: rotate(8deg);
+}
+
+.plan-status {
+  min-height: 1.4em;
+  color: #2a704c;
+  font-size: 10px;
+}
+
+@media(max-width:720px) {
+  .syllabus-intro {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .syllabus-tools {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .syllabus-tools .search-row {
+    grid-column: 1/-1;
+  }
+
+  .syllabus-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media(max-width:460px) {
+
+  .syllabus-tools,
+  .syllabus-board {
+    grid-template-columns: 1fr;
+  }
+
+  .syllabus-tools .search-row {
+    grid-column: auto;
+  }
+
+  .syllabus-summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.syllabus-card {
+  animation-name: card-pop;
+  animation-duration: .4s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: running;
+}
