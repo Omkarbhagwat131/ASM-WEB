@@ -338,24 +338,42 @@ body {
   font-size: 17px;
 }
 
-/* FOOTER */
 
+/* COMMON FOOTER - ALL PAGES */
 footer {
-  text-align: center;
+    width: 100%;
+    min-height: 120px;
+    box-sizing: border-box;
+    background-color: #0b3d91 !important;
+    color: #ffffff !important;
+    padding: 10px 20px;
+    margin-top: 0;
+    border-top: none;
+    text-align: center;
+}
 
-  padding: 35px 20px;
-
-  background-color: #8ec5ff;
-
-  color: white;
+footer h3,
+footer p,
+footer a {
+    color: #ffffff !important;
 }
 
 footer h3 {
-  margin-bottom: 8px;
+    margin-bottom: 8px;
 }
 
 footer p {
-  color: #031b44;
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #dbeafe !important;
+    text-decoration: underline;
 }
 
 /* MOBILE */
@@ -1024,13 +1042,13 @@ footer p {
 
 .stat-icon {
   font-size: 2.2rem;
-  color: #e63946;
+  color: #5454ce;
   margin-bottom: 8px;
   display: inline-block;
 }
 /* Top Navbar Styling */
 .navbar {
-  background-color: #1e3a8a;
+  background-color: #0b34a7;
   padding: 15px 30px;
 }
 
@@ -1068,4 +1086,278 @@ footer p {
 .nav-links li a:hover,
 .nav-links li a.active {
   color: #ff4d4d;
+}
+
+/* Placement Page - Training Cards */
+.placement-hero ~ .departments-section .steps-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.steps-grid .step-card {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.steps-grid .step-card h3 {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.steps-grid .step-card p {
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .placement-hero ~ .departments-section .steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .placement-hero ~ .departments-section .steps-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Placement Highlights - 4 Cards in One Row */
+.departments-section .department-container {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.departments-section .department-container .department-card {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Placement Training - 5 Cards in One Row */
+.placement-hero ~ .departments-section .steps-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.steps-grid .step-card {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+    .departments-section .department-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .placement-hero ~ .departments-section .steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .departments-section .department-container,
+    .placement-hero ~ .departments-section .steps-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* College Header - Blue Background, White Text */
+header {
+    background-color: #174f7c !important;
+}
+
+header h2,
+header small,
+header span,
+header p {
+    color: #ffffff !important;
+}
+.sub-nav {
+    background-color: #bfdbfe !important;
+}
+
+.sub-nav .nav-item {
+    background: transparent !important;
+    border: none !important;
+    color: #1e40af !important;
+    box-shadow: none !important;
+}
+
+.sub-nav .nav-item:hover,
+.sub-nav .nav-item.active-link {
+    background: transparent !important;
+    color: #2563eb !important;
+}
+/* Placement Icons Floating Animation */
+.departments-section .card-icon i,
+.document-icon i {
+    display: inline-block;
+    animation: placementFloat 3s ease-in-out infinite;
+}
+
+/* Different timing for each icon */
+.departments-section .department-card:nth-child(2) .card-icon i {
+    animation-delay: 0.4s;
+}
+
+.departments-section .department-card:nth-child(3) .card-icon i {
+    animation-delay: 0.8s;
+}
+
+.departments-section .department-card:nth-child(4) .card-icon i {
+    animation-delay: 1.2s;
+}
+
+.document-item:nth-child(2) .document-icon i {
+    animation-delay: 0.4s;
+}
+
+.document-item:nth-child(3) .document-icon i {
+    animation-delay: 0.8s;
+}
+
+.document-item:nth-child(4) .document-icon i {
+    animation-delay: 1.2s;
+}
+
+@keyframes placementFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+ /* Placement Page Logos - 5 Degree Tilt */
+body:has(.placement-hero) header img {
+    transform: rotate(5deg);
+    transition: transform 0.4s ease;
+}
+
+body:has(.placement-hero) header img:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+
+/* Top Contact Details and Links */
+.top-bar {
+    background-color: #0b2d52 !important;
+    color: #ffffff !important;
+    padding: 10px 20px;
+}
+
+.top-bar a,
+.top-bar span,
+.top-bar p {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.top-bar a:hover {
+    color: #bfdbfe !important;
+}
+/* Our Key Recruiters - Four Cards in One Line */
+#recruiters .document-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+#recruiters .document-item {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+    #recruiters .document-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    #recruiters .document-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Navbar text black */
+.sub-nav .nav-item,
+.sub-nav .nav-item:visited,
+.sub-nav span {
+    color: oklch(32.983% 0.20355 274.704) !important;
+}
+
+/* Hover केल्यावरही text black */
+.sub-nav .nav-item:hover,
+.sub-nav .nav-item.active-link {
+    color: #131395 !important;
+}
+
+.site-header {
+    background-color: #082847 !important;
+    width: 100%;
+}
+/* Placement Navbar */
+.placement-navbar {
+    background: #0b3d91 !important;
+    padding: 14px 10px;
+    text-align: center;
+    border-bottom: 3px solid #f97316;
+}
+
+.placement-navbar .nav-title {
+    display: block;
+    color: white;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.placement-navbar .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.placement-navbar .nav-item {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.placement-navbar .nav-item:hover,
+.placement-navbar .active-link {
+    background: #f97316;
+    color: white;
+}
+/* Make all placement navbar links white */
+nav.sub-nav.placement-navbar .nav-links a.nav-item {
+    color: #ffffff !important;
+}
+
+/* Keep text white on hover and active link */
+nav.sub-nav.placement-navbar .nav-links a.nav-item:hover,
+nav.sub-nav.placement-navbar .nav-links a.nav-item.active-link {
+    color: #ffffff !important;
 }

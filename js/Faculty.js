@@ -491,3 +491,63 @@ document.addEventListener("DOMContentLoaded", () => {
     // Start loading faculty information.
     loadFacultyData();
 });
+// Dark Mode Functionality
+document.addEventListener("DOMContentLoaded", function () {
+    const themeToggle = document.getElementById("themeToggle");
+
+    if (!themeToggle) return;
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem("facultyTheme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+
+    // Update button text
+    function updateThemeButton() {
+        if (document.body.classList.contains("dark-mode")) {
+            themeToggle.textContent = "☀️ Light Mode";
+        } else {
+            themeToggle.textContent = "🌙 Dark Mode";
+        }
+    }
+
+    updateThemeButton();
+
+    // Toggle theme on click
+    themeToggle.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+
+        const isDark =
+            document.body.classList.contains("dark-mode");
+
+        localStorage.setItem(
+            "facultyTheme",
+            isDark ? "dark" : "light"
+        );
+
+        updateThemeButton();
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const openButton = document.getElementById("openEnquiryBtn");
+    const enquiryForm = document.getElementById("enquiry");
+
+    if (!openButton || !enquiryForm) return;
+
+    openButton.addEventListener("click", function () {
+        enquiryForm.classList.remove("form-open");
+
+        void enquiryForm.offsetWidth;
+
+        enquiryForm.classList.add("form-open");
+
+        enquiryForm.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+});

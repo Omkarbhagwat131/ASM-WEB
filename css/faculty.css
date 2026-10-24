@@ -148,23 +148,15 @@ textarea {
    LIGHT IMAGE & DARK BLUE TEXT
 ========================= */
 
+
+
 .page-title {
-    background:
-        linear-gradient(
-            rgba(255, 255, 255, 0.55),
-            rgba(232, 241, 248, 0.65)
-        ),
-        url("../image/asm-campus-building.png");
-
-    background-color: #e8f1f8;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
+    background: #e8f1f8;
     text-align: center;
     padding: 65px 20px;
     color: #082847;
 }
+
 
 .title-label {
     display: inline-block;
@@ -645,63 +637,16 @@ textarea {
 .enquiry-form .submit-button {
     justify-self: start;
 }
-
-/* =========================
-   FOOTER
-========================= */
-
+/* COMMON FOOTER - ALL PAGES */
 footer {
-    background: #e8f1f8;
-    color: #172b3f;
-    padding: 42px 8% 20px;
+    width: 100%;
+    min-height: 120px;
+    box-sizing: border-box;
+    background-color: #0b3d91 !important;
+    color: #ffffff !important;
+    padding: 10px 20px;
     margin-top: 0;
-    border-top: 1px solid #d8e8f6;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 40px;
-}
-
-.footer-column h3 {
-    font-family: var(--font-heading);
-    color: #082847;
-    font-size: 18px;
-    margin-bottom: 13px;
-    font-weight: 700;
-}
-
-.footer-column p {
-    color: #345675;
-    font-size: 14px;
-    margin-bottom: 8px;
-    overflow-wrap: anywhere;
-}
-
-.footer-column a {
-    color: #174f7c;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.footer-column a:hover {
-    color: #075e9c;
-    text-decoration: underline;
-}
-
-.footer-bottom {
-    max-width: 1200px;
-    margin: 30px auto 0;
-    padding-top: 18px;
-    border-top: 1px solid #c5d9eb;
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    color: #345675;
-    font-size: 13px;
+    border-top: none;
 }
 
 /* =========================
@@ -888,4 +833,329 @@ footer {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
     }
+}
+/* Dark Mode Button */
+.theme-toggle {
+    display: block;
+    margin: 12px 20px 12px auto;
+    padding: 10px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #082847;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    background: #e8f1f8;
+}
+
+/* Dark Mode Theme */
+body.dark-mode {
+    background: #111827;
+    color: #f9fafb;
+}
+
+body.dark-mode .site-header,
+body.dark-mode .page-title,
+body.dark-mode .faculty-section,
+body.dark-mode .enquiry-section,
+body.dark-mode footer {
+    background: #1f2937;
+    color: #f9fafb;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode label,
+body.dark-mode .main-nav a {
+    color: #f9fafb;
+}
+
+body.dark-mode .faculty-card,
+body.dark-mode .enquiry-container,
+body.dark-mode .modal-content {
+    background: #273449;
+    color: #f9fafb;
+    border-color: #475569;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background: #111827;
+    color: #f9fafb;
+    border: 1px solid #64748b;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #cbd5e1;
+}
+
+body.dark-mode .faculty-dropdown {
+    background: #273449;
+    border-color: #475569;
+}
+
+body.dark-mode .faculty-dropdown a {
+    color: #f9fafb;
+}
+
+body.dark-mode .faculty-dropdown a:hover {
+    background: #374151;
+}
+
+body.dark-mode .three-dots-btn {
+    background: #374151;
+    color: #ffffff;
+}
+
+body.dark-mode .theme-toggle {
+    background: #374151;
+    color: #ffffff;
+    border-color: #64748b;
+}
+
+body.dark-mode .theme-toggle:hover {
+    background: #475569;
+}
+
+body.dark-mode .footer-bottom {
+    border-color: #475569;
+}
+
+/* Hide enquiry form initially */
+#enquiry.enquiry-section {
+    display: none;
+}
+
+#enquiry.enquiry-section.form-open {
+    display: block;
+    animation: enquiryBounce 1s ease;
+}
+
+@keyframes enquiryBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-20px);
+    }
+    80% {
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#openEnquiryBtn {
+    display: block;
+    margin: 25px auto;
+}
+
+/* FACULTY PAGE - HEADER CONFLICT FIX */
+header.site-header {
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 22px 35px 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    box-sizing: border-box;
+    overflow: visible;
+    position: relative;
+    background: #ffffff !important;
+}
+
+/* College logo and name */
+header.site-header .college-brand {
+    width: 100%;
+    min-height: 125px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+header.site-header .college-name {
+    width: 100%;
+    text-align: center;
+}
+
+/* Navigation */
+header.site-header nav.main-nav {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 15px 0;
+    background: #f2f8fd;
+    border-top: 1px solid #d8e8f6;
+}
+
+header.site-header nav.main-nav a {
+    color: #174f7c !important;
+    padding: 9px 14px;
+    white-space: nowrap;
+}
+
+/* Dark mode button */
+header.site-header .theme-toggle {
+    align-self: flex-end;
+    margin: 12px 0;
+    flex-shrink: 0;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    header.site-header {
+        padding: 18px 15px 0 !important;
+    }
+
+    header.site-header .college-brand {
+        min-height: auto;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header.site-header .college-logo {
+        position: static;
+        transform: none;
+        width: 85px;
+        height: 85px;
+    }
+
+    header.site-header .college-name {
+        padding: 0;
+    }
+
+    header.site-header nav.main-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Only Navbar Blue Colour */
+header.site-header nav.main-nav {
+    background-color: #0b3d91 !important;
+    border-top: 1px solid #0b3d91;
+}
+
+header.site-header nav.main-nav a {
+    color: #ffffff !important;
+}
+
+header.site-header nav.main-nav a:hover,
+header.site-header nav.main-nav a.active {
+    color: #dbeafe !important;
+    background-color: #174f7c;
+}
+footer h3,
+footer p,
+footer a,
+.footer-bottom {
+    color: #ffffff !important;
+}
+
+footer a:hover {
+    color: #dbeafe !important;
+}
+
+/* Faint Gray Background - Full Faculty Page */
+body {
+    background-color: #f2f3f5 !important;
+}
+
+/* Main sections */
+.faculty-search,
+.faculty-section,
+.enquiry-section,
+.page-title {
+    background-color: #f2f3f5;
+}
+
+/* Keep Faculty Cards and Enquiry Form White */
+.faculty-card,
+.enquiry-container,
+.modal-content {
+    background-color: #ffffff;
+}
+
+
+/* Force Our Faculty Heading Blue */
+body h2.section-heading {
+    color: #0b5cab !important;
+}
+
+body.dark-mode h2.section-heading {
+    color: #0b5cab !important;
+}
+
+/* Full Width Navbar */
+header.site-header {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+
+header.site-header nav.main-nav {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    margin: 0 !important;
+    border-radius: 0 !important;
+}
+
+/* Same Faint Gray Background on Faculty Page */
+body,
+header.site-header,
+header.site-header .college-brand,
+header.site-header .college-name,
+.page-title,
+.faculty-search,
+.faculty-section,
+.enquiry-section {
+    background-color: #f2f3f5 !important;
+}
+
+/* Keep Navbar Blue */
+header.site-header nav.main-nav {
+    background-color: #0b3d91 !important;
+}
+
+/* College Name Text */
+header.site-header .college-name h1,
+header.site-header .college-name p {
+    color: #082847 !important;
+}
+
+/* College Name Blue Colour */
+header.site-header .college-name h1 {
+    color: #0b5cab !important;
+}
+
+/* Our Faculty Heading Blue */
+.page-title h2 {
+    color: #0b5cab !important;
 }

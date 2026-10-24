@@ -1,0 +1,331 @@
+
+/* =====================================
+   COMMON NAVBAR - ALL PAGES
+===================================== */
+
+header,
+.navigation-row {
+    background-color: #0b3d91 !important;
+    height: 45px;
+    min-height: 45px;
+    box-sizing: border-box;
+}
+
+.navigation-inner {
+    height: 45px;
+    min-height: 45px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header {
+    padding: 0 15px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    font-size: 24px;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+header nav,
+.main-navigation {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header nav a,
+.main-navigation .nav-link {
+    color: #ffffff !important;
+    font-size: 13px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+header nav a:hover,
+header nav a.active-link,
+.main-navigation .nav-link:hover {
+    color: #dbeafe !important;
+}
+
+.navigation-inner {
+    height: 53px;
+    min-height: 53px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+/* =====================================
+   COMMON FOOTER - ALL PAGES
+===================================== */
+
+/* COMMON FOOTER - ALL PAGES */
+
+footer {
+    width: 100%;
+    min-height: 82px;
+    box-sizing: border-box;
+    background-color: #0b3d91 !important;
+    color: #ffffff !important;
+    padding: 10px 20px;
+    margin-top: 0;
+    border-top: none;
+}
+footer p {
+    color: #ffffff !important;
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+footer h3 {
+    color: #ffffff !important;
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #dbeafe !important;
+    text-decoration: underline;
+}
+
+.footer-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.footer-bottom {
+    width: 100%;
+    max-width: 1200px;
+    margin: 25px auto 0;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+/* =====================================
+   MOBILE VIEW
+===================================== */
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        min-height: 53px;
+        padding: 10px 12px !important;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    header nav,
+    .main-navigation {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .navigation-inner {
+        height: auto;
+        min-height: 53px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+
+/* Footer height fix */
+footer {
+    min-height: 82px !important;
+    height: auto !important;
+    box-sizing: border-box;
+    background-color: #0b3d91;
+    color: #ffffff;
+}
+ 
+
+/* =====================================
+   COMMON BACKGROUND - ALL PAGES
+===================================== */
+
+
+
+
+
+/* COMMON BACKGROUND - ALL PAGES */
+
+:root {
+    --page-bg: #f2f3f5;
+    --primary-blue: #143c99;
+}
+
+html,
+body {
+    background: #f2f3f5 !important;
+    background-image: none !important;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    color: #222222;
+}
+
+/* Admissions hero - same gray background */
+.page-hero.hero,
+.admissions-hero {
+    background: #f2f3f5 !important;
+    background-image: none !important;
+    border-radius: 0 !important;
+}
+footer {
+    width: 100%;
+    min-height: 82px !important;
+    height: auto !important;
+    box-sizing: border-box;
+    background-color: #0b3d91 !important;
+    color: #ffffff !important;
+    padding: 10px 15px !important;
+    margin-top: 0;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 5px;
+    border-top: none;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* =====================================
+   CAMPUS - COMMON NAVBAR
+===================================== */
+
+header.site-header {
+    width: 100%;
+    height: 65px !important;
+    min-height: 65px !important;
+    padding: 5px 15px !important;
+    background: #0b3d91 !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+.site-header .brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.site-header .college-logo {
+    width: 110px;
+    max-height: 52px;
+    height: auto;
+    object-fit: contain;
+}
+
+.site-header .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 15px;
+}
+
+.site-header .main-nav a,
+.site-header .main-nav a:visited {
+    color: #ffffff !important;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.site-header .main-nav a:hover,
+.site-header .main-nav a.active {
+    color: #dbeafe !important;
+}
+
+/* =====================================
+   COMMON FOOTER - ALL PAGES
+===================================== */
+
+footer,
+.site-footer {
+    width: 100%;
+    min-height: 82px !important;
+    height: auto !important;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    background: #0b3d91 !important;
+    color: #ffffff !important;
+    text-align: center;
+}
+
+footer p,
+.site-footer p {
+    color: #ffffff !important;
+}
+
+/* =====================================
+   MOBILE NAVBAR
+===================================== */
+
+@media (max-width: 900px) {
+    header.site-header {
+        height: auto !important;
+        min-height: 65px !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 12px !important;
+    }
+
+    .site-header .main-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 5px 14px;
+    }
+}

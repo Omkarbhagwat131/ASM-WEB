@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+        <link rel="stylesheet" href="css/common.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -81,45 +82,124 @@
             background: #e8f1f8;
             color: #103f68;
         }
+        /* Compact Faculty Navbar */
+.site-header {
+    padding: 8px 20px;
+    gap: 10px;
+}
+
+/* College Logo */
+.college-logo {
+    width: 50px;
+    height: 50px;
+}
+
+/* College Name */
+.college-name h1 {
+    font-size: 20px;
+}
+
+.college-name p {
+    font-size: 12px;
+}
+
+.college-name .college-info {
+    font-size: 11px;
+}
+
+/* Navigation Links */
+.main-nav {
+    gap: 12px;
+}
+
+.main-nav a {
+    font-size: 12px;
+}
+
+/* Dark Mode Button */
+.theme-toggle {
+    font-size: 12px;
+    padding: 6px 10px;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 8px 12px;
+    }
+
+    .college-name h1 {
+        font-size: 17px;
+    }
+
+    .main-nav {
+        gap: 8px 12px;
+        flex-wrap: wrap;
+    }
+
+    .main-nav a {
+        font-size: 11px;
+    }
+}
+    /* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
     </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="college-brand">
+    
+<!-- HEADER -->
+<header class="site-header">
 
-            <img
-                src="image/asm-logo.png"
-                alt="ASM College Logo"
-                class="college-logo"
-            >
+    <!-- NAVIGATION -->
+    <nav class="main-nav" aria-label="Main navigation">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="campus.html">Campus</a>
+        <a href="coursesprog.html">Courses &amp; Programs</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="placement.html">Placements</a>
+        <a href="department.html">Department</a>
+        <a href="Faculty.html" class="active" aria-current="page">Faculty</a>
+        <a href="addmission.html">Admissions</a>
+    </nav>
 
-            <div class="college-name">
-                <h1>ASM NextGen Technical Campus</h1>
-                <p>Institute of Management &amp; Engineering</p>
+    <!-- DARK MODE -->
+    <button type="button" id="themeToggle" class="theme-toggle">
+        🌙 Dark Mode
+    </button>
 
-                <p class="college-info">
-                    A learning-focused institution committed to academic excellence,
-                    professional development and student growth.
-                </p>
-            </div>
+    <!-- COLLEGE BRAND BELOW NAVBAR -->
+    <div class="college-brand">
+        <img
+            src="image/asm-logo.png"
+            alt="ASM College Logo"
+            class="college-logo"
+        >
+
+        <div class="college-name">
+            <h1>ASM NextGen Technical Campus</h1>
+            <p>Institute of Management &amp; Engineering</p>
+
+            <p class="college-info">
+                A learning-focused institution committed to academic excellence,
+                professional development and student growth.
+            </p>
         </div>
+    </div>
 
-        <!-- NAVIGATION -->
-        <nav class="main-nav" aria-label="Main navigation">
-            <a href="home.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="campus.html">Campus</a>
-            <a href="coursesprog.html">Courses &amp; Programs</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="placement.html">Placements</a>
-            <a href="department.html">Department</a>
-            <a href="Faculty.html" class="active" aria-current="page">Faculty</a>
-            <a href="addmission.html">Admissions</a>
-        </nav>
-    </header>
+</header>
+
 
     <!-- PAGE TITLE -->
     <section class="page-title">
@@ -156,6 +236,10 @@
                 <p id="noResults">No faculty members found.</p>
             </div>
         </section>
+
+<button type="button" id="openEnquiryBtn" class="submit-button">
+    Open Faculty Enquiry Form
+</button>
 
         <!-- FACULTY ENQUIRY FORM -->
         <section class="enquiry-section" id="enquiry">
@@ -370,6 +454,21 @@
             }
         });
     </script>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+        }
+    });
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+</script>
+
 
 </body>
 </html>

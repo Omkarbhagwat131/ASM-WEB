@@ -1,532 +1,792 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>     
+    <link rel="stylesheet" href="css/common.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0b2d52">
     <meta name="description" content="Explore the campus and student life at ASM College.">
     <title>Campus &amp; Student Life | ASM College</title>
-    <script src="campus.js" defer></script>
+    <script src="js/campus.js" defer></script>
 
     <style>
-        :root {
-            --navy: #0b2d52;
-            --blue: #1769aa;
-            --bright-blue: #2f8fe5;
-            --pale-blue: #eaf4fd;
-            --white: #fff;
-            --ink: #172b42;
-            --muted: #61748a;
-            --line: #dce8f3;
-            --shadow: 0 16px 42px rgba(11, 45, 82, .09);
-        }
-
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            margin: 0;
-            background: #f7faff;
-            color: var(--ink);
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.65;
-        }
-
-        a { color: inherit; }
-
-        :focus-visible {
-            outline: 3px solid #70baff;
-            outline-offset: 3px;
-        }
-
-        .site-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            min-height: 76px;
-            padding: 14px max(6vw, 22px);
-            background: var(--navy);
-            color: var(--white);
-            box-shadow: 0 5px 22px rgba(6, 31, 58, .16);
-        }
-
-        .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 11px;
-            color: var(--white);
-            font-size: 1.15rem;
-            font-weight: 750;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .brand-mark {
-            display: grid;
-            width: 39px;
-            height: 39px;
-            place-items: center;
-            border: 1px solid rgba(255,255,255,.38);
-            border-radius: 12px;
-            background: rgba(255,255,255,.12);
-            color: #bfe1ff;
-            font-size: .9rem;
-            font-weight: 800;
-        }
-
-        .site-nav ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 8px 25px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .site-nav a {
-            color: rgba(255,255,255,.84);
-            font-size: .92rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: color .2s ease;
-        }
-
-        .site-nav a:hover,
-        .site-nav a:focus-visible {
-            color: #a9d7ff;
-        }
-
-        .section {
-            width: min(1120px, calc(100% - 40px));
-            margin: 0 auto;
-        }
-
-        .campus {
-            position: relative;
-            isolation: isolate;
-            overflow: hidden;
-            width: 100%;
-            padding: 82px max(6vw, 22px) 78px;
-            background: linear-gradient(135deg, #0b2d52, #145b96);
-            color: var(--white);
-        }
-
-        .campus::before,
-        .campus::after {
-            position: absolute;
-            z-index: -1;
-            border: 1px solid rgba(255,255,255,.13);
-            border-radius: 50%;
-            content: "";
-            pointer-events: none;
-        }
-
-        .campus::before {
-            top: -255px;
-            right: -90px;
-            width: 570px;
-            height: 570px;
-            box-shadow: 0 0 0 45px rgba(255,255,255,.035),
-                        0 0 0 90px rgba(255,255,255,.025);
-        }
-
-        .campus::after {
-            bottom: -330px;
-            left: -165px;
-            width: 470px;
-            height: 470px;
-        }
-
-        .campus-inner {
-            width: min(1120px, 100%);
-            margin: 0 auto;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            margin: 0 0 13px;
-            color: #acd9ff;
-            font-size: .77rem;
-            font-weight: 800;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-        }
-
-        .eyebrow::before {
-            width: 26px;
-            height: 2px;
-            background: currentColor;
-            content: "";
-        }
-
-        .campus h1 {
-            max-width: 690px;
-            margin: 0 0 14px;
-            font-size: clamp(2.7rem, 6vw, 4.5rem);
-            line-height: 1.06;
-            letter-spacing: -.045em;
-        }
-
-        .campus h1 span { color: #9bd2ff; }
-
-        .campus-intro {
-            max-width: 670px;
-            margin: 0;
-            color: rgba(255,255,255,.84);
-            font-size: 1.08rem;
-        }
-
-        .campus-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-            margin-top: 42px;
-        }
-
-        .campus-card {
-            min-height: 205px;
-            padding: 23px 22px;
-            border: 1px solid rgba(255,255,255,.2);
-            border-radius: 13px;
-            background: rgba(255,255,255,.09);
-            backdrop-filter: blur(5px);
-            transition: transform .2s ease, background .2s ease;
-        }
-
-        .campus-card:hover {
-            transform: translateY(-4px);
-            background: rgba(255,255,255,.14);
-        }
-
-        .icon-box {
-            display: grid;
-            width: 43px;
-            height: 43px;
-            margin-bottom: 18px;
-            place-items: center;
-            border: 1px solid rgba(255,255,255,.19);
-            border-radius: 12px;
-            background: rgba(255,255,255,.13);
-            color: #c7e6ff;
-            font-size: 1.05rem;
-            font-weight: 800;
-        }
-
-        .campus-card h2 { margin: 0 0 6px; font-size: 1.13rem; }
-        .campus-card p { margin: 0; color: rgba(255,255,255,.76); font-size: .92rem; }
-
-        .student-life { padding: 78px 0 88px; }
-
-        .section-heading {
-            max-width: 670px;
-            margin-bottom: 30px;
-        }
-
-        .section-heading .eyebrow { color: var(--blue); }
-
-        .section-heading h2 {
-            margin: 0 0 10px;
-            color: var(--navy);
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            line-height: 1.14;
-            letter-spacing: -.035em;
-        }
-
-        .section-heading > p:last-child {
-            margin: 0;
-            color: var(--muted);
-        }
-
-        /* Student Life Search */
-        .life-search {
-            max-width: 520px;
-            margin: 0 0 24px;
-        }
-
-        .life-search label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--navy);
-            font-weight: 700;
-        }
-
-        .life-search input {
-            width: 100%;
-            padding: 13px 16px;
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            background: var(--white);
-            color: var(--ink);
-            font: inherit;
-        }
-
-        .life-search input:focus {
-            outline: 2px solid var(--bright-blue);
-            outline-offset: 2px;
-        }
-
-        #search-message {
-            margin: 8px 0 0;
-            color: var(--muted);
-            font-size: .9rem;
-        }
-
-        .life-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .life-card {
-            position: relative;
-            overflow: hidden;
-            min-height: 205px;
-            padding: 22px 20px;
-            border: 1px solid var(--line);
-            border-radius: 13px;
-            background: var(--white);
-            box-shadow: 0 8px 25px rgba(15,58,99,.045);
-            transition: transform .2s ease, box-shadow .2s ease;
-        }
-
-        .life-card::after {
-            position: absolute;
-            right: -27px;
-            bottom: -37px;
-            width: 105px;
-            height: 105px;
-            border: 1px solid #d7eafb;
-            border-radius: 50%;
-            content: "";
-            pointer-events: none;
-        }
-
-        .life-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow);
-        }
-
-        .life-card[hidden] {
-            display: none;
-        }
-
-        .life-icon {
-            display: grid;
-            width: 44px;
-            height: 44px;
-            margin-bottom: 18px;
-            place-items: center;
-            border-radius: 12px;
-            background: var(--pale-blue);
-            color: var(--blue);
-            font-size: .83rem;
-            font-weight: 850;
-            letter-spacing: .02em;
-        }
-
-        .life-card h3 {
-            margin: 0 0 7px;
-            color: var(--navy);
-            font-size: 1.08rem;
-        }
-
-        .life-card p {
-            margin: 0;
-            color: var(--muted);
-            font-size: .9rem;
-        }
-
-        /* Interactive card details */
-        .card-details {
-            margin-top: 14px;
-            padding-top: 12px;
-            border-top: 1px solid var(--line);
-        }
-
-        .card-details p {
-            margin: 0;
-            color: var(--muted);
-            font-size: .9rem;
-        }
-
-        .card-details[hidden] {
-            display: none;
-        }
-
-        .card-toggle {
-            position: relative;
-            z-index: 1;
-            margin-top: 14px;
-            padding: 8px 13px;
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            background: var(--pale-blue);
-            color: var(--navy);
-            font: inherit;
-            font-size: .88rem;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .card-toggle:hover {
-            border-color: var(--bright-blue);
-        }
-
-        .life-note {
-            margin-top: 22px;
-            padding: 17px 20px;
-            border-left: 3px solid var(--bright-blue);
-            border-radius: 0 9px 9px 0;
-            background: var(--pale-blue);
-            color: var(--navy);
-            font-weight: 650;
-        }
-
-        .site-footer {
-            padding: 22px 18px;
-            background: #071f39;
-            color: rgba(255,255,255,.75);
-            text-align: center;
-            font-size: .88rem;
-        }
-
-        .site-footer p { margin: 0; }
-
-        @media (max-width: 850px) {
-            .site-header {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .site-nav ul {
-                justify-content: flex-start;
-                gap: 8px 20px;
-            }
-
-            .campus-grid,
-            .life-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 520px) {
-            .site-header { padding: 14px 18px; }
-            .site-nav ul { gap: 7px 16px; }
-            .site-nav a { font-size: .85rem; }
-            .campus { padding: 64px 18px 58px; }
-
-            .campus h1 {
-                font-size: clamp(2.6rem, 13vw, 3.5rem);
-            }
-
-            .campus-intro { font-size: 1rem; }
-
-            .campus-grid,
-            .life-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .campus-card { min-height: auto; }
-            .student-life { padding: 62px 0 68px; }
-            .section { width: calc(100% - 36px); }
-            .life-card { min-height: auto; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-
-            *, *::before, *::after {
-                transition-duration: .01ms !important;
-            }
-        }
         
-/* College Logo */
+:root {
+    --navy: #0b2d52;
+    --blue: #1769aa;
+    --bright-blue: #2f8fe5;
+    --pale-blue: #eaf4fd;
+    --white: #ffffff;
+    --ink: #172b42;
+    --muted: #61748a;
+    --line: #dce5ef;
+    --surface: #f4f7fb;
+    --shadow: 0 12px 30px rgba(11, 45, 82, 0.09);
+    --shadow-hover: 0 20px 40px rgba(11, 45, 82, 0.17);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+}
+
+body {
+    margin: 0;
+    background: var(--surface);
+    color: var(--ink);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    animation: pageReveal 0.8s ease both;
+}
+
+a {
+    color: inherit;
+}
+
+/* Page Reveal Animation */
+@keyframes pageReveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyboard Focus */
+:focus-visible {
+    outline: 3px solid #70baff;
+    outline-offset: 4px;
+}
+
+/* Header */
+.site-header {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 22px;
+    min-height: 84px;
+    padding: 15px max(5vw, 22px);
+    background: var(--navy);
+    color: var(--white);
+    box-shadow: 0 5px 22px rgba(6, 31, 58, 0.14);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .college-logo {
     display: block;
-    width: 150px;
+    width: 145px;
     max-width: 100%;
     height: auto;
     object-fit: contain;
 }
 
-/* Navigation Menu */
+/* Navigation */
 .main-nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-wrap: wrap;
-    gap: 8px 20px;
-    border: none;
-    box-shadow: none;
+    gap: 8px 22px;
 }
 
 .main-nav a {
     position: relative;
     display: inline-block;
     padding: 8px 0;
-    color: #ffffff;
-    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.91rem;
     font-weight: 600;
-    text-decoration: none !important;
-    border: none !important;
-    background: transparent;
-    box-shadow: none;
-    transition: color 0.2s ease;
+    text-decoration: none;
+    transition: color 0.25s ease;
 }
 
-/* Hover Effect */
+.main-nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    left: 0;
+    height: 2px;
+    background: #9bd2ff;
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
 .main-nav a:hover,
-.main-nav a:focus-visible {
-    color: #9bd2ff;
-    text-decoration: none !important;
-    border-bottom: none !important;
-    box-shadow: none;
-}
-
-/* Active Navigation Link */
+.main-nav a:focus-visible,
 .main-nav a.active {
     color: #9bd2ff;
-    text-decoration: none !important;
-    border-bottom: none !important;
-    box-shadow: none;
 }
 
-/* Responsive Navigation */
-@media (max-width: 850px) {
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after,
+.main-nav a.active::after {
+    transform: scaleX(1);
+}
+
+/* Hero / Campus Section */
+.campus {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: 100%;
+    padding: 90px max(6vw, 22px) 82px;
+    background: #f1f3f5;
+    color: #222222;
+}
+
+.campus::before,
+.campus::after {
+    position: absolute;
+    z-index: -1;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.campus::before {
+    top: -260px;
+    right: -100px;
+    width: 590px;
+    height: 590px;
+    box-shadow:
+        0 0 0 45px rgba(255, 255, 255, 0.035),
+        0 0 0 90px rgba(255, 255, 255, 0.025);
+}
+
+.campus::after {
+    bottom: -350px;
+    left: -170px;
+    width: 480px;
+    height: 480px;
+}
+
+.campus-inner {
+    position: relative;
+    width: min(1120px, 100%);
+    margin: 0 auto;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 15px;
+    color: #acd9ff;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    width: 28px;
+    height: 2px;
+    background: currentColor;
+    content: "";
+}
+
+.campus h1 {
+    max-width: 550px;
+    margin: 0 0 20px;
+    font-size: clamp(2.7rem, 6vw, 4.7rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+}
+
+.campus h1 span {
+    color: #1769aa;
+}
+
+.campus-intro {
+    max-width: 670px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 1.08rem;
+}
+
+/* Campus Cards */
+.campus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 46px;
+}
+
+.campus-card {
+    min-height: 220px;
+    padding: 27px 25px;
+    border: 1px solid #d5dfeb;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(11, 45, 82, 0.08);
+    backdrop-filter: none;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.campus-card:hover {
+    transform: translateY(-8px);
+    background: #eaf2ff;
+    border-color: #93bce8;
+    box-shadow: 0 18px 35px rgba(11, 45, 82, 0.14);
+}
+
+.icon-box {
+    display: grid;
+    width: 47px;
+    height: 47px;
+    margin-bottom: 20px;
+    place-items: center;
+    border: 1px solid #c7daf7;
+    border-radius: 14px;
+    background: #eaf2ff;
+    color:  #082f75;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.campus-card h2 {
+    margin: 0 0 9px;
+    font-size: 1.16rem;
+    line-height: 1.4;
+    color: #082f75;
+}
+
+.campus-card p {
+    margin: 0;
+    color:   #172b42;
+    font-size: 0.93rem;
+}
+
+/* Student Life Section */
+.section {
+    width: min(1120px, calc(100% - 44px));
+    margin: 0 auto;
+}
+
+.student-life {
+    padding: 86px 0 90px;
+}
+
+.section-heading {
+    max-width: 720px;
+    margin-bottom: 34px;
+}
+
+
+
+.section-heading h2 {
+    margin: 0 0 13px;
+    color: var(--navy);
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    font-weight: 800;
+    line-height: 1.17;
+    letter-spacing: -0.035em;
+}
+
+.section-heading > p:last-child {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+/* Search */
+.life-search {
+    max-width: 560px;
+    margin: 0 0 28px;
+}
+
+.life-search label {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.life-search input {
+    width: 100%;
+    padding: 14px 17px;
+    border: 1px solid #d3dfeb;
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--ink);
+    font: inherit;
+    box-shadow: 0 3px 12px rgba(11, 45, 82, 0.035);
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.life-search input::placeholder {
+    color: #8493a5;
+}
+
+.life-search input:focus {
+    border-color: var(--bright-blue);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(47, 143, 229, 0.13);
+}
+
+#search-message {
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Student Life Cards */
+.life-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+.life-card {
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    min-height: 225px;
+    padding: 25px 22px;
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    background: var(--white);
+    box-shadow: 0 7px 22px rgba(15, 58, 99, 0.045);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.life-card::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--blue), #70baff);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.life-card::after {
+    position: absolute;
+    right: -38px;
+    bottom: -45px;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #e1eefb;
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.life-card:hover {
+    transform: translateY(-7px);
+    border-color: #b8d6f3;
+    box-shadow: var(--shadow-hover);
+}
+
+.life-card:hover::before {
+    transform: scaleX(1);
+}
+
+.life-card[hidden] {
+    display: none;
+}
+
+.life-icon {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+    place-items: center;
+    border: 1px solid #d8eafd;
+    border-radius: 14px;
+    background: var(--pale-blue);
+    color: var(--blue);
+    font-size: 0.77rem;
+    font-weight: 850;
+    letter-spacing: 0.02em;
+}
+
+.life-card h3 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 9px;
+    color: var(--navy);
+    font-size: 1.08rem;
+    line-height: 1.45;
+}
+
+.life-card > p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.91rem;
+}
+
+/* Learn More Details */
+.card-details {
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+    padding-top: 13px;
+    border-top: 1px solid var(--line);
+}
+
+.card-details p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.card-details[hidden] {
+    display: none;
+}
+
+.card-toggle {
+    position: relative;
+    z-index: 2;
+    margin-top: 17px;
+    padding: 9px 15px;
+    border: 1px solid #c9dff4;
+    border-radius: 9px;
+    background: var(--pale-blue);
+    color: var(--navy);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.card-toggle:hover {
+    transform: translateY(-2px);
+    border-color: var(--blue);
+    background: var(--blue);
+    color: var(--white);
+}
+
+.card-toggle:active {
+    transform: translateY(0);
+}
+
+/* Closing Note */
+.life-note {
+    margin-top: 28px;
+    padding: 21px 23px;
+    border: 1px solid #d7e8fa;
+    border-left: 4px solid var(--bright-blue);
+    border-radius: 0 12px 12px 0;
+    background: #eaf4fd;
+    color: var(--navy);
+    font-weight: 650;
+}
+
+/* Footer */
+.site-footer {
+    padding: 25px 18px;
+    background: #071f39;
+    color: rgba(255, 255, 255, 0.78);
+    text-align: center;
+    font-size: 0.88rem;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* Scroll Buttons */
+.scroll-buttons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.scroll-buttons button {
+    padding: 11px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.87rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.18);
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.scroll-buttons button:hover {
+    transform: translateY(-3px);
+    background: var(--blue);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
     .site-header {
-        align-items: center;
-        flex-direction: column;
-        gap: 12px;
+        justify-content: center;
     }
 
     .main-nav {
         justify-content: center;
+    }
+
+    .campus-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .life-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-/* Mobile Screen */
-@media (max-width: 520px) {
-    .main-nav {
-        gap: 6px 14px;
-        justify-content: center;
-    }
-
-    .main-nav a {
-        font-size: 0.84rem;
+/* Mobile */
+@media (max-width: 560px) {
+    .site-header {
+        gap: 12px;
+        padding: 16px 18px;
     }
 
     .college-logo {
         width: 125px;
     }
+
+    .main-nav {
+        gap: 5px 14px;
+    }
+
+    .main-nav a {
+        font-size: 0.82rem;
+    }
+
+    .campus {
+        padding: 64px 20px 58px;
+    }
+
+    .campus h1 {
+        font-size: clamp(2.5rem, 11vw, 3.5rem);
+    }
+
+    .campus-intro {
+        font-size: 1rem;
+    }
+
+    .campus-grid,
+    .life-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .campus-card {
+        min-height: auto;
+        padding: 23px;
+    }
+
+    .section {
+        width: calc(100% - 36px);
+    }
+
+    .student-life {
+        padding: 62px 0 68px;
+    }
+
+    .life-card {
+        min-height: auto;
+    }
+
+    .scroll-buttons {
+        right: 12px;
+        bottom: 12px;
+    }
+
+    .scroll-buttons button {
+        padding: 9px 12px;
+    }
 }
 
-    </style>
+/* Accessibility: Reduce Motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    body {
+        animation: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Softer Heading Colors */
+.section-heading h2 {
+    color: #456b91;
+}
+
+.campus-card h2 {
+    color: #e2efff;
+}
+
+.life-card h3 {
+    color: #456b91;
+}
+
+.campus h1 {
+    color: #eaf4fd;
+}
+
+.campus h1 span {
+    color: #a9d4f5;
+} .campus h1 {
+    font-size: 3rem;
+}
+.main-nav a,
+.main-nav a:visited {
+    color: #cbd5e1 !important;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: #a9d4f5 !important;
+
+}
+/* Campus Hero Text - Dark Blue */
+
+.campus .eyebrow {
+    color: #082f75 !important;
+}
+
+.campus h1 {
+    color: #082f75 !important;
+}
+
+.campus h1 span {
+    color: #082f75 !important;
+}
+
+.campus .campus-intro {
+    color: #172b42 !important;
+}
+/* Campus Card Headings - Dark Blue */
+.campus-card h2 {
+    color: #082f75 !important;
+}
+  
+  
+/* Same Faint Gray as Campus Page */
+body {
+    background-color: #f1f3f5 !important;
+}
+
+main {
+    background-color: #f1f3f5 !important;
+}
+
+.departments-section {
+    background-color: #f1f3f5 !important;
+}
+
+.admission-intro,
+.career-path-section {
+    background-color: #f1f3f5 !important;
+}
+
+/* Campus Images - Horizontal Small Layout */
+.campus .campus-gallery {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 750px !important;
+    margin: 22px 0 !important;
+}
+
+.campus .campus-gallery img {
+    display: block !important;
+    width: 100% !important;
+    height: 120px !important;
+    min-width: 0 !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+}
+
+/* Reduce Campus Section Height */
+.campus {
+    padding: 35px 20px 30px !important;
+}
+
+.campus .campus h1 {
+    font-size: 3rem !important;
+    margin-bottom: 12px !important;
+}
+
+.campus .campus-grid {
+    gap: 15px !important;
+    margin-top: 25px !important;
+}
+
+.campus .campus-card {
+    min-height: 170px !important;
+    padding: 20px !important;
+}
+
+/* Keep Three Images in One Row on Mobile */
+@media (max-width: 560px) {
+    .campus .campus-gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 6px !important;
+    }
+
+    .campus .campus-gallery img {
+        height: 80px !important;
+    }
+}
+
+</style>
 </head>
 
 <body>
@@ -565,6 +825,25 @@
                     of every opportunity. Find your space and make your college
                     experience your own.
                 </p>
+
+<div class="campus-gallery">
+
+    <img src="image/campus1.webp"
+         alt="ASM campus building"
+         width="600" height="400"
+         loading="lazy">
+
+           <img src="image/campus2 .webp"
+         alt="ASM campus garden"
+         width="600" height="400"
+         loading="lazy">
+
+    <img src="image/campus3.webp"
+     alt="ASM college facilities"
+     width="600" height="400"
+     loading="lazy">
+
+</div>
 
                 <div class="campus-grid">
                     <article class="campus-card">
@@ -676,6 +955,22 @@
                 Bring your curiosity. Find your community. Make this chapter yours.
             </div>
         </section>
+    
+<!-- Scroll Buttons -->
+<div class="scroll-buttons">
+    <button type="button" id="top-to-bottom" aria-label="Scroll to bottom">
+        ↓ Bottom
+    </button>
+
+    <button type="button" id="back-to-top" aria-label="Back to top">
+        ↑ Top
+    </button>
+</div>
+
+<footer class="site-footer">
+    <p>© 2026 ASM NextGen Technical Campus. All rights reserved.</p>
+</footer>
+
     </main>
 
    

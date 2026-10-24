@@ -10,20 +10,37 @@
 
     <!-- FontAwesome Icons for Visuals -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="icon" href="data:,">
 </head>
 <body>
 
-   <!-- TOP CONTACT BAR -->
-<div style="background-color: #ffffff; padding: 6px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; border-bottom: 1px solid #eee; color: #333;">
+   
+<!-- TOP CONTACT BAR -->
+<div style="background-color: #0b2d52; padding: 10px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; border-bottom: 1px solid #174f7c; color: #ffffff;">
+
   <div>
-    <span style="margin-right: 15px;">📞 +91 90280 76028</span>
-    <span>✉️ admission.asmnextgen@asmedu.org</span>
+    <span style="margin-right: 15px; color: #ffffff;">
+      📞 +91 90280 76028
+    </span>
+
+    <span style="color: #ffffff;">
+      ✉️ admission.asmnextgen@asmedu.org
+    </span>
   </div>
+
   <div>
-    <a href="#" style="color: #666; text-decoration: none; margin-right: 10px;">Campus Media</a> | 
-    <a href="#" style="color: #666; text-decoration: none; margin-left: 10px;">FRA - Fee Structure</a>
+    <a href="#" style="color: #ffffff; text-decoration: none; margin-right: 10px;">
+      Campus Media
+    </a>
+    |
+
+    <a href="#" style="color: #ffffff; text-decoration: none; margin-left: 10px;">
+      FRA - Fee Structure
+    </a>
   </div>
+
 </div>
+
 
 <!-- MAIN HEADER WITH ASM LOGO -->
 <header style="background-color: #ffffff; padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #f0f0f0;">
@@ -45,59 +62,23 @@
     <img src="image/42-years.png" alt="42 Years Legacy" style="height: 60px; object-fit: contain;">
   </div>
 </header>
+<!-- GRAPHICAL SUB-NAVBAR -->
+<nav class="sub-nav placement-navbar">
+    <span class="nav-title">ASM Technical Campus</span>
 
-    <!-- GRAPHICAL SUB-NAVBAR -->
-    <nav class="sub-nav" style="
-        background: #1e293b;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        border-bottom: 3px solid #f97316;
-        text-align: center;
-        padding: 14px 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    ">
-        <span style="display: block; color: #94a3b8; font-weight: 600; margin-bottom: 10px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px;">
-            ASM Technical Campus
-        </span>
+    <div class="nav-links">
+        <a href="home.html" class="nav-item">Home</a>
+        <a href="about.html" class="nav-item">About Us</a>
+        <a href="coursesprog.html" class="nav-item">Programs</a>
+        <a href="Faculty.html" class="nav-item">Faculty</a>
+        <a href="department.html" class="nav-item">Departments</a>
+        <a href="addmission.html" class="nav-item">Admissions</a>
+        <a href="placement.html" class="nav-item active-link">Placements</a>
+        <a href="contact.html" class="nav-item">Contact Us</a>
+    </div>
+</nav>
 
-        <div style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap;">
-            <a href="home.html" class="nav-item">Home</a>
-            <a href="about.html" class="nav-item">About Us</a>
-            <a href="coursesprog.html" class="nav-item">Programs</a>
-            <a href="Faculty.html" class="nav-item">Faculty</a>
-            <a href="department.html" class="nav-item">Departments</a>
-            <a href="addmission.html" class="nav-item">Admissions</a>
-            <a href="placement.html" class="nav-item active-link">Placements</a>
-            <a href="contact.html" class="nav-item">Contact Us</a>
-        </div>
-    </nav>
 
-    <style>
-        .nav-item {
-            color: #f1f5f9;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 6px 14px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .nav-item:hover {
-            background: #f97316;
-            color: #ffffff !important;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
-        }
-
-        .active-link {
-            background: #f97316 !important;
-            color: #ffffff !important;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);
-        }
-    </style>
 
     <main>
         <!-- Enhanced Hero Section -->
@@ -107,34 +88,10 @@
                 <h1>Training & Placement Cell</h1>
                 <p>Empowering students with industry-driven skills, career guidance, and top placement opportunities at leading tech companies.</p>
                 
-                <div class="hero-buttons">
-                    <a href="#recruiters" class="btn-primary">Our Top Recruiters</a>
-                    <a href="#stats" class="btn-secondary" style="background-color: #0b2545; color: #ffffff; padding: 12px 24px; border-radius: 6px;
-                     text-decoration: none; font-weight: 600;">View Statistics</a>
-                </div>
+              
             </div>
         </section> 
 
-         <!-- Placement Statistics Section -->
-        <section id="stats" class="stats-section">
-          <div class="stats-container">
-            <div class="stat-box">
-              <i class="fa-solid fa-trophy stat-icon"></i> 
-              <h2 class="counter" data-target="18">18+</h2>
-              <p class="stat-label">Highest Package (LPA)</p>
-            </div>
-            <div class="stat-box">
-              <i class="fa-solid fa-building stat-icon"></i> 
-              <h2 class="counter" data-target="200">200+</h2>
-              <p class="stat-label">Top Recruiters</p>
-            </div>
-            <div class="stat-box">
-              <i class="fa-solid fa-user-graduate stat-icon"></i>
-              <h2 class="counter" data-target="60000">60000+</h2>
-              <p class="stat-label">Alumni Placed</p>
-            </div>
-          </div>
-        </section>
 <!-- ================= PLACED STUDENTS HALL OF FAME ================= -->
  <!-- 1. FILTER BUTTONS -->
 <div class="filter-container">
@@ -259,7 +216,15 @@
             </div>
         </section>
 
-        <!-- Recruiters Section -->
+        </div>
+
+        
+        </div>
+
+    </div>
+
+    
+ >
         <section id="recruiters" class="departments-section">
             <h2>Our Key Recruiters</h2>
             <div class="underline"></div>
@@ -299,8 +264,7 @@
             </div>
         </section>
     </main>
-
-    <footer style="background-color: #0f172a; color: #fff; text-align: center; padding: 20px; margin-top: 40px;">
+<footer style="background-color: #143c99; color: #fff; text-align: center; padding: 10px 20px; margin-top: 0; min-height: 120px; box-sizing: border-box;">
         <p>&copy; 2026 ASM's Nextgen Technical Campus. All Rights Reserved.</p>
     </footer>
 <script src="/js/placement.js" defer></script>

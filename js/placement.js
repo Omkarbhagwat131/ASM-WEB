@@ -57,3 +57,34 @@
   }
 
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Animated Placement Statistics
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(function (counter) {
+
+        const target = Number(counter.dataset.target);
+        const duration = 2000;
+        const startTime = performance.now();
+
+        function updateCounter(currentTime) {
+
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+
+            const currentValue = Math.floor(target * progress);
+
+            counter.textContent = currentValue + "+";
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            }
+        }
+
+        requestAnimationFrame(updateCounter);
+
+    });
+
+});

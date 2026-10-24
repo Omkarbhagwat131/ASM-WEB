@@ -1,16 +1,8 @@
-// 1. Live Course Search, Category Filtering, Headings Visibility & Mouse Events
+// 1. Live Course Search, Category Filtering & LocalStorage Preference Feature
 const courseSearchInput = document.querySelector("#course-search-input");
 const categorySelect = document.querySelector("#category-filter-select");
 const courseCards = document.querySelectorAll(".course-card");
 const noResultsMessage = document.querySelector("#no-results-msg");
-
-// Headings and Sections Elements
-const ugHeading = document.querySelector("#ug-heading");
-const ugSection = document.querySelector("#ug-section");
-const pgHeading = document.querySelector("#pg-heading");
-const pgSection = document.querySelector("#pg-section");
-const clubsHeading = document.querySelector("#clubs-heading");
-const clubsSection = document.querySelector("#clubs-section");
 
 const PREF_KEY = "asm-preferred-filter";
 
@@ -24,35 +16,16 @@ const saveSearchPreference = (query, category) => {
     }
 };
 
-// Core Filtering Logic combining Search, Category Filter and Dynamic Heading Display
+// Core Filtering Logic using Array / NodeList methods combining Search & Category Filter
 const filterCourses = (query = "", selectedCategory = "all") => {
     let matchCount = 0;
 
-    // Show or hide specific section headings based on selected category
-    if (ugHeading && ugSection) {
-        const showUg = selectedCategory === "all" || selectedCategory === "ug";
-        ugHeading.style.display = showUg ? "block" : "none";
-        ugSection.style.display = showUg ? "grid" : "none";
-    }
-
-    if (pgHeading && pgSection) {
-        const showPg = selectedCategory === "all" || selectedCategory === "pg";
-        pgHeading.style.display = showPg ? "block" : "none";
-        pgSection.style.display = showPg ? "grid" : "none";
-    }
-
-    if (clubsHeading && clubsSection) {
-        const showClubs = selectedCategory === "all" || selectedCategory === "clubs";
-        clubsHeading.style.display = showClubs ? "block" : "none";
-        clubsSection.style.display = showClubs ? "grid" : "none";
-    }
-
     courseCards.forEach((card) => {
         const courseTitle = card.querySelector("h3") ? card.querySelector("h3").textContent.toLowerCase() : "";
-        const courseBadgeElement = card.querySelector(".badge, .home-course-badge");
-        const courseBadge = courseBadgeElement ? courseBadgeElement.textContent.toLowerCase() : "";
+        const courseBadge = card.querySelector(".badge") ? card.querySelector(".badge").textContent.toLowerCase() : "";
         const courseDesc = card.querySelector("p") ? card.querySelector("p").textContent.toLowerCase() : "";
         
+        // Get category from data-category attribute
         const cardCategory = card.getAttribute("data-category") || "ug";
 
         const matchesQuery = courseTitle.includes(query) || courseBadge.includes(query) || courseDesc.includes(query);
@@ -94,19 +67,6 @@ const restoreSearchPreference = () => {
 if (courseCards.length > 0) {
     restoreSearchPreference();
 
-    // Mouse Events Integration (mouseenter & mouseleave interactive effect)
-    courseCards.forEach((card) => {
-        card.addEventListener("mouseenter", () => {
-            card.style.backgroundColor = "#e8f1f8"; // Pale blue tint on hover using new theme color
-            card.style.borderColor = "#103f68";
-        });
-
-        card.addEventListener("mouseleave", () => {
-            card.style.backgroundColor = "#ffffff"; // Back to white when mouse leaves
-            card.style.borderColor = "var(--border-color)";
-        });
-    });
-
     if (courseSearchInput) {
         courseSearchInput.addEventListener("input", (e) => {
             const query = e.target.value.toLowerCase().trim();
@@ -125,3 +85,59 @@ if (courseCards.length > 0) {
         });
     }
 }
+
+const favoriteButtons = document.querySelectorAll(".favorite-btn");
+
+favoriteButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        button.classList.toggle("active");
+
+        if (button.classList.contains("active")) {
+            button.textContent = "❤️ Added to Favorites";
+        } else {
+            button.textContent = "♡ Add to Favorites";
+        }
+    });
+}); 
+
+
+
+document.querySelectorAll(".course-rating").forEach(function(ratingBox) {
+    const stars = ratingBox.querySelectorAll(".stars span");
+    const message = ratingBox.querySelector(".rating-message");
+
+    const courseCard = ratingBox.closest(".course-card");
+    const courseName = courseCard.querySelector(".badge").textContent.trim();
+    const storageKey = "course-rating-" + courseName;
+
+    function showRating(rating) {
+        stars.forEach(function(star) {
+            star.classList.toggle(
+                "active",
+                Number(star.dataset.rating) <= rating
+            );
+        });
+    }
+
+    const savedRating = localStorage.getItem(storageKey);
+
+    if (savedRating !== null) {
+        showRating(Number(savedRating));
+        message.textContent = "Your rating: " + savedRating + "/5 stars";
+    }
+
+    stars.forEach(function(star) {
+        star.addEventListener("click", function() {
+            if (localStorage.getItem(storageKey) !== null) {
+                message.textContent = "You have already rated this course.";
+                return;
+            }
+
+            const rating = Number(star.dataset.rating);
+
+            localStorage.setItem(storageKey, rating);
+            showRating(rating);
+            message.textContent = "Thank you! Your rating: " + rating + "/5 stars";
+        });
+    });
+});

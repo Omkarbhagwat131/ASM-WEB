@@ -1,120 +1,272 @@
- <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#063b69">
-  <title>Contact Us | ASM College</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | ASM College</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+<script src="js/script.js"></script>
+<style>
+  body.contact-page {
+    background-color: #f1f3f5 !important;
+  }
+
+  body.contact-page main,
+  body.contact-page main > section {
+    background: #f1f3f5 !important;
+  }
+
+  body.contact-page main section h2 {
+    background: #e1e7ee !important;
+    color: #173b59 !important;
+  }
+
+  body.contact-page .info-card,
+  body.contact-page .event-card,
+  body.contact-page .contact-form,
+  body.contact-page .contact-details,
+  body.contact-page .detail-card {
+    background: #ffffff !important;
+  }
+
+  body.contact-page .contact-navbar,
+  body.contact-page .contact-footer {
+    background: #0b3d91 !important;
+  }
+</style>
+
+
+    <style>
+        /* Whole page background */
+        body.contact-page {
+            background-color: #f1f3f5 !important;
+            color: #172b42;
+        }
+
+        main {
+            background-color: #f1f3f5;
+        }
+
+        main section {
+            background-color: #f1f3f5;
+        }
+
+        /* Navbar - keep dark blue */
+        .contact-navbar {
+            background-color: #0b3d91;
+        }
+
+        .contact-navbar .contact-logo,
+        .contact-navbar .main-nav a {
+            color: #ffffff;
+        }
+
+        /* Hero section */
+        .contact-hero {
+            background-color: #f1f3f5 !important;
+            color: #172b42;
+        }
+
+        .contact-hero p,
+        .contact-hero h1 {
+            color: #172b42;
+        }
+
+        /* Contact cards */
+        .contact-cards {
+            background-color: #f1f3f5;
+        }
+
+        .info-card,
+        .event-card,
+        .contact-form,
+        .contact-details,
+        .detail-card {
+            background-color: #ffffff;
+            color: #172b42;
+        }
+
+        /* All section headings */
+        .contact-page main section h2 {
+            background-color: #e1e7ee !important;
+            color: #172b42 !important;
+            padding: 12px 16px;
+            border-radius: 8px;
+        }
+
+        .contact-page h3,
+        .contact-page h4 {
+            color: #0b3d91;
+        }
+
+        .contact-page p,
+        .contact-page label,
+        .contact-page span {
+            color: #172b42;
+        }
+
+        /* Form fields */
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            background-color: #ffffff;
+            color: #172b42;
+        }
+
+        /* Footer - keep dark blue */
+        .contact-footer {
+            background-color: #0b3d91;
+            color: #ffffff;
+        }
+
+        .contact-footer p {
+            color: #ffffff;
+        }
+        
+.contact-page .contact-hero h1 {
+    color: #0b3d91 !important;
+}
+
+
+    </style>
 </head>
+
 <body class="contact-page">
-  <header class="contact-navbar">
-    <a class="contact-logo" href="asm.html">ASM College</a>
-     <nav class="main-nav">
-            <a href="home.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="campus.html">Campus</a>
-            <a href="coursesprog.html">Courses & Programs</a>
-            <a href="contacts.html">Contact Us</a>
-            <a href="placements.html">Placements</a>
-            <a href="department.html">Department</a>
-            <a href="Faculty.html" class="active">Faculty</a>
-        </nav>
-  </header>
 
-  <main>
+<header class="contact-navbar">
+    <a class="contact-logo" href="home.html">ASM College</a>
+
+    <nav class="main-nav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="campus.html">Campus</a>
+        <a href="coursesprog.html">Courses</a>
+        <a href="contact.html" class="active">Contact Us</a>
+        <a href="placement.html">Placements</a>
+        <a href="department.html">Department</a>
+        <a href="Faculty.html">Faculty</a>
+    </nav>
+</header>
+
+<main>
     <section class="contact-hero">
-      <p class="contact-eyebrow">We’re here to help</p>
-      <h1>Get in Touch</h1>
-      <p>Have a question about ASM College? Send us a message or reach us using the details below.</p>
+        <p>WELCOME TO ASM COLLEGE</p>
+        <h1>Let's Get in Touch</h1>
+        <p>Have questions? We are here to help you.</p>
+        <a href="#contact" class="contact-btn">Contact Us</a>
     </section>
 
-    <section class="contact-events" aria-labelledby="events-heading">
-      <div class="contact-section-heading">
-        <div>
-          <p class="contact-eyebrow">What’s happening</p>
-          <h2 id="events-heading">College Events &amp; News</h2>
-        </div>
-        <span class="contact-heading-rule" aria-hidden="true"></span>
-      </div>
-
-      <div class="contact-event-grid">
-        <article class="contact-event-card">
-          <span class="contact-event-date">15 October 2026</span>
-          <h3>Annual Tech Fest 2026</h3>
-          <p class="contact-event-detail">Main Auditorium</p>
-          <p>Join us for coding competitions, hackathons, and guest lectures.</p>
+    <section class="contact-cards">
+        <article class="info-card">
+            <h3>✉ Email Us</h3>
+            <p>Send us your enquiries.</p>
+            <a href="mailto:info@asmcollege.edu">info@asmcollege.edu</a>
         </article>
-        <article class="contact-event-card">
-          <span class="contact-event-date">20 October 2026</span>
-          <h3>Guest Lecture: Cloud Computing</h3>
-          <p class="contact-event-detail">Speaker: Dr. A. Sharma</p>
-          <p>Learn about APIs and modern cloud trends.</p>
+
+        <article class="info-card">
+            <h3>☎ Call Us</h3>
+            <p>Connect with our team.</p>
+            <a href="tel:+919876543210">+91-9876543210</a>
         </article>
-      </div>
+
+        <article class="info-card">
+            <h3>⌖ Visit Us</h3>
+            <p>We welcome you to our campus.</p>
+            <a href="#location">View Location</a>
+        </article>
     </section>
 
-    <section class="contact-main" id="contact" aria-labelledby="contact-heading">
-      <div class="contact-section-heading">
-        <div>
-          <p class="contact-eyebrow">Let’s talk</p>
-          <h2 id="contact-heading">Contact Us</h2>
+    <section class="events-section">
+        <h2>College Events &amp; News</h2>
+
+        <div class="event-grid">
+            <article class="event-card">
+                <span>15 October 2026</span>
+                <h3>Annual Tech Fest</h3>
+                <p>Explore coding competitions and technology activities.</p>
+            </article>
+
+            <article class="event-card">
+                <span>20 October 2026</span>
+                <h3>Cloud Computing Lecture</h3>
+                <p>Learn about cloud computing and modern technology.</p>
+            </article>
         </div>
-        <span class="contact-heading-rule" aria-hidden="true"></span>
-      </div>
-
-      <div class="contact-layout">
-        <form class="contact-form" id="contact-form">
-          <h3>Send us a message</h3>
-          <p class="contact-form-intro">Fill in the form and we’ll be glad to help.</p>
-
-          <label for="name">Your name</label>
-          <input type="text" id="name" name="name" autocomplete="name" placeholder="e.g. Priya Sharma" required>
-
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
-
-          <label for="message">How can we help?</label>
-          <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
-
-          <button type="submit">Send Message</button>
-          <p class="contact-form-status" id="form-status" role="status" aria-live="polite"></p>
-        </form>
-
-        <aside class="contact-details" aria-labelledby="details-heading">
-          <h3 id="details-heading">Contact information</h3>
-          <p class="contact-details-intro">Reach out to us directly. We look forward to hearing from you.</p>
-
-          <div class="contact-detail">
-            <span class="contact-detail-icon" aria-hidden="true">@</span>
-            <div>
-              <h4>Email</h4>
-              <a href="mailto:info@asmcollege.edu">info@asmcollege.edu</a>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <span class="contact-detail-icon" aria-hidden="true">☎</span>
-            <div>
-              <h4>Phone</h4>
-              <a href="tel:+919876543210">+91-9876543210</a>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <span class="contact-detail-icon" aria-hidden="true">⌖</span>
-            <div>
-              <h4>Address</h4>
-              <p>ASM College, Pune, MH, India</p>
-            </div>
-          </div>
-        </aside>
-      </div>
     </section>
-  </main>
 
-  <footer class="contact-footer">
-    <p>&copy; 2026 ASM College. All Rights Reserved.</p>
-  </footer>
+    <section class="contact-section" id="contact">
+        <h2>Send Us a Message</h2>
+        <p>Fill out the form and we will be glad to help.</p>
 
-  <script src="js/script.js"></script>
+        <div class="contact-layout">
+            <form class="contact-form" id="contact-form">
+                <label for="name">Full Name</label>
+                <input id="name" name="name" type="text"
+                       placeholder="Enter your name" required>
+
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email"
+                       placeholder="Enter your email" required>
+
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject" required>
+                    <option value="">Select subject</option>
+                    <option value="Admission">Admission Enquiry</option>
+                    <option value="Courses">Courses</option>
+                    <option value="Events">College Events</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5"
+                          placeholder="Write your message" required></textarea>
+
+                <button type="submit">Send Message</button>
+                <p id="form-status" role="status"></p>
+            </form>
+
+            <aside class="contact-details">
+                <h3>Contact Information</h3>
+                <p>We look forward to hearing from you.</p>
+
+                <div class="detail-card">
+                    <h4>Email</h4>
+                    <a href="mailto:info@asmcollege.edu">info@asmcollege.edu</a>
+                    <button type="button" id="copy-email-btn">Copy Email</button>
+                    <p id="copy-status" aria-live="polite"></p>
+                </div>
+
+                <div class="detail-card">
+                    <h4>Phone</h4>
+                    <a href="tel:+919876543210">+91-9876543210</a>
+                </div>
+
+                <div class="detail-card">
+                    <h4>Address</h4>
+                    <p>ASM College, Pune, Maharashtra, India</p>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="location-section" id="location">
+        <h2>Visit ASM College</h2>
+        <p>We look forward to welcoming you to our campus.</p>
+
+        <a target="_blank" rel="noopener noreferrer"
+           href="https://www.google.com/maps/search/?api=1&amp;query=ASM+College+Pune">
+            Open Google Maps
+        </a>
+    </section>
+</main>
+
+<footer class="contact-footer">
+    <p>2026 ASM College.</p>
+</footer>
+
 </body>
 </html>

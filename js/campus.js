@@ -93,4 +93,28 @@ document.addEventListener("DOMContentLoaded", function () {
     updateFooterYear();
     setupStudentLifeSearch();
     setupInteractiveCards();
+});  
+
+// Top and Bottom Scroll Buttons
+document.addEventListener("DOMContentLoaded", function () {
+    const bottomButton = document.querySelector("#top-to-bottom");
+    const topButton = document.querySelector("#back-to-top");
+
+    if (bottomButton) {
+        bottomButton.addEventListener("click", function () {
+            window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behavior: "smooth"
+            });
+        });
+    }
+
+    if (topButton) {
+        topButton.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
 });

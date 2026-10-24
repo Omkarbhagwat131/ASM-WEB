@@ -72,3 +72,51 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
+// Scroll Animation
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(
+        ".departments-section, .admission-intro"
+    );
+
+    sections.forEach(function (section) {
+        section.classList.add("animate-on-scroll");
+    });
+
+    const observer = new IntersectionObserver(
+        function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    sections.forEach(function (section) {
+        observer.observe(section);
+    });
+});
+
+// Copy Email Button
+document.addEventListener("DOMContentLoaded", function () {
+    const copyEmailBtn = document.querySelector("#copy-email-btn");
+    const copyStatus = document.querySelector("#copy-status");
+
+    if (copyEmailBtn && copyStatus) {
+        copyEmailBtn.addEventListener("click", async function () {
+            try {
+                await navigator.clipboard.writeText("info@asmcollege.edu");
+                copyStatus.textContent = "Email copied successfully!";
+            } catch (error) {
+                console.error("Copy failed:", error);
+                copyStatus.textContent =
+                    "Copy failed. Please copy the email manually.";
+            }
+        });
+    }
+});

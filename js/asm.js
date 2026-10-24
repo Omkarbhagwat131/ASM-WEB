@@ -24,17 +24,4 @@ if (menuToggle && navigation) {
   });
 }
 
-const observedSections = document.querySelectorAll("main section[id]");
-if ("IntersectionObserver" in window) {
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
 
-      navigationLinks.forEach((link) => {
-        link.classList.toggle("active", link.hash === `#${entry.target.id}`);
-      });
-    });
-  }, { rootMargin: "-30% 0px -60% 0px" });
-
-  observedSections.forEach((section) => sectionObserver.observe(section));
-}
